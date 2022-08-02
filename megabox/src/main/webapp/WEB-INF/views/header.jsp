@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url var="pPath" value="/" />
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -8,7 +9,7 @@
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
 
 		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
-     		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
+     		<link rel="stylesheet" href="${pPath }resources/js/megabox.min.css" media="all">
      		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
@@ -17,6 +18,7 @@
     
 		    <script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
 		    <script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
+    		<script src="${pPath }resources/js/front.js"></script>
     
     		<script>
     		function doDisplay(){

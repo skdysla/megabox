@@ -1,40 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html lang="ko"><!--<![endif]-->
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
+<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
 
-		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
-		<meta property="name" id="metaTagTitle" content="영화별상영시간표 < 상영시간표 | MEET PLAY SHARE, 메가박스">
-		<meta property="description" id="metaTagDtls" content="메가박스의 영화별 상영시간표를 알려드립니다.">
-		<meta property="keywords" id="metaTagKeyword" content="">
+<link rel="stylesheet"
+	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
+	media="all">
+<script type="text/javascript" async=""
+	src="https://www.google-analytics.com/analytics.js"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=G-LKZN3J8B1J&amp;l=dataLayer&amp;cx=c"></script>
+<script async=""
+	src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('', new Date()); gtag('config', 'UA-30006739-3');</script>
+<script src="/static/pc/dist/megabox.api.min.js"></script>
+<script src="/static/mb/js/lozad.min.js"></script>
+<script src="/js/common/dist/megabox.common.min.js"></script>
+<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
+<script src="//cast.imp.joins.com/persona.js" async=""></script>
 
-		<meta property="fb:app_id" id="fbAppId" content="546913502790694">
-		
-
-		<meta property="og:site_name" id="fbSiteName" content="메가박스">
-		<meta property="og:type" id="fbType" content="movie">
-		<meta property="og:url" id="fbUrl" content="https://www.megabox.co.kr/booking/timetable">
-		<meta property="og:title" id="fbTitle" content="영화별상영시간표 < 상영시간표 | MEET PLAY SHARE, 메가박스">
-		<meta property="og:description" id="fbDtls" content="메가박스의 영화별 상영시간표를 알려드립니다.">
-		<meta property="og:image" id="fbImg" content="https://img.megabox.co.kr/SharedImg/metaTag/2020/02/04/gFfTzMwwiCxhBwcUV5TRGMFX9Cmoj64W.jpg">
-		
-     		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
-     		<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LKZN3J8B1J&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
-			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('', new Date()); gtag('config', 'UA-30006739-3');</script>
-		    <script src="/static/pc/dist/megabox.api.min.js"></script>
-			<script src="/static/mb/js/lozad.min.js"></script>
-			<script src="/js/common/dist/megabox.common.min.js"></script>
-     		<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-			<script src="//cast.imp.joins.com/persona.js" async=""></script>
-
-    <script type="text/javascript">
+<!-- <script type="text/javascript">
 
   		
   		var reset = ''
@@ -61,34 +50,27 @@
             alert("준비중 입니다");
             return;
         }
-    </script><script src="/static/pc/js/ui.common.js?v=1659416914695"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking"></script>
-    <script src="../front.js"></script>
+    </script> -->
+<script src="/static/pc/js/ui.common.js?v=1659416914695"></script>
+<script
+	src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking"></script>
+<script src="../front.js"></script>
 </head>
 
 <body>
+	<div class="skip" title="스킵 네비게이션">
+		<a href="#contents" title="본문 바로가기">본문 바로가기</a> <a href="#footer"
+			title="푸터 바로가기">푸터 바로가기</a>
+	</div>
+	<div class="body-wrap">
 
-    <div class="skip" title="스킵 네비게이션">
-        <a href="#contents" title="본문 바로가기">본문 바로가기</a>
-        <a href="#footer" title="푸터 바로가기">푸터 바로가기</a>
-    </div>
+		<!--  ko_KR -->
 
-    <div class="body-wrap">
-
-       
-
-
-
-
-
-
-
-<!--  ko_KR -->
-        
-<!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+		<!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
-<script src="/static/mb/js/hmac-sha256.js"></script>
-<script src="/static/mb/js/enc-base64-min.js"></script>
-<script type="text/javascript">
+		<script src="/static/mb/js/hmac-sha256.js"></script>
+		<script src="/static/mb/js/enc-base64-min.js"></script>
+		<script type="text/javascript">
 /*전역변수
 아이디
 패스워드  입력 완료 체크 변수 필요
@@ -1480,7 +1462,7 @@ $ComTimer.prototype = {
 }
 
 </script>
-<script type="text/javascript">
+		<script type="text/javascript">
 var simpleLoginWithPopup;
 var simpleLoginWith = function(lnkgTy){
     var url = "/on/oc/ocz/SimpleLogin/simpleLogin.do?lnkgTy=" + lnkgTy;
@@ -1527,7 +1509,7 @@ function fn_chkNonMbLogin() {
 	$(document).find('#aNonMbLogin').click();
 }
 </script>
-<script type="text/javascript">
+		<script type="text/javascript">
 var fn_LoginWithCallBack = function(paramData){
     $.ajaxMegaBox({
         url: "/on/oc/ocz/SimpleLogin/selectSimpleLogin.do",
@@ -1560,25 +1542,23 @@ $(function(){
     });
 });
 </script>
-<form id="loginForm">
-	<input type="hidden" name="redisKey" value="">
-	<input type="hidden" name="menuId" value="">
-	<input type="hidden" name="mappingId" value="">
-	<input type="hidden" name="rtnParam" value="">
-	<input type="hidden" name="certType" value="">
-	<input type="hidden" name="preUrl" value="">
+		<form id="loginForm">
+			<input type="hidden" name="redisKey" value=""> <input
+				type="hidden" name="menuId" value=""> <input type="hidden"
+				name="mappingId" value=""> <input type="hidden"
+				name="rtnParam" value=""> <input type="hidden"
+				name="certType" value=""> <input type="hidden" name="preUrl"
+				value="">
 
-	<!-- 좌석도 로그인 프로세스 여부PARAM-->
-	<input type="hidden" name="bokdLoginAt" value="">
-	<input type="hidden" name="bokdLoginParam" value="">
+			<!-- 좌석도 로그인 프로세스 여부PARAM-->
+			<input type="hidden" name="bokdLoginAt" value=""> <input
+				type="hidden" name="bokdLoginParam" value=""> <input
+				type="hidden" name="nonMbCertRedisKey" value=""> <input
+				type="hidden" name="nonMbCertedMblpNo" value=""> <input
+				type="hidden" name="reloadYn" value=""> <input type="hidden"
+				name="validDataRevisnYn" value="N">
 
-	<input type="hidden" name="nonMbCertRedisKey" value="">
-	<input type="hidden" name="nonMbCertedMblpNo" value="">
-
-	<input type="hidden" name="reloadYn" value="">
-	<input type="hidden" name="validDataRevisnYn" value="N">
-
-</form>
+		</form>
 
 
 
@@ -1586,255 +1566,324 @@ $(function(){
 
 
 
-<!--  ko_KR -->
-        
-<!-- 로그인 레이어팝업 시작 -->
-<!-- 화면ID  M-ME-LO-01 -->
-<!-- 화면ID  M-ME-CC-01 -->
-<div style="display:none;"><a id="loginPupupATag" href="#layer_login_select" class="button active btn-modal-open" w-data="850" h-data="484"></a></div>
+		<!--  ko_KR -->
 
-	<section id="layer_login_select" class="modal-layer" style="z-index: 501;"><a href="" class="focus">레이어로 포커스 이동 됨</a><a href="#" class="focus" title="레이어로 포커스 이동 됨">레이어로 포커스 이동 됨<!--레이어로 포커스 이동 됨--></a>
-		<div class="wrap" style="width: 850px; height: 556px; margin-left: -425px; margin-top: -278px;">
-			<header class="layer-header">
-				<h3 class="tit">로그인</h3>
-			</header>
+		<!-- 로그인 레이어팝업 시작 -->
+		<!-- 화면ID  M-ME-LO-01 -->
+		<!-- 화면ID  M-ME-CC-01 -->
+		<div style="display: none;">
+			<a id="loginPupupATag" href="#layer_login_select"
+				class="button active btn-modal-open" w-data="850" h-data="484"></a>
+		</div>
 
-			<div class="layer-con" style="height: 511px;">
+		<section id="layer_login_select" class="modal-layer"
+			style="z-index: 501;">
+			<a href="" class="focus">레이어로 포커스 이동 됨</a><a href="#" class="focus"
+				title="레이어로 포커스 이동 됨">레이어로 포커스 이동 됨<!--레이어로 포커스 이동 됨--></a>
+			<div class="wrap"
+				style="width: 850px; height: 556px; margin-left: -425px; margin-top: -278px;">
+				<header class="layer-header">
+					<h3 class="tit">로그인</h3>
+				</header>
 
-				<div class="tab-list tab-layer">
-					<ul>
-						<li class="on"><a href="#login_tab_01" title="회원 로그인 선택">회원 로그인<!--회원 로그인--></a></li>
-						<li><a href="#login_tab_02" title="비회원 로그인 선택">비회원 로그인<!--비회원 로그인--></a></li>
-					</ul>
-				</div>
+				<div class="layer-con" style="height: 511px;">
 
-				<!-- tab-cont-wrap -->
-				<div class="tab-cont-wrap">
-					<!-- tab 회원 로그인 -->
-					<div id="login_tab_01" class="tab-cont on"><a href="" class="ir"></a><a href="" class="ir" title="로그인"></a>
+					<div class="tab-list tab-layer">
+						<ul>
+							<li class="on"><a href="#login_tab_01" title="회원 로그인 선택">회원
+									로그인<!--회원 로그인-->
+							</a></li>
+							<li><a href="#login_tab_02" title="비회원 로그인 선택">비회원 로그인<!--비회원 로그인--></a></li>
+						</ul>
+					</div>
 
-						<div class="login-member col-2">
-							<!-- col-wrap -->
-							<div class="col-wrap">
-								<div class="col left">
-									<div class="login-input-area">
-										<input autocomplete="off" id="ibxLoginId" maxlength="20" type="text" placeholder="아이디" title="아이디를 입력하세요" class="input-text strTrim"><!--아이디--><!--아이디를 입력하세요-->
-										<input autocomplete="off" id="ibxLoginPwd" maxlength="20" type="password" placeholder="비밀번호" title="비밀번호를 입력하세요" class="input-text mt15"><!--비밀번호--><!--비밀번호를 입력하세요-->
-										<div class="alert"></div>
+					<!-- tab-cont-wrap -->
+					<div class="tab-cont-wrap">
+						<!-- tab 회원 로그인 -->
+						<div id="login_tab_01" class="tab-cont on">
+							<a href="" class="ir"></a><a href="" class="ir" title="로그인"></a>
 
-										<!-- chk-util -->
-										<div class="chk-util">
-											<div class="left">
-												<input id="chkIdSave" type="checkbox"> <label for="chkIdSave">아이디 저장<!--아이디 저장--></label>
-											</div>
+							<div class="login-member col-2">
+								<!-- col-wrap -->
+								<div class="col-wrap">
+									<div class="col left">
+										<div class="login-input-area">
+											<input autocomplete="off" id="ibxLoginId" maxlength="20"
+												type="text" placeholder="아이디" title="아이디를 입력하세요"
+												class="input-text strTrim">
+											<!--아이디-->
+											<!--아이디를 입력하세요-->
+											<input autocomplete="off" id="ibxLoginPwd" maxlength="20"
+												type="password" placeholder="비밀번호" title="비밀번호를 입력하세요"
+												class="input-text mt15">
+											<!--비밀번호-->
+											<!--비밀번호를 입력하세요-->
+											<div class="alert"></div>
 
-											<div class="right">
-												<div class="hp-ad">
-										      <a href="https://www.sepay.org/spm/join?regSiteCode=XF&amp;ctgCode=1&amp;subCode=1" title="휴대폰 간편 로그인 선택" target="_blank"><span>휴대폰 간편로그인<!--휴대폰 간편로그인--></span> <em>광고<!--광고--></em></a>
+											<!-- chk-util -->
+											<div class="chk-util">
+												<div class="left">
+													<input id="chkIdSave" type="checkbox"> <label
+														for="chkIdSave">아이디 저장<!--아이디 저장--></label>
+												</div>
+
+												<div class="right">
+													<div class="hp-ad">
+														<a
+															href="https://www.sepay.org/spm/join?regSiteCode=XF&amp;ctgCode=1&amp;subCode=1"
+															title="휴대폰 간편 로그인 선택" target="_blank"><span>휴대폰
+																간편로그인<!--휴대폰 간편로그인-->
+														</span> <em>광고<!--광고--></em></a>
+													</div>
 												</div>
 											</div>
-										</div>
-										<!--// chk-util -->
+											<!--// chk-util -->
 
-										<button id="btnLogin" type="button" class="button purple large btn-login" disabled="disabled">로그인<!--로그인--></button>
+											<button id="btnLogin" type="button"
+												class="button purple large btn-login" disabled="disabled">
+												로그인
+												<!--로그인-->
+											</button>
 
-										<div class="link">
-											<a href="/user-find" title="ID/PW 찾기 선택">ID/PW 찾기<!--ID/PW 찾기--></a>
-											<a href="/join" title="회원가입 선택">회원가입<!--회원가입--></a>
-											<a href="/on/oh/ohg/MbLogin/viewNonMbLogin.rest" title="비회원 예매확인 선택">비회원 예매확인<!--비회원 예매확인--></a>
-										</div>
-
-										<div class="sns-login">
-											<a href="javaScript:void(0)" lnkgty="FACEBOOK" title="페이스북으로 로그인 선택"><img src="../../../static/pc/images/member/ico-facebook.png" alt="페이스북"><!--페이스북--> 페이스북으로 로그인<!--페이스북으로 로그인--></a>
-											<a href="javaScript:void(0)" lnkgty="NAVER" title="네이버로 로그인 선택"><img src="../../../static/pc/images/member/ico-naver.png" alt="네이버"><!--네이버-->   네이버로 로그인<!--네이버로 로그인--></a>
-											<a href="javaScript:void(0)" lnkgty="KAKAO" title="카카오톡으로 로그인 선택"><img src="../../../static/pc/images/member/ico-kakao.png" alt="카카오톡"><!--카카오톡--> 카카오톡으로 로그인<!--카카오톡으로 로그인--></a>
-											<a href="javaScript:void(0)" lnkgty="PAYCO" title="페이코로 로그인 선택"><img src="../../../static/pc/images/member/ico-payco.png" alt="페이코"><!--페이코-->   페이코로 로그인<!--페이코로 로그인--></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="col right">
-									<div class="login-ad" id="Rw6jtk0hQTuOBSzFbvGGlw"></div>
-								</div>
-							</div>
-							<!--// col-wrap -->
-						</div>
-					</div>
-					<!--// tab 회원 로그인 -->
-
-					<!-- tab 비회원 로그인 -->
-					<div id="login_tab_02" class="tab-cont"><a href="" class="ir"></a><a href="" class="ir" title="비회원 로그인"></a>
-
-						<div class="login-member col-2">
-							<!-- col-wrap -->
-							<div class="col-wrap">
-								<div class="col left">
-
-									<div class="no-member-login-table">
-										<table summary="이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표">
-											<caption>이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표<!--이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표--></caption>
-											<colgroup>
-												<col style="width:110px;">
-												<col>
-											</colgroup>
-											<tbody>
-												<tr>
-													<th scope="row">
-														<label for="ibxNonMbNm">이름<!--이름--></label>
-													</th>
-													<td>
-														<input maxlength="20" id="ibxNonMbNm" type="text" placeholder="이름" class="input-text"><!--이름-->
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														<label for="ibxNonMbByymmdd">생년월일<!--생년월일--></label>
-													</th>
-													<td>
-														<input maxlength="6" id="ibxNonMbByymmdd" type="text" placeholder="생년월일 앞6자리" class="input-text"><!--주민번호 앞 6자리-->
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														<label for="ibxNonMbTelno">휴대폰번호<!--휴대폰번호--></label>
-													</th>
-													<td>
-														<div class="hp-input">
-															<input maxlength="11" id="ibxNonMbTelno" type="text" placeholder="- 없이 입력" class="input-text"><!--- 없이 입력-->
-															<button id="nonMbCertNoSend" type="button" class="button gray" disabled="disabled">인증요청<!--인증요청--></button>
-														</div>
-														<div id="mblpInput-error-text" class="alert"></div>
-													</td>
-												</tr>
-												<tr id="nonMbCertRow">
-													<th scope="row">
-														<label for="mblpCharCertNo">인증번호<!--인증번호--></label>
-													</th>
-													<td>
-														<div class="chk-num">
-															<div class="line">
-																<input maxlength="4" id="mblpCharCertNo" type="text" class="input-text">
-
-																<div class="time-limit" id="timer">
-																	3:00
-																</div>
-															</div>
-
-															<button id="btnMblpCharCert" type="button" class="button purple" disabled="disabled">확인<!--확인--></button>
-														</div>
-														<div id="nonMbCert-error-text" class="alert"></div>
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														<label for="ibxNonMbPwd">비밀번호</label><!--비밀번호-->
-													</th>
-													<td>
-														<input maxlength="4" id="ibxNonMbPwd" type="password" placeholder="비밀번호(숫자 4자리)" class="input-text"><!--비밀번호(숫자 4자리)-->
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														<label for="ibxNonMbPwdConfirm">비밀번호<!--비밀번호-->확인<!--확인--></label>
-													</th>
-													<td>
-														<input maxlength="4" id="ibxNonMbPwdConfirm" type="password" placeholder="비밀번호(숫자 4자리) 확인" class="input-text"><!--비밀번호(숫자 4자리) 확인-->
-														<div id="nonMbPwdErrText" class="alert"></div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-
-								<div class="col right">
-
-									<div class="no-member-privacy-rule">
-										<p class="tit">비회원예매 개인정보 처리방침<!--비회원예매 개인정보 처리방침--></p>
-
-										<div class="cont">
-											<dl>
-												<dt>수집목적</dt><dd>비회원예매 서비스 제공 / 이용자식별 / 구매 및  결제</dd><dt>수집항목</dt><dd>이름, 생년월일, 휴대폰번호, 비밀번호</dd><dt>보유기간</dt><dd class="ismsimp">관람 또는 취소 후 7일 이내</dd><!--<dt>수집목적</dt><dd>비회원예매 서비스 제공 / 이용자식별 / 구매 및  결제</dd><dt>수집항목</dt><dd>이름, 생년월일, 휴대폰번호, 비밀번호</dd><dt>보유기간</dt><dd>관람 또는 취소 후 7일 이내</dd>-->
-											</dl>
-
-											<div class="btn-agree">
-												<input type="radio" id="chkNonMbBokdPersonInfoProcTrue" name="chkNonMbBokdPersonInfoProc">
-												<label for="chkNonMbBokdPersonInfoProcTrue">동의<!--동의--></label>
-
-												<input type="radio" id="chkNonMbBokdPersonInfoProcFalse" name="chkNonMbBokdPersonInfoProc" class="ml20">
-												<label for="chkNonMbBokdPersonInfoProcFalse">미동의<!--미동의--></label>
+											<div class="link">
+												<a href="/user-find" title="ID/PW 찾기 선택">ID/PW 찾기<!--ID/PW 찾기--></a>
+												<a href="/join" title="회원가입 선택">회원가입<!--회원가입--></a> <a
+													href="/on/oh/ohg/MbLogin/viewNonMbLogin.rest"
+													title="비회원 예매확인 선택">비회원 예매확인<!--비회원 예매확인--></a>
 											</div>
 
-											<ul class="dot-list gblue mt20">
-												<li class="font-gblue">정보수집에 동의를 거부할 수 있으며, 동의하지 않을 경우 비회원 예매서비스를 이용하실 수 없습니다.<!--정보수집에 동의를 거부할 수 있으며, 동의하지 않을 경우 비회원 예매서비스를 이용하실 수 없습니다.--></li>
-											</ul>
+											<div class="sns-login">
+												<a href="javaScript:void(0)" lnkgty="FACEBOOK"
+													title="페이스북으로 로그인 선택"><img
+													src="../../../static/pc/images/member/ico-facebook.png"
+													alt="페이스북"> <!--페이스북--> 페이스북으로 로그인<!--페이스북으로 로그인--></a> <a
+													href="javaScript:void(0)" lnkgty="NAVER"
+													title="네이버로 로그인 선택"><img
+													src="../../../static/pc/images/member/ico-naver.png"
+													alt="네이버"> <!--네이버--> 네이버로 로그인<!--네이버로 로그인--></a> <a
+													href="javaScript:void(0)" lnkgty="KAKAO"
+													title="카카오톡으로 로그인 선택"><img
+													src="../../../static/pc/images/member/ico-kakao.png"
+													alt="카카오톡"> <!--카카오톡--> 카카오톡으로 로그인<!--카카오톡으로 로그인--></a> <a
+													href="javaScript:void(0)" lnkgty="PAYCO"
+													title="페이코로 로그인 선택"><img
+													src="../../../static/pc/images/member/ico-payco.png"
+													alt="페이코"> <!--페이코--> 페이코로 로그인<!--페이코로 로그인--></a>
+											</div>
+										</div>
+									</div>
+
+									<div class="col right">
+										<div class="login-ad" id="Rw6jtk0hQTuOBSzFbvGGlw"></div>
+									</div>
+								</div>
+								<!--// col-wrap -->
+							</div>
+						</div>
+						<!--// tab 회원 로그인 -->
+
+						<!-- tab 비회원 로그인 -->
+						<div id="login_tab_02" class="tab-cont">
+							<a href="" class="ir"></a><a href="" class="ir" title="비회원 로그인"></a>
+
+							<div class="login-member col-2">
+								<!-- col-wrap -->
+								<div class="col-wrap">
+									<div class="col left">
+
+										<div class="no-member-login-table">
+											<table
+												summary="이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표">
+												<caption>
+													이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표
+													<!--이름, 생년월일, 휴대폰번호, 인증번호, 비밀번호, 비밀번호 확인 항목을 가진 비회원 로그인 입력 표-->
+												</caption>
+												<colgroup>
+													<col style="width: 110px;">
+													<col>
+												</colgroup>
+												<tbody>
+													<tr>
+														<th scope="row"><label for="ibxNonMbNm">이름<!--이름--></label>
+														</th>
+														<td><input maxlength="20" id="ibxNonMbNm" type="text"
+															placeholder="이름" class="input-text"> <!--이름--></td>
+													</tr>
+													<tr>
+														<th scope="row"><label for="ibxNonMbByymmdd">생년월일<!--생년월일--></label>
+														</th>
+														<td><input maxlength="6" id="ibxNonMbByymmdd"
+															type="text" placeholder="생년월일 앞6자리" class="input-text">
+															<!--주민번호 앞 6자리--></td>
+													</tr>
+													<tr>
+														<th scope="row"><label for="ibxNonMbTelno">휴대폰번호<!--휴대폰번호--></label>
+														</th>
+														<td>
+															<div class="hp-input">
+																<input maxlength="11" id="ibxNonMbTelno" type="text"
+																	placeholder="- 없이 입력" class="input-text">
+																<!--- 없이 입력-->
+																<button id="nonMbCertNoSend" type="button"
+																	class="button gray" disabled="disabled">
+																	인증요청
+																	<!--인증요청-->
+																</button>
+															</div>
+															<div id="mblpInput-error-text" class="alert"></div>
+														</td>
+													</tr>
+													<tr id="nonMbCertRow">
+														<th scope="row"><label for="mblpCharCertNo">인증번호<!--인증번호--></label>
+														</th>
+														<td>
+															<div class="chk-num">
+																<div class="line">
+																	<input maxlength="4" id="mblpCharCertNo" type="text"
+																		class="input-text">
+
+																	<div class="time-limit" id="timer">3:00</div>
+																</div>
+
+																<button id="btnMblpCharCert" type="button"
+																	class="button purple" disabled="disabled">
+																	확인
+																	<!--확인-->
+																</button>
+															</div>
+															<div id="nonMbCert-error-text" class="alert"></div>
+														</td>
+													</tr>
+													<tr>
+														<th scope="row"><label for="ibxNonMbPwd">비밀번호</label>
+															<!--비밀번호--></th>
+														<td><input maxlength="4" id="ibxNonMbPwd"
+															type="password" placeholder="비밀번호(숫자 4자리)"
+															class="input-text"> <!--비밀번호(숫자 4자리)--></td>
+													</tr>
+													<tr>
+														<th scope="row"><label for="ibxNonMbPwdConfirm">비밀번호<!--비밀번호-->확인<!--확인--></label>
+														</th>
+														<td><input maxlength="4" id="ibxNonMbPwdConfirm"
+															type="password" placeholder="비밀번호(숫자 4자리) 확인"
+															class="input-text"> <!--비밀번호(숫자 4자리) 확인-->
+															<div id="nonMbPwdErrText" class="alert"></div></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+									<div class="col right">
+
+										<div class="no-member-privacy-rule">
+											<p class="tit">
+												비회원예매 개인정보 처리방침
+												<!--비회원예매 개인정보 처리방침-->
+											</p>
+
+											<div class="cont">
+												<dl>
+													<dt>수집목적</dt>
+													<dd>비회원예매 서비스 제공 / 이용자식별 / 구매 및 결제</dd>
+													<dt>수집항목</dt>
+													<dd>이름, 생년월일, 휴대폰번호, 비밀번호</dd>
+													<dt>보유기간</dt>
+													<dd class="ismsimp">관람 또는 취소 후 7일 이내</dd>
+													<!--<dt>수집목적</dt><dd>비회원예매 서비스 제공 / 이용자식별 / 구매 및  결제</dd><dt>수집항목</dt><dd>이름, 생년월일, 휴대폰번호, 비밀번호</dd><dt>보유기간</dt><dd>관람 또는 취소 후 7일 이내</dd>-->
+												</dl>
+
+												<div class="btn-agree">
+													<input type="radio" id="chkNonMbBokdPersonInfoProcTrue"
+														name="chkNonMbBokdPersonInfoProc"> <label
+														for="chkNonMbBokdPersonInfoProcTrue">동의<!--동의--></label> <input
+														type="radio" id="chkNonMbBokdPersonInfoProcFalse"
+														name="chkNonMbBokdPersonInfoProc" class="ml20"> <label
+														for="chkNonMbBokdPersonInfoProcFalse">미동의<!--미동의--></label>
+												</div>
+
+												<ul class="dot-list gblue mt20">
+													<li class="font-gblue">정보수집에 동의를 거부할 수 있으며, 동의하지 않을 경우
+														비회원 예매서비스를 이용하실 수 없습니다.<!--정보수집에 동의를 거부할 수 있으며, 동의하지 않을 경우 비회원 예매서비스를 이용하실 수 없습니다.-->
+													</li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<!--// col-wrap -->
+								<!--// col-wrap -->
 
-							<div class="btn-group">
-								<button id="btnChkNonMbLogin" type="button" class="button purple" disabled="disabled">확인</button>
-								<a id="aNonMbLogin" href="#layer_no_member_chk" class="button purple btn-modal-open" w-data="600" h-data="320" style="display: none;"></a>
+								<div class="btn-group">
+									<button id="btnChkNonMbLogin" type="button"
+										class="button purple" disabled="disabled">확인</button>
+									<a id="aNonMbLogin" href="#layer_no_member_chk"
+										class="button purple btn-modal-open" w-data="600" h-data="320"
+										style="display: none;"></a>
+								</div>
 							</div>
 						</div>
+						<!--// tab 비회원 로그인 -->
 					</div>
-					<!--// tab 비회원 로그인 -->
+					<!--// tab-cont-wrap -->
 				</div>
-				<!--// tab-cont-wrap -->
+
+				<button type="button" class="btn-modal-close">
+					레이어 닫기
+					<!--레이어 닫기-->
+				</button>
 			</div>
+		</section>
 
-			<button type="button" class="btn-modal-close">레이어 닫기<!--레이어 닫기--></button>
-		</div>
-	</section>
+		<section id="layer_no_member_chk" class="modal-layer">
+			<a href="" class="focus">레이어로 포커스 이동 됨</a>
+			<div class="wrap">
+				<header class="layer-header">
+					<h3 class="tit">알림</h3>
+				</header>
 
-	<section id="layer_no_member_chk" class="modal-layer"><a href="" class="focus">레이어로 포커스 이동 됨</a>
-		<div class="wrap">
-			<header class="layer-header">
-				<h3 class="tit">알림</h3>
-			</header>
+				<div class="layer-con">
+					<p>티켓 발권을 위한 입력정보를 확인해 주세요.</p>
 
-			<div class="layer-con">
-				<p>티켓 발권을 위한 입력정보를 확인해 주세요.</p>
-
-				<div class="table-wrap v1">
-					<table class="data-table" summary="이름, 생년월일, 휴대폰번호 항목을 가진 비회원 티켓 발권을 위한 입력정보 표">
-						<caption>이름, 생년월일, 휴대폰번호 항목을 가진 비회원 티켓 발권을 위한 입력정보 표</caption>
-						<colgroup>
-							<col style="width:80px;">
-							<col>
-						</colgroup>
-						<tbody>
-							<tr>
-								<th scope="row" class="a-l">이름</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th scope="row" class="a-l">생년월일</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th scope="row" class="a-l">휴대폰번호</th>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="table-wrap v1">
+						<table class="data-table"
+							summary="이름, 생년월일, 휴대폰번호 항목을 가진 비회원 티켓 발권을 위한 입력정보 표">
+							<caption>이름, 생년월일, 휴대폰번호 항목을 가진 비회원 티켓 발권을 위한 입력정보 표</caption>
+							<colgroup>
+								<col style="width: 80px;">
+								<col>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row" class="a-l">이름</th>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row" class="a-l">생년월일</th>
+									<td></td>
+								</tr>
+								<tr>
+									<th scope="row" class="a-l">휴대폰번호</th>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+
+				<div class="btn-group-fixed">
+					<button type="button" class="button close-layer small">취소</button>
+					<button id="btnNonMbLogin" type="button"
+						class="button purple small" disabled="disabled">확인</button>
+				</div>
+
+				<button id="btnNonMbModalClose" type="button"
+					class="btn-modal-close">레이어 닫기</button>
 			</div>
+		</section>
+		<!--  ko_KR -->
 
-			<div class="btn-group-fixed">
-				<button type="button" class="button close-layer small">취소</button>
-				<button id="btnNonMbLogin" type="button" class="button purple small" disabled="disabled">확인</button>
-			</div>
 
-			<button id="btnNonMbModalClose" type="button" class="btn-modal-close">레이어 닫기</button>
-		</div>
-	</section>
-<!--  ko_KR -->
-        
-
-<script type="text/javascript">
+		<script type="text/javascript">
     $(function(){
         
             
@@ -1877,17 +1926,17 @@ $(function(){
 
 </script>
 
-<!-- 베네피아 배너 접근 시 노출 -->
+		<!-- 베네피아 배너 접근 시 노출 -->
 
 
-<!-- 메인에만 광고영역 노출 -->
+		<!-- 메인에만 광고영역 노출 -->
 
-<!-- 메인 영화에만 광고영역 노출 -->
+		<!-- 메인 영화에만 광고영역 노출 -->
 
 
-<c:import url="../header.jsp" charEncoding="utf-8"/>
+		<c:import url="../header.jsp" charEncoding="utf-8" />
 
-<script type="text/javascript">
+		<script type="text/javascript">
 var localeCode = "kr";			   //한영 구분 코드
 $(function(){
 });
@@ -2248,34 +2297,43 @@ function fn_bokdReload(page){
 }
 
 </script>
-<form id="bokdMForm">
-	<input type="hidden" name="returnURL" value="info">
-</form>
-<!-- container -->
-<div id="bokdContainer" class="container" style="padding-bottom:200px; display:none">
-<input type="hidden" id="playDe" name="playDe" value="">
-    <div class="page-util fixed">
-        <div class="inner-wrap">
-            <div class="location"></div>
+		<form id="bokdMForm">
+			<input type="hidden" name="returnURL" value="info">
+		</form>
+		<!-- container -->
+		<div id="bokdContainer" class="container"
+			style="padding-bottom: 200px; display: none">
+			<input type="hidden" id="playDe" name="playDe" value="">
+			<div class="page-util fixed">
+				<div class="inner-wrap">
+					<div class="location"></div>
 
-        </div>
-    </div>
+				</div>
+			</div>
 
-    <div id="bokdMSeat" style="overflow:hidden; display:none; height:736px;">
-        <iframe id="frameBokdMSeat" src="/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr" title="관람인원선택 프레임" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
-	</div>
+			<div id="bokdMSeat"
+				style="overflow: hidden; display: none; height: 736px;">
+				<iframe id="frameBokdMSeat"
+					src="/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr"
+					title="관람인원선택 프레임" scrolling="no" frameborder="0"
+					class="reserve-iframe" style="width: 100%; height: 736px;"></iframe>
+			</div>
 
-    <div id="bokdMPayBooking" style="overflow:hidden; display:none; height:736px;">
-       <iframe id="framePayBooking" src="/on/oh/ohz/PayBooking/completeSeat.do?megaboxLanguage=kr" title="예매 결제" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
-	</div>
+			<div id="bokdMPayBooking"
+				style="overflow: hidden; display: none; height: 736px;">
+				<iframe id="framePayBooking"
+					src="/on/oh/ohz/PayBooking/completeSeat.do?megaboxLanguage=kr"
+					title="예매 결제" scrolling="no" frameborder="0" class="reserve-iframe"
+					style="width: 100%; height: 736px;"></iframe>
+			</div>
 
-</div>
-<!--// container -->
-<script src="/js/megabox-brch.js"></script>
-<script src="/js/megabox-simpleBokd.js"></script>
-<script src="/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
+		</div>
+		<!--// container -->
+		<script src="/js/megabox-brch.js"></script>
+		<script src="/js/megabox-simpleBokd.js"></script>
+		<script src="/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 
 	var arrList = new Array();
 	var tmpData = {tabIndx : 0};
@@ -2552,150 +2610,784 @@ function fn_bokdReload(page){
 
 </script>
 
-<div id="schdlContainer" class="container">
-	<input type="hidden" id="playDe" name="playDe" value="">
-	<div class="page-util fixed">
-		<div class="inner-wrap">
-			<div class="location">
-				<span>Home</span>
-				<a href="/booking" title="예매 페이지로 이동">예매</a>
-				<a href="/booking/timetable" title="상영시간표 페이지로 이동">상영시간표</a>
-			</div>
-			
-		</div>
-	</div>
+		<div id="schdlContainer" class="container">
+			<input type="hidden" id="playDe" name="playDe" value="">
+			<div class="page-util fixed">
+				<div class="inner-wrap">
+					<div class="location">
+						<span>Home</span> <a href="/booking" title="예매 페이지로 이동">예매</a> <a
+							href="/booking/timetable" title="상영시간표 페이지로 이동">상영시간표</a>
+					</div>
 
-	<div id="contents" class="location-fixed">
-		<div class="inner-wrap">
-			<div class="time-table-page">
-				<div class="movie-choice-area">
-					<div class="tab-left-area">
-						<ul>
-							<li class="on"><a href="#masterMovie" title="영화별 선택" class="btn"><i class="iconset ico-tab-movie"></i> 영화별</a></li>
-							<li><a href="#masterBrch" title="극장별 선택" class="btn"><i class="iconset ico-tab-theater"></i> 극장별</a></li>
-							<li><a href="#masterSpclBrch" title="특별관 선택" class="btn"><i class="iconset ico-tab-special"></i> 특별관</a></li>
+				</div>
+			</div>
+
+			<div id="contents" class="location-fixed">
+				<div class="inner-wrap">
+					<div class="time-table-page">
+						<div class="movie-choice-area">
+							<div class="tab-left-area">
+								<ul>
+									<li class="on"><a href="#masterMovie" title="영화별 선택"
+										class="btn"><i class="iconset ico-tab-movie"></i> 영화별</a></li>
+									<li><a href="#masterBrch" title="극장별 선택" class="btn"><i
+											class="iconset ico-tab-theater"></i> 극장별</a></li>
+									<li><a href="#masterSpclBrch" title="특별관 선택" class="btn"><i
+											class="iconset ico-tab-special"></i> 특별관</a></li>
+								</ul>
+							</div>
+
+							<div class="ltab-layer-wrap">
+								<div id="masterMovie" class="ltab-layer-cont has-img on">
+									<a href="" class="ir"></a>
+									<div class="wrap tab-area">
+										<div class="tab-list-choice">
+											<ul>
+												<li><a href="#masterMovie_AllMovie" title="전체영화 선택"
+													class="btn on">전체영화</a></li>
+												<li><a href="#masterMovie_CrtnMovie" title="큐레이션 선택"
+													class="btn">큐레이션</a></li>
+											</ul>
+										</div>
+										<div class="list-section">
+											<div id="masterMovie_AllMovie" class="tab-layer-cont on">
+												<a href="" class="ir"></a>
+												<div class="scroll m-scroll mCustomScrollbar _mCS_2">
+													<div id="mCSB_2"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: none;" tabindex="0">
+														<div id="mCSB_2_container" class="mCSB_container"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn disabled on"
+																		data-movie-nm="비상선언" data-movie-no="21084100"
+																		data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg">비상선언</button></li>
+															</ul>
+														</div>
+														<div id="mCSB_2_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical"
+															style="display: block;">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_2_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; display: block; height: 87px; max-height: 190px; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="masterMovie_CrtnMovie" class="tab-layer-cont">
+												<a href="" class="ir"></a>
+												<div
+													class="scroll m-scroll mCustomScrollbar _mCS_3 mCS_no_scrollbar">
+													<div id="mCSB_3"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: 200px;" tabindex="0">
+														<div id="mCSB_3_container"
+															class="mCSB_container mCS_no_scrollbar_y"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn disabled"
+																		data-movie-nm="[2022 시네도슨트] 오르세 미술관 "
+																		data-movie-no="22035700"
+																		data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/21/atGgAYynEtbhEFYGr1rlHN1kNsVtt4Od_316.jpg">[2022
+																		시네도슨트] 오르세 미술관</button></li>
+															</ul>
+														</div>
+														<div id="mCSB_3_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_3_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; display: none; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="poster-section">
+										<div class="table">
+											<div class="td">
+												<a href="/movie-detail?rpstMovieNo=21084100"
+													title="비상선언 상세보기"><img class="poster"
+													onerror="noImg(this, 'del')"
+													src="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg"
+													alt="비상선언"></a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="masterBrch" class="ltab-layer-cont">
+									<a href="" class="ir"></a>
+									<div class="wrap tab-area">
+										<div class="tab-list-choice">
+											<ul>
+												<li><a href="#tab10" title="서울지점 선택" data-area-cd="10"
+													class="on">서울(19)</a></li>
+												<li><a href="#tab30" title="경기지점 선택" data-area-cd="30">경기(31)</a></li>
+												<li><a href="#tab35" title="인천지점 선택" data-area-cd="35">인천(5)</a></li>
+												<li><a href="#tab45" title="대전/충청/세종지점 선택"
+													data-area-cd="45">대전/충청/세종(17)</a></li>
+												<li><a href="#tab55" title="부산/대구/경상지점 선택"
+													data-area-cd="55">부산/대구/경상(22)</a></li>
+												<li><a href="#tab65" title="광주/전라지점 선택"
+													data-area-cd="65">광주/전라(9)</a></li>
+												<li><a href="#tab70" title="강원지점 선택" data-area-cd="70">강원(5)</a></li>
+											</ul>
+										</div>
+										<div class="list-section">
+											<div id="tab10" class="tab-layer-cont on">
+												<div
+													class="scroll m-scroll mCustomScrollbar _mCS_4 mCS_no_scrollbar">
+													<div id="mCSB_4"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: none;" tabindex="0">
+														<div id="mCSB_4_container"
+															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn"
+																		data-area-cd="10" data-brch-no="1372">강남</button></li>
+															</ul>
+															<div></div>
+														</div>
+														<div id="mCSB_4_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_4_scrollbar mCS-light mCSB_scrollTools_vertical"
+															style="display: none;">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_4_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; height: 0px; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="tab30" class="tab-layer-cont">
+												<div
+													class="scroll m-scroll mCustomScrollbar _mCS_5 mCS_no_scrollbar">
+													<div id="mCSB_5"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: 200px;" tabindex="0">
+														<div id="mCSB_5_container"
+															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn"
+																		data-area-cd="30" data-brch-no="4121">고양스타필드</button></li>
+															</ul>
+															<div></div>
+														</div>
+														<div id="mCSB_5_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_5_scrollbar mCS-light mCSB_scrollTools_vertical"
+															style="display: none;">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_5_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="masterSpclBrch" class="ltab-layer-cont has-img">
+									<a href="" class="ir"></a>
+									<div class="wrap tab-area">
+										<div class="tab-list-choice">
+											<ul>
+												<li><a href="#tabDBC" title="DOLBY CINEMA특별관 선택"
+													data-area-cd="DBC" class="on">DOLBY CINEMA(5)</a></li>
+												<li><a href="#tabTBQ" title="THE BOUTIQUE특별관 선택"
+													data-area-cd="TBQ">THE BOUTIQUE(8)</a></li>
+												<li><a href="#tabMX" title="MX특별관 선택" data-area-cd="MX">MX(8)</a></li>
+												<li><a href="#tabCFT" title="COMFORT특별관 선택"
+													data-area-cd="CFT">COMFORT(40)</a></li>
+												<li><a href="#tabPTC" title="PUPPY CINEMA특별관 선택"
+													data-area-cd="PTC">PUPPY CINEMA(1)</a></li>
+												<li><a href="#tabMKB" title="MEGABOX KIDS특별관 선택"
+													data-area-cd="MKB">MEGABOX KIDS(3)</a></li>
+											</ul>
+										</div>
+										<div class="list-section">
+											<div id="tabDBC" class="tab-layer-cont on">
+												<div
+													class="scroll m-scroll mCustomScrollbar _mCS_11 mCS_no_scrollbar">
+													<div id="mCSB_11"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: none;" tabindex="0">
+														<div id="mCSB_11_container"
+															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn"
+																		data-area-cd="DBC" data-brch-no="0019">남양주현대아울렛
+																		스페이스원</button></li>
+															</ul>
+															<div></div>
+														</div>
+														<div id="mCSB_11_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_11_scrollbar mCS-light mCSB_scrollTools_vertical"
+															style="display: none;">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_11_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; height: 0px; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="theater-section">
+													<div class="table">
+														<div class="td">
+															<a href="/specialtheater/dolby" title="DOLBY 특별관 페이지로 이동">
+																<p>
+																	<strong>DOLBY</strong>국내 최초로 메가박스가 <br>선보이는 세계 최고
+																	<br>기술력의 몰입 시네마
+																</p> <i class="iconset ico-arrow-half"></i> <img
+																src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-dolby.png"
+																alt="DOLBY 특별관 페이지로 이동" class="poster">
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="tabTBQ" class="tab-layer-cont">
+												<div
+													class="scroll m-scroll mCustomScrollbar _mCS_12 mCS_no_scrollbar">
+													<div id="mCSB_12"
+														class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside"
+														style="max-height: 200px;" tabindex="0">
+														<div id="mCSB_12_container"
+															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+															style="position: relative; top: 0; left: 0;" dir="ltr">
+															<ul class="list">
+																<li><button type="button" class="btn"
+																		data-area-cd="TBQ" data-brch-no="0028">대전신세계
+																		아트앤사이언스</button></li>
+															</ul>
+															<div></div>
+														</div>
+														<div id="mCSB_12_scrollbar_vertical"
+															class="mCSB_scrollTools mCSB_12_scrollbar mCS-light mCSB_scrollTools_vertical"
+															style="display: none;">
+															<div class="mCSB_draggerContainer">
+																<div id="mCSB_12_dragger_vertical" class="mCSB_dragger"
+																	style="position: absolute; min-height: 30px; top: 0px;">
+																	<div class="mCSB_dragger_bar"
+																		style="line-height: 30px;"></div>
+																</div>
+																<div class="mCSB_draggerRail"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="theater-section">
+													<div class="table">
+														<div class="td">
+															<a href="/specialtheater/boutique"
+																title="THE BOUTIQUE 특별관 페이지로 이동">
+																<p>
+																	<strong>THE BOUTIQUE</strong>영화를 본다는 것,<br>그 놀라운
+																	경험을 위하여
+																</p> <i class="iconset ico-arrow-half"></i> <img
+																src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-boutique.png"
+																alt="THE BOUTIQUE 특별관 페이지로 이동" class="poster">
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="box-alert mt40" style="display: none">
+							<i class="iconset ico-bell"></i> <strong></strong> <span></span>
+						</div>
+
+						<h3 class="tit mt60" style="">
+							<span class="font-green">비상선언</span> 무대인사
+						</h3>
+						<div class="reserve movie-greeting" style="">
+							<ul>
+								<li><p class="greeting-date">2022.08.06</p>
+									<div class="greeting-infomation" brch-no="1212"
+										play-schdl-no="2208061212031" rpst-movie-no="21084100"
+										theab-no="02" play-de="20220806" play-seq="3">
+										<p class="greeting-location">홍대 MewSuppasit관 (9층 2관)</p>
+										<p class="greeting-time">14:55~17:25</p>
+										<p class="greeting-moment">상영후</p>
+										<p class="greeting-person">송강호, 이병헌, 임시완, 김소진 배우</p>
+										<p class="btn">
+											<span class="button gray">매진</span>
+										</p>
+									</div></li>
+							</ul>
+							<ul></ul>
+							<div class="btn-more" style="display: none;">
+								<button type="button" class="btn">
+									<span>닫기</span> <i class="iconset ico-btn-more-arr"></i>
+								</button>
+							</div>
+						</div>
+
+						<h3 class="tit mt60">
+							<span class="font-green">비상선언</span> 상영시간표
+						</h3>
+						<div class="time-schedule mb30">
+							<div class="wrap">
+								<button type="button" title="이전 날짜 보기" class="btn-pre"
+									disabled="true">
+									<i class="iconset ico-cld-pre"></i> <em>이전</em>
+								</button>
+								<div class="date-list">
+									<div class="year-area">
+										<div class="year" style="left: 30px; z-index: 1; opacity: 1;">2022.08</div>
+										<div class="year" style="left: 450px; z-index: 1; opacity: 0;"></div>
+									</div>
+									<div class="date-area">
+										<div class="wrap"
+											style="position: relative; width: 2100px; border: none; left: -70px;">
+											<button class="disabled" type="button" date-data="2022.08.01"
+												month="7" tabindex="-1">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">1<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">월</span><span
+													class="day-en" style="pointer-events: none; display: none">Mon</span>
+											</button>
+											<button class="disabled" type="button" date-data="2022.08.02"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">2<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">오늘</span><span
+													class="day-en" style="pointer-events: none; display: none">Tue</span>
+											</button>
+											<button class="on" type="button" date-data="2022.08.03"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">3<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">내일</span><span
+													class="day-en" style="pointer-events: none; display: none">Wed</span>
+											</button>
+											<button class="" type="button" date-data="2022.08.04"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">4<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">목</span><span
+													class="day-en" style="pointer-events: none; display: none">Thu</span>
+											</button>
+										</div>
+									</div>
+								</div>
+								<button type="button" title="다음 날짜 보기" class="btn-next"
+									disabled="true">
+									<i class="iconset ico-cld-next"></i> <em>다음</em>
+								</button>
+								<div class="bg-line">
+									<input type="hidden" name="datePicker" id="dp1659416914669"
+										class="hasDatepicker" value="2022.08.03">
+									<button type="button" class="btn-calendar-large" title="달력보기">
+										달력보기</button>
+								</div>
+							</div>
+						</div>
+						<div class="movie-option mb20">
+							<div class="option">
+								<ul>
+									<li><i class="iconset ico-stage" title="무대인사"></i>무대인사</li>
+									<li><i class="iconset ico-user" title="회원시사"></i>회원시사</li>
+									<li><i class="iconset ico-open" title="오픈시사"></i>오픈시사</li>
+									<li><i class="iconset ico-goods" title="굿즈패키지"></i>굿즈패키지</li>
+									<li><i class="iconset ico-singalong" title="싱어롱"></i>싱어롱</li>
+									<li><i class="iconset ico-gv" title="GV"></i>GV</li>
+									<li><i class="iconset ico-sun" title="조조"></i>조조</li>
+									<li><i class="iconset ico-brunch" title="브런치"></i>브런치</li>
+									<li><i class="iconset ico-moon" title="심야"></i>심야</li>
+								</ul>
+							</div>
+							<div class="rateing-lavel">
+								<a href="" class="" title="관람등급안내">관람등급안내</a>
+							</div>
+						</div>
+						<div class="reserve theater-list-box">
+							<div class="tab-block tab-layer mb30">
+								<ul>
+									<li class="on"><a href="" class="btn" data-area-cd="10"
+										title="서울 선택">서울</a></li>
+									<li><a href="" class="btn" data-area-cd="30" title="경기 선택">경기</a></li>
+									<li><a href="" class="btn" data-area-cd="35" title="인천 선택">인천</a></li>
+									<li><a href="" class="btn" data-area-cd="45"
+										title="대전/충청/세종 선택">대전/충청/세종</a></li>
+									<li><a href="" class="btn" data-area-cd="55"
+										title="부산/대구/경상 선택">부산/대구/경상</a></li>
+									<li><a href="" class="btn" data-area-cd="65"
+										title="광주/전라 선택">광주/전라</a></li>
+									<li><a href="" class="btn" data-area-cd="70" title="강원 선택">강원</a></li>
+								</ul>
+							</div>
+							<div class="theater-list">
+								<div class="theater-area-click">
+									<a href="/theater?brchNo=1372" title="강남 상세보기">강남</a>
+								</div>
+								<div class="theater-type-box">
+									<div class="theater-type">
+										<p class="theater-name">1관</p>
+										<p class="chair">총 232석</p>
+									</div>
+									<div class="theater-time">
+										<div class="theater-type-area">2D</div>
+										<div class="theater-time-box">
+											<table class="time-list-table">
+												<caption>상영시간을 보여주는 표 입니다.</caption>
+												<colgroup>
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<td class="" brch-no="1372" play-schdl-no="2208031372006"
+															rpst-movie-no="21084100" theab-no="01" play-de="20220803"
+															play-seq="1">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-sun"></i>
+																		</div>
+																		<p class="time">09:30</p>
+																		<p class="chair">206석</p>
+																		<div class="play-time">
+																			<p>09:30~12:01</p>
+																			<p>1회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="theater-type-box">
+									<div class="theater-type">
+										<p class="theater-name">3관</p>
+										<p class="chair">총 232석</p>
+									</div>
+									<div class="theater-time">
+										<div class="theater-type-area">2D</div>
+										<div class="theater-time-box">
+											<table class="time-list-table">
+												<caption>상영시간을 보여주는 표 입니다.</caption>
+												<colgroup>
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<td class="" brch-no="1372" play-schdl-no="2208031372011"
+															rpst-movie-no="21084100" theab-no="03" play-de="20220803"
+															play-seq="1">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">10:40</p>
+																		<p class="chair">215석</p>
+																		<div class="play-time">
+																			<p>10:40~13:10</p>
+																			<p>1회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372012"
+															rpst-movie-no="21084100" theab-no="03" play-de="20220803"
+															play-seq="2">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">13:30</p>
+																		<p class="chair">224석</p>
+																		<div class="play-time">
+																			<p>13:30~16:00</p>
+																			<p>2회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372013"
+															rpst-movie-no="21084100" theab-no="03" play-de="20220803"
+															play-seq="3">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">16:20</p>
+																		<p class="chair">220석</p>
+																		<div class="play-time">
+																			<p>16:20~18:50</p>
+																			<p>3회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372014"
+															rpst-movie-no="21084100" theab-no="03" play-de="20220803"
+															play-seq="4">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">19:10</p>
+																		<p class="chair">195석</p>
+																		<div class="play-time">
+																			<p>19:10~21:40</p>
+																			<p>4회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372015"
+															rpst-movie-no="21084100" theab-no="03" play-de="20220803"
+															play-seq="5">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">22:00</p>
+																		<p class="chair">228석</p>
+																		<div class="play-time">
+																			<p>22:00~24:30</p>
+																			<p>5회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="theater-type-box">
+									<div class="theater-type">
+										<p class="theater-name">6관</p>
+										<p class="chair">총 103석</p>
+									</div>
+									<div class="theater-time">
+										<div class="theater-type-area">2D</div>
+										<div class="theater-time-box">
+											<table class="time-list-table">
+												<caption>상영시간을 보여주는 표 입니다.</caption>
+												<colgroup>
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+													<col style="width: 99px;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<td class="" brch-no="1372" play-schdl-no="2208031372059"
+															rpst-movie-no="21084100" theab-no="06" play-de="20220803"
+															play-seq="3">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">14:35</p>
+																		<p class="chair">103석</p>
+																		<div class="play-time">
+																			<p>14:35~17:05</p>
+																			<p>3회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372058"
+															rpst-movie-no="21084100" theab-no="06" play-de="20220803"
+															play-seq="4">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">17:20</p>
+																		<p class="chair">98석</p>
+																		<div class="play-time">
+																			<p>17:20~19:50</p>
+																			<p>4회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+														<td class="" brch-no="1372" play-schdl-no="2208031372057"
+															rpst-movie-no="21084100" theab-no="06" play-de="20220803"
+															play-seq="5">
+															<div class="td-ab">
+																<div class="txt-center">
+																	<a href="" title="영화예매하기">
+																		<div class="ico-box">
+																			<i class="iconset ico-off"></i>
+																		</div>
+																		<p class="time">20:10</p>
+																		<p class="chair">83석</p>
+																		<div class="play-time">
+																			<p>20:10~22:40</p>
+																			<p>5회차</p>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="box-border v1 mt30" style="display: none;">
+							<ul class="dot-list gray"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 		</div> -->
+
+		<section id="saw_movie_regi" class="modal-layer">
+			<a href="" class="focus">레이어로 포커스 이동 됨</a> <input type="hidden"
+				id="isLogin">
+			<div class="wrap">
+				<header class="layer-header">
+					<h3 class="tit">본 영화 등록</h3>
+				</header>
+
+				<div class="layer-con">
+					<p class="reset">발권하신 티켓 하단의 거래번호 또는 예매번호를 입력해주세요.</p>
+
+					<div class="pop-gray mt10 mb30">
+						<label for="movie_regi" class="mr10">거래번호 또는 예매번호</label> <input
+							type="text" id="movie_regi" class="input-text w280px numType"
+							maxlength="20" placeholder="숫자만 입력해 주세요" title="티켓 거래번호 입력">
+						<button class="button gray ml05" id="regBtn">등록</button>
+					</div>
+
+					<div class="box-border v1 mt30">
+						<p class="tit-box">이용안내</p>
+
+						<ul class="dot-list">
+							<li>극장에서 예매하신 내역을 본 영화(관람이력)로 등록하실 수 있습니다.</li>
+							<li>예매처를 통해 예매하신 고객님은 극장에서 발권하신 티켓 하단의 온라인 예매번호 <br>12자리를
+								입력해주세요.(Yes24, 네이버, 인터파크, SKT, KT, 다음)
+							</li>
+							<li>본 영화 등록은 관람인원수 만큼 등록가능하며, 동일 계정에 중복등록은 불가합니다.</li>
+							<li>상영시간 종료 이후 등록 가능합니다.</li>
+							<li>본 영화로 수동 등록한 내역은 이벤트 참여 및 포인트 추후 적립이 불가합니다.</li>
 						</ul>
 					</div>
-
-					<div class="ltab-layer-wrap">
-						<div id="masterMovie" class="ltab-layer-cont has-img on"><a href="" class="ir"></a>
-							<div class="wrap tab-area">
-								<div class="tab-list-choice">
-									<ul>
-										<li><a href="#masterMovie_AllMovie" title="전체영화 선택" class="btn on">전체영화</a></li>
-										<li><a href="#masterMovie_CrtnMovie" title="큐레이션 선택" class="btn">큐레이션</a></li>
-									</ul>
-								</div>
-								<div class="list-section">
-									<div id="masterMovie_AllMovie" class="tab-layer-cont on"><a href="" class="ir"></a>
-										<div class="scroll m-scroll mCustomScrollbar _mCS_2"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
-											<ul class="list"><li><button type="button" class="btn disabled on" data-movie-nm="비상선언" data-movie-no="21084100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg">비상선언</button></li><li><button type="button" class="btn" data-movie-nm="한산: 용의 출현" data-movie-no="22023000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/28/1ogGcWYxCNJ9MTnizlZLdZ6REjg6xX1z_316.jpg">한산: 용의 출현</button></li><li><button type="button" class="btn" data-movie-nm="탑건: 매버릭" data-movie-no="22018400" data-img-path="https://img.megabox.co.kr/SharedImg/2022/05/09/6zfAYe6IrZ8BWnruqEfafwakt5cUjWgX_316.jpg">탑건: 매버릭</button></li><li><button type="button" class="btn disabled" data-movie-nm="헌트" data-movie-no="22037300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/26/NVV1sJ39un40HMIwi8fY54YpXhzqBG36_316.jpg">헌트</button></li><li><button type="button" class="btn" data-movie-nm="미니언즈2" data-movie-no="21020400" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/20/0v4Yp5q079dJPP0Eqt0JExH8qkl7bMks_316.jpg">미니언즈2</button></li><li><button type="button" class="btn" data-movie-nm="뽀로로 극장판 드래곤캐슬 대모험" data-movie-no="22032900" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/22/5AD7x9UrE4Ru8xuAR7Hb5BEKoA2IGFzZ_316.jpg">뽀로로 극장판 드래곤캐슬 대모험</button></li><li><button type="button" class="btn disabled" data-movie-nm="DC 리그 오브 슈퍼-펫" data-movie-no="22040600" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/5QmiMH2KZOYaIru5mEZcihFW40XhkvCq_316.jpg">DC 리그 오브 슈퍼-펫</button></li><li><button type="button" class="btn disabled" data-movie-nm="[라이브뷰잉] SEVENTEEN WORLD TOUR [BE THE SUN] - HOUSTON" data-movie-no="22044900" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/20/kmtuWxlJyg3OiWoucPlAeIu6yFcfAuzy_316.jpg">[라이브뷰잉] SEVENTEEN WORLD TOUR [BE THE SUN] - HOUSTON</button></li><li><button type="button" class="btn" data-movie-nm="외계+인 1부" data-movie-no="22034600" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/15/k9yRSehUQSb98QZKnz7MJ5riaOJ8NTHE_316.jpg">외계+인 1부</button></li><li><button type="button" class="btn" data-movie-nm="헤어질 결심" data-movie-no="22022900" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/07/S3GJQZbpshoIx0Lelerscl9rlI14FHqK_316.jpg">헤어질 결심</button></li><li><button type="button" class="btn" data-movie-nm="엘비스" data-movie-no="22029600" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/04/wo9hN6dpVFiZHp4d3MpGmPEGTC0CE2yt_316.jpg">엘비스</button></li><li><button type="button" class="btn" data-movie-nm="명탐정 코난: 할로윈의 신부" data-movie-no="22035000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/01/8rQ7apqkUoMo3JE2D5XY3DgAcd4PovW1_316.jpg">명탐정 코난: 할로윈의 신부</button></li><li><button type="button" class="btn" data-movie-nm="프리! 더 파이널 스트로크 후편" data-movie-no="22030100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/22/J4AfSbvwKUciwVWrxyln4Z7K1hMMfZv7_316.jpg">프리! 더 파이널 스트로크 후편</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 시네도슨트] 오르세 미술관 " data-movie-no="22035700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/21/atGgAYynEtbhEFYGr1rlHN1kNsVtt4Od_316.jpg">[2022 시네도슨트] 오르세 미술관 </button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 시네도슨트] 메트로폴리탄 미술관" data-movie-no="22040400" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/07/LKqgCSfHArzl5unuMEfKeD0RWG4q0sOf_316.jpg">[2022 시네도슨트] 메트로폴리탄 미술관</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 잘츠부르크 페스티벌] 마술피리" data-movie-no="22041200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/12/xpga1NHRkVBkslcHR9fxphJYBfGuNHtj_316.jpg">[2022 잘츠부르크 페스티벌] 마술피리</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 잘츠부르크 페스티벌] 바렌보임&amp;amp;랑랑 콘서트" data-movie-no="22041100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/14/1N8vnm63MaKUhBoFYLsW3Rm2hGkEcrFr_316.jpg">[2022 잘츠부르크 페스티벌] 바렌보임&amp;랑랑 콘서트</button></li><li><button type="button" class="btn disabled" data-movie-nm="극장판 도라에몽: 진구의 우주소전쟁 리틀스타워즈 2021" data-movie-no="22040800" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/26/v5cHH4BkOyirlKb4qIxThs3XQBUnpzQz_316.jpg">극장판 도라에몽: 진구의 우주소전쟁 리틀스타워즈 2021</button></li><li><button type="button" class="btn" data-movie-nm="토르: 러브 앤 썬더" data-movie-no="22028200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/06/t0SyNNVrh4UBBxmdCqBVtehgd03NWpf7_316.jpg">토르: 러브 앤 썬더</button></li><li><button type="button" class="btn" data-movie-nm="극장판 주술회전 0" data-movie-no="22001100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/02/17/djm7aYuL9bQGZRsxyUH75wATz9ub9ouk_316.jpg">극장판 주술회전 0</button></li><li><button type="button" class="btn" data-movie-nm="[오페라] 투란도트 @The Met" data-movie-no="22045000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/20/0MpvTj5AFFSmZLdyBHxxbZOkFKWVHpTy_316.jpg">[오페라] 투란도트 @The Met</button></li><li><button type="button" class="btn" data-movie-nm="썸머 필름을 타고!" data-movie-no="22033100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/27/t9AbCzKv1Syik1E15VKybp45tEwWr73a_316.jpg">썸머 필름을 타고!</button></li><li><button type="button" class="btn disabled" data-movie-nm="베르히만 아일랜드" data-movie-no="22038200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/6vM6q9YWXcIIfGZuV2hozQT1XNqJs5Tz_316.jpg">베르히만 아일랜드</button></li><li><button type="button" class="btn disabled" data-movie-nm="[턴즈] MINI 팬미팅 앵콜" data-movie-no="22040500" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/jPwJnI5OZzFhDEFkXV7KhOEX9p1PRHq7_316.png">[턴즈] MINI 팬미팅 앵콜</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 베로나 오페라 페스티벌] 카르멘" data-movie-no="22041300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/14/9SPOCeQZ187TSpiMTot7Kd6EeL5hTaLc_316.jpg">[2022 베로나 오페라 페스티벌] 카르멘</button></li><li><button type="button" class="btn disabled" data-movie-nm="문호 스트레이독스 [데드 애플]" data-movie-no="22044700" data-img-path="https://img.megabox.co.kr">문호 스트레이독스 [데드 애플]</button></li><li><button type="button" class="btn" data-movie-nm="범죄도시 2" data-movie-no="22018700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/05/23/oZfETtpEvKGpdY2JQo2Z6wFL0S4cpKy5_316.jpg">범죄도시 2</button></li><li><button type="button" class="btn disabled" data-movie-nm="스위티" data-movie-no="22045800" data-img-path="https://img.megabox.co.kr">스위티</button></li><li><button type="button" class="btn disabled" data-movie-nm="큐어" data-movie-no="22024700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/17/mclVT1DbPWwAJtmr0YkIx0PNmr8ActLU_316.jpg">큐어</button></li><li><button type="button" class="btn" data-movie-nm="로스트 도터" data-movie-no="22033200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/15/O3mxQblVEa4nbd8uq46Ovc8YGj6gik2g_316.jpg">로스트 도터</button></li><li><button type="button" class="btn disabled" data-movie-nm="보일링 포인트" data-movie-no="22036000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/26/el7UkVkHv3gYlvHNbnD1QMr9SpvOiKOo_316.jpg">보일링 포인트</button></li><li><button type="button" class="btn" data-movie-nm="임파서블 러브" data-movie-no="22038300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/qmRRGbdSJCHEkhvDXWk4FwkZpM4HbMh1_316.jpg">임파서블 러브</button></li><li><button type="button" class="btn disabled" data-movie-nm="체리마호: 30살까지 동정이면 마법사가 될 수 있대" data-movie-no="22040000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/06/L38kyhg3noYOnYmUJaUkRUVe42P8yW3D_316.jpg">체리마호: 30살까지 동정이면 마법사가 될 수 있대</button></li><li><button type="button" class="btn" data-movie-nm="아이 엠 러브" data-movie-no="01409400" data-img-path="https://img.megabox.co.kr/SharedImg/asis/system/mop/poster/2018/54/9EEB7D-86F4-4BD9-9039-602ED6C1720E.medium.jpg">아이 엠 러브</button></li><li><button type="button" class="btn" data-movie-nm="대중문화 퀴어링하기" data-movie-no="22045700" data-img-path="https://img.megabox.co.kr">대중문화 퀴어링하기</button></li><li><button type="button" class="btn disabled" data-movie-nm="컴온 컴온" data-movie-no="22026600" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/17/fhnPYYZ3ySD9JkRtOPhaacgRGPMnPMty_316.jpg">컴온 컴온</button></li><li><button type="button" class="btn disabled" data-movie-nm="아마추어" data-movie-no="22045900" data-img-path="https://img.megabox.co.kr">아마추어</button></li><li><button type="button" class="btn" data-movie-nm="마녀&amp;#40;魔女&amp;#41; Part2. The Other One" data-movie-no="22027700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/17/UiVCdL9H7i6emWkAoFo6k0pWOx4UaxzD_316.jpg">마녀(魔女) Part2. The Other One</button></li><li><button type="button" class="btn disabled" data-movie-nm="애니멀" data-movie-no="22046000" data-img-path="https://img.megabox.co.kr">애니멀</button></li><li><button type="button" class="btn disabled" data-movie-nm="퀴어 지니어스" data-movie-no="22046100" data-img-path="https://img.megabox.co.kr">퀴어 지니어스</button></li><li><button type="button" class="btn" data-movie-nm="배드 럭 뱅잉" data-movie-no="22026500" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/27/S3mimrlOiDF7nk8FJNGrGdlCRHhN4tCq_316.jpg">배드 럭 뱅잉</button></li><li><button type="button" class="btn" data-movie-nm="초록밤" data-movie-no="22037700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/spJ8gwJfmTnvLELCqJQHJJwgnULpjpxn_316.jpg">초록밤</button></li><li><button type="button" class="btn disabled" data-movie-nm="메타모르포제의 툇마루" data-movie-no="22040300" data-img-path="https://img.megabox.co.kr">메타모르포제의 툇마루</button></li><li><button type="button" class="btn" data-movie-nm="궁지에 몰린 쥐는 치즈 꿈을 꾼다" data-movie-no="22040100" data-img-path="https://img.megabox.co.kr">궁지에 몰린 쥐는 치즈 꿈을 꾼다</button></li><li><button type="button" class="btn disabled" data-movie-nm="그녀가 좋아하는 것은" data-movie-no="22040200" data-img-path="https://img.megabox.co.kr">그녀가 좋아하는 것은</button></li><li><button type="button" class="btn disabled" data-movie-nm="멘" data-movie-no="22035800" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/ARd80QbA9zrJ03pR2vV2A7u7MeVUo9oL_316.jpg">멘</button></li><li><button type="button" class="btn" data-movie-nm="아이를 위한 아이" data-movie-no="22035300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/24/DYeRRi3nf8OX4kFFbH3EYaajciq5PaS8_316.jpg">아이를 위한 아이</button></li><li><button type="button" class="btn" data-movie-nm="군다" data-movie-no="22037500" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/28/cJVjjcotKBGg3mw5LHxanYYmjsUfVDzx_316.jpg">군다</button></li><li><button type="button" class="btn disabled" data-movie-nm="모어" data-movie-no="22028100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/08/dUp6K7PFQyEXFEr7Elxj5QczdiQKZP0v_316.jpg">모어</button></li></ul>
-										</div><div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 87px; max-height: 190px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-									</div>
-									<div id="masterMovie_CrtnMovie" class="tab-layer-cont"><a href="" class="ir"></a>
-										<div class="scroll m-scroll mCustomScrollbar _mCS_3 mCS_no_scrollbar"><div id="mCSB_3" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_3_container" class="mCSB_container mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
-											<ul class="list"><li><button type="button" class="btn disabled" data-movie-nm="[2022 시네도슨트] 오르세 미술관 " data-movie-no="22035700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/21/atGgAYynEtbhEFYGr1rlHN1kNsVtt4Od_316.jpg">[2022 시네도슨트] 오르세 미술관 </button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 시네도슨트] 메트로폴리탄 미술관" data-movie-no="22040400" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/07/LKqgCSfHArzl5unuMEfKeD0RWG4q0sOf_316.jpg">[2022 시네도슨트] 메트로폴리탄 미술관</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 잘츠부르크 페스티벌] 마술피리" data-movie-no="22041200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/12/xpga1NHRkVBkslcHR9fxphJYBfGuNHtj_316.jpg">[2022 잘츠부르크 페스티벌] 마술피리</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 잘츠부르크 페스티벌] 바렌보임&amp;amp;랑랑 콘서트" data-movie-no="22041100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/14/1N8vnm63MaKUhBoFYLsW3Rm2hGkEcrFr_316.jpg">[2022 잘츠부르크 페스티벌] 바렌보임&amp;랑랑 콘서트</button></li><li><button type="button" class="btn " data-movie-nm="[오페라] 투란도트 @The Met" data-movie-no="22045000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/20/0MpvTj5AFFSmZLdyBHxxbZOkFKWVHpTy_316.jpg">[오페라] 투란도트 @The Met</button></li><li><button type="button" class="btn " data-movie-nm="썸머 필름을 타고!" data-movie-no="22033100" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/27/t9AbCzKv1Syik1E15VKybp45tEwWr73a_316.jpg">썸머 필름을 타고!</button></li><li><button type="button" class="btn disabled" data-movie-nm="베르히만 아일랜드" data-movie-no="22038200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/6vM6q9YWXcIIfGZuV2hozQT1XNqJs5Tz_316.jpg">베르히만 아일랜드</button></li><li><button type="button" class="btn disabled" data-movie-nm="[2022 베로나 오페라 페스티벌] 카르멘" data-movie-no="22041300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/14/9SPOCeQZ187TSpiMTot7Kd6EeL5hTaLc_316.jpg">[2022 베로나 오페라 페스티벌] 카르멘</button></li><li><button type="button" class="btn disabled" data-movie-nm="큐어" data-movie-no="22024700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/17/mclVT1DbPWwAJtmr0YkIx0PNmr8ActLU_316.jpg">큐어</button></li><li><button type="button" class="btn " data-movie-nm="로스트 도터" data-movie-no="22033200" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/15/O3mxQblVEa4nbd8uq46Ovc8YGj6gik2g_316.jpg">로스트 도터</button></li><li><button type="button" class="btn disabled" data-movie-nm="보일링 포인트" data-movie-no="22036000" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/26/el7UkVkHv3gYlvHNbnD1QMr9SpvOiKOo_316.jpg">보일링 포인트</button></li><li><button type="button" class="btn " data-movie-nm="임파서블 러브" data-movie-no="22038300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/qmRRGbdSJCHEkhvDXWk4FwkZpM4HbMh1_316.jpg">임파서블 러브</button></li><li><button type="button" class="btn disabled" data-movie-nm="컴온 컴온" data-movie-no="22026600" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/17/fhnPYYZ3ySD9JkRtOPhaacgRGPMnPMty_316.jpg">컴온 컴온</button></li><li><button type="button" class="btn " data-movie-nm="배드 럭 뱅잉" data-movie-no="22026500" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/27/S3mimrlOiDF7nk8FJNGrGdlCRHhN4tCq_316.jpg">배드 럭 뱅잉</button></li><li><button type="button" class="btn " data-movie-nm="초록밤" data-movie-no="22037700" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/spJ8gwJfmTnvLELCqJQHJJwgnULpjpxn_316.jpg">초록밤</button></li><li><button type="button" class="btn disabled" data-movie-nm="멘" data-movie-no="22035800" data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/11/ARd80QbA9zrJ03pR2vV2A7u7MeVUo9oL_316.jpg">멘</button></li><li><button type="button" class="btn " data-movie-nm="아이를 위한 아이" data-movie-no="22035300" data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/24/DYeRRi3nf8OX4kFFbH3EYaajciq5PaS8_316.jpg">아이를 위한 아이</button></li></ul>
-										</div><div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical"><div class="mCSB_draggerContainer"><div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: none; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-									</div>
-								</div>
-							</div>
-							<div class="poster-section">
-								<div class="table">
-									<div class="td"><a href="/movie-detail?rpstMovieNo=21084100" title="비상선언 상세보기"><img class="poster" onerror="noImg(this, 'del')" src="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" alt="비상선언"></a></div>
-								</div>
-							</div>
-						</div>
-
-						<div id="masterBrch" class="ltab-layer-cont"><a href="" class="ir"></a>
-							<div class="wrap tab-area">
-								<div class="tab-list-choice">
-									<ul><li><a href="#tab10" title="서울지점 선택" data-area-cd="10" class="on">서울(19)</a></li><li><a href="#tab30" title="경기지점 선택" data-area-cd="30">경기(31)</a></li><li><a href="#tab35" title="인천지점 선택" data-area-cd="35">인천(5)</a></li><li><a href="#tab45" title="대전/충청/세종지점 선택" data-area-cd="45">대전/충청/세종(17)</a></li><li><a href="#tab55" title="부산/대구/경상지점 선택" data-area-cd="55">부산/대구/경상(22)</a></li><li><a href="#tab65" title="광주/전라지점 선택" data-area-cd="65">광주/전라(9)</a></li><li><a href="#tab70" title="강원지점 선택" data-area-cd="70">강원(5)</a></li></ul>
-								</div>
-								<div class="list-section"><div id="tab10" class="tab-layer-cont on"><div class="scroll m-scroll mCustomScrollbar _mCS_4 mCS_no_scrollbar"><div id="mCSB_4" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_4_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1372">강남</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="0023">강남대로(씨티)</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1341">강동</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1431">군자</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1003">동대문</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1572">마곡</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1581">목동</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1311">상봉</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1211">상암월드컵경기장</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1331">성수</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1371">센트럴</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1381">송파파크하비오</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1202">신촌</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1561">이수</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1321">창동</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1351">코엑스</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1212">홍대</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1571">화곡</button></li><li><button type="button" class="btn" data-area-cd="10" data-brch-no="1562">ARTNINE</button></li></ul><div></div></div><div id="mCSB_4_scrollbar_vertical" class="mCSB_scrollTools mCSB_4_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_4_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab30" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_5 mCS_no_scrollbar"><div id="mCSB_5" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_5_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4121">고양스타필드</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0029">광명AK플라자</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0034">광명소하</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0035">금정AK플라자&nbsp;<i class="iconset ico-theater-new"></i></button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4152">김포한강신도시</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4721">남양주</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0019">남양주현대아울렛 스페이스원</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4451">동탄</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4652">미사강변</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4113">백석</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4722">별내</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4221">부천스타필드시티</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4631">분당</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0030">수원</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4421">수원남문</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4291">시흥배곧</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4253">안산중앙</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0020">안성스타필드</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4821">양주</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4431">영통</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0012">용인기흥</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4462">용인테크노밸리</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4804">의정부민락</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4111">일산</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4104">일산벨라시타</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4112">킨텍스</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4132">파주금촌</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4115">파주운정</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4131">파주출판도시</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="4651">하남스타필드</button></li><li><button type="button" class="btn" data-area-cd="30" data-brch-no="0036">호매실</button></li></ul><div></div></div><div id="mCSB_5_scrollbar_vertical" class="mCSB_scrollTools mCSB_5_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_5_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab35" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_6 mCS_no_scrollbar"><div id="mCSB_6" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_6_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="35" data-brch-no="4041">검단</button></li><li><button type="button" class="btn" data-area-cd="35" data-brch-no="4062">송도</button></li><li><button type="button" class="btn" data-area-cd="35" data-brch-no="4001">영종</button></li><li><button type="button" class="btn" data-area-cd="35" data-brch-no="4051">인천논현</button></li><li><button type="button" class="btn" data-area-cd="35" data-brch-no="0027">청라지젤</button></li></ul><div></div></div><div id="mCSB_6_scrollbar_vertical" class="mCSB_scrollTools mCSB_6_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_6_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab45" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_7 mCS_no_scrollbar"><div id="mCSB_7" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_7_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3141">공주</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0018">논산</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3021">대전</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0028">대전신세계 아트앤사이언스</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0009">대전유성</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3011">대전중앙로</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0017">대전현대아울렛</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3391">세종(조치원)</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3392">세종나성</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0008">세종청사</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3631">오창</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3901">제천</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3651">진천</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3301">천안</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="0013">청주사창</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3801">충주</button></li><li><button type="button" class="btn" data-area-cd="45" data-brch-no="3501">홍성내포</button></li></ul><div></div></div><div id="mCSB_7_scrollbar_vertical" class="mCSB_scrollTools mCSB_7_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_7_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab55" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_8 mCS_no_scrollbar"><div id="mCSB_8" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_8_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7602">경북도청</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7122">경산하양</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7303">구미강동</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7401">김천</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7901">남포항</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7011">대구신세계(동대구)</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="0022">대구이시아</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6161">덕천</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6312">마산</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="7451">문경</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6001">부산극장</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6906">부산대</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="0025">북대구(칠곡)</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="0032">사상</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6642">삼천포</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6261">양산</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6262">양산라피에스타</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6811">울산</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6191">정관</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6421">창원</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="0014">창원내서</button></li><li><button type="button" class="btn" data-area-cd="55" data-brch-no="6121">해운대(장산)</button></li></ul><div></div></div><div id="mCSB_8_scrollbar_vertical" class="mCSB_scrollTools mCSB_8_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_8_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab65" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_9 mCS_no_scrollbar"><div id="mCSB_9" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_9_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5021">광주상무</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5061">광주하남</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5302">목포하당(포르모)</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5612">송천</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5401">순천</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5552">여수웅천</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="0010">전대(광주)</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="0021">전주혁신</button></li><li><button type="button" class="btn" data-area-cd="65" data-brch-no="5064">첨단</button></li></ul><div></div></div><div id="mCSB_9_scrollbar_vertical" class="mCSB_scrollTools mCSB_9_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_9_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="tab70" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_10 mCS_no_scrollbar"><div id="mCSB_10" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_10_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="70" data-brch-no="2001">남춘천</button></li><li><button type="button" class="btn" data-area-cd="70" data-brch-no="2171">속초</button></li><li><button type="button" class="btn" data-area-cd="70" data-brch-no="2201">원주</button></li><li><button type="button" class="btn" data-area-cd="70" data-brch-no="2202">원주센트럴</button></li><li><button type="button" class="btn" data-area-cd="70" data-brch-no="0037">춘천석사</button></li></ul><div></div></div><div id="mCSB_10_scrollbar_vertical" class="mCSB_scrollTools mCSB_10_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_10_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div></div></div>
-							</div>
-						</div>
-
-						<div id="masterSpclBrch" class="ltab-layer-cont has-img"><a href="" class="ir"></a>
-							<div class="wrap tab-area">
-								<div class="tab-list-choice">
-									<ul><li><a href="#tabDBC" title="DOLBY CINEMA특별관 선택" data-area-cd="DBC" class="on">DOLBY CINEMA(5)</a></li><li><a href="#tabTBQ" title="THE BOUTIQUE특별관 선택" data-area-cd="TBQ">THE BOUTIQUE(8)</a></li><li><a href="#tabMX" title="MX특별관 선택" data-area-cd="MX">MX(8)</a></li><li><a href="#tabCFT" title="COMFORT특별관 선택" data-area-cd="CFT">COMFORT(40)</a></li><li><a href="#tabPTC" title="PUPPY CINEMA특별관 선택" data-area-cd="PTC">PUPPY CINEMA(1)</a></li><li><a href="#tabMKB" title="MEGABOX KIDS특별관 선택" data-area-cd="MKB">MEGABOX KIDS(3)</a></li></ul>
-								</div>
-								<div class="list-section"><div id="tabDBC" class="tab-layer-cont on"><div class="scroll m-scroll mCustomScrollbar _mCS_11 mCS_no_scrollbar"><div id="mCSB_11" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_11_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="DBC" data-brch-no="0019">남양주현대아울렛 스페이스원</button></li><li><button type="button" class="btn" data-area-cd="DBC" data-brch-no="7011">대구신세계(동대구)</button></li><li><button type="button" class="btn" data-area-cd="DBC" data-brch-no="0028">대전신세계 아트앤사이언스</button></li><li><button type="button" class="btn" data-area-cd="DBC" data-brch-no="0020">안성스타필드</button></li><li><button type="button" class="btn" data-area-cd="DBC" data-brch-no="1351">코엑스</button></li></ul><div></div></div><div id="mCSB_11_scrollbar_vertical" class="mCSB_scrollTools mCSB_11_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_11_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="/specialtheater/dolby" title="DOLBY 특별관 페이지로 이동">				<p><strong>DOLBY</strong>국내 최초로 메가박스가 <br>선보이는 세계 최고 <br>기술력의 몰입 시네마</p>				<i class="iconset ico-arrow-half"></i>				<img src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-dolby.png" alt="DOLBY 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div><div id="tabTBQ" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_12 mCS_no_scrollbar"><div id="mCSB_12" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_12_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="0028">대전신세계 아트앤사이언스</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="4631">분당</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="1331">성수</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="1371">센트럴</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="4104">일산벨라시타</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="1351">코엑스</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="4112">킨텍스</button></li><li><button type="button" class="btn" data-area-cd="TBQ" data-brch-no="4651">하남스타필드</button></li></ul><div></div></div><div id="mCSB_12_scrollbar_vertical" class="mCSB_scrollTools mCSB_12_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_12_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="/specialtheater/boutique" title="THE BOUTIQUE 특별관 페이지로 이동">				<p><strong>THE BOUTIQUE</strong>영화를 본다는 것,<br>그 놀라운 경험을 위하여</p>				<i class="iconset ico-arrow-half"></i>				<img src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-boutique.png" alt="THE BOUTIQUE 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div><div id="tabMX" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_13 mCS_no_scrollbar"><div id="mCSB_13" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_13_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="4121">고양스타필드</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="0017">대전현대아울렛</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="1581">목동</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="1211">상암월드컵경기장</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="1331">성수</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="4062">송도</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="4431">영통</button></li><li><button type="button" class="btn" data-area-cd="MX" data-brch-no="4651">하남스타필드</button></li></ul><div></div></div><div id="mCSB_13_scrollbar_vertical" class="mCSB_scrollTools mCSB_13_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_13_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="/specialtheater/mx" title="MX 특별관 페이지로 이동">				<p><strong>MX</strong>진정한 영화 사운드를 통한<br>최고의 영화! <br>메가박스의 차세대 <br>표준 상영관</p>				<i class="iconset ico-arrow-half"></i>				<img src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-mx.png" alt="MX 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div><div id="tabCFT" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_14 mCS_no_scrollbar"><div id="mCSB_14" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_14_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4041">검단</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0029">광명AK플라자</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="5021">광주상무</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="5061">광주하남</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0035">금정AK플라자&nbsp;<i class="iconset ico-theater-new"></i></button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0019">남양주현대아울렛 스페이스원</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0022">대구이시아</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="3021">대전</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0028">대전신세계 아트앤사이언스</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6161">덕천</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1003">동대문</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4451">동탄</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6312">마산</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1581">목동</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4113">백석</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6906">부산대</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0032">사상</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1311">상봉</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1211">상암월드컵경기장</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0008">세종청사</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4062">송도</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4421">수원남문</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4291">시흥배곧</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1202">신촌</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6261">양산</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6262">양산라피에스타</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4821">양주</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0012">용인기흥</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4462">용인테크노밸리</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6811">울산</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0014">창원내서</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="3301">천안</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0027">청라지젤</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0013">청주사창</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0037">춘천석사</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="1351">코엑스</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4112">킨텍스</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="4132">파주금촌</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="6121">해운대(장산)</button></li><li><button type="button" class="btn" data-area-cd="CFT" data-brch-no="0036">호매실</button></li></ul><div></div></div><div id="mCSB_14_scrollbar_vertical" class="mCSB_scrollTools mCSB_14_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_14_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="/specialtheater/comfort" title="COMFORT 특별관 페이지로 이동">				<p><strong>COMFORT</strong>더욱 편안한 영화 관람을<br>위한 다양한 여유 공간</p>				<i class="iconset ico-arrow-half"></i>				<img src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-comfort.png" alt="COMFORT 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div><div id="tabPTC" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_15 mCS_no_scrollbar"><div id="mCSB_15" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_15_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="PTC" data-brch-no="4431">영통</button></li></ul><div></div></div><div id="mCSB_15_scrollbar_vertical" class="mCSB_scrollTools mCSB_15_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_15_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="undefined" title=", 특별관 페이지로 이동">				<p><strong>,</strong>undefined</p>				<i class="iconset ico-arrow-half"></i>				<img src="undefined" alt=", 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div><div id="tabMKB" class="tab-layer-cont"><div class="scroll m-scroll mCustomScrollbar _mCS_16 mCS_no_scrollbar"><div id="mCSB_16" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 200px;" tabindex="0"><div id="mCSB_16_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><ul class="list"><li><button type="button" class="btn" data-area-cd="MKB" data-brch-no="6312">마산</button></li><li><button type="button" class="btn" data-area-cd="MKB" data-brch-no="4651">하남스타필드</button></li><li><button type="button" class="btn" data-area-cd="MKB" data-brch-no="6121">해운대(장산)</button></li></ul><div></div></div><div id="mCSB_16_scrollbar_vertical" class="mCSB_scrollTools mCSB_16_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_16_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div><div class="theater-section">	<div class="table">		<div class="td">			<a href="/specialtheater/megakids" title="MEGA KIDS 특별관 페이지로 이동">				<p><strong>MEGA KIDS</strong>아이와 가족이 함께 머물며<br>삶의 소중한 가치를 배우는<br>더 행복한 놀이공간</p>				<i class="iconset ico-arrow-half"></i>				<img src="https://img.megabox.co.kr/static/pc/images/reserve/img-theater-kids.png" alt="MEGA KIDS 특별관 페이지로 이동" class="poster">			</a>		</div>	</div></div></div></div>
-								
-							</div>
-						</div>
-					</div>
 				</div>
 
-				<div class="box-alert mt40" style="display:none">
-					<i class="iconset ico-bell"></i>
-					<strong></strong>
-					<span></span>
+				<div class="btn-group-fixed">
+					<button type="button" class="button purple close-layer">닫기</button>
 				</div>
 
-				<h3 class="tit mt60" style=""><span class="font-green">비상선언</span> 무대인사</h3>
-				<div class="reserve movie-greeting" style=""><ul><li><p class="greeting-date">2022.08.06</p><div class="greeting-infomation" brch-no="1212" play-schdl-no="2208061212031" rpst-movie-no="21084100" theab-no="02" play-de="20220806" play-seq="3"><p class="greeting-location">홍대 MewSuppasit관 (9층 2관)</p><p class="greeting-time">14:55~17:25</p><p class="greeting-moment">상영후</p><p class="greeting-person">송강호, 이병헌, 임시완, 김소진 배우</p><p class="btn"><span class="button gray">매진</span></p></div><div class="greeting-infomation" brch-no="1212" play-schdl-no="2208061212007" rpst-movie-no="21084100" theab-no="04" play-de="20220806" play-seq="4"><p class="greeting-location">홍대 11층 4관</p><p class="greeting-time">17:30~19:50</p><p class="greeting-moment">상영전</p><p class="greeting-person">송강호, 이병헌, 임시완, 김소진 배우</p><p class="btn"><span class="button gray">매진</span></p></div><div class="greeting-infomation" brch-no="1212" play-schdl-no="2208061212032" rpst-movie-no="21084100" theab-no="02" play-de="20220806" play-seq="4"><p class="greeting-location">홍대 MewSuppasit관 (9층 2관)</p><p class="greeting-time">17:40~20:00</p><p class="greeting-moment">상영전</p><p class="greeting-person">송강호, 이병헌, 임시완, 김소진 배우</p><p class="btn"><a href="" class="button purple" title="바로예매">바로예매</a></p></div></li></ul><ul></ul><div class="btn-more" style="display: none;">	<button type="button" class="btn">		<span>닫기</span>		<i class="iconset ico-btn-more-arr"></i>	</button></div></div>
-
-				<h3 class="tit mt60"><span class="font-green">비상선언</span> 상영시간표</h3><div class="time-schedule mb30">	<div class="wrap">		<button type="button" title="이전 날짜 보기" class="btn-pre" disabled="true">			<i class="iconset ico-cld-pre"></i> <em>이전</em>		</button>		<div class="date-list">			<div class="year-area">				<div class="year" style="left: 30px; z-index: 1; opacity: 1;">2022.08</div>				<div class="year" style="left: 450px; z-index: 1; opacity: 0;"></div>			</div>			<div class="date-area"><div class="wrap" style="position: relative; width: 2100px; border: none; left: -70px;"><button class="disabled" type="button" date-data="2022.08.01" month="7" tabindex="-1"><span class="ir">2022년 8월</span><em style="pointer-events:none;">1<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">월</span><span class="day-en" style="pointer-events:none;display:none">Mon</span></button><button class="disabled" type="button" date-data="2022.08.02" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">2<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">오늘</span><span class="day-en" style="pointer-events:none;display:none">Tue</span></button><button class="on" type="button" date-data="2022.08.03" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">3<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">내일</span><span class="day-en" style="pointer-events:none;display:none">Wed</span></button><button class="" type="button" date-data="2022.08.04" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">4<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">목</span><span class="day-en" style="pointer-events:none;display:none">Thu</span></button><button class="" type="button" date-data="2022.08.05" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">5<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">금</span><span class="day-en" style="pointer-events:none;display:none">Fri</span></button><button class="sat" type="button" date-data="2022.08.06" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">6<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">토</span><span class="day-en" style="pointer-events:none;display:none">Sat</span></button><button class="holi" type="button" date-data="2022.08.07" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">7<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">일</span><span class="day-en" style="pointer-events:none;display:none">Sun</span></button><button class="" type="button" date-data="2022.08.08" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">8<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">월</span><span class="day-en" style="pointer-events:none;display:none">Mon</span></button><button class="" type="button" date-data="2022.08.09" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">9<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">화</span><span class="day-en" style="pointer-events:none;display:none">Tue</span></button><button class="" type="button" date-data="2022.08.10" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">10<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">수</span><span class="day-en" style="pointer-events:none;display:none">Wed</span></button><button class="" type="button" date-data="2022.08.11" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">11<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">목</span><span class="day-en" style="pointer-events:none;display:none">Thu</span></button><button class="" type="button" date-data="2022.08.12" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">12<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">금</span><span class="day-en" style="pointer-events:none;display:none">Fri</span></button><button class="sat" type="button" date-data="2022.08.13" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">13<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">토</span><span class="day-en" style="pointer-events:none;display:none">Sat</span></button><button class="holi" type="button" date-data="2022.08.14" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">14<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">일</span><span class="day-en" style="pointer-events:none;display:none">Sun</span></button><button class="" type="button" date-data="2022.08.15" month="7"><span class="ir">2022년 8월</span><em style="pointer-events:none;">15<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">월</span><span class="day-en" style="pointer-events:none;display:none">Mon</span></button><button class="disabled" type="button" date-data="2022.08.16" month="7" tabindex="-1"><span class="ir">2022년 8월</span><em style="pointer-events:none;">16<span style="pointer-events:none;" class="ir">일</span></em><span class="day-kr" style="pointer-events:none;display:inline-block">화</span><span class="day-en" style="pointer-events:none;display:none">Tue</span></button></div></div>		</div>		<button type="button" title="다음 날짜 보기" class="btn-next" disabled="true">			<i class="iconset ico-cld-next"></i> <em>다음</em>		</button>		<div class="bg-line">			<input type="hidden" name="datePicker" id="dp1659416914669" class="hasDatepicker" value="2022.08.03">			<button type="button" class="btn-calendar-large" title="달력보기"> 달력보기</button>		</div>	</div></div><div class="movie-option mb20">	<div class="option">		<ul>			<li><i class="iconset ico-stage" title="무대인사"></i>무대인사</li>			<li><i class="iconset ico-user" title="회원시사"></i>회원시사</li>			<li><i class="iconset ico-open" title="오픈시사"></i>오픈시사</li>			<li><i class="iconset ico-goods" title="굿즈패키지"></i>굿즈패키지</li>			<li><i class="iconset ico-singalong" title="싱어롱"></i>싱어롱</li>			<li><i class="iconset ico-gv" title="GV"></i>GV</li>			<li><i class="iconset ico-sun" title="조조"></i>조조</li>			<li><i class="iconset ico-brunch" title="브런치"></i>브런치</li>			<li><i class="iconset ico-moon" title="심야"></i>심야</li>		</ul>	</div>	<div class="rateing-lavel">		<a href="" class="" title="관람등급안내">관람등급안내</a>	</div></div><div class="reserve theater-list-box">	<div class="tab-block tab-layer mb30">		<ul><li class="on"><a href="" class="btn" data-area-cd="10" title="서울 선택">서울</a></li><li><a href="" class="btn" data-area-cd="30" title="경기 선택">경기</a></li><li><a href="" class="btn" data-area-cd="35" title="인천 선택">인천</a></li><li><a href="" class="btn" data-area-cd="45" title="대전/충청/세종 선택">대전/충청/세종</a></li><li><a href="" class="btn" data-area-cd="55" title="부산/대구/경상 선택">부산/대구/경상</a></li><li><a href="" class="btn" data-area-cd="65" title="광주/전라 선택">광주/전라</a></li><li><a href="" class="btn" data-area-cd="70" title="강원 선택">강원</a></li></ul>	</div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1372" title="강남 상세보기">강남</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 232석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1372" play-schdl-no="2208031372006" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:30</p>				<p class="chair">206석</p>								<div class="play-time">					<p>09:30~12:01</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372007" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:20</p>				<p class="chair">214석</p>								<div class="play-time">					<p>12:20~14:51</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372008" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:10</p>				<p class="chair">214석</p>								<div class="play-time">					<p>15:10~17:41</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372009" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:00</p>				<p class="chair">211석</p>								<div class="play-time">					<p>18:00~20:31</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372010" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">214석</p>								<div class="play-time">					<p>20:50~23:21</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 232석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1372" play-schdl-no="2208031372011" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:40</p>				<p class="chair">215석</p>								<div class="play-time">					<p>10:40~13:10</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372012" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">224석</p>								<div class="play-time">					<p>13:30~16:00</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372013" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">220석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372014" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">195석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372015" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">228석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">6관</p>		<p class="chair">총 103석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1372" play-schdl-no="2208031372059" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:35</p>				<p class="chair">103석</p>								<div class="play-time">					<p>14:35~17:05</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372058" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:20</p>				<p class="chair">98석</p>								<div class="play-time">					<p>17:20~19:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1372" play-schdl-no="2208031372057" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">83석</p>								<div class="play-time">					<p>20:10~22:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=0023" title="강남대로&amp;#40;씨티&amp;#41; 상세보기">강남대로(씨티)</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">2관</p>		<p class="chair">총 240석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="0023" play-schdl-no="2208030023005" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:40</p>				<p class="chair">223석</p>								<div class="play-time">					<p>09:40~12:10</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023004" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-brunch"></i></div>				<p class="time">12:30</p>				<p class="chair">235석</p>								<div class="play-time">					<p>12:30~15:00</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023003" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:20</p>				<p class="chair">223석</p>								<div class="play-time">					<p>15:20~17:50</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023002" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:10</p>				<p class="chair">235석</p>								<div class="play-time">					<p>18:10~20:40</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023001" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:00</p>				<p class="chair">237석</p>								<div class="play-time">					<p>21:00~23:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 126석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="0023" play-schdl-no="2208030023043" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:00</p>				<p class="chair">124석</p>								<div class="play-time">					<p>09:00~11:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023042" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-brunch"></i></div>				<p class="time">11:50</p>				<p class="chair">123석</p>								<div class="play-time">					<p>11:50~14:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023044" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:45</p>				<p class="chair">126석</p>								<div class="play-time">					<p>14:45~17:15</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="0023" play-schdl-no="2208030023040" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:20</p>				<p class="chair">120석</p>								<div class="play-time">					<p>20:20~22:50</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1341" title="강동 상세보기">강동</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">2관</p>		<p class="chair">총 249석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1341" play-schdl-no="2208031341076" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:20</p>				<p class="chair">249석</p>								<div class="play-time">					<p>11:20~13:50</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341077" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:10</p>				<p class="chair">246석</p>								<div class="play-time">					<p>14:10~16:40</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341078" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:00</p>				<p class="chair">249석</p>								<div class="play-time">					<p>17:00~19:30</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341079" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:50</p>				<p class="chair">247석</p>								<div class="play-time">					<p>19:50~22:20</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 249석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1341" play-schdl-no="2208031341006" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:20</p>				<p class="chair">245석</p>								<div class="play-time">					<p>09:20~11:51</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341007" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:10</p>				<p class="chair">230석</p>								<div class="play-time">					<p>12:10~14:41</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341008" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:00</p>				<p class="chair">232석</p>								<div class="play-time">					<p>15:00~17:31</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341009" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:50</p>				<p class="chair">248석</p>								<div class="play-time">					<p>17:50~20:21</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341010" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:40</p>				<p class="chair">246석</p>								<div class="play-time">					<p>20:40~23:11</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 249석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1341" play-schdl-no="2208031341071" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:00</p>				<p class="chair">238석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341072" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:50</p>				<p class="chair">245석</p>								<div class="play-time">					<p>12:50~15:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341073" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:40</p>				<p class="chair">247석</p>								<div class="play-time">					<p>15:40~18:10</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341074" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:30</p>				<p class="chair">238석</p>								<div class="play-time">					<p>18:30~21:00</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1341" play-schdl-no="2208031341075" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:20</p>				<p class="chair">246석</p>								<div class="play-time">					<p>21:20~23:50</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1431" title="군자 상세보기">군자</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 155석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1431" play-schdl-no="2208031431006" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:00</p>				<p class="chair">118석</p>								<div class="play-time">					<p>09:00~11:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431007" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:45</p>				<p class="chair">136석</p>								<div class="play-time">					<p>11:45~14:15</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431008" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:30</p>				<p class="chair">139석</p>								<div class="play-time">					<p>14:30~17:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431009" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:15</p>				<p class="chair">145석</p>								<div class="play-time">					<p>17:15~19:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431010" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:00</p>				<p class="chair">119석</p>								<div class="play-time">					<p>20:00~22:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">5관</p>		<p class="chair">총 155석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1431" play-schdl-no="2208031431017" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:55</p>				<p class="chair">137석</p>								<div class="play-time">					<p>09:55~12:25</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431018" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:40</p>				<p class="chair">145석</p>								<div class="play-time">					<p>12:40~15:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431019" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:25</p>				<p class="chair">145석</p>								<div class="play-time">					<p>15:25~17:55</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431020" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:10</p>				<p class="chair">144석</p>								<div class="play-time">					<p>18:10~20:40</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431021" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:55</p>				<p class="chair">142석</p>								<div class="play-time">					<p>20:55~23:25</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">9관</p>		<p class="chair">총 155석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1431" play-schdl-no="2208031431039" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:50</p>				<p class="chair">139석</p>								<div class="play-time">					<p>10:50~13:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431040" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:35</p>				<p class="chair">143석</p>								<div class="play-time">					<p>13:35~16:05</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431041" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">145석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1431" play-schdl-no="2208031431042" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:05</p>				<p class="chair">141석</p>								<div class="play-time">					<p>19:05~21:35</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1003" title="동대문 상세보기">동대문</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트1관</p>		<p class="chair">총 284석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1003" play-schdl-no="2208031003006" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:50</p>				<p class="chair">272석</p>								<div class="play-time">					<p>10:50~13:20</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003007" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:40</p>				<p class="chair">277석</p>								<div class="play-time">					<p>13:40~16:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003008" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:30</p>				<p class="chair">277석</p>								<div class="play-time">					<p>16:30~19:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003009" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:20</p>				<p class="chair">272석</p>								<div class="play-time">					<p>19:20~21:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003010" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:10</p>				<p class="chair">284석</p>								<div class="play-time">					<p>22:10~24:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 203석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1003" play-schdl-no="2208031003001" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:55</p>				<p class="chair">156석</p>								<div class="play-time">					<p>09:55~12:26</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003002" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:45</p>				<p class="chair">174석</p>								<div class="play-time">					<p>12:45~15:16</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003003" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:35</p>				<p class="chair">158석</p>								<div class="play-time">					<p>15:35~18:06</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003004" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:25</p>				<p class="chair">170석</p>								<div class="play-time">					<p>18:25~20:56</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003005" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:15</p>				<p class="chair">198석</p>								<div class="play-time">					<p>21:15~23:46</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">6관</p>		<p class="chair">총 190석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1003" play-schdl-no="2208031003011" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:45</p>				<p class="chair">189석</p>								<div class="play-time">					<p>11:45~14:15</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003012" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:35</p>				<p class="chair">188석</p>								<div class="play-time">					<p>14:35~17:05</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003013" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:25</p>				<p class="chair">186석</p>								<div class="play-time">					<p>17:25~19:55</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1003" play-schdl-no="2208031003014" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:15</p>				<p class="chair">184석</p>								<div class="play-time">					<p>20:15~22:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1572" title="마곡 상세보기">마곡</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 122석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1572" play-schdl-no="2208031572038" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:50</p>				<p class="chair">113석</p>								<div class="play-time">					<p>10:50~13:20</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572039" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:40</p>				<p class="chair">111석</p>								<div class="play-time">					<p>13:40~16:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572040" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:30</p>				<p class="chair">112석</p>								<div class="play-time">					<p>16:30~19:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572041" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:20</p>				<p class="chair">99석</p>								<div class="play-time">					<p>19:20~21:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572042" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:10</p>				<p class="chair">117석</p>								<div class="play-time">					<p>22:10~24:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">5관</p>		<p class="chair">총 153석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1572" play-schdl-no="2208031572034" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:40</p>				<p class="chair">142석</p>								<div class="play-time">					<p>11:40~14:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572035" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:30</p>				<p class="chair">139석</p>								<div class="play-time">					<p>14:30~17:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572036" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:20</p>				<p class="chair">144석</p>								<div class="play-time">					<p>17:20~19:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572037" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">142석</p>								<div class="play-time">					<p>20:10~22:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">6관</p>		<p class="chair">총 132석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1572" play-schdl-no="2208031572011" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:50</p>				<p class="chair">98석</p>								<div class="play-time">					<p>09:50~12:21</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572012" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:45</p>				<p class="chair">115석</p>								<div class="play-time">					<p>12:45~15:16</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572013" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:40</p>				<p class="chair">106석</p>								<div class="play-time">					<p>15:40~18:11</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572014" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:35</p>				<p class="chair">117석</p>								<div class="play-time">					<p>18:35~21:06</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1572" play-schdl-no="2208031572015" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:30</p>				<p class="chair">109석</p>								<div class="play-time">					<p>21:30~24:01</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1581" title="목동 상세보기">목동</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">MX관</p>		<p class="chair">총 332석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D ATMOS</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1581" play-schdl-no="2208031581052" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:00</p>				<p class="chair">293석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581053" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:50</p>				<p class="chair">318석</p>								<div class="play-time">					<p>12:50~15:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581055" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:15</p>				<p class="chair">316석</p>								<div class="play-time">					<p>18:15~20:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 114석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1581" play-schdl-no="2208031581035" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:15</p>				<p class="chair">77석</p>								<div class="play-time">					<p>09:15~11:45</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581036" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:05</p>				<p class="chair">103석</p>								<div class="play-time">					<p>12:05~14:35</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581037" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:55</p>				<p class="chair">97석</p>								<div class="play-time">					<p>14:55~17:25</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581038" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:45</p>				<p class="chair">105석</p>								<div class="play-time">					<p>17:45~20:15</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581039" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:35</p>				<p class="chair">98석</p>								<div class="play-time">					<p>20:35~23:05</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581064" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:25</p>				<p class="chair">114석</p>								<div class="play-time">					<p>23:25~25:55</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트5관(SideWall)</p>		<p class="chair">총 66석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1581" play-schdl-no="2208031581071" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:40</p>				<p class="chair">64석</p>								<div class="play-time">					<p>10:40~13:10</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581072" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">61석</p>								<div class="play-time">					<p>13:30~16:00</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581073" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">63석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581074" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">61석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581075" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">66석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트6관(소파석)</p>		<p class="chair">총 210석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1581" play-schdl-no="2208031581007" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">08:40</p>				<p class="chair">194석</p>								<div class="play-time">					<p>08:40~11:11</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581008" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:30</p>				<p class="chair">188석</p>								<div class="play-time">					<p>11:30~14:01</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581009" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:20</p>				<p class="chair">166석</p>								<div class="play-time">					<p>14:20~16:51</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581010" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:10</p>				<p class="chair">202석</p>								<div class="play-time">					<p>17:10~19:41</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581011" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:00</p>				<p class="chair">158석</p>								<div class="play-time">					<p>20:00~22:31</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1581" play-schdl-no="2208031581012" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:50</p>				<p class="chair">208석</p>								<div class="play-time">					<p>22:50~25:21</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">7관</p>		<p class="chair">총 158석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1581" play-schdl-no="2208031581078" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:10</p>				<p class="chair">153석</p>								<div class="play-time">					<p>21:10~23:40</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1311" title="상봉 상세보기">상봉</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">6층 컴포트 2관</p>		<p class="chair">총 121석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1311" play-schdl-no="2208031311010" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:50</p>				<p class="chair">114석</p>								<div class="play-time">					<p>11:50~14:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311011" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:40</p>				<p class="chair">113석</p>								<div class="play-time">					<p>14:40~17:10</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311012" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:30</p>				<p class="chair">116석</p>								<div class="play-time">					<p>17:30~20:00</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311013" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:20</p>				<p class="chair">117석</p>								<div class="play-time">					<p>20:20~22:50</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">8층 6관</p>		<p class="chair">총 96석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1311" play-schdl-no="2208031311006" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:55</p>				<p class="chair">94석</p>								<div class="play-time">					<p>10:55~13:25</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311007" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:45</p>				<p class="chair">92석</p>								<div class="play-time">					<p>13:45~16:15</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311008" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:35</p>				<p class="chair">96석</p>								<div class="play-time">					<p>16:35~19:05</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311009" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:25</p>				<p class="chair">90석</p>								<div class="play-time">					<p>19:25~21:55</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">8층 7관</p>		<p class="chair">총 154석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1311" play-schdl-no="2208031311001" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:55</p>				<p class="chair">133석</p>								<div class="play-time">					<p>09:55~12:26</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311002" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:45</p>				<p class="chair">125석</p>								<div class="play-time">					<p>12:45~15:16</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311003" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:35</p>				<p class="chair">131석</p>								<div class="play-time">					<p>15:35~18:06</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311004" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:25</p>				<p class="chair">138석</p>								<div class="play-time">					<p>18:25~20:56</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1311" play-schdl-no="2208031311005" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:15</p>				<p class="chair">141석</p>								<div class="play-time">					<p>21:15~23:46</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1211" title="상암월드컵경기장 상세보기">상암월드컵경기장</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트1관</p>		<p class="chair">총 202석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1211" play-schdl-no="2208031211072" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:10</p>				<p class="chair">187석</p>								<div class="play-time">					<p>09:10~11:40</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211073" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:00</p>				<p class="chair">180석</p>								<div class="play-time">					<p>12:00~14:30</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211074" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:50</p>				<p class="chair">167석</p>								<div class="play-time">					<p>14:50~17:20</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211075" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:40</p>				<p class="chair">193석</p>								<div class="play-time">					<p>17:40~20:10</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211076" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:30</p>				<p class="chair">179석</p>								<div class="play-time">					<p>20:30~23:00</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211077" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:20</p>				<p class="chair">200석</p>								<div class="play-time">					<p>23:20~25:50</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">MX관</p>		<p class="chair">총 342석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D ATMOS</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1211" play-schdl-no="2208031211066" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:50</p>				<p class="chair">304석</p>								<div class="play-time">					<p>09:50~12:21</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211068" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:30</p>				<p class="chair">330석</p>								<div class="play-time">					<p>15:30~18:01</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211069" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:20</p>				<p class="chair">329석</p>								<div class="play-time">					<p>18:20~20:51</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211067" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:10</p>				<p class="chair">328석</p>								<div class="play-time">					<p>21:10~23:41</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211078" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">24:00</p>				<p class="chair">342석</p>								<div class="play-time">					<p>24:00~26:30</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 217석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1211" play-schdl-no="2208031211065" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">08:20</p>				<p class="chair">196석</p>								<div class="play-time">					<p>08:20~10:51</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211064" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:10</p>				<p class="chair">195석</p>								<div class="play-time">					<p>11:10~13:41</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211063" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:00</p>				<p class="chair">162석</p>								<div class="play-time">					<p>14:00~16:31</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211062" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:50</p>				<p class="chair">199석</p>								<div class="play-time">					<p>16:50~19:21</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211060" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:40</p>				<p class="chair">176석</p>								<div class="play-time">					<p>19:40~22:11</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211061" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:30</p>				<p class="chair">212석</p>								<div class="play-time">					<p>22:30~25:01</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">7관</p>		<p class="chair">총 97석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1211" play-schdl-no="2208031211079" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">07:50</p>				<p class="chair">89석</p>								<div class="play-time">					<p>07:50~10:20</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211080" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:40</p>				<p class="chair">92석</p>								<div class="play-time">					<p>10:40~13:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211081" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">97석</p>								<div class="play-time">					<p>13:30~16:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211082" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">97석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211083" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">82석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211084" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">95석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">9관</p>		<p class="chair">총 97석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1211" play-schdl-no="2208031211112" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">94석</p>								<div class="play-time">					<p>20:10~22:40</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1211" play-schdl-no="2208031211113" rpst-movie-no="21084100" theab-no="09" play-de="20220803" play-seq="7">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:00</p>				<p class="chair">97석</p>								<div class="play-time">					<p>23:00~25:30</p>					<p>7회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1331" title="성수 상세보기">성수</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 154석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1331" play-schdl-no="2208031331014" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:15</p>				<p class="chair">125석</p>								<div class="play-time">					<p>17:15~19:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331015" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:00</p>				<p class="chair">113석</p>								<div class="play-time">					<p>20:00~22:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">2관</p>		<p class="chair">총 170석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1331" play-schdl-no="2208031331083" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:00</p>				<p class="chair">143석</p>								<div class="play-time">					<p>09:00~11:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331084" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">159석</p>								<div class="play-time">					<p>13:30~16:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331085" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">158석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331106" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">156석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331088" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">168석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">소녀시대관(MX관)</p>		<p class="chair">총 279석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D ATMOS</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1331" play-schdl-no="2208031331108" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:20</p>				<p class="chair">269석</p>								<div class="play-time">					<p>11:20~13:50</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331109" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:10</p>				<p class="chair">262석</p>								<div class="play-time">					<p>14:10~16:40</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331110" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:00</p>				<p class="chair">273석</p>								<div class="play-time">					<p>17:00~19:30</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331111" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:50</p>				<p class="chair">268석</p>								<div class="play-time">					<p>19:50~22:20</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">5관</p>		<p class="chair">총 170석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1331" play-schdl-no="2208031331097" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:35</p>				<p class="chair">168석</p>								<div class="play-time">					<p>10:35~13:05</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331087" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:40</p>				<p class="chair">170석</p>								<div class="play-time">					<p>18:40~21:10</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331090" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:30</p>				<p class="chair">166석</p>								<div class="play-time">					<p>21:30~24:00</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">더부티크 101호 스위트</p>		<p class="chair">총 46석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1331" play-schdl-no="2208031331104" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:00</p>				<p class="chair">35석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1331" play-schdl-no="2208031331092" rpst-movie-no="21084100" theab-no="06" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">44석</p>								<div class="play-time">					<p>20:50~23:20</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1371" title="센트럴 상세보기">센트럴</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">더부티크 102호</p>		<p class="chair">총 159석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1371" play-schdl-no="2208031371006" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:00</p>				<p class="chair">131석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371007" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:50</p>				<p class="chair">139석</p>								<div class="play-time">					<p>12:50~15:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371008" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:40</p>				<p class="chair">151석</p>								<div class="play-time">					<p>15:40~18:10</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371009" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:30</p>				<p class="chair">154석</p>								<div class="play-time">					<p>18:30~21:00</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371010" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:20</p>				<p class="chair">153석</p>								<div class="play-time">					<p>21:20~23:50</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">더부티크 103호</p>		<p class="chair">총 175석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1371" play-schdl-no="2208031371001" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:00</p>				<p class="chair">134석</p>								<div class="play-time">					<p>09:00~11:31</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371002" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:50</p>				<p class="chair">159석</p>								<div class="play-time">					<p>11:50~14:21</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371003" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:40</p>				<p class="chair">135석</p>								<div class="play-time">					<p>14:40~17:11</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371004" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:30</p>				<p class="chair">124석</p>								<div class="play-time">					<p>17:30~20:01</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371005" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:20</p>				<p class="chair">157석</p>								<div class="play-time">					<p>20:20~22:51</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">더부티크 105호</p>		<p class="chair">총 118석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1371" play-schdl-no="2208031371053" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">108석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1371" play-schdl-no="2208031371054" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">117석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1381" title="송파파크하비오 상세보기">송파파크하비오</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 246석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1381" play-schdl-no="2208031381013" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:50</p>				<p class="chair">235석</p>								<div class="play-time">					<p>09:50~12:20</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381014" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:35</p>				<p class="chair">241석</p>								<div class="play-time">					<p>12:35~15:05</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381015" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:20</p>				<p class="chair">240석</p>								<div class="play-time">					<p>15:20~17:50</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381016" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:05</p>				<p class="chair">244석</p>								<div class="play-time">					<p>18:05~20:35</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381017" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">240석</p>								<div class="play-time">					<p>20:50~23:20</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 110석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1381" play-schdl-no="2208031381018" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:30</p>				<p class="chair">103석</p>								<div class="play-time">					<p>10:30~13:00</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381019" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:15</p>				<p class="chair">105석</p>								<div class="play-time">					<p>13:15~15:45</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381020" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:00</p>				<p class="chair">108석</p>								<div class="play-time">					<p>16:00~18:30</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381021" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:45</p>				<p class="chair">100석</p>								<div class="play-time">					<p>18:45~21:15</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381022" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:30</p>				<p class="chair">108석</p>								<div class="play-time">					<p>21:30~24:00</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">7관</p>		<p class="chair">총 46석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1381" play-schdl-no="2208031381023" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:10</p>				<p class="chair">43석</p>								<div class="play-time">					<p>11:10~13:40</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381024" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:55</p>				<p class="chair">46석</p>								<div class="play-time">					<p>13:55~16:25</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381025" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:40</p>				<p class="chair">46석</p>								<div class="play-time">					<p>16:40~19:10</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381026" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:25</p>				<p class="chair">36석</p>								<div class="play-time">					<p>19:25~21:55</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381027" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-moon"></i></div>				<p class="time">22:10</p>				<p class="chair">46석</p>								<div class="play-time">					<p>22:10~24:40</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">8관</p>		<p class="chair">총 126석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1381" play-schdl-no="2208031381007" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:10</p>				<p class="chair">120석</p>								<div class="play-time">					<p>09:10~11:40</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381008" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:55</p>				<p class="chair">121석</p>								<div class="play-time">					<p>11:55~14:25</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381009" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:40</p>				<p class="chair">120석</p>								<div class="play-time">					<p>14:40~17:10</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381010" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:25</p>				<p class="chair">126석</p>								<div class="play-time">					<p>17:25~19:55</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381011" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">102석</p>								<div class="play-time">					<p>20:10~22:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1381" play-schdl-no="2208031381012" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-moon"></i></div>				<p class="time">22:55</p>				<p class="chair">122석</p>								<div class="play-time">					<p>22:55~25:25</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1202" title="신촌 상세보기">신촌</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">프레드앤조지(컴포트1관)</p>		<p class="chair">총 400석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1202" play-schdl-no="2208031202001" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:30</p>				<p class="chair">364석</p>								<div class="play-time">					<p>09:30~12:01</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202002" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:20</p>				<p class="chair">381석</p>								<div class="play-time">					<p>12:20~14:51</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202003" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:10</p>				<p class="chair">368석</p>								<div class="play-time">					<p>15:10~17:41</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202004" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:00</p>				<p class="chair">383석</p>								<div class="play-time">					<p>18:00~20:31</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202005" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">385석</p>								<div class="play-time">					<p>20:50~23:21</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">프레드앤조지(2관)</p>		<p class="chair">총 218석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1202" play-schdl-no="2208031202009" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:20</p>				<p class="chair">217석</p>								<div class="play-time">					<p>13:20~15:51</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202011" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:10</p>				<p class="chair">214석</p>								<div class="play-time">					<p>16:10~18:41</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202013" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:00</p>				<p class="chair">210석</p>								<div class="play-time">					<p>19:00~21:31</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202015" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:50</p>				<p class="chair">216석</p>								<div class="play-time">					<p>21:50~24:21</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 319석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1202" play-schdl-no="2208031202008" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:30</p>				<p class="chair">310석</p>								<div class="play-time">					<p>11:30~14:01</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202010" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:20</p>				<p class="chair">316석</p>								<div class="play-time">					<p>14:20~16:51</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202012" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:10</p>				<p class="chair">306석</p>								<div class="play-time">					<p>17:10~19:41</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1202" play-schdl-no="2208031202014" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:00</p>				<p class="chair">307석</p>								<div class="play-time">					<p>20:00~22:31</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1561" title="이수 상세보기">이수</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 123석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1561" play-schdl-no="2208031561012" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:40</p>				<p class="chair">119석</p>								<div class="play-time">					<p>12:40~15:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561013" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:30</p>				<p class="chair">118석</p>								<div class="play-time">					<p>15:30~18:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561014" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:20</p>				<p class="chair">104석</p>								<div class="play-time">					<p>18:20~20:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561015" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:10</p>				<p class="chair">112석</p>								<div class="play-time">					<p>21:10~23:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 123석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1561" play-schdl-no="2208031561021" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:40</p>				<p class="chair">112석</p>								<div class="play-time">					<p>11:40~14:10</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561022" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:30</p>				<p class="chair">117석</p>								<div class="play-time">					<p>14:30~17:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561023" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:20</p>				<p class="chair">123석</p>								<div class="play-time">					<p>17:20~19:50</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561024" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">112석</p>								<div class="play-time">					<p>20:10~22:40</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">5관</p>		<p class="chair">총 198석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1561" play-schdl-no="2208031561016" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:40</p>				<p class="chair">130석</p>								<div class="play-time">					<p>10:40~13:10</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561017" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">164석</p>								<div class="play-time">					<p>13:30~16:00</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561018" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:20</p>				<p class="chair">172석</p>								<div class="play-time">					<p>16:20~18:50</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561019" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:10</p>				<p class="chair">111석</p>								<div class="play-time">					<p>19:10~21:40</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1561" play-schdl-no="2208031561020" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">183석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1321" title="창동 상세보기">창동</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 136석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1321" play-schdl-no="2208031321031" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:45</p>				<p class="chair">92석</p>								<div class="play-time">					<p>09:45~12:15</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321032" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:35</p>				<p class="chair">134석</p>								<div class="play-time">					<p>12:35~15:05</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321033" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:25</p>				<p class="chair">131석</p>								<div class="play-time">					<p>15:25~17:55</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321034" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:15</p>				<p class="chair">128석</p>								<div class="play-time">					<p>18:15~20:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321035" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:05</p>				<p class="chair">135석</p>								<div class="play-time">					<p>21:05~23:35</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">2관</p>		<p class="chair">총 136석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1321" play-schdl-no="2208031321027" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:05</p>				<p class="chair">136석</p>								<div class="play-time">					<p>12:05~14:35</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321028" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:55</p>				<p class="chair">133석</p>								<div class="play-time">					<p>14:55~17:25</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321029" rpst-movie-no="21084100" theab-no="02" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:45</p>				<p class="chair">136석</p>								<div class="play-time">					<p>17:45~20:15</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 136석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1321" play-schdl-no="2208031321065" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:20</p>				<p class="chair">97석</p>								<div class="play-time">					<p>09:20~11:50</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321064" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:15</p>				<p class="chair">129석</p>								<div class="play-time">					<p>20:15~22:45</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 136석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1321" play-schdl-no="2208031321059" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:15</p>				<p class="chair">128석</p>								<div class="play-time">					<p>14:15~16:45</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1321" play-schdl-no="2208031321061" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:15</p>				<p class="chair">136석</p>								<div class="play-time">					<p>17:15~19:45</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1351" title="코엑스 상세보기">코엑스</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">Dolby Cinema</p>		<p class="chair">총 378석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D ATMOS</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351001" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">07:30</p>				<p class="chair">286석</p>								<div class="play-time">					<p>07:30~10:01</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351002" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">10:30</p>				<p class="chair">279석</p>								<div class="play-time">					<p>10:30~13:01</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351003" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:30</p>				<p class="chair">268석</p>								<div class="play-time">					<p>13:30~16:01</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351004" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:30</p>				<p class="chair">260석</p>								<div class="play-time">					<p>16:30~19:01</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351005" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:30</p>				<p class="chair">188석</p>								<div class="play-time">					<p>19:30~22:01</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351006" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:30</p>				<p class="chair">333석</p>								<div class="play-time">					<p>22:30~25:01</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트 3관</p>		<p class="chair">총 348석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351007" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">08:10</p>				<p class="chair">314석</p>								<div class="play-time">					<p>08:10~10:41</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351008" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:10</p>				<p class="chair">209석</p>								<div class="play-time">					<p>11:10~13:41</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351009" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:10</p>				<p class="chair">187석</p>								<div class="play-time">					<p>14:10~16:41</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351010" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:10</p>				<p class="chair">248석</p>								<div class="play-time">					<p>17:10~19:41</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351011" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">150석</p>								<div class="play-time">					<p>20:10~22:41</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351012" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:10</p>				<p class="chair">334석</p>								<div class="play-time">					<p>23:10~25:41</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트 5관</p>		<p class="chair">총 281석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351036" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:00</p>				<p class="chair">237석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351037" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:00</p>				<p class="chair">245석</p>								<div class="play-time">					<p>13:00~15:30</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351038" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">16:00</p>				<p class="chair">233석</p>								<div class="play-time">					<p>16:00~18:30</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351039" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:00</p>				<p class="chair">170석</p>								<div class="play-time">					<p>19:00~21:30</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351040" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">269석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351041" rpst-movie-no="21084100" theab-no="05" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">25:00</p>				<p class="chair">279석</p>								<div class="play-time">					<p>25:00~27:30</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트 7관</p>		<p class="chair">총 285석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351024" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:30</p>				<p class="chair">271석</p>								<div class="play-time">					<p>09:30~12:00</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351025" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:30</p>				<p class="chair">263석</p>								<div class="play-time">					<p>12:30~15:00</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351026" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:30</p>				<p class="chair">250석</p>								<div class="play-time">					<p>15:30~18:00</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351027" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:30</p>				<p class="chair">243석</p>								<div class="play-time">					<p>18:30~21:00</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351034" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:30</p>				<p class="chair">278석</p>								<div class="play-time">					<p>21:30~24:00</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351035" rpst-movie-no="21084100" theab-no="07" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">24:30</p>				<p class="chair">283석</p>								<div class="play-time">					<p>24:30~27:00</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">컴포트 8관</p>		<p class="chair">총 255석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351028" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">08:50</p>				<p class="chair">250석</p>								<div class="play-time">					<p>08:50~11:20</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351029" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:50</p>				<p class="chair">238석</p>								<div class="play-time">					<p>11:50~14:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351030" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:50</p>				<p class="chair">208석</p>								<div class="play-time">					<p>14:50~17:20</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351031" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:50</p>				<p class="chair">238석</p>								<div class="play-time">					<p>17:50~20:20</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351032" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">234석</p>								<div class="play-time">					<p>20:50~23:20</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351033" rpst-movie-no="21084100" theab-no="08" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:50</p>				<p class="chair">253석</p>								<div class="play-time">					<p>23:50~26:20</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">더부티크 102호 스위트</p>		<p class="chair">총 36석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1351" play-schdl-no="2208031351013" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">08:30</p>				<p class="chair">28석</p>								<div class="play-time">					<p>08:30~11:01</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351014" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:35</p>				<p class="chair">25석</p>								<div class="play-time">					<p>11:35~14:06</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351015" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:40</p>				<p class="chair">14석</p>								<div class="play-time">					<p>14:40~17:11</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351016" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:45</p>				<p class="chair">15석</p>								<div class="play-time">					<p>17:45~20:16</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351017" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">1석</p>								<div class="play-time">					<p>20:50~23:21</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1351" play-schdl-no="2208031351018" rpst-movie-no="21084100" theab-no="12" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:55</p>				<p class="chair">29석</p>								<div class="play-time">					<p>23:55~26:26</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1212" title="홍대 상세보기">홍대</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">이솔로몬관 (7층 1관)</p>		<p class="chair">총 160석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1212" play-schdl-no="2208031212001" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">09:30</p>				<p class="chair">138석</p>								<div class="play-time">					<p>09:30~12:00</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212002" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:20</p>				<p class="chair">140석</p>								<div class="play-time">					<p>12:20~14:50</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212003" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:10</p>				<p class="chair">141석</p>								<div class="play-time">					<p>15:10~17:40</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212004" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:00</p>				<p class="chair">144석</p>								<div class="play-time">					<p>18:00~20:30</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212005" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:50</p>				<p class="chair">154석</p>								<div class="play-time">					<p>20:50~23:20</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">뮤수파싯관 (9층 3관)</p>		<p class="chair">총 113석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1212" play-schdl-no="2208031212018" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">13:25</p>				<p class="chair">104석</p>								<div class="play-time">					<p>13:25~15:55</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212019" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:05</p>				<p class="chair">98석</p>								<div class="play-time">					<p>19:05~21:35</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1212" play-schdl-no="2208031212017" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">22:00</p>				<p class="chair">113석</p>								<div class="play-time">					<p>22:00~24:30</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div><div class="theater-list"><div class="theater-area-click"><a href="/theater?brchNo=1571" title="화곡 상세보기">화곡</a></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">1관</p>		<p class="chair">총 198석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1571" play-schdl-no="2208031571007" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">08:50</p>				<p class="chair">170석</p>								<div class="play-time">					<p>08:50~11:21</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571008" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">11:40</p>				<p class="chair">178석</p>								<div class="play-time">					<p>11:40~14:11</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571009" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">14:30</p>				<p class="chair">174석</p>								<div class="play-time">					<p>14:30~17:01</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571010" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">17:20</p>				<p class="chair">179석</p>								<div class="play-time">					<p>17:20~19:51</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571011" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">20:10</p>				<p class="chair">167석</p>								<div class="play-time">					<p>20:10~22:41</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571012" rpst-movie-no="21084100" theab-no="01" play-de="20220803" play-seq="6">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">23:00</p>				<p class="chair">193석</p>								<div class="play-time">					<p>23:00~25:31</p>					<p>6회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">3관</p>		<p class="chair">총 210석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1571" play-schdl-no="2208031571013" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="1">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-sun"></i></div>				<p class="time">10:00</p>				<p class="chair">182석</p>								<div class="play-time">					<p>10:00~12:30</p>					<p>1회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571014" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="2">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">12:50</p>				<p class="chair">195석</p>								<div class="play-time">					<p>12:50~15:20</p>					<p>2회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571015" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="3">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">15:40</p>				<p class="chair">191석</p>								<div class="play-time">					<p>15:40~18:10</p>					<p>3회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571016" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="4">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">18:30</p>				<p class="chair">192석</p>								<div class="play-time">					<p>18:30~21:00</p>					<p>4회차</p>				</div>			</a>		</div>	</div></td><td class="" brch-no="1571" play-schdl-no="2208031571017" rpst-movie-no="21084100" theab-no="03" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">21:20</p>				<p class="chair">197석</p>								<div class="play-time">					<p>21:20~23:50</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div><div class="theater-type-box">	<div class="theater-type">		<p class="theater-name">4관</p>		<p class="chair">총 95석</p>	</div>	<div class="theater-time">		<div class="theater-type-area">2D</div>		<div class="theater-time-box">			<table class="time-list-table">				<caption>상영시간을 보여주는 표 입니다.</caption>				<colgroup>					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">					<col style="width:99px;">				</colgroup>				<tbody>				<tr><td class="" brch-no="1571" play-schdl-no="2208031571043" rpst-movie-no="21084100" theab-no="04" play-de="20220803" play-seq="5">	<div class="td-ab">		<div class="txt-center">			<a href="" title="영화예매하기">				<div class="ico-box"><i class="iconset ico-off"></i></div>				<p class="time">19:25</p>				<p class="chair">87석</p>								<div class="play-time">					<p>19:25~21:55</p>					<p>5회차</p>				</div>			</a>		</div>	</div></td></tr></tbody>			</table>		</div>	</div></div></div></div><div class="box-border v1 mt30" style="display: none;">	<ul class="dot-list gray"></ul></div>
+				<button type="button" class="btn-modal-close">레이어 닫기</button>
 			</div>
+		</section>
+
+		<div class="quick-area" style="display: block;">
+			<a href="" class="btn-go-top" title="top" style="position: fixed;">top</a>
+		</div>
+
+		<c:import url="../footer.jsp" charEncoding="utf-8" />
+
+		<!-- 모바일 때만 출력 -->
+		<div class="go-mobile" style="display: none;">
+			<a href="#" data-url="https://m.megabox.co.kr">모바일웹으로 보기 <i
+				class="iconset ico-go-mobile"></i></a>
 		</div>
 	</div>
-</div>
+	<form id="mainForm"></form>
 
-<!-- 		</div> -->
-        
-
-
-
-<section id="saw_movie_regi" class="modal-layer"><a href="" class="focus">레이어로 포커스 이동 됨</a>
-	<input type="hidden" id="isLogin">
-	<div class="wrap">
-		<header class="layer-header">
-			<h3 class="tit">본 영화 등록</h3>
-		</header>
-
-		<div class="layer-con">
-			<p class="reset">발권하신 티켓 하단의 거래번호 또는 예매번호를 입력해주세요.</p>
-
-			<div class="pop-gray mt10 mb30">
-				<label for="movie_regi" class="mr10">거래번호 또는 예매번호</label>
-				<input type="text" id="movie_regi" class="input-text w280px numType" maxlength="20" placeholder="숫자만 입력해 주세요" title="티켓 거래번호 입력">
-				<button class="button gray ml05" id="regBtn">등록</button>
-			</div>
-
-			<div class="box-border v1 mt30">
-				<p class="tit-box">이용안내</p>
-
-				<ul class="dot-list">
-                        <li>극장에서 예매하신 내역을 본 영화(관람이력)로 등록하실 수 있습니다.</li>
-                        <li>예매처를 통해 예매하신 고객님은 극장에서 발권하신 티켓 하단의 온라인 예매번호 <br>12자리를 입력해주세요.(Yes24, 네이버, 인터파크, SKT, KT, 다음)</li>
-                        <li>본 영화 등록은 관람인원수 만큼 등록가능하며, 동일 계정에 중복등록은 불가합니다.</li>
-                        <li>상영시간 종료 이후 등록 가능합니다.</li>
-                        <li>본 영화로 수동 등록한 내역은 이벤트 참여 및 포인트 추후 적립이 불가합니다.</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="btn-group-fixed">
-			<button type="button" class="button purple close-layer">닫기</button>
-		</div>
-
-		<button type="button" class="btn-modal-close">레이어 닫기</button>
-	</div>
-</section>
-
-<div class="quick-area" style="display: block;">
-	<a href="" class="btn-go-top" title="top" style="position: fixed;">top</a>
-</div>
-
-<c:import url="../footer.jsp" charEncoding="utf-8" />
-
-<!-- 모바일 때만 출력 -->
-<div class="go-mobile" style="display: none;">
-	<a href="#" data-url="https://m.megabox.co.kr">모바일웹으로 보기 <i class="iconset ico-go-mobile"></i></a>
-</div>
-    </div>
-    <form id="mainForm">
-    </form>
-
-<div class="normalStyle" style="display:none;position:fixed;top:0;left:0;background:#000;opacity:0.7;text-indent:-9999px;width:100%;height:100%;z-index:100;">닫기</div><div class="alertStyle" style="display:none;position:fixed;top:0px;left:0px;background:#000;opacity:0.7;width:100%;height:100%;z-index:5005;"></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>
+	<div class="normalStyle"
+		style="display: none; position: fixed; top: 0; left: 0; background: #000; opacity: 0.7; text-indent: -9999px; width: 100%; height: 100%; z-index: 100;">닫기</div>
+	<div class="alertStyle"
+		style="display: none; position: fixed; top: 0px; left: 0px; background: #000; opacity: 0.7; width: 100%; height: 100%; z-index: 5005;"></div>
+	<div id="ui-datepicker-div"
+		class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+</body>
+</html>

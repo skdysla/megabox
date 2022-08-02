@@ -10,5 +10,11 @@ public class BookingController {
 	public String timetable() {
 		return "booking/timetable";
 	} 
+	
+	@GetMapping("seatChoice")
+	public String seatChoice() {
+		return "booking/seatChoice";
+	} 
+	
 
 }

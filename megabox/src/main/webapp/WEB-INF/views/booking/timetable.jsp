@@ -27,7 +27,7 @@
      		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
      		<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LKZN3J8B1J&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
-			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
+			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('', new Date()); gtag('config', 'UA-30006739-3');</script>
 		    <script src="/static/pc/dist/megabox.api.min.js"></script>
 			<script src="/static/mb/js/lozad.min.js"></script>
 			<script src="/js/common/dist/megabox.common.min.js"></script>
@@ -61,7 +61,8 @@
             alert("준비중 입니다");
             return;
         }
-    </script><script src="/static/pc/js/ui.common.js?v=1659416914695"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking"></script><script src="/static/pc/js/front.js?v=1659416914695"></script>
+    </script><script src="/static/pc/js/ui.common.js?v=1659416914695"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking"></script>
+    <script src="../front.js"></script>
 </head>
 
 <body>

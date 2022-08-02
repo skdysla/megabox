@@ -1,90 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
+
+		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
+     		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
+     		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
+			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
+			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
+			<script src="https://www.megabox.co.kr/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
+			<script src="https://www.megabox.co.kr/cast.imp.joins.com/persona.js" async=""></script>
+    
+		    <script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
+		    <script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
+    
+    		<script>
+    		function doDisplay(){
+	    		var layer = document.getElementById("layer_header_search");
+	    		layer.style.display = 'block';
+    		}
+    		</script>
 <!-- header -->
 <header id="header">
-    <h1 class="ci"><a href="/" title="MEGABOX 메인으로 가기">MEGABOX : Life Theater</a></h1>
+    <h1 class="ci"><a href="/main" title="MEGABOX 메인으로 가기">MEGABOX : Life Theater</a></h1>
 
-	<!-- 브라우저 다운로드 -->
-    
-
-    <script type="text/javascript">
-    $(function(){
-	  	//닫기 버튼 클릭
-		$('.ie-update').on('click', '.close-chk .closeDl', function() {
-			 if ($(":checkbox[id='one_month_no_update']:checked").length > 0) {
-				fn_setCookie("BROWDER_DL", "Y", 30);
-			}
-
-			$('.ie-update').hide();
-		});
-
-		//다시보지 않기
-		 if (fn_getCookie("BROWDER_DL") == null || fn_getCookie("BROWDER_DL") == 'N') {
-			if ( $(".lt-ie9").length > 0 && $('.ie-update').length > 0 ) {
-				$('.ie-update').show();
-			}
-		}
-    });
-    </script>
-	<!-- ie-update : ie 9 이하 일때만 출력 -->
-	<div class="ie-update">
-		<div class="dimd"></div>
-		<div class="wrap">
-			<p class="tit">
-				<img src="../../../static/pc/images/ie/txt-update.png" alt="megabox 홈페이지는 internet explrer10이상에서 최적화된 서비스 이용이 가능합니다. ie9 이하에서는 예매가 정상적으로 진행되지 않을 수 있으니, 브라우저를 업그레이드하시거나 다른 예매수단을 이용해 주세요!">
-			</p>
-
-			<div class="box">
-				<div class="col">
-					<p class="txt">브라우저를 최신 버전으로<br>업그레이드 해보세요!</p>
-
-					<div class="link">
-						<a href="https://www.microsoft.com/ko-kr/download/internet-explorer.aspx" title="internet explorer 새 버전 다운로드" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-ie.png" alt="internet explorer 새 버전 다운로드">
-						</a>
-					</div>
-
-					<div class="link">
-						<a href="http://www.google.com/chrome?hl=ko" title="chrome 다운로드" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-chrome.png" alt="chrome 다운로드">
-						</a>
-					</div>
-				</div>
-
-				<div class="col">
-					<p class="txt">megabox 모바일 app을<br>이용해 보세요!</p>
-
-					<div class="link">
-						<a href="https://itunes.apple.com/us/app/megabox/id894443858?l=ko&amp;ls=1&amp;mt=8" title="available on the app store" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-appstore.png" alt="available on the app store">
-						</a>
-					</div>
-
-					<div class="link">
-						<a href="https://play.google.com/store/apps/details?id=com.megabox.mop&amp;hl=ko" title="available on the google play" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-google.png" alt="available on the google play">
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="close-chk">
-				<input type="checkbox" id="one_month_no_update">
-				<label for="one_month_no_update" class="ml05">한 달 동안 이 창을 열지 않음</label>
-
-				<button type="button" class="closeDl button purple x-small ml20">닫기</button>
-			</div>
-		</div>
-	</div>
-	<!--// ie-update : ie 9 이하 일때만 출력 -->
-    <!--// 브라우저 다운로드 -->
-
-    <!-- topGnb -->
-    
-
-
-
-	<!-- 2019-04-15 마크업 수정 : 고객요청  -->
     <div class="util-area">
         <div class="left-link">
             <a href="/benefit/viplounge" title="VIP LOUNGE">VIP LOUNGE</a>
@@ -138,12 +81,11 @@
             <a href="/booking">빠른예매</a>
         </div>
     </div>
-    <!--// 2019-04-15 마크업 수정 : 고객요청  -->
 
     <div class="link-area">
         <a href="#layer_sitemap" class="header-open-layer btn-layer-sitemap" title="사이트맵">사이트맵</a>
-        <a href="#layer_header_search" class="header-open-layer btn-layer-search" title="검색">검색</a>
-        <a href="/booking/timetable" class="link-ticket" title="상영시간표">상영시간표</a>
+        <a href="#layer_header_search" class="header-open-layer btn-layer-search" title="검색" onclick="doDisplay()">검색</a>
+        <a href="/timetable" class="link-ticket" title="상영시간표">상영시간표</a>
         <a href="#layer_mymega" class="header-open-layer btn-layer-mymega" title="나의 메가박스">나의 메가박스</a>
     </div>
 
@@ -219,9 +161,6 @@
     <!--// topGnb -->
 
     <!-- 레이어 : 사이트맵 -->
-    
-
-
 
 	<div id="layer_sitemap" class="header-layer layer-sitemap">
         <!-- wrap -->
@@ -363,7 +302,74 @@
     <!--// 레이어 : 사이트맵 -->
 
     <!-- 레이어 : 검색 -->
-    <div id="layer_header_search" class="header-layer layer-header-search"></div>
+    <div id="layer_header_search" class="header-layer layer-header-search appendHtml">
+        <div class="wrap">
+            <a href="" class="link-acc" title="검색 레이어 입니다.">검색 레이어 입니다.</a>
+
+            <div class="tab-rank tab-layer">
+                <ul>
+                    <li class="on"><button type="button" class="btn">예매율 순</button></li>
+                    <li><button type="button" class="btn">메가박스 관객순</button></li>
+                </ul>
+            </div>
+
+            <div class="rank-cont">
+                <p class="img">
+                	
+                	<img src="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" alt="비상선언" onerror="noImg(this, 'main');">
+                	
+                </p>
+
+                <div class="list">
+                	<ol>
+                		
+	                	
+							<li><em>1</em> <a href="javascript:gfn_moveDetail('21084100')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" onerror="noImg(this, 'main');" title="비상선언 상세보기">비상선언</a></li>
+	                	
+							<li><em>2</em> <a href="javascript:gfn_moveDetail('22023000')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/28/1ogGcWYxCNJ9MTnizlZLdZ6REjg6xX1z_316.jpg" onerror="noImg(this, 'main');" title="한산: 용의 출현 상세보기">한산: 용의 출현</a></li>
+	                	
+							<li><em>3</em> <a href="javascript:gfn_moveDetail('22018400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/05/09/6zfAYe6IrZ8BWnruqEfafwakt5cUjWgX_316.jpg" onerror="noImg(this, 'main');" title="탑건: 매버릭 상세보기">탑건: 매버릭</a></li>
+	                	
+							<li><em>4</em> <a href="javascript:gfn_moveDetail('22037300')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/26/NVV1sJ39un40HMIwi8fY54YpXhzqBG36_316.jpg" onerror="noImg(this, 'main');" title="헌트 상세보기">헌트</a></li>
+	                	
+							<li><em>5</em> <a href="javascript:gfn_moveDetail('21020400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/20/0v4Yp5q079dJPP0Eqt0JExH8qkl7bMks_316.jpg" onerror="noImg(this, 'main');" title="미니언즈2 상세보기">미니언즈2</a></li>
+	                	
+	                	
+                	</ol>
+                	<ol style="display:none">
+                		
+	                	
+							<li><em>1</em> <a href="javascript:gfn_moveDetail('22018700')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/05/23/oZfETtpEvKGpdY2JQo2Z6wFL0S4cpKy5_316.jpg" onerror="noImg(this, 'main');" title="범죄도시 2 상세보기">범죄도시 2</a></li>
+	                	
+							<li><em>2</em> <a href="javascript:gfn_moveDetail('22018400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/05/09/6zfAYe6IrZ8BWnruqEfafwakt5cUjWgX_316.jpg" onerror="noImg(this, 'main');" title="탑건: 매버릭 상세보기">탑건: 매버릭</a></li>
+	                	
+							<li><em>3</em> <a href="javascript:gfn_moveDetail('22023000')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/28/1ogGcWYxCNJ9MTnizlZLdZ6REjg6xX1z_316.jpg" onerror="noImg(this, 'main');" title="한산: 용의 출현 상세보기">한산: 용의 출현</a></li>
+	                	
+							<li><em>4</em> <a href="javascript:gfn_moveDetail('22028200')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/06/t0SyNNVrh4UBBxmdCqBVtehgd03NWpf7_316.jpg" onerror="noImg(this, 'main');" title="토르: 러브 앤 썬더 상세보기">토르: 러브 앤 썬더</a></li>
+	                	
+							<li><em>5</em> <a href="javascript:gfn_moveDetail('22027700')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/06/17/UiVCdL9H7i6emWkAoFo6k0pWOx4UaxzD_316.jpg" onerror="noImg(this, 'main');" title="마녀(魔女) Part2. The Other One 상세보기">마녀(魔女) Part2. The Other One</a></li>
+	                	
+	                	
+                	</ol>
+                </div>
+            </div>
+
+            <div class="header-search-area">
+                <input type="text" id="headerMovieName" title="영화명을 검색해 주세요" placeholder="영화를 검색하세요" class="input-text">
+                <button type="button" id="btnHeaderSearch" class="btn-search">검색</button>
+            </div>
+
+			<form name="headerBoxoForm" id="headerBoxoForm" method="post" onsubmit="return fn_chkHeaderBoxOffice();">
+				<input type="hidden" name="searchText" id="searchText">
+			</form>
+
+
+
+            <div class="ir">
+                <a href="" class="layer-close" title="레이어닫기">레이어닫기</a>
+            </div>
+        </div>
+</div>
     <!--// 레이어 : 검색 -->
 
     <!-- 레이어 : 마이페이지 -->

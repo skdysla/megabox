@@ -9,6 +9,6 @@ public class BookingController {
 	@GetMapping("timetable")
 	public String timetable() {
 		return "booking/timetable";
-	}
+	} 
 
 }

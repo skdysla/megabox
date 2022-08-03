@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<c:import url="/header" />
+<c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
 <div class="container has-lnb">
 	<div class="page-util fixed">
@@ -14,37 +14,14 @@
 		</div>
 
             <div class="inner-wrap">
-                
-
-
-<script type="text/javascript">
-$(function(){
-	var url = location.pathname + location.search;
-    $("div.lnb-area > nav#lnb a").filter(function(i,o) { return $(o).attr("href") == url;}).last().parent().addClass("on");
-
-	$.get('/on/oh/ohh/MyScnBoard/selectCponMbNoCount.do')
-			.done(function (data) {
-				if (data.todayPubOthcomCponCnt > 0) {
-					var i = $('<span>메가박스/제휴쿠폰 </span><i class="iconset ico-theater-new"></i>');
-
-					$('#discountCoupon')
-							.empty()
-							.append(i);
-				} else {
-					// do nothing
-				}
-			});
-});
-</script>
-
 
 	<div class="lnb-area location-fixed">
 		<nav id="lnb">
-			<p class="tit on"><a href="/mypage" title="나의 메가박스">나의 메가박스</a></p>
+			<p class="tit on"><a href="Membermain" title="나의 메가박스">나의 메가박스</a></p>
 
 			<ul>
-				<li class=""><a href="/mypage/bookinglist" title="예매/구매내역">예매/구매내역</a></li>
-                   <li>
+				<li class=""><a href="BookingList" title="예매/구매내역">예매/구매내역</a></li>
+                <li>
                    	<a href="/mypage/movie-coupon" title="영화/스토어 관람권">영화/스토어 관람권</a>
 					<ul class="depth3">
 						<li><a href="/mypage/movie-coupon" title="영화관람권">영화관람권</a></li>
@@ -53,22 +30,22 @@ $(function(){
 				</li>
 				<li><a id="discountCoupon" href="/mypage/discount-coupon" title="메가박스/제휴쿠폰">메가박스/제휴쿠폰</a></li>
 				<!-- <li><a href="/on/oh/ohh/Mvtckt/GiftCardL.do">메가박스 기프트카드</a></li> -->
-				<li>
+<!-- 				<li>
 					<a href="/mypage/point-list" title="멤버십 포인트">멤버십 포인트</a>
 					<ul class="depth3">
 						<li><a href="/mypage/point-list" title="포인트 이용내역">포인트 이용내역</a></li>
 						<li><a href="/mypage/card-list" title="멤버십 카드관리">멤버십 카드관리</a></li>
 						<li><a href="/mypage/milk-service" title="MiL.k 제휴서비스">MiL.k 포인트</a></li>
 					</ul>
-				</li>
-				<li><a href="/mypage/moviestory" titel="나의 무비스토리">나의 무비스토리</a></li>
+				</li> -->
+				<li><a href="MovieStory" titel="나의 무비스토리">나의 무비스토리</a></li>
 				<li><a href="/mypage/myevent" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
-				<li><a href="/mypage/myinquiry" title="나의 문의내역">나의 문의내역</a></li>
+				<li><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
 <!-- 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li> -->
 				<li>
 					<a href="/mypage/myinfo?returnURL=info" title="회원정보">회원정보</a>
 					<ul class="depth3">
-						<li><a href="/mypage/myinfo?returnURL=info" title="개인정보 수정">개인정보 수정</a></li>
+						<li><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
 						<li><a href="/mypage/additionalinfo" title="선택정보 수정">선택정보 수정</a></li>
 					</ul>
 				</li>
@@ -426,4 +403,4 @@ $(function(){
             </div>
         </div>
         
-<c:import url="/footer" />
+<c:import url="../footer.jsp" charEncoding="utf-8" />

@@ -2565,14 +2565,6 @@ function fn_bokdReload(page){
 						<!--// theater-area-list -->
 
 						<p class="name">강남</p>
-
-						<div class="btn-util right">
-							<div class="block">
-								<button type="button" class="btn btn-like " id="favorBrch">
-									<i class="iconset ico-like-line"></i> <span>선호극장</span>
-								</button>
-							</div>
-						</div>
 					</div>
 					<!--// theater-detail-cont -->
 				</div>
@@ -2807,6 +2799,10 @@ function fn_bokdReload(page){
 		</div>
 
 		<c:import url="../footer.jsp" charEncoding="utf-8" />
+		
+		<div class="quick-area" style="display: none;">
+			<a href="" class="btn-go-top" title="top" style="position: fixed;">top</a>
+		</div>
 
 		<!-- 모바일 때만 출력 -->
 		<div class="go-mobile" style="display: none;">

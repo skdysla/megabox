@@ -1,4 +1,4 @@
-package com.my.megabox.repository;
+package com.my.megabox.booking.dao;
 
 import org.springframework.stereotype.Repository;
 

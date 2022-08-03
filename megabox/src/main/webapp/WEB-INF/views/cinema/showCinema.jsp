@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko"><!--<![endif]--><head>
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
-  
+   
 		<title>(강남)극장정보 &gt; 전체극장 , 메가박스</title>
      		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
      		<!-- Global site tag (gtag.js) - Google Analytics -->

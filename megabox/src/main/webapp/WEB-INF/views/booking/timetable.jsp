@@ -10,8 +10,6 @@
 <link rel="stylesheet" 
 	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
-<script async=""
-	src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
 	
 <script type="text/javascript">
 function click_date(element){

@@ -7,8 +7,21 @@
 <link rel="shortcut icon" href="/static/pc/images/favicon.ico">
  
 <title>(강남)상영시간표 &gt; 전체극장 , 메가박스</title>
-<link rel="stylesheet" href="/static/pc/dist/megabox.min.css"
+<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
+	
+<script type="text/javascript">
+function click_date(element){
+	var dates = document.getElementsByName('actual_date');
+	for(i = 0; i < dates.length; i++){
+		if(dates[i].class = 'on') //하나의 버튼만
+			dates[i].className = 'default';
+	}
+	console.log(element.value);
+	element.className = 'on';
+}
+</script>
+	
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
 <script type="text/javascript">
@@ -2601,46 +2614,46 @@ function fn_bokdReload(page){
 												style="left: 450px; z-index: 1; opacity: 0;"></div>
 										</div>
 										<div class="date-area">
-											<div class="wrap"
-												style="position: relative; width: 2100px; border: none; left: -70px;">
-												<button class="disabled" type="button"
-													date-data="2022.08.02" month="7" tabindex="-1">
-													<span class="ir">2022년 8월</span><em
-														style="pointer-events: none;">2<span
-														style="pointer-events: none;" class="ir">일</span></em><span
-														class="day-kr"
-														style="pointer-events: none; display: inline-block">화</span><span
-														class="day-en" style="pointer-events: none; display: none">Tue</span>
-												</button>
-												<button class="on" type="button" date-data="2022.08.03"
-													month="7">
-													<span class="ir">2022년 8월</span><em
-														style="pointer-events: none;">3<span
-														style="pointer-events: none;" class="ir">일</span></em><span
-														class="day-kr"
-														style="pointer-events: none; display: inline-block">오늘</span><span
-														class="day-en" style="pointer-events: none; display: none">Wed</span>
-												</button>
-												<button class="" type="button" date-data="2022.08.04"
-													month="7">
-													<span class="ir">2022년 8월</span><em
-														style="pointer-events: none;">4<span
-														style="pointer-events: none;" class="ir">일</span></em><span
-														class="day-kr"
-														style="pointer-events: none; display: inline-block">내일</span><span
-														class="day-en" style="pointer-events: none; display: none">Thu</span>
-												</button>
-												<button class="" type="button" date-data="2022.08.05"
-													month="7">
-													<span class="ir">2022년 8월</span><em
-														style="pointer-events: none;">5<span
-														style="pointer-events: none;" class="ir">일</span></em><span
-														class="day-kr"
-														style="pointer-events: none; display: inline-block">금</span><span
-														class="day-en" style="pointer-events: none; display: none">Fri</span>
-												</button>
-											</div>
+										<div class="wrap"
+											style="position: relative; width: 2100px; border: none; left: -70px;">
+											<button onclick="click_date(this);" name="actual_date" class="disabled" type="button" value="2022.08.01"
+												month="7" tabindex="-1">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">1<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">월</span><span
+													class="day-en" style="pointer-events: none; display: none">Mon</span>
+											</button>
+											<button onclick="click_date(this);" name="actual_date" class="disabled" type="button" value="2022.08.02"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">2<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">오늘</span><span
+													class="day-en" style="pointer-events: none; display: none">Tue</span>
+											</button>
+											<button onclick="click_date(this);" name="actual_date" class="on" type="button" value="2022.08.03"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">3<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">내일</span><span
+													class="day-en" style="pointer-events: none; display: none">Wed</span>
+											</button>
+											<button onclick="click_date(this);" name="actual_date" class="" type="button" value="2022.08.04"
+												month="7">
+												<span class="ir">2022년 8월</span><em
+													style="pointer-events: none;">4<span
+													style="pointer-events: none;" class="ir">일</span></em><span
+													class="day-kr"
+													style="pointer-events: none; display: inline-block">목</span><span
+													class="day-en" style="pointer-events: none; display: none">Thu</span>
+											</button>
 										</div>
+									</div>
 									</div>
 									<button type="button" title="다음 날짜 보기" class="btn-next">
 										<i class="iconset ico-cld-next"></i> <em>다음</em>

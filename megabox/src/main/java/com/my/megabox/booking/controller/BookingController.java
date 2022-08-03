@@ -11,9 +11,9 @@ public class BookingController {
 		return "booking/timetable";
 	} 
 	
-	@GetMapping("choiceSeat")
+	@GetMapping("selectSeat")
 	public String seatChoice() {
-		return "booking/choiceSeat";
+		return "booking/selectSeat";
 	} 
 	
 

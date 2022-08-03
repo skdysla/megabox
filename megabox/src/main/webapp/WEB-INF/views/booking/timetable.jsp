@@ -12,12 +12,6 @@
 	media="all">
 <script async=""
 	src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('', new Date()); gtag('config', 'UA-30006739-3');</script>
-<script src="/static/pc/dist/megabox.api.min.js"></script>
-<script src="/static/mb/js/lozad.min.js"></script>
-<script src="/js/common/dist/megabox.common.min.js"></script>
-<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-<script src="//cast.imp.joins.com/persona.js" async=""></script>
 
 <!-- <script type="text/javascript">
 
@@ -47,10 +41,6 @@
             return;
         }
     </script> -->
-<script src="/static/pc/js/ui.common.js?v=1659416914695"></script>
-<script
-	src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking"></script>
-<script src="../front.js"></script>
 </head>
 
 <body>
@@ -64,8 +54,6 @@
 
 		<!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
-		<script src="/static/mb/js/hmac-sha256.js"></script>
-		<script src="/static/mb/js/enc-base64-min.js"></script>
 		<script type="text/javascript">
 /*전역변수
 아이디
@@ -2325,9 +2313,9 @@ function fn_bokdReload(page){
 
 		</div>
 		<!--// container -->
-		<script src="/js/megabox-brch.js"></script>
-		<script src="/js/megabox-simpleBokd.js"></script>
-		<script src="/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="https://www.megabox.co.kr/js/megabox-brch.js"></script>
+		<script src="https://www.megabox.co.kr/js/megabox-simpleBokd.js"></script>
+		<script src="https://www.megabox.co.kr/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 		<script type="text/javascript">
 

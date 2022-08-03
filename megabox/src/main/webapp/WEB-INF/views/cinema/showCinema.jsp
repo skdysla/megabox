@@ -3,17 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko"><!--<![endif]--><head>
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
-   
+  
 		<title>(강남)극장정보 &gt; 전체극장 , 메가박스</title>
      		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
      		<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
-		    <script src="/static/pc/dist/megabox.api.min.js"></script>
-			<script src="/static/mb/js/lozad.min.js"></script>
-			<script src="/js/common/dist/megabox.common.min.js"></script>
-     		<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-			<script src="//cast.imp.joins.com/persona.js" async=""></script>
-
     <script type="text/javascript">
 
   		
@@ -41,7 +35,7 @@
             alert("준비중 입니다");
             return;
         }
-    </script><script src="/static/pc/js/ui.common.js?v=1659502406486"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%3FbrchNo%3D1372&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%2Flist"></script><script src="/static/pc/js/front.js?v=1659502406486"></script>
+    </script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%3FbrchNo%3D1372&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%2Flist"></script><script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659502406486"></script>
 </head>
 
 <body>
@@ -64,8 +58,8 @@
 
 <!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
-<script src="/static/mb/js/hmac-sha256.js"></script>
-<script src="/static/mb/js/enc-base64-min.js"></script>
+<script src="https://www.megabox.co.kr/static/mb/js/hmac-sha256.js"></script>
+<script src="https://www.megabox.co.kr/static/mb/js/enc-base64-min.js"></script>
 <script type="text/javascript">
 /*전역변수
 아이디
@@ -2233,8 +2227,8 @@ function fn_bokdReload(page){
 
 </div>
 <!--// container -->
-<script src="/js/megabox-brch.js"></script>
-<script src="/js/megabox-simpleBokd.js"></script>
+<script src="https://www.megabox.co.kr/js/megabox-brch.js"></script>
+<script src="https://www.megabox.co.kr/js/megabox-simpleBokd.js"></script>
 
 <script type="text/javascript">
 
@@ -2482,7 +2476,7 @@ function fn_bokdReload(page){
 				<span>Home</span>
 				<a href="/theater/list" title="극장 페이지로 이동">극장</a>
 				<a href="/theater/list" title="전체극장 페이지로 이동">전체극장</a>
-				<a href="https://www.megabox.co.kr/theater?brchNo=1372" title="극장정보 페이지로 이동">극장정보</a>
+				<a href="/showCinema" title="극장정보 페이지로 이동">극장정보</a>
 			</div>
 		</div>
 	</div>
@@ -2543,22 +2537,6 @@ function fn_bokdReload(page){
 						<!--// theater-area-list -->
 
 						<p class="name">강남</p>
-
-						<div class="btn-util right">
-
-							<div class="block">
-
-
-
-
-								<button type="button" class="btn btn-like " id="favorBrch">
-									<i class="iconset ico-like-line"></i> <span>선호극장</span>
-								</button>
-
-
-
-							</div>
-						</div>
 					</div>
 					<!--// theater-detail-cont -->
 				</div>
@@ -2625,10 +2603,10 @@ function fn_bokdReload(page){
 				<div id="tab02" class="tab-cont"><a href="" class="ir"></a>
 					<h2 class="tit small" style="display: none;">무대인사</h2>
 					<div class="movie-greeting"></div>
-					<h2 class="tit small mt40">상영시간표</h2>
+					<!-- <h2 class="tit small mt40">상영시간표</h2> -->
 				</div>
 				<div id="tab03" class="tab-cont"><a href="" class="ir"></a>
-					<h2 class="tit small">영화관람료</h2>
+					<!-- <h2 class="tit small">영화관람료</h2> -->
 				</div>
 			</div>
 		</div>

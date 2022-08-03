@@ -1,4 +1,4 @@
-package com.my.megabox.controller;
+package com.my.megabox.booking.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +11,9 @@ public class BookingController {
 		return "booking/timetable";
 	} 
 	
-	@GetMapping("seatChoice")
+	@GetMapping("selectSeat")
 	public String seatChoice() {
-		return "booking/seatChoice";
+		return "booking/selectSeat";
 	} 
 	
 

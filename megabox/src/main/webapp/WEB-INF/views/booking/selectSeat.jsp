@@ -8,12 +8,6 @@
      		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
      		<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
-		    <script src="/static/pc/dist/megabox.api.min.js"></script>
-			<script src="/static/mb/js/lozad.min.js"></script>
-			<script src="/js/common/dist/megabox.common.min.js"></script>
-     		<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-			<script src="//cast.imp.joins.com/persona.js" async=""></script>
-
     <script type="text/javascript">
 
   		
@@ -29,8 +23,8 @@
         };
 
         document.write(
-            '<script src="'+_init.path+'ui.common.js?v='+_init.cache+'"><\/script>'+
-            '<script src="'+_init.path+'front.js?v='+_init.cache+'"><\/script>'
+            '<script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v='+_init.cache+'"><\/script>'+
+            '<script src="https://www.megabox.co.kr/static/pc/js/front.js?v='+_init.cache+'"><\/script>'
         );
 
         //RedirectException 발생시 메시지 처리
@@ -41,7 +35,7 @@
             alert("준비중 입니다");
             return;
         }
-    </script><script src="/static/pc/js/ui.common.js?v=1659438229115"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable"></script><script src="/static/pc/js/front.js?v=1659438229115"></script>
+    </script><script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659438229115"></script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fbooking%2Ftimetable"></script><script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659438229115"></script>
 <script src="https://netfunnel.megabox.co.kr:443/ts.wseq?opcode=5004&amp;key=FB9C103A6FA9519D8E7338D06B2167354A2BFF59925FD6F0B523B5E192927316AA506323C6CE451C7993C611CD6600D777425E508AC377EBDADD5B252F81C680AD7DCF8B3186D90C92BD3754B51E85318556A6D4C2866D9FC141064F096B6F136FDA32541A2D2398B44BBA7DCD119A4A2C302C31&amp;nfid=0&amp;prefix=NetFunnel.gRtype=5004;&amp;js=yes&amp;1659438236294"></script></head>
 
 <body class="">
@@ -52,8 +46,8 @@
     </div>
 
     <div class="body-wrap">
-<script src="/static/mb/js/hmac-sha256.js"></script>
-<script src="/static/mb/js/enc-base64-min.js"></script>
+<script src="https://www.megabox.co.kr/static/mb/js/hmac-sha256.js"></script>
+<script src="https://www.megabox.co.kr/static/mb/js/enc-base64-min.js"></script>
 <script type="text/javascript">
 /*전역변수
 아이디
@@ -1965,8 +1959,8 @@ function fn_goPrePagePcntSeatChoi() {
 	//결제에서 예매이동 처리 추가
 	$('#bokdMSeat').hide();			//좌석도 숨김
 	$('#bokdMPayBooking').hide();
-	$('#frameBokdMSeat').attr("src", "/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do"); //좌석도 화면초기화
-	$('#framePayBooking').attr("src", "/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
+	$('#frameBokdMSeat').attr("src", "https://www.megabox.co.kr/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do"); //좌석도 화면초기화
+	$('#framePayBooking').attr("src", "https://www.megabox.co.kr/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
 
 	//이전 메타태그 정보로 설정 (preMetaFormat:전역변수)
 	settingMeta(preMetaFormat);
@@ -2018,7 +2012,7 @@ function fn_goPrePagePayBooking() {
 	var framePayBookingContentObj = $('#framePayBooking').get(0).contentWindow;
 	var frameBokdMSeatContentObj = $('#frameBokdMSeat').get(0).contentWindow;
 	$('#bokdMPayBooking').hide();
-	$('#framePayBooking').attr("src", "/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
+	$('#framePayBooking').attr("src", "https://www.megabox.co.kr/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
 	$('#bokdMSeat').show();	//좌석도 표시
 	$("html,body").scrollTop(0);
 
@@ -2030,7 +2024,7 @@ function fn_altBlackgoPrePagePayBooking(blackListParam) {
 	var framePayBookingContentObj = $('#framePayBooking').get(0).contentWindow;
 	var frameBokdMSeatContentObj = $('#frameBokdMSeat').get(0).contentWindow;
 	$('#bokdMPayBooking').hide();
-	$('#framePayBooking').attr("src", "/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
+	$('#framePayBooking').attr("src", "https://www.megabox.co.kr/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
 	$('#bokdMSeat').show();	//좌석도 표시
 	$("html,body").scrollTop(0);
 
@@ -2043,7 +2037,7 @@ function fn_altBlackgoPrePagePayBooking(blackListParam) {
 function fn_goPrePageInitSeat(msg) {
 	var framePayBookingContentObj = $('#framePayBooking').get(0).contentWindow;
 	$('#bokdMPayBooking').hide();
-	$('#framePayBooking').attr("src", "/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
+	$('#framePayBooking').attr("src", "https://www.megabox.co.kr/on/oh/ohz/PayBooking/completeSeat.do"); //결제화면 초기화
 
 	//좌석도 초기화
 	var frameBokdMSeatContentObj = $('#frameBokdMSeat').get(0).contentWindow;
@@ -2069,7 +2063,7 @@ function calcFrameHeight(divObj, frameObj) { //div obj, frame obj
 //로그인여부 체크
 function fn_validLoginAt(param){
 	$.ajaxMegaBox({
-        url    : "/on/oh/ohg/MbLogin/selectLoginSession.do",
+        url    : "https://www.megabox.co.kr/on/oh/ohg/MbLogin/selectLoginSession.do",
         //data   : JSON.stringify(paramData),
         success: function(result){
         	var loginAt = result.resultMap.result;	//로그인 여부
@@ -2124,7 +2118,7 @@ function fn_vlaidBlackList(param){
 
 // 	//좌석수 param
 	$.ajaxMegaBox({
-        url    : "/on/oh/ohg/MbLogin/selectBlackList.do",
+        url    : "https://www.megabox.co.kr/on/oh/ohg/MbLogin/selectBlackList.do",
         data   : JSON.stringify(paramData),
         success: function(result){
         	var dataBlackListAt = result.resultMap.result;
@@ -2185,18 +2179,18 @@ function fn_bokdReload(page){
     </div>
 
     <div id="bokdMSeat" style="overflow: hidden; height: 736px;">
-        <iframe id="frameBokdMSeat" src="/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr" title="관람인원선택 프레임" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
+        <iframe id="frameBokdMSeat" src="https://www.megabox.co.kr/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr" title="관람인원선택 프레임" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
 	</div>
 
     <div id="bokdMPayBooking" style="overflow:hidden; display:none; height:736px;">
-       <iframe id="framePayBooking" src="/on/oh/ohz/PayBooking/completeSeat.do?megaboxLanguage=kr" title="예매 결제" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
+       <iframe id="framePayBooking" src="https://www.megabox.co.kr/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr" title="예매 결제" scrolling="no" frameborder="0" class="reserve-iframe" style="width:100%; height:736px;"></iframe>
 	</div>
 
 </div>
 <!--// container -->
-<script src="/js/megabox-brch.js"></script>
-<script src="/js/megabox-simpleBokd.js"></script>
-<script src="/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="https://www.megabox.co.kr/js/megabox-brch.js"></script>
+<script src="https://www.megabox.co.kr/js/megabox-simpleBokd.js"></script>
+<script src="https://www.megabox.co.kr/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <script type="text/javascript">
 

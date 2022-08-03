@@ -1050,7 +1050,7 @@ var callback = undefined;
 /*호출 화면에 따른 분기처리*/
 function fn_viewLoginPopup(viewId,deviceType,bokdLoginAt,bokdLoginParam,reloadYn,callbackFn){
 
-  	//로그인 폼 호출시 광고영역 노출
+  	//로그인 폼 호출시 광고영역 노출 
     if( $("#Rw6jtk0hQTuOBSzFbvGGlw").html() == "" ){
 
     	$("#Rw6jtk0hQTuOBSzFbvGGlw").append('<a href="" target="_blank"><img id="pageBannerRnbImage" src="/static/pc/images/common/bg/bg-noimage-main.png" /></a>');

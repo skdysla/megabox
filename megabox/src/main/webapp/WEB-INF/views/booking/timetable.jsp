@@ -7,7 +7,7 @@
 
 <title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
 
-<link rel="stylesheet"
+<link rel="stylesheet" 
 	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
 <script async=""

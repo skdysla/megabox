@@ -23,6 +23,6 @@
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"  />
 	</bean>	
 	
-	<mybatis-spring:scan base-package="com.my.megabox.repository"/>
+	<mybatis-spring:scan base-package="com.my.megabox.booking.dao"/>
 	
 </beans>

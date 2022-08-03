@@ -1,4 +1,4 @@
-package com.my.megabox.service;
+package com.my.megabox.booking.service;
 
 import org.springframework.stereotype.Service;
 

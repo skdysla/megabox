@@ -3,6 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
+<script>
+	$(document).on("click","#CalDate",function(){
+		$(this).addClass('on').siblings().removeClass('on');
+	})
+</script>
 <div class="container has-lnb">
             <div class="page-util">
                  <div class="inner-wrap" id="myLoaction"><div class="location">
@@ -144,28 +149,7 @@
 											<option value="202109">2021년 9월</option>
 										
 									</select>
-									<div class="dropdown-menu open" role="combobox" style="max-height: 302px; overflow: hidden; min-width: 111px;">
-										<div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 300px; overflow-y: auto;">
-										<ul class="dropdown-menu inner ">
-											<li class="selected active">
-												<a role="option" aria-disabled="false" tabindex="0" class="selected active" aria-selected="true">
-													<span class="text">2022년 8월</span>
-												</a>
-											</li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 7월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 6월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 5월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 4월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 3월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 2월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2022년 1월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2021년 12월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2021년 11월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2021년 10월</span></a></li>
-											<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">2021년 9월</span></a></li>
-										</ul>
-										</div>
-									</div>
+									
 								</div>
 
 								<button type="button" class="button gray-line small ml05" name="search">
@@ -270,7 +254,8 @@
 									<option value="">전체</option>
 									<option value="SPD54">스토어</option>
 									<option value="SPD52">모바일오더</option>
-								</select><button type="button" class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown" role="button" title="전체"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">전체</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><div class="inner open" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner "></ul></div></div></div>
+								</select>
+								</div>
 
 								<input type="radio" name="radPurc" id="radPurc01" value="" checked="checked">
 								<label for="radPurc01">전체</label>
@@ -284,15 +269,15 @@
 							<th scope="row">조회기간</th>
 							<td>
 								<div class="btn-period">
-									<button type="button" class="btn" value="D7">1주일</button>
-									<button type="button" class="btn on" value="M1">1개월</button>
-									<button type="button" class="btn" value="M3">3개월</button>
-									<button type="button" class="btn" value="M6">6개월</button>
+									<button type="button" class="btn" id="CalDate" value="D7">1주일</button>
+									<button type="button" class="btn on" id="CalDate" value="M1">1개월</button>
+									<button type="button" class="btn" id="CalDate" value="M3">3개월</button>
+									<button type="button" class="btn" id="CalDate" value="M6">6개월</button>
 								</div>
 								<div class="date">
-									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2 hasDatepicker" id="dp1659517546428"><button type="button" class="ui-datepicker-trigger">날짜 선택</button>
+									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="dp1659517546428">
 									<span>~</span>
-									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2 hasDatepicker" id="dp1659517546429"><button type="button" class="ui-datepicker-trigger">날짜 선택</button>
+									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="dp1659517546429">
 									<button type="button" class="button gray-line" name="search">
 										<i class="iconset ico-search-gray"></i> 조회
 									</button>

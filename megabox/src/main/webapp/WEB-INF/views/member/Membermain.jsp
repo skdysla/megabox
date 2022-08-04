@@ -324,7 +324,7 @@
 			<div class="tit-util mt70">
 				<h2 class="tit small">나의 예매내역</h2>
 
-				<a href="/mypage/bookinglist?tab=01" class="more" title="나의 예매내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
+				<a href="BookingList" class="more" title="나의 예매내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
 			</div>
 
 			<!-- my-reserve-history -->
@@ -344,7 +344,7 @@
 			<div class="tit-util mt70">
 				<h2 class="tit small">나의 구매내역</h2>
 
-				<a href="/mypage/bookinglist?tab=02" class="more" title="나의 구매내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
+				<a href="BookingList" class="more" title="나의 구매내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
 			</div>
 
 			<div class="table-wrap">
@@ -382,7 +382,7 @@
 				<div class="tit-util">
 					<h2 class="tit small">문의내역</h2>
 
-					<a href="/mypage/myinquiry?tab=" class="more" title="문의내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
+					<a href="MyInquiry" class="more" title="문의내역 더보기">더보기 <i class="iconset ico-arr-right-gray"></i></a>
 				</div>
 
 				<div class="brd-list">

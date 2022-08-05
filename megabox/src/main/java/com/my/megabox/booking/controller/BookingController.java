@@ -16,5 +16,9 @@ public class BookingController {
 		return "booking/selectSeat";
 	} 
 	
+	@GetMapping("test")
+	public String test() {
+		return "booking/test";
+	} 
 
 }

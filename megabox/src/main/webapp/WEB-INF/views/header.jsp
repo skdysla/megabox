@@ -10,6 +10,10 @@
 
 		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
      		<link rel="stylesheet" href="https://www.megabox.co.kr/resources/js/megabox.min.css" media="all">
+     		<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
+     		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script> 
+     		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script>
+     		
      		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>

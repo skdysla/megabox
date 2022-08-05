@@ -10,17 +10,11 @@
 <link rel="stylesheet"
 	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
-
-<script src="https://www.megabox.co.kr/static/mb/js/enc-base64-min.js"></script>
-<script src="https://www.megabox.co.kr/static/mb/js/hmac-sha256.js"></script>
-<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659682322367"></script>
-<script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659682322367"></script>
+	
+<c:url var="root" value="/" />
 
 <!-- datePicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
 function click_date(element){
 	var dates = document.getElementsByName('actual_date');
@@ -32,8 +26,18 @@ function click_date(element){
 	element.className = 'on';
 }
 
-function send_movie_name(){
+function send_movie_name(element){
 	alert('영화 이름 전달 함수 호출됨!!!!!!');
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	console.log('데이터 받기');
+	    	console.log(xhttp.responseText);
+	    }
+	};
+	xhttp.open("GET", "/sendMovieName", true);
+	xhttp.send();
 }
 
 function send_crtn_name(){
@@ -51,9 +55,9 @@ function send_state_name(){
 
 <script>
 $(document).ready(function () {
-	  $("input[name='show_calendar_btn']").click(function () {
+	  $("#please").click(function () {
 		  console.log('호출됨!');
-		  $("input[name='show_calendar_btn']").datepicker();
+		  window.open("test2", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
 	  });
 		  
 		  /* var idHtml = document.getElementById('print_calendar');
@@ -95,8 +99,6 @@ $(document).ready(function () {
 	</div>
 	<div class="body-wrap">
 
-		<!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
 		<form id="loginForm">
 			<input type="hidden" name="redisKey" value=""> <input
 				type="hidden" name="menuId" value=""> <input type="hidden"
@@ -517,8 +519,8 @@ $(document).ready(function () {
 
 		</div>
 		<!--// container -->
-		<script src="https://www.megabox.co.kr/js/megabox-brch.js"></script>
-		<script src="https://www.megabox.co.kr/js/megabox-simpleBokd.js"></script>
+		<!-- <script src="https://www.megabox.co.kr/js/megabox-brch.js"></script>
+		<script src="https://www.megabox.co.kr/js/megabox-simpleBokd.js"></script> -->
 		<!-- <script
 			src="https://www.megabox.co.kr/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
@@ -1111,7 +1113,30 @@ $(document).ready(function () {
 									<i class="iconset ico-cld-next"></i> <em>다음</em>
 								</button>
 								<div class="date">
-									<input type="text" class="date-calendar v2" name="show_calendar_btn" id="dp1659517546428" onclick='$("input[name='show_calendar_btn']").datepicker()'>
+									<!-- <input type="text" id="show_here" > -->
+									<!--  class="date-calendar v2"  -->
+									<input type="text" id="please">
+
+									<!-- <div class='rap'>
+										<div class="header">
+											<div class="btn prevDay"></div>
+											<h2 class='dateTitle'></h2>
+											<div class="btn nextDay"></div>
+										</div>
+
+										<div class="grid dateHead">
+											<div>일</div>
+											<div>월</div>
+											<div>화</div>
+											<div>수</div>
+											<div>목</div>
+											<div>금</div>
+											<div>토</div>
+										</div>
+
+										<div class="grid dateBoard"></div>
+									</div> -->
+
 								</div>
 							</div>
 						</div>
@@ -1136,7 +1161,7 @@ $(document).ready(function () {
 						<div class="reserve theater-list-box">
 							<div class="tab-block tab-layer mb30">
 								<ul>
-									<li class="on"><a href="" class="btn" data-area-cd="10" onclick="send_state_name()"
+									<li class="on"><a href="" class="btn" data-area-cd="10" onclick="send_state_name(this)"
 										title="서울 선택">서울</a></li>
 									<li><a href="" class="btn" data-area-cd="30" title="경기 선택">경기</a></li>
 									<li><a href="" class="btn" data-area-cd="35" title="인천 선택">인천</a></li>

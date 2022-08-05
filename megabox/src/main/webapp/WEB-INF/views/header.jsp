@@ -3,13 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="pPath" value="/" />
 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
 
 		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
-     		<link rel="stylesheet" href="https://www.megabox.co.kr/resources/js/megabox.min.css" media="all">
+     		<link rel="stylesheet" href="${pPath }resources/js/megabox.min.css" media="all">
      		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>

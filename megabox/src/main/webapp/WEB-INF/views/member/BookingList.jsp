@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url var="pPath" value="/" />
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
-<script>
+<script src="${pPath }resources/js/user.datepicker.js"></script>
+<%-- <script type="text/javascript" src="${pPath }resources/js/bootstrap.js"></script>
+<script type="text/javascript" src="${pPath }resources/js/bootstrap-select.js"></script> --%>
+
+<!-- <script>
 	$(document).on("click","#CalDate",function(){
 		$(this).addClass('on').siblings().removeClass('on');
 	})
-</script>
+</script> -->
 <div class="container has-lnb">
             <div class="page-util">
                  <div class="inner-wrap" id="myLoaction"><div class="location">
@@ -122,7 +127,7 @@
 								<label for="radBokd02">지난내역 </label>
 
 								<div class="dropdown bootstrap-select small bs3 disabled">
-									<select name="selYM" class="selectpicker small" tabindex="-98" disabled="">
+									<select name="selYM" class="selectpicker small YMlist" tabindex="-98" disabled>
 										
 											<option value="202208">2022년 8월</option>
 										
@@ -250,7 +255,8 @@
 						<tr>
 							<th scope="row">구분</th>
 							<td>
-								<div class="dropdown bootstrap-select mr10 small bs3"><select class="selectpicker mr10 small" name="selPurc" tabindex="-98">
+								<div class="dropdown bootstrap-select mr10 small bs3">
+								<select class="selectpicker mr10 small" name="selPurc" tabindex="-98">
 									<option value="">전체</option>
 									<option value="SPD54">스토어</option>
 									<option value="SPD52">모바일오더</option>

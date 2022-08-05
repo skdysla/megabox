@@ -20,7 +20,7 @@ function click_date(element){
 	var dates = document.getElementsByName('actual_date');
 	for(i = 0; i < dates.length; i++){
 		if(dates[i].className = 'on') //하나의 버튼만
-			dates[i].className = 'default';
+			dates[i].className = 'default'; 
 	}
 	console.log(element.value);
 	element.className = 'on';

@@ -66,7 +66,7 @@
 	};
 </script>
 <script>
-function click_me(element){
+function click_me(element){ 
 	alert(element.innerHTML);
 }
 </script>

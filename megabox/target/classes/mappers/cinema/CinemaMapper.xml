@@ -3,8 +3,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.my.megabox.cinema.dao.ICinemaDAO">
 
-	<select id="showCinema" parameterType="String" resultType="com.my.megabox.member.dto.CinemaDTO">
+	<select id="showCinema" parameterType="String" resultType="com.my.megabox.cinema.dto.CinemaDTO">
 		SELECT * FROM CINEMA WHERE C_NAME = #{cName}
-	</select>
+	</select> 
 
 </mapper>

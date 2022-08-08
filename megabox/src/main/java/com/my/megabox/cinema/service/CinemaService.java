@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.my.megabox.cinema.dao.ICinemaDAO;
-import com.my.megabox.member.dto.CinemaDTO;
+import com.my.megabox.cinema.dto.CinemaDTO;
 
 @Service
 public class CinemaService implements ICinemaService {

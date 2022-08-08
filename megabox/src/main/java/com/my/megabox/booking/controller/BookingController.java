@@ -15,16 +15,26 @@ public class BookingController {
 	@GetMapping("selectSeat")
 	public String seatChoice() {
 		return "booking/selectSeat";
+	}
+	
+	@GetMapping("selectSeat2")
+	public String selectSeat2() {
+		return "booking/selectSeat2";
 	} 
+	
+	@GetMapping("selectSeatPage")
+	public String selectSeatPage() {
+		return "booking/selectSeatPage";
+	}
 	
 	@GetMapping("test")
 	public String test() {
 		return "booking/test";
 	} 
 	
-	@GetMapping("test2")
+	@GetMapping("test3")
 	public String test2() {
-		return "booking/test2";
+		return "booking/test3";
 	} 
 	
 	@ResponseBody

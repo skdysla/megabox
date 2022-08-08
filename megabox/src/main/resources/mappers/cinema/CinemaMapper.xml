@@ -5,6 +5,6 @@
 
 	<select id="showCinema" parameterType="String" resultType="com.my.megabox.cinema.dto.CinemaDTO">
 		SELECT * FROM CINEMA WHERE C_NAME = #{cName}
-	</select>
+	</select> 
 
 </mapper>

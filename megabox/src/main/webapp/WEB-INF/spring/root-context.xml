@@ -9,8 +9,8 @@
 	
 	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig" >
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="username" value="admin" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="c##oracle" />
 		<property name="password" value="oracle" />
 	</bean>
 	

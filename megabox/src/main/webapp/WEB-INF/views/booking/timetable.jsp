@@ -58,6 +58,15 @@
 	function print_calendar() {
 		$('#datepicker').datepicker().datepicker("show");
 	}
+
+	$(function() {
+	    $("#datepicker").datepicker({ 
+	        onSelect: function() { 
+	            var date = $.datepicker.formatDate("yy.mm.dd",$("#datepicker").datepicker("getDate")); 
+	            console.log(date);
+	        }
+	    });                    
+	});
 </script>
 </head>
 
@@ -1152,7 +1161,7 @@
 									</div>
 								</div>
 								<!-- <input type="text" id="datepicker"> -->
-								
+
 								<button type="button" title="다음 날짜 보기" class="btn-next"
 									disabled="true">
 									<i class="iconset ico-cld-next"></i> <em>다음</em>
@@ -1314,9 +1323,7 @@
 				class="iconset ico-go-mobile"></i></a>
 		</div>
 	</div>
-	<form id="mainForm">
-	
-	</form>
+	<form id="mainForm"></form>
 
 	<div class="normalStyle"
 		style="display: none; position: fixed; top: 0; left: 0; background: #000; opacity: 0.7; text-indent: -9999px; width: 100%; height: 100%; z-index: 100;">닫기</div>

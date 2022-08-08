@@ -1,4 +1,4 @@
-package com.my.megabox.member.dto;
+package com.my.megabox.cinema.dto;
 
 public class CinemaDTO {
 	private Integer c_num;

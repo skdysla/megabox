@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.my.megabox.cinema.dto.CinemaDTO;
 import com.my.megabox.cinema.service.CinemaService;
-import com.my.megabox.member.dto.CinemaDTO;
 
 @Controller 
 public class CinemaController {

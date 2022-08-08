@@ -28,19 +28,45 @@
 		console.log(element.value);
 		element.className = 'on';
 	}
-
-	function send_movie_name(element) {
-		alert('영화 이름 전달 함수 호출됨!!!!!!');
-
-		var xhttp = new XMLHttpRequest();
+	
+	/* $(document).on('click', '#test_send', function() {
+		alert('요청됨!!!!!!!!!!!!');
+		let name = $(this).val(); 
+		console.log(name);
+		let param = {"name" : name};
+		
+		$.ajax({
+			url: 'sendMovieName', 
+			type: 'post', 
+			data: param,  
+			contentType: 'json/application; charset=utf-8', 
+			dataType: 'text',
+			success: function() { 
+				alert('성공');
+			},
+			error: function(){
+				alert('실패');
+			}
+		});
+	}); */
+	
+	var xhttp;
+	function send_movie_name(movie) {
+		//alert('영화 이름 전달 함수 호출됨!!!!!!');
+		xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				console.log('데이터 받기');
 				console.log(xhttp.responseText);
 			}
 		};
-		xhttp.open("GET", "/sendMovieName", true);
-		xhttp.send();
+		
+		var m = movie.value;
+		var data = {name: m};
+		data = JSON.stringify(data);
+		
+		xhttp.open("post", "sendMovieName");
+		xhttp.setRequestHeader('content-type', 'application/json');
+		xhttp.send(data);
 	}
 
 	function send_crtn_name() {
@@ -53,6 +79,10 @@
 
 	function send_state_name() {
 		alert('지역 이름 전달 함수 호출됨!!!!!!');
+	}
+	
+	function send_time(){
+		alert('영화 상영 시간 전달 함수 호출됨!!!!!!');
 	}
 
 	function print_calendar() {
@@ -581,8 +611,8 @@
 										paramData.brchNo = $this.data('brchNo');
 										break;
 									}
-									MegaboxUtil.Brch.init(option);
-									tabChangeAt = "N";
+									//MegaboxUtil.Brch.init(option);
+									//tabChangeAt = "N";
 								});
 			});
 
@@ -802,8 +832,9 @@
 															style="position: relative; top: 0; left: 0;" dir="ltr">
 															<ul class="list">
 																<li>
-																	<button type="button" class="btn disabled on"
-																		onclick="send_movie_name()" data-movie-nm="비상선언"
+																	<!-- onclick="send_movie_name(this)" -->
+																	<button type="button" class="btn disabled on" onclick="send_movie_name(this)"
+																		 value="비상선언"
 																		data-movie-no="21084100"
 																		data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg">비상선언</button>
 																</li>
@@ -1209,7 +1240,7 @@
 							</div>
 							<div class="theater-list">
 								<div class="theater-area-click">
-									<a href="/theater?brchNo=1372" title="강남 상세보기">강남</a>
+									<a href="showCinema?cName=" title="강남 상세보기">강남</a>
 								</div>
 								<div class="theater-type-box">
 									<div class="theater-type">
@@ -1236,7 +1267,7 @@
 														<td class="" brch-no="1372" play-schdl-no="2208031372006"
 															rpst-movie-no="21084100" theab-no="01" play-de="20220803"
 															play-seq="1">
-															<div class="td-ab">
+															<div class="td-ab" onclick="send_time()">
 																<div class="txt-center">
 																	<a href="" title="영화예매하기">
 																		<div class="ico-box">

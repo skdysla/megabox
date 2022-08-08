@@ -744,6 +744,7 @@ var Brch = function() {
 		}
 
 		// 상영관 - 영화정보
+		/*
 		var ongMovieHtml = '';
 			ongMovieHtml += '<td class="">';
 			ongMovieHtml += '	<div class="td-ab">';
@@ -765,6 +766,7 @@ var Brch = function() {
 		this.getOngMovie = function() {
 			return ongMovieHtml;
 		}
+		*/
 
 		// 상영시간표
 		var noMovieHtml  = '';

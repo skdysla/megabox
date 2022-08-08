@@ -2502,7 +2502,7 @@ function fn_bokdReload(page){
 								<li><a href="" class="depth1" title="서울 선택">서울</a>
 									<div class="area-depth2">
 										<ul>
-											<li class="on"><a href="/theater?brchNo=1372"
+											<li class="on"><a href="/showCinema?cName="
 												title="강남 상세보기">강남 </a></li>
 										</ul>
 									</div></li>
@@ -2511,7 +2511,7 @@ function fn_bokdReload(page){
 								<li><a href="" class="depth1" title="경기 선택">경기</a>
 									<div class="area-depth2">
 										<ul>
-											<li><a href="/theater?brchNo=4121" title="고양스타필드 상세보기">고양스타필드
+											<li><a href="/showCinema?cName=" title="고양스타필드 상세보기">고양스타필드
 											</a></li>
 										</ul>
 									</div></li>

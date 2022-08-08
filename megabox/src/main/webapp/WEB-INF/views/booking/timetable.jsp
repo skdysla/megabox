@@ -10,85 +10,93 @@
 <link rel="stylesheet"
 	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
-	
+
 <c:url var="root" value="/" />
 
 <!-- datePicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+	integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
-function click_date(element){
-	var dates = document.getElementsByName('actual_date');
-	for(i = 0; i < dates.length; i++){
-		if(dates[i].className = 'on') //하나의 버튼만
-			dates[i].className = 'default'; 
+	function click_date(element) {
+		var dates = document.getElementsByName('actual_date');
+		for (i = 0; i < dates.length; i++) {
+			if (dates[i].className = 'on') //하나의 버튼만
+				dates[i].className = 'default';
+		}
+		console.log(element.value);
+		element.className = 'on';
 	}
-	console.log(element.value);
-	element.className = 'on';
-}
-
-function send_movie_name(element){
-	alert('영화 이름 전달 함수 호출됨!!!!!!');
 	
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	    	console.log('데이터 받기');
-	    	console.log(xhttp.responseText);
-	    }
-	};
-	xhttp.open("GET", "/sendMovieName", true);
-	xhttp.send();
-}
+	/* $(document).on('click', '#test_send', function() {
+		alert('요청됨!!!!!!!!!!!!');
+		let name = $(this).val(); 
+		console.log(name);
+		let param = {"name" : name};
+		
+		$.ajax({
+			url: 'sendMovieName', 
+			type: 'post', 
+			data: param,  
+			contentType: 'json/application; charset=utf-8', 
+			dataType: 'text',
+			success: function() { 
+				alert('성공');
+			},
+			error: function(){
+				alert('실패');
+			}
+		});
+	}); */
+	
+	var xhttp;
+	function send_movie_name(movie) {
+		//alert('영화 이름 전달 함수 호출됨!!!!!!');
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(xhttp.responseText);
+			}
+		};
+		
+		var m = movie.value;
+		var data = {name: m};
+		data = JSON.stringify(data);
+		
+		xhttp.open("post", "sendMovieName");
+		xhttp.setRequestHeader('content-type', 'application/json');
+		xhttp.send(data);
+	}
 
-function send_crtn_name(){
-	alert('큐레이션 이름 전달 함수 호출됨!!!!!!');
-}
+	function send_crtn_name() {
+		alert('큐레이션 이름 전달 함수 호출됨!!!!!!');
+	}
 
-function send_theater_name(){
-	alert('극장 이름 전달 함수 호출됨!!!!!!');
-}
+	function send_theater_name() {
+		alert('극장 이름 전달 함수 호출됨!!!!!!');
+	}
 
-function send_state_name(){
-	alert('지역 이름 전달 함수 호출됨!!!!!!');
-}
-</script>
+	function send_state_name() {
+		alert('지역 이름 전달 함수 호출됨!!!!!!');
+	}
+	
+	function send_time(){
+		alert('영화 상영 시간 전달 함수 호출됨!!!!!!');
+	}
 
-<script>
-$(document).ready(function () {
-	  $("#please").click(function () {
-		  console.log('호출됨!');
-		  window.open("test2", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
-	  });
-		  
-		  /* var idHtml = document.getElementById('print_calendar');
-		  idHtml.value = "클릭됐지롱"; */
-		  
-		  /* $(function(){
-			  $('#print_calendar').datepicker();
-		  }) */
-		  /* $("#print_calendar").datepicker({
-		        dateFormat: 'yy-mm-dd' //달력 날짜 형태
-		        ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-		        ,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
-		        ,changeYear: true //option값 년 선택 가능
-		        ,changeMonth: true //option값  월 선택 가능                
-		        ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
-		        ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
-		        ,buttonImageOnly: true //버튼 이미지만 깔끔하게 보이게함
-		        ,buttonText: "선택" //버튼 호버 텍스트              
-		        ,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
-		        ,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
-		        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip
-		        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 텍스트
-		        ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
-		        ,minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-		        ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)  
-		    });                    
-		    
-		    //초기값을 오늘 날짜로 설정해줘야 합니다.
-		    $("#print_calendar").datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후) */            
+	function print_calendar() {
+		$('#datepicker').datepicker().datepicker("show");
+	}
 
-});
+	$(function() {
+	    $("#datepicker").datepicker({ 
+	        onSelect: function() { 
+	            var date = $.datepicker.formatDate("yy.mm.dd",$("#datepicker").datepicker("getDate")); 
+	            console.log(date);
+	        }
+	    });                    
+	});
 </script>
 </head>
 
@@ -435,47 +443,43 @@ $(document).ready(function () {
 
 
 		<script type="text/javascript">
-    $(function(){
-        
-            
-                $('#header .right-link .before').show();
-                $('#header .right-link .after').hide();
-                //session 관련 처리를 위한 부분
-                $.ajaxMegaBox({
-                    url: '/sessionChk.do',
-                    success: function(data) {
-                        var loginYn = data.loginYn;
-                        if(loginYn == 'Y'){
-                            $('.right-link .before').hide();
-                        $('.right-link .after').show();
-                        }else{
-                            $('.right-link .before').show();
-                        $('.right-link .after').hide();
-                        }
-                     }
-               });
-            
-            
-        
+			$(function() {
 
-        // 웹에서만 실행 -> facebook을 로드하지 않는 템플릿에서 반복적인 오류 발생으로 hreader로 이전
-        if(!MegaboxUtil.Common.isMobile() && !MegaboxUtil.Common.isApp())
-            MegaboxUtil.Share.init();
-    });
+				$('#header .right-link .before').show();
+				$('#header .right-link .after').hide();
+				//session 관련 처리를 위한 부분
+				$.ajaxMegaBox({
+					url : '/sessionChk.do',
+					success : function(data) {
+						var loginYn = data.loginYn;
+						if (loginYn == 'Y') {
+							$('.right-link .before').hide();
+							$('.right-link .after').show();
+						} else {
+							$('.right-link .before').show();
+							$('.right-link .after').hide();
+						}
+					}
+				});
 
-    //로그인 버튼
-    $(document).on('click', '#moveLogin', function() {
+				// 웹에서만 실행 -> facebook을 로드하지 않는 템플릿에서 반복적인 오류 발생으로 hreader로 이전
+				if (!MegaboxUtil.Common.isMobile()
+						&& !MegaboxUtil.Common.isApp())
+					MegaboxUtil.Share.init();
+			});
 
-        fn_viewLoginPopup('default','pc');
+			//로그인 버튼
+			$(document).on('click', '#moveLogin', function() {
 
-    });
+				fn_viewLoginPopup('default', 'pc');
 
-    var sysCd = 'ON';
+			});
 
-  	//넷퍼넬 스킨 타입 지정
-	NetfunnelChk.setting( sysCd, MegaboxUtil.Common.isApp() );
+			var sysCd = 'ON';
 
-</script>
+			//넷퍼넬 스킨 타입 지정
+			NetfunnelChk.setting(sysCd, MegaboxUtil.Common.isApp());
+		</script>
 
 		<!-- 베네피아 배너 접근 시 노출 -->
 
@@ -525,184 +529,258 @@ $(document).ready(function () {
 			src="https://www.megabox.co.kr/static/pc/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 
 		<script type="text/javascript">
-	var arrList = new Array();
-	var tmpData = {tabIndx : 0};
-	var tabChangeAt = 'N';	//상영일 초기화 여부
+			var arrList = new Array();
+			var tmpData = {
+				tabIndx : 0
+			};
+			var tabChangeAt = 'N'; //상영일 초기화 여부
 
-	$(function(){
+			$(function() {
 
-		$(document).ready(function() {
-			areaList();
-		});
+				$(document).ready(function() {
+					areaList();
+				});
 
-		// 영화명, 극장명 클릭
-		$('#contents').on('click', '.list-section button', function() {
-			var leftIdx = $('#contents .tab-left-area li.on').index();
-			if(leftIdx > 0 && leftIdx < 3)	tabChangeAt = "Y";	//상영일 초기화 여부
+				// 영화명, 극장명 클릭
+				$('#contents')
+						.on(
+								'click',
+								'.list-section button',
+								function() {
+									var leftIdx = $(
+											'#contents .tab-left-area li.on')
+											.index();
+									if (leftIdx > 0 && leftIdx < 3)
+										tabChangeAt = "Y"; //상영일 초기화 여부
 
-			var $this = $(this);
-			var paramData = {};
-			var option    = {movieObj  : $('#contents h3:last'), list : arrList, movieData : paramData, tabChangeAt:tabChangeAt};
+									var $this = $(this);
+									var paramData = {};
+									var option = {
+										movieObj : $('#contents h3:last'),
+										list : arrList,
+										movieData : paramData,
+										tabChangeAt : tabChangeAt
+									};
 
-			// 상영 시간표명 변경
-			$('#contents .font-green').html($this.text());
+									// 상영 시간표명 변경
+									$('#contents .font-green').html(
+											$this.text());
 
-			// 영화별 - 영화 포스터 설정
-			if (tmpData.tabIndx == 0) {
-				var imgAttr = {src  : $this.data('imgPath'), alt : $this.data('movieNm')};
-				var lnkAttr = {href : '/movie-detail?rpstMovieNo='+ $this.data('movieNo'), title : $.parseHTML(String($this.data('movieNm')))[0].textContent +' 상세보기'};
+									// 영화별 - 영화 포스터 설정
+									if (tmpData.tabIndx == 0) {
+										var imgAttr = {
+											src : $this.data('imgPath'),
+											alt : $this.data('movieNm')
+										};
+										var lnkAttr = {
+											href : '/movie-detail?rpstMovieNo='
+													+ $this.data('movieNo'),
+											title : $.parseHTML(String($this
+													.data('movieNm')))[0].textContent
+													+ ' 상세보기'
+										};
 
-				$('div.poster-section div.td').html($('<a>').attr(lnkAttr));
-				$('div.poster-section div.td a').html($('<img class="poster" onerror="noImg(this, \'del\')"/>').attr(imgAttr));
+										$('div.poster-section div.td').html(
+												$('<a>').attr(lnkAttr));
+										$('div.poster-section div.td a')
+												.html(
+														$(
+																'<img class="poster" onerror="noImg(this, \'del\')"/>')
+																.attr(imgAttr));
+									}
+
+									// 값 설정
+									switch (tmpData.tabIndx) {
+									case 0: //영화별
+										paramData.masterType = 'movie';
+										paramData.movieNo = $this
+												.data('movieNo');
+										break;
+
+									case 1: //극장별
+										paramData.masterType = 'brch';
+										paramData.detailType = 'area';
+										paramData.brchNo = $this.data('brchNo');
+										break;
+
+									case 2: //특별관
+										paramData.masterType = 'brch';
+										paramData.detailType = 'spcl';
+										paramData.theabKindCd = $this
+												.data('areaCd');
+										paramData.brchNo = $this.data('brchNo');
+										break;
+									}
+									//MegaboxUtil.Brch.init(option);
+									//tabChangeAt = "N";
+								});
+			});
+
+			// 극장정보 갱신
+			function fn_brchListUpt(list, type) {
+
+				var $div, $li, areaCd;
+
+				var areaList = [];
+				var brchList = [];
+
+				var html = '<div class="theater-section">';
+				html += '	<div class="table">';
+				html += '		<div class="td">';
+				html += '			<a href="#1" title="#2 특별관 페이지로 이동">';
+				html += '				<p><strong>#2</strong>#3</p>';
+				html += '				<i class="iconset ico-arrow-half"></i>';
+				html += '				<img src="#4" alt="#2 특별관 페이지로 이동" class="poster">';
+				html += '			</a>';
+				html += '		</div>';
+				html += '	</div>';
+				html += '</div>';
+
+				$
+						.each(
+								list,
+								function(i, param) {
+
+									if (areaCd != param.areaCd) {
+
+										areaCd = param.areaCd;
+
+										var titleTxt = "";
+										if (type == 'spcl') {
+											titleTxt = "특별관 선택";
+										} else {
+											titleTxt = "지점 선택";
+										}
+
+										// 객채 설정
+										$li = $('<li><a href="#tab'+areaCd+'" title="'+param.areaCdNm+titleTxt+'" data-area-cd="'+ areaCd +'">'
+												+ param.areaCdNm + '</a></li>');
+										$div = $('<div id="tab'+ areaCd +'" class="tab-layer-cont"><div class="scroll m-scroll"><ul class="list"></ul><div></div>');
+
+										// 첫번째 객체
+										if (i == 0) {
+											$div.addClass('on');
+											$li.find('a').addClass('on');
+										}
+
+										// 특별관여부
+										if (type == 'spcl') {
+
+											switch (areaCd) {
+
+											case 'MX':
+												param.curAreaCdNm = "MX";
+												param.welComeHtml = "진정한 영화 사운드를 통한<br />최고의 영화! <br />메가박스의 차세대 <br />표준 상영관";
+												param.splcBrchLink = "/specialtheater/mx";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-mx.png';
+												break;
+											case 'CFT':
+												param.curAreaCdNm = "COMFORT";
+												param.welComeHtml = "더욱 편안한 영화 관람을<br />위한 다양한 여유 공간";
+												param.splcBrchLink = "/specialtheater/comfort";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-comfort.png';
+												break;
+											case 'TBQ':
+												param.curAreaCdNm = "THE BOUTIQUE";
+												param.welComeHtml = "영화를 본다는 것,<br />그 놀라운 경험을 위하여";
+												param.splcBrchLink = "/specialtheater/boutique";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-boutique.png';
+												break;
+											case 'MKB':
+												param.curAreaCdNm = "MEGA KIDS";
+												param.welComeHtml = "아이와 가족이 함께 머물며<br />삶의 소중한 가치를 배우는<br />더 행복한 놀이공간";
+												param.splcBrchLink = "/specialtheater/megakids";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-kids.png';
+												break;
+											case 'BCY':
+												param.curAreaCdNm = "BALCONY";
+												param.welComeHtml = "CINEMA IN CINEMA,<br />영화관 속<br />나만의 개인 영화관";
+												param.imgFileNm = "balcony";
+												param.splcBrchLink = "/specialtheater/balcony";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-balcony.png';
+												break;
+											case 'TFC':
+												param.curAreaCdNm = "THE FIRST CLUB";
+												param.welComeHtml = "특별한 날,<br />특별한 당신을 위한<br />단 하나의<br />THE FIRST CLUB";
+												param.splcBrchLink = "/specialtheater/firstclub";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-firstclub.png';
+												break;
+											case 'DBC':
+												param.curAreaCdNm = "DOLBY";
+												param.welComeHtml = "국내 최초로 메가박스가 <br />선보이는 세계 최고 <br />기술력의 몰입 시네마";
+												param.splcBrchLink = "/specialtheater/dolby";
+												param.imgUrl = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-dolby.png';
+												break;
+											}
+
+											// 특별관 이미지등록
+											$div
+													.append(html
+															.replace(
+																	'#1',
+																	param.splcBrchLink)
+															.replaceAll(
+																	'#2',
+																	param.curAreaCdNm)
+															.replace(
+																	'#3',
+																	param.welComeHtml)
+															.replace(
+																	'#4',
+																	param.imgUrl));
+
+										} else {
+											arrList.push({
+												areaCd : areaCd,
+												areaNm : param.areaCdNm
+											});
+										}
+
+										areaList.push($li);
+										brchList.push($div);
+									}
+
+									// 극장추가
+									$div
+											.find('ul')
+											.append(
+													'<li><button type="button" class="btn" data-area-cd="'+ areaCd +'" data-brch-no="'+ param.brchNo +'">'
+															+ param.brchNm
+															+ '</button></li>');
+
+									// 극장상태 추가
+									if (param.brchOnlineExpoAt == 'Y') {
+										switch (param.brchOnlineExpoStatCd) {
+										case 'OES01':
+											$div
+													.find('button:last')
+													.append(
+															'&nbsp;<i class="iconset ico-theater-new"></i>');
+											break;
+										case 'OES02':
+											$div
+													.find('button:last')
+													.append(
+															'&nbsp;<i class="iconset ico-theater-renewal"></i>');
+											break;
+										case 'OES03':
+											$div
+													.find('button:last')
+													.append(
+															'&nbsp;<i class="iconset ico-theater-open"></i>');
+											break;
+										case 'OES04':
+											$div
+													.find('button:last')
+													.append(
+															'&nbsp;<i class="iconset ico-theater-open"></i>');
+											break;
+										}
+									}
+								});
+
 			}
-
-			// 값 설정
-			switch(tmpData.tabIndx) {
-			case 0 : //영화별
-				paramData.masterType  = 'movie';
-				paramData.movieNo     = $this.data('movieNo');
-				break;
-
-			case 1 : //극장별
-				paramData.masterType  = 'brch';
-				paramData.detailType  = 'area';
-				paramData.brchNo      = $this.data('brchNo');
-				break;
-
-			case 2 : //특별관
-				paramData.masterType  = 'brch';
-				paramData.detailType  = 'spcl';
-				paramData.theabKindCd = $this.data('areaCd');
-				paramData.brchNo      = $this.data('brchNo');
-				break;
-			}
-			MegaboxUtil.Brch.init(option);
-			tabChangeAt = "N";
-		});
-	});
-
-	// 극장정보 갱신
-	function fn_brchListUpt(list, type){
-
-		var $div, $li, areaCd;
-
-		var areaList = [];
-		var brchList = [];
-
-		var html  = '<div class="theater-section">';
-			html += '	<div class="table">';
-			html += '		<div class="td">';
-			html += '			<a href="#1" title="#2 특별관 페이지로 이동">';
-			html += '				<p><strong>#2</strong>#3</p>';
-			html += '				<i class="iconset ico-arrow-half"></i>';
-			html += '				<img src="#4" alt="#2 특별관 페이지로 이동" class="poster">';
-			html += '			</a>';
-			html += '		</div>';
-			html += '	</div>';
-			html += '</div>';
-
-		$.each(list, function(i, param) {
-
-			if (areaCd != param.areaCd) {
-
-				areaCd = param.areaCd;
-
-				var titleTxt = "";
-				if(type == 'spcl') {
-					titleTxt ="특별관 선택";
-				}
-				else {
-					titleTxt ="지점 선택";
-				}
-
-				// 객채 설정
-				$li  = $('<li><a href="#tab'+areaCd+'" title="'+param.areaCdNm+titleTxt+'" data-area-cd="'+ areaCd +'">'+ param.areaCdNm +'</a></li>');
-				$div = $('<div id="tab'+ areaCd +'" class="tab-layer-cont"><div class="scroll m-scroll"><ul class="list"></ul><div></div>');
-
-				// 첫번째 객체
-				if (i == 0) {
-					$div.addClass('on');
-					$li.find('a').addClass('on');
-				}
-
-				// 특별관여부
-				if(type == 'spcl') {
-
-					switch(areaCd) {
-
-					case 'MX' :
-						param.curAreaCdNm  = "MX";
-						param.welComeHtml  = "진정한 영화 사운드를 통한<br />최고의 영화! <br />메가박스의 차세대 <br />표준 상영관";
-						param.splcBrchLink = "/specialtheater/mx";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-mx.png';
-						break;
-					case 'CFT' :
-						param.curAreaCdNm  = "COMFORT";
-						param.welComeHtml  = "더욱 편안한 영화 관람을<br />위한 다양한 여유 공간";
-						param.splcBrchLink = "/specialtheater/comfort";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-comfort.png';
-						break;
-					case 'TBQ' :
-						param.curAreaCdNm  = "THE BOUTIQUE";
-						param.welComeHtml  = "영화를 본다는 것,<br />그 놀라운 경험을 위하여";
-						param.splcBrchLink = "/specialtheater/boutique";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-boutique.png';
-						break;
-					case 'MKB' :
-						param.curAreaCdNm  = "MEGA KIDS";
-						param.welComeHtml  = "아이와 가족이 함께 머물며<br />삶의 소중한 가치를 배우는<br />더 행복한 놀이공간";
-						param.splcBrchLink = "/specialtheater/megakids";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-kids.png';
-						break;
-					case 'BCY' :
-						param.curAreaCdNm  = "BALCONY";
-						param.welComeHtml  = "CINEMA IN CINEMA,<br />영화관 속<br />나만의 개인 영화관";
-						param.imgFileNm    = "balcony";
-						param.splcBrchLink = "/specialtheater/balcony";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-balcony.png';
-						break;
-					case 'TFC' :
-						param.curAreaCdNm  = "THE FIRST CLUB";
-						param.welComeHtml  = "특별한 날,<br />특별한 당신을 위한<br />단 하나의<br />THE FIRST CLUB";
-						param.splcBrchLink = "/specialtheater/firstclub";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-firstclub.png';
-						break;
-					case 'DBC' :
-						param.curAreaCdNm  = "DOLBY";
-						param.welComeHtml  = "국내 최초로 메가박스가 <br />선보이는 세계 최고 <br />기술력의 몰입 시네마";
-						param.splcBrchLink = "/specialtheater/dolby";
-						param.imgUrl       = 'https://img.megabox.co.kr/static/pc/images/reserve/img-theater-dolby.png';
-						break;
-					}
-
-					// 특별관 이미지등록
-					$div.append(html.replace('#1', param.splcBrchLink).replaceAll('#2', param.curAreaCdNm).replace('#3', param.welComeHtml).replace('#4', param.imgUrl));
-
-				} else {
-					arrList.push({areaCd : areaCd , areaNm : param.areaCdNm});
-				}
-
-				areaList.push($li);
-				brchList.push($div);
-			}
-
-			// 극장추가
-			$div.find('ul').append('<li><button type="button" class="btn" data-area-cd="'+ areaCd +'" data-brch-no="'+ param.brchNo +'">'+ param.brchNm +'</button></li>');
-
-			// 극장상태 추가
-			if (param.brchOnlineExpoAt == 'Y') {
-				switch(param.brchOnlineExpoStatCd) {
-				case 'OES01' : $div.find('button:last').append('&nbsp;<i class="iconset ico-theater-new"></i>'    ); break;
-				case 'OES02' : $div.find('button:last').append('&nbsp;<i class="iconset ico-theater-renewal"></i>'); break;
-				case 'OES03' : $div.find('button:last').append('&nbsp;<i class="iconset ico-theater-open"></i>'   ); break;
-				case 'OES04' : $div.find('button:last').append('&nbsp;<i class="iconset ico-theater-open"></i>'   ); break;
-				}
-			}
-		}); 
-
-	}
-
-</script>
+		</script>
 
 		<div id="schdlContainer" class="container">
 			<input type="hidden" id="playDe" name="playDe" value="">
@@ -754,8 +832,10 @@ $(document).ready(function () {
 															style="position: relative; top: 0; left: 0;" dir="ltr">
 															<ul class="list">
 																<li>
-																<button type="button" class="btn disabled on" onclick="send_movie_name()"
-																		data-movie-nm="비상선언" data-movie-no="21084100"
+																	<!-- onclick="send_movie_name(this)" -->
+																	<button type="button" class="btn disabled on" onclick="send_movie_name(this)"
+																		 value="비상선언"
+																		data-movie-no="21084100"
 																		data-img-path="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg">비상선언</button>
 																</li>
 															</ul>
@@ -786,7 +866,8 @@ $(document).ready(function () {
 															class="mCSB_container mCS_no_scrollbar_y"
 															style="position: relative; top: 0; left: 0;" dir="ltr">
 															<ul class="list">
-																<li><button type="button" class="btn disabled" onclick="send_crtn_name()"
+																<li><button type="button" class="btn disabled"
+																		onclick="send_crtn_name()"
 																		data-movie-nm="[2022 시네도슨트] 오르세 미술관 "
 																		data-movie-no="22035700"
 																		data-img-path="https://img.megabox.co.kr/SharedImg/2022/06/21/atGgAYynEtbhEFYGr1rlHN1kNsVtt4Od_316.jpg">[2022
@@ -851,8 +932,9 @@ $(document).ready(function () {
 															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
 															style="position: relative; top: 0; left: 0;" dir="ltr">
 															<ul class="list">
-																<li><button type="button" class="btn" onclick="send_theater_name()"
-																		data-area-cd="10" data-brch-no="1372">강남</button></li>
+																<li><button type="button" class="btn"
+																		onclick="send_theater_name()" data-area-cd="10"
+																		data-brch-no="1372">강남</button></li>
 															</ul>
 															<div></div>
 														</div>
@@ -881,8 +963,9 @@ $(document).ready(function () {
 															class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
 															style="position: relative; top: 0; left: 0;" dir="ltr">
 															<ul class="list">
-																<li><button type="button" class="btn" onclick="send_theater_name()"
-																		data-area-cd="30" data-brch-no="4121">고양스타필드</button></li>
+																<li><button type="button" class="btn"
+																		onclick="send_theater_name()" data-area-cd="30"
+																		data-brch-no="4121">고양스타필드</button></li>
 															</ul>
 															<div></div>
 														</div>
@@ -1108,35 +1191,16 @@ $(document).ready(function () {
 										</div>
 									</div>
 								</div>
+								<!-- <input type="text" id="datepicker"> -->
+
 								<button type="button" title="다음 날짜 보기" class="btn-next"
 									disabled="true">
 									<i class="iconset ico-cld-next"></i> <em>다음</em>
 								</button>
-								<div class="date">
-									<!-- <input type="text" id="show_here" > -->
-									<!--  class="date-calendar v2"  -->
-									<input type="text" id="please">
-
-									<!-- <div class='rap'>
-										<div class="header">
-											<div class="btn prevDay"></div>
-											<h2 class='dateTitle'></h2>
-											<div class="btn nextDay"></div>
-										</div>
-
-										<div class="grid dateHead">
-											<div>일</div>
-											<div>월</div>
-											<div>화</div>
-											<div>수</div>
-											<div>목</div>
-											<div>금</div>
-											<div>토</div>
-										</div>
-
-										<div class="grid dateBoard"></div>
-									</div> -->
-
+								<div class="bg-line">
+									<input type="hidden" id="datepicker">
+									<button type="button" class="btn-calendar-large" title="달력보기"
+										onclick="print_calendar()">달력보기</button>
 								</div>
 							</div>
 						</div>
@@ -1161,8 +1225,8 @@ $(document).ready(function () {
 						<div class="reserve theater-list-box">
 							<div class="tab-block tab-layer mb30">
 								<ul>
-									<li class="on"><a href="" class="btn" data-area-cd="10" onclick="send_state_name(this)"
-										title="서울 선택">서울</a></li>
+									<li class="on"><a href="" class="btn" data-area-cd="10"
+										onclick="send_state_name(this)" title="서울 선택">서울</a></li>
 									<li><a href="" class="btn" data-area-cd="30" title="경기 선택">경기</a></li>
 									<li><a href="" class="btn" data-area-cd="35" title="인천 선택">인천</a></li>
 									<li><a href="" class="btn" data-area-cd="45"
@@ -1176,7 +1240,7 @@ $(document).ready(function () {
 							</div>
 							<div class="theater-list">
 								<div class="theater-area-click">
-									<a href="/theater?brchNo=1372" title="강남 상세보기">강남</a>
+									<a href="showCinema?cName=" title="강남 상세보기">강남</a>
 								</div>
 								<div class="theater-type-box">
 									<div class="theater-type">
@@ -1203,7 +1267,7 @@ $(document).ready(function () {
 														<td class="" brch-no="1372" play-schdl-no="2208031372006"
 															rpst-movie-no="21084100" theab-no="01" play-de="20220803"
 															play-seq="1">
-															<div class="td-ab">
+															<div class="td-ab" onclick="send_time()">
 																<div class="txt-center">
 																	<a href="" title="영화예매하기">
 																		<div class="ico-box">
@@ -1296,7 +1360,5 @@ $(document).ready(function () {
 		style="display: none; position: fixed; top: 0; left: 0; background: #000; opacity: 0.7; text-indent: -9999px; width: 100%; height: 100%; z-index: 100;">닫기</div>
 	<div class="alertStyle"
 		style="display: none; position: fixed; top: 0px; left: 0px; background: #000; opacity: 0.7; width: 100%; height: 100%; z-index: 5005;"></div>
-	<div id="ui-datepicker-div"
-		class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
 </body>
 </html>

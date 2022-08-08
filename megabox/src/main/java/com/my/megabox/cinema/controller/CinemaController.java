@@ -1,13 +1,23 @@
 package com.my.megabox.cinema.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.my.megabox.cinema.service.CinemaService;
+import com.my.megabox.member.dto.CinemaDTO;
 
 @Controller 
 public class CinemaController {
+	@Autowired
+	private CinemaService service;
 	
 	@GetMapping("showCinema")
-	public String timetable() {
+	public String showCinema(Model model, String cName) {
+		CinemaDTO cinema = service.showCinema(cName);
+		System.out.println(cinema.toString());
+		model.addAttribute("cinema", cinema);
 		return "cinema/showCinema";
 	} 
 

@@ -46,6 +46,14 @@ public class BookingController {
 		return "booking/test3";
 	} 
 	
+	@GetMapping("movie")
+	public String movie() {
+		return "booking/movie";
+	} 
+	
+	@GetMapping("head")
+	public void head() {}
+	
 	@ResponseBody
 	@PostMapping(value = "sendMovieName", produces = "text/html; charset=utf-8")
 	public String sendMovieName(@RequestBody(required = false) HashMap<String, String> data) {

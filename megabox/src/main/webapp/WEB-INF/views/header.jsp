@@ -12,8 +12,8 @@
      		<link rel="stylesheet" href="https://www.megabox.co.kr/resources/js/megabox.min.css" media="all">
      		<!-- <script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script> -->
      		
-     		<%-- <script src="${pPath }resources/js/megabox.api.min.js"></script>
-     		<!-- <script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script> -->
+     		<%-- <script src="${pPath }resources/js/megabox.api.min.js"></script> --%>
+     		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
@@ -21,7 +21,7 @@
      
 		    <script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
 		    <script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
-    		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script> --%>
+    		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script>
     
     		<script>
     		function doDisplay(){
@@ -99,7 +99,7 @@
         2019-04-15 마크업 수정 : 고객요청
         1뎁스 a 태그에 각각 다른 class 추가
     -->
-    
+     
     <nav id="gnb">
         <ul class="gnb-depth1">
             <li><a href="/movie" class="gnb-txt-movie" title="영화">영화</a>

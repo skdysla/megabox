@@ -37,18 +37,6 @@
             return;
         }
     </script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%3FbrchNo%3D1372&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%2Flist"></script><script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659502406486"></script>
-
-<!-- <script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script> -->
-
-<script src="${pPath }resources/js/megabox.api.min.js"></script>
-<!-- <script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script> -->
-<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
-<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
-<script src="https://www.megabox.co.kr/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-<script src="https://www.megabox.co.kr/cast.imp.joins.com/persona.js" async=""></script>
-<script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
-<script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
-<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script>
 </head>
 <body>
 

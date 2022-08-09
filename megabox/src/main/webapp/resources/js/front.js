@@ -5485,7 +5485,6 @@ $(function(){
     });
 
     //검색 버튼 클릭
-    /*
     $(document).on("click", "#btnHeaderSearch", function(){
         fn_searchHeaderBoxOffice();
     });
@@ -5496,7 +5495,6 @@ $(function(){
     else {
         common_scroll();
     }
-    */
 }); // end Document ready
 
 function common_scroll() {

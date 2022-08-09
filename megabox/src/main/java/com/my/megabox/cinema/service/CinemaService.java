@@ -48,20 +48,17 @@ public class CinemaService implements ICinemaService {
 
 	@Override
 	public void showCinemaByState() {
-		System.out.println("실행됨@@@");
+		System.out.println("지역에 맞는 극장 가져오는 함수 실행됨");
 		HashMap<String, ArrayList> result = new HashMap<>();
 		
 		for(String state : sList) {
 			String[] splitState = state.split(",");
 			if(splitState.length >= 2) {
 				ArrayList<String> tmp = new ArrayList<>();
-				for(int i = 0; i < splitState.length; i++) {
-					System.out.println(splitState[i] + "실행됨!!, state: " + state);
+				for(int i = 0; i < splitState.length; i++) 
 					tmp.addAll(dao.showCinemaByState(splitState[i]));
-				}
-				result.put(state, tmp);
+				result.put(splitState[0], tmp);
 			}
-			System.out.println("state: " + state);
 			result.put(state, dao.showCinemaByState(state));
 		}
 		session.setAttribute("sList", result);

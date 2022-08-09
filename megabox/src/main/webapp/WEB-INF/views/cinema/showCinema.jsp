@@ -2505,8 +2505,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('서울') }">
-											<li class=""><a href="showCinema?cName=${c}"
-												title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>
@@ -2516,8 +2516,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('경기') }">
-											<li class=""><a href="showCinema?cName=${c}"
-												title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>
@@ -2527,8 +2527,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('인천') }">
-											<li class=""><a href="showCinema?cName=${c}"
-												title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>
@@ -2537,8 +2537,8 @@ function fn_bokdReload(page){
 								<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('대전') }">
-											<li class=""><a href="showCinema?cName=${c}"
-													title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 								</div>
@@ -2548,8 +2548,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('부산') }">
-												<li class=""><a href="showCinema?cName=${c}"
-													title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>
@@ -2558,8 +2558,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('광주') }">
-											<li class=""><a href="showCinema?cName=${c}"
-												title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>
@@ -2568,8 +2568,8 @@ function fn_bokdReload(page){
 									<div class="area-depth2">
 										<ul>
 											<c:forEach var="c" items="${sessionScope.sList.get('강원') }">
-											<li class=""><a href="showCinema?cName=${c}"
-												title="${c } 상세보기">${c}</a></li>
+											<li class="" onclick="location.href='showCinema?cName=${c}'">
+											<a title="${c } 상세보기">${c}</a></li>
 											</c:forEach>
 										</ul>
 									</div></li>

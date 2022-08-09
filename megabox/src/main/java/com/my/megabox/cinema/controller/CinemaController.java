@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.my.megabox.cinema.service.CinemaService;
 
@@ -23,6 +24,7 @@ public class CinemaController {
 	
 	@GetMapping("showCinema")
 	public String showCinema(Model model, String cName) {
+		System.out.println("cName : "  + cName + "ฟไรป!");
 		HashMap<String, ArrayList> sList = (HashMap)session.getAttribute("sList");
 		if(sList == null || sList.isEmpty())
 			service.showCinemaByState();

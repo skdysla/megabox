@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.megabox.cinema.dao.ICinemaDAO">
+
+	<select id="showCinemaByState" parameterType="String" resultType="String" >
+		SELECT C_NAME FROM CINEMA WHERE C_STATE LIKE '%'||#{sName}||'%' ORDER BY C_NUM
+	</select>
+
+	<select id="showCinema" parameterType="String" resultType="com.my.megabox.cinema.dto.CinemaDTO">
+		SELECT * FROM CINEMA WHERE C_NAME = #{cName}
+	</select> 
+	
+	<select id="showFloor" parameterType="String" resultType="com.my.megabox.cinema.dto.FloorDTO">
+		SELECT FL.* FROM FLOOR FL JOIN CINEMA C ON C.C_NAME = #{cName} AND FL.C_NUM = C.C_NUM ORDER BY FL.F_NUM
+	</select>
+	
+	<select id="showFacility" parameterType="String" resultType="com.my.megabox.cinema.dto.FacilityDTO">
+		SELECT FA.* FROM FACILITY FA JOIN CINEMA C ON C.C_NAME = #{cName} AND FA.C_NUM = C.C_NUM ORDER BY FA.F_NUM
+	</select>
+	
+</mapper>

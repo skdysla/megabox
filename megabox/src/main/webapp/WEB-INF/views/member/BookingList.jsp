@@ -121,13 +121,13 @@
 						<tr>
 							<th scope="row">구분 </th>
 							<td>
-								<input type="radio" id="radBokd01" name="radBokd" value="B" checked="checked">
+								<input type="radio" id="radBokd" name="radBokd" value="B" checked >
 								<label for="radBokd01">예매내역 </label>
-								<input type="radio" id="radBokd02" name="radBokd" value="E">
+								<input type="radio" id="radBokd" name="radBokd" value="E">
 								<label for="radBokd02">지난내역 </label>
 
 								<div class="dropdown bootstrap-select small bs3 disabled">
-									<select name="selYM" class="selectpicker small YMlist" tabindex="-98" disabled>
+									<select name="selYM" class="selectpicker small" id="selYM" tabindex="-98">
 										
 											<option value="202208">2022년 8월</option>
 										

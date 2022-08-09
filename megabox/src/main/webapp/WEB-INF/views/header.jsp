@@ -7,11 +7,6 @@
 
 		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
      		<link rel="stylesheet" href="https://www.megabox.co.kr/resources/js/megabox.min.css" media="all">
-     		<!-- <script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script> -->
-     		
-
-     		<%-- <script src="${pPath }resources/js/megabox.api.min.js"></script> --%>
-
      		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
@@ -21,12 +16,17 @@
 		    <script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
 		    <script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
     		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script>
-    
+    		
     		<script>
-    		function doDisplay(){
-	    		var layer = document.getElementById("layer_header_search");
-	    		layer.style.display = 'block';
+    		function open_search_screen(){
+	    		var parent = document.getElementById("layer-header-search");
+	    		parent.className = "header-layer layer-header-search appendHtml on";
     		}
+    		
+    		function search_movie_by_name(){
+				var mName = document.getElementById('headerMovieName').value;
+				location.href='movie?mName=' + mName;
+			}
     		</script>
 <!-- header -->
 <header id="header">
@@ -88,17 +88,11 @@
 
     <div class="link-area">
         <a href="#layer_sitemap" class="header-open-layer btn-layer-sitemap" title="사이트맵">사이트맵</a>
-        <a href="#layer_header_search" class="header-open-layer btn-layer-search" title="검색" onclick="doDisplay()">검색</a>
+        <a href="" class="header-open-layer btn-layer-search" title="검색" onclick="open_search_screen()">검색</a>
         <a href="/timetable" class="link-ticket" title="상영시간표">상영시간표</a>
         <a href="#layer_mymega" class="header-open-layer btn-layer-mymega" title="나의 메가박스">나의 메가박스</a>
     </div>
 
-    <!-- gnb -->
-    <!--
-        2019-04-15 마크업 수정 : 고객요청
-        1뎁스 a 태그에 각각 다른 class 추가
-    -->
-     
     <nav id="gnb">
         <ul class="gnb-depth1">
             <li><a href="/movie" class="gnb-txt-movie" title="영화">영화</a>
@@ -228,8 +222,6 @@
             <div class="list position-6">
                 <p class="tit-depth">나의 메가박스</p>
                 <ul class="list-depth mymage">
-                	
-            			
             				<li><a href="javascript:movePage('/mypage',						'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 메가박스 홈">나의 메가박스 홈</a></li>
 		                    <li><a href="javascript:movePage('/mypage/bookinglist',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="예매/구매내역">예매/구매내역</a></li>
 		                    <li><a href="javascript:movePage('/mypage/movie-coupon',		'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="영화관람권">영화관람권</a></li>
@@ -242,9 +234,6 @@
 		                    <li><a href="javascript:movePage('/mypage/myinquiry',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 문의내역">나의 문의내역</a></li>
 		                    <li><a href="#" title="자주쓰는 할인 카드">자주쓰는 할인 카드</a></li>
 		                    <li><a href="javascript:movePage('/on/oh/ohh/Mypage/mainPage.do?returnURL=info','로그인이 필요한 서비스 입니다.');" title="회원정보">회원정보</a></li>
-            			
-            			
-            		
                 </ul>
             </div>
 
@@ -305,8 +294,10 @@
     </div>
     <!--// 레이어 : 사이트맵 -->
 
+	<!-- style="display: block" -->
     <!-- 레이어 : 검색 -->
-    <div id="layer_header_search" class="header-layer layer-header-search appendHtml">
+   <div id="layer-header-search" class="header-layer layer-header-search appendHtml">
+
         <div class="wrap">
             <a href="" class="link-acc" title="검색 레이어 입니다.">검색 레이어 입니다.</a>
 
@@ -320,7 +311,7 @@
             <div class="rank-cont">
                 <p class="img">
                 	
-                	<img src="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" alt="비상선언" onerror="noImg(this, 'main');">
+                	<img src="https://img.megabox.co.kr/SharedImg/2022/08/05/QDUC0cjm2bnWDCCQPYpQvelnoFe1CCfH_316.jpg" alt="헌트" onerror="noImg(this, 'main');">
                 	
                 </p>
 
@@ -328,15 +319,15 @@
                 	<ol>
                 		
 	                	
-							<li><em>1</em> <a href="javascript:gfn_moveDetail('21084100')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" onerror="noImg(this, 'main');" title="비상선언 상세보기">비상선언</a></li>
+							<li><em>1</em> <a href="javascript:gfn_moveDetail('22037300')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/08/05/QDUC0cjm2bnWDCCQPYpQvelnoFe1CCfH_316.jpg" onerror="noImg(this, 'main');" title="헌트 상세보기">헌트</a></li>
 	                	
 							<li><em>2</em> <a href="javascript:gfn_moveDetail('22023000')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/28/1ogGcWYxCNJ9MTnizlZLdZ6REjg6xX1z_316.jpg" onerror="noImg(this, 'main');" title="한산: 용의 출현 상세보기">한산: 용의 출현</a></li>
 	                	
-							<li><em>3</em> <a href="javascript:gfn_moveDetail('22018400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/05/09/6zfAYe6IrZ8BWnruqEfafwakt5cUjWgX_316.jpg" onerror="noImg(this, 'main');" title="탑건: 매버릭 상세보기">탑건: 매버릭</a></li>
+							<li><em>3</em> <a href="javascript:gfn_moveDetail('22040600')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/11/5QmiMH2KZOYaIru5mEZcihFW40XhkvCq_316.jpg" onerror="noImg(this, 'main');" title="DC 리그 오브 슈퍼-펫 상세보기">DC 리그 오브 슈퍼-펫</a></li>
 	                	
-							<li><em>4</em> <a href="javascript:gfn_moveDetail('22037300')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/26/NVV1sJ39un40HMIwi8fY54YpXhzqBG36_316.jpg" onerror="noImg(this, 'main');" title="헌트 상세보기">헌트</a></li>
+							<li><em>4</em> <a href="javascript:gfn_moveDetail('21084100')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/18/QrXStxq2NTGaeHPaAK5xxOXsarNj2aJd_316.jpg" onerror="noImg(this, 'main');" title="비상선언 상세보기">비상선언</a></li>
 	                	
-							<li><em>5</em> <a href="javascript:gfn_moveDetail('21020400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/07/20/0v4Yp5q079dJPP0Eqt0JExH8qkl7bMks_316.jpg" onerror="noImg(this, 'main');" title="미니언즈2 상세보기">미니언즈2</a></li>
+							<li><em>5</em> <a href="javascript:gfn_moveDetail('22018400')" data-imgsrc="https://img.megabox.co.kr/SharedImg/2022/05/09/6zfAYe6IrZ8BWnruqEfafwakt5cUjWgX_316.jpg" onerror="noImg(this, 'main');" title="탑건: 매버릭 상세보기">탑건: 매버릭</a></li>
 	                	
 	                	
                 	</ol>
@@ -360,15 +351,13 @@
 
             <div class="header-search-area">
                 <input type="text" id="headerMovieName" title="영화명을 검색해 주세요" placeholder="영화를 검색하세요" class="input-text">
-                <button type="button" id="btnHeaderSearch" class="btn-search">검색</button>
+                <button type="button" id="btnHeaderSearch" class="btn-search" onclick="search_movie_by_name()">검색</button>
             </div>
 
-			<form name="headerBoxoForm" id="headerBoxoForm" method="post" onsubmit="return fn_chkHeaderBoxOffice();">
+			<!-- <form name="headerBoxoForm" id="headerBoxoForm" method="get" action="movie" onsubmit="return fn_chkHeaderBoxOffice();">
 				<input type="hidden" name="searchText" id="searchText">
-			</form>
-
-
-
+			</form> -->
+			
             <div class="ir">
                 <a href="" class="layer-close" title="레이어닫기">레이어닫기</a>
             </div>

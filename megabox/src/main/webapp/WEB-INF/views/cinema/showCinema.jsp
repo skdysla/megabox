@@ -1,6 +1,8 @@
+<%@page import="com.my.megabox.cinema.dto.FloorDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="ko"><!--<![endif]--><head>
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
   
@@ -2502,8 +2504,10 @@ function fn_bokdReload(page){
 								<li><a href="" class="depth1" title="서울 선택">서울</a>
 									<div class="area-depth2">
 										<ul>
-											<li class="on"><a href="/showCinema?cName="
-												title="강남 상세보기">강남 </a></li>
+											<c:forEach var="c" items="${sessionScope.sList.get('서울') }">
+											<li class=""><a href="showCinema?cName=${c}"
+												title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
 										</ul>
 									</div></li>
 
@@ -2511,32 +2515,69 @@ function fn_bokdReload(page){
 								<li><a href="" class="depth1" title="경기 선택">경기</a>
 									<div class="area-depth2">
 										<ul>
-											<li><a href="/showCinema?cName=" title="고양스타필드 상세보기">고양스타필드
-											</a></li>
+											<c:forEach var="c" items="${sessionScope.sList.get('경기') }">
+											<li class=""><a href="showCinema?cName=${c}"
+												title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
 										</ul>
 									</div></li>
 
 
 								<li><a href="" class="depth1" title="인천 선택">인천</a>
-									<div class="area-depth2"></div></li>
-
+									<div class="area-depth2">
+										<ul>
+											<c:forEach var="c" items="${sessionScope.sList.get('인천') }">
+											<li class=""><a href="showCinema?cName=${c}"
+												title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
+										</ul>
+									</div></li>
+									
+								<li><a href="" class="depth1" title="대전/충청/세종 선택">대전/충청/세종</a>
+								<div class="area-depth2">
+										<ul>
+											<c:forEach var="c" items="${sessionScope.sList.get('대전,충청,세종') }">
+											<li class=""><a href="showCinema?cName=${c}"
+													title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
+										</ul>
+								</div>
+							</li>
 
 								<li class=""><a href="" class="depth1" title="부산/대구/경상 선택">부산/대구/경상</a>
-									<div class="area-depth2"></div></li>
-
+									<div class="area-depth2">
+										<ul>
+											<c:forEach var="c" items="${sessionScope.sList.get('부산,대구,경상') }">
+												<li class=""><a href="showCinema?cName=${c}"
+													title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
+										</ul>
+									</div></li>
 
 								<li><a href="" class="depth1" title="광주/전라 선택">광주/전라</a>
-									<div class="area-depth2"></div></li>
-
+									<div class="area-depth2">
+										<ul>
+											<c:forEach var="c" items="${sessionScope.sList.get('광주,전라') }">
+											<li class=""><a href="showCinema?cName=${c}"
+												title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
+										</ul>
+									</div></li>
 
 								<li><a href="" class="depth1" title="강원 선택">강원</a>
-									<div class="area-depth2"></div></li>
-
+									<div class="area-depth2">
+										<ul>
+											<c:forEach var="c" items="${sessionScope.sList.get('강원') }">
+											<li class=""><a href="showCinema?cName=${c}"
+												title="${c } 상세보기">${c}</a></li>
+											</c:forEach>
+										</ul>
+									</div></li>
 							</ul>
 						</div>
 						<!--// theater-area-list -->
 
-						<p class="name">강남</p>
+						<p class="name">${cinema.c_name }</p>
 					</div>
 					<!--// theater-detail-cont -->
 				</div>
@@ -2555,31 +2596,68 @@ function fn_bokdReload(page){
 			<div class="tab-cont-wrap">
 				<div id="tab01" class="tab-cont on">
 
-
-
-
-	<div class="theater-info-text mt40">
+	<!-- <div class="theater-info-text mt40">
 		<p class="big">
 			강남의 중심! 강남 소비문화의 중심지인 지하철 2호선 , 신분당선  - 강남역과 연결<br>로맨틱 멀티플렉스! 젊은 도시 강남이 한 눈에 보이는 최상의 View를 제공
 		</p>
 		<p>&lt;프라다&gt;가 선택한 수려한 디자인의 상영관 의자를 체험해보세요!</p>
-	</div>
+	</div> -->
 
 
 	<h2 class="tit small mt70">시설안내</h2>
 
 	<h3 class="tit small">보유시설</h3>
 	<div class="theater-facility">
-					<p><i class="iconset ico-facility-theater"></i>일반상영관</p>
-					<p><i class="iconset ico-facility-disabled"></i>장애인석</p>
+		<c:forEach var="fa" items="${facility }">
+			<p>
+			<c:choose>
+				<c:when test="${fa.f_facility == '컴포트' }">
+					<i class="iconset ico-facility-comfort"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '장애인석' }">
+					<i class="iconset ico-facility-disabled"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '커플석' }">
+					<i class="iconset ico-facility-couple"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '스위트룸' }">
+					<i class="iconset ico-facility-sweet"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '돌비' }">
+					<i class="iconset ico-facility-dolby"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == 'MX' }">
+					<i class="iconset ico-facility-mx"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '부티크' }">
+					<i class="iconset ico-facility-boutique"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '2인소파석' }">
+					<i class="iconset ico-facility-twopulson"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '4인소파석' }">
+					<i class="iconset ico-facility-fourpulson"></i>
+				</c:when>
+				<c:when test="${fa.f_facility == '스페셜석' }">
+					<i class="iconset ico-facility-special"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="iconset ico-facility-theater"></i>
+				</c:otherwise>
+			</c:choose>
+			${fa.f_facility }</p>
+		</c:forEach>
 	</div>
 
 	<h3 class="tit small mt30">층별안내</h3>
 	<ul class="dot-list">
-			<li><span class="font-gblue">8층 : </span> 매표소, 매점, 에스컬레이터, 엘리베이터 , 남자 · 여자 화장실, 비상계단 3 </li>
-			<!-- <li><span class="font-gblue">9층 : </span> 1관, 2관, 남자 · 여자 화장실, 엘리베이터, 비상계단3</li>
-			<li><span class="font-gblue">10층 : </span> 3관, 4관, 엘리베이터2, 남자 · 여자 화장실, 비상계단 3 </li>
-			<li><span class="font-gblue">11층 : </span> 5관, 6관, 7관, 엘리베이터2, 남자 · 여자 화장실, 비상계단 3 </li> -->
+		<c:forEach var="fl" items="${floor }">
+			<% 
+				FloorDTO floorInfo = (FloorDTO)pageContext.getAttribute("fl");  
+				String[] floorInfoList = floorInfo.getF_floor().split(":");
+			%>
+			<li><span class="font-gblue"><%=floorInfoList[0] %> : </span><%=floorInfoList[1] %></li>
+		</c:forEach>
 	</ul>
 
 <h2 class="tit small mt70">교통안내</h2>
@@ -2587,7 +2665,7 @@ function fn_bokdReload(page){
 <h3 class="tit small">약도</h3>
 
 <ul class="dot-list">
-	<li><span class="font-gblue">도로명주소 : </span> 서울 서초구 서초대로77길 3 아라타워 8층 메가박스 강남지점</li>
+	<li><span class="font-gblue">도로명주소 : </span>${cinema.c_state } ${cinema.c_city } ${cinema.c_detail }</li>
 
 </ul>
 

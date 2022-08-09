@@ -1,9 +1,11 @@
 package com.my.megabox.cinema.service;
 
-import com.my.megabox.cinema.dto.CinemaDTO;
+import java.util.HashMap;
 
 public interface ICinemaService {
 	
-	CinemaDTO showCinema(String cName);
+	HashMap<String, Object> showCinema(String cName);
+	
+	void showCinemaByState();
 
 }

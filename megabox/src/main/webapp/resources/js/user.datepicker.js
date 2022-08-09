@@ -1,6 +1,10 @@
 $(document).on("click","#CalDate",function(){
 		$(this).addClass('on').siblings().removeClass('on');
 	})
+	
+$(document).on("click", "#radBokd", function(){
+	$(this).addClass('disabled').siblings().removeClass('disabled');
+})
 
 $(function(){
 	    // datepicker -  jquery ui
@@ -46,7 +50,7 @@ $(function(){
 	    $('#dp1659517546429').datepicker('setDate', 'today');
 	    
 	    if( $('#CalDate').val() == 'D7') {
-	    	$('#dp1659517546428').datepicker('setDate', '-7D');
+	    	$('#dp1659517546428').datepicker('setDate', '-1M');
 	    	$('#dp1659517546429').datepicker('setDate', 'today');
 	    }
 	    
@@ -72,17 +76,17 @@ $(function(){
 		    	}
 	    	});
 	    });
-});
-
-$(document).ready(function() {
-	$("input:radio[name=radBokd]").on('click', function(){
-		
-		if ($("input[name=radBokd]:checked").val() == 'E') {
-			//$(".YMlist").attr('disabled', false);
-			 $(".YMlist").removeAttr("disabled");
-		} else if ($("input[name=radBokd]:checked").val() == 'B') {
-	        //$(".YMlist").attr('disabled', true);
-	        $(".YMlist").attr("disabled","disabled");
-	    }
-	});
+	    
+	    
+/*	    
+		$("input:radio[name=radBokd]").click(function(){			
+			if ($("input:radio[name=radBokd]:checked").val() == 'E') {
+				$("select[name=selYM]").attr("disabled", false);
+				$("select[name=selYM]").removeClass("readonly");
+			} else if ($("input:radio[name=radBokd]:checked").val() == 'B') {
+			    $("select[name=selYM]").attr("disabled", true);
+			    $("select[name=selYM]").addClass("readonly");
+			}
+		});
+		*/
 });

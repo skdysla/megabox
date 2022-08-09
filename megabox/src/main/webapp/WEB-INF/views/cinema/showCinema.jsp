@@ -6,10 +6,9 @@
 <html lang="ko"><!--<![endif]--><head>
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
   
-		<title>(강남)극장정보 &gt; 전체극장 , 메가박스</title>
-     		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
-     		<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
+	<title>(강남)극장정보 &gt; 전체극장 , 메가박스</title>
+    <link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
+	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
     <script type="text/javascript">
 
   		
@@ -38,8 +37,19 @@
             return;
         }
     </script><script src="//cast.imp.joins.com/head/Y2e-o2Iq2tQOcSufIC0X_75Yb7tnP0NHifRh81cPxESEAM4qWzAZAbZkRmtWcXYtV1NZeWRhdWhxWVBtWXJBAstB2LiS06SLlQPLQdi4ktOki5U.js?url=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%3FbrchNo%3D1372&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Ftheater%2Flist"></script><script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659502406486"></script>
-</head>
 
+<!-- <script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script> -->
+
+<script src="${pPath }resources/js/megabox.api.min.js"></script>
+<!-- <script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script> -->
+<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
+<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
+<script src="https://www.megabox.co.kr/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
+<script src="https://www.megabox.co.kr/cast.imp.joins.com/persona.js" async=""></script>
+<script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
+<script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
+<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script>
+</head>
 <body>
 
     <div class="skip" title="스킵 네비게이션">
@@ -48,18 +58,7 @@
     </div>
 
     <div class="body-wrap">
-
-       
-
-
-
-
-
-
-
-
-<!-- <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script src="https://www.megabox.co.kr/static/mb/js/hmac-sha256.js"></script>
 <script src="https://www.megabox.co.kr/static/mb/js/enc-base64-min.js"></script>
 <script type="text/javascript">
@@ -1942,7 +1941,7 @@ function fn_setSmapParam(param) {
 		else if("brch" == scnDiv){
 			innerHtml += "<a href=\"/theater/list\" title=\"/극장 페이지로 이동\">극장</a>";
 			innerHtml += "<a href=\"/theater/list\" title=\"/예매 페이지로 이동\">전체극장</a>";
-			innerHtml += "<a href=\"\" title=\"/극장정보\">극장정보</a>";
+			innerHtml += "<a href=\"/" title=\"/극장정보\">극장정보</a>";
 		}
 		else if("TBQ" == scnDiv){
 			innerHtml += "<a href=\"/theater/list\" title=\"/극장 페이지로 이동\">극장</a>";
@@ -2430,45 +2429,6 @@ function fn_bokdReload(page){
 		MegaboxUtil.Brch.init(option);
 	}
 
-
-	// 메타테그/네비게인션 설정
-	function setMetaTagNNavi(index) {
-
-		var tabNm = $('#contents .tab-layer a').eq(index).html();
-		var title = tabNm + ' 페이지로 이동';
-
-		var paramData = { 'scnTitle'     : '(강남)' + tabNm + ' > 전체극장 , 메가박스'
-						, 'metaTagTitle' : '(강남)' + tabNm + ' > 전체극장 , 메가박스'
-						, 'metaTagImg'   : 'http://image2.megabox.co.kr/mop/event.html/2018/6F/03D492-6FD4-485F-AE3F-2D3E2A41046F.jpg'};
-
-		switch (index) {
-		case 0 :
-			paramData.metaTagUrl    = location.protocol + '//' + document.domain + '/theater?brchNo=1372';
-			paramData.metaTagMenuId = 'ON00000038';
-			paramData.metaTagDtls   = '반갑습니다. 메가박스 강남점 입니다.';
-			break;
-		case 1 :
-			paramData.metaTagUrl    = location.protocol + '//' + document.domain + '/theater/time?brchNo=1372';
-			paramData.metaTagMenuId = 'ON00000037';
-			paramData.metaTagDtls   = '반갑습니다. 메가박스 강남점 입니다.';
-			break;
-		case 2 :
-			paramData.metaTagUrl    = location.protocol + '//' + document.domain + '/theater/price?brchNo=1372';
-			paramData.metaTagMenuId = 'ON00000039';
-			paramData.metaTagDtls   = '메가박스 강남점의 관람료를 확인하세요.';
-			break;
-		}
-
-		// 메타테그 설정
-		settingMeta(paramData);
-
-		// 네비게이션 설정
-		$('#schdlContainer .location a:last').attr({'href': paramData.metaTagUrl.replace('&', ''), 'title' : title}).html(tabNm);
-
-		// URL 주소 변경
-		history.replaceState( null, null, paramData.metaTagUrl );
-	}
-
 </script>
 
 <div id="schdlContainer" class="container">
@@ -2478,7 +2438,7 @@ function fn_bokdReload(page){
 				<span>Home</span>
 				<a href="/theater/list" title="극장 페이지로 이동">극장</a>
 				<a href="/theater/list" title="전체극장 페이지로 이동">전체극장</a>
-				<a href="/showCinema" title="극장정보 페이지로 이동">극장정보</a>
+				<a href="showCinema" title="극장정보 페이지로 이동">극장정보</a>
 			</div>
 		</div>
 	</div>
@@ -2679,12 +2639,8 @@ function fn_bokdReload(page){
 </div>
 
 				<div id="tab02" class="tab-cont"><a href="" class="ir"></a>
-					<h2 class="tit small" style="display: none;">무대인사</h2>
-					<div class="movie-greeting"></div>
-					<!-- <h2 class="tit small mt40">상영시간표</h2> -->
-				</div>
+				</div> 
 				<div id="tab03" class="tab-cont"><a href="" class="ir"></a>
-					<!-- <h2 class="tit small">영화관람료</h2> -->
 				</div>
 			</div>
 		</div>

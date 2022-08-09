@@ -82,7 +82,7 @@
 	}
 	
 	function send_time(){
-		alert('영화 상영 시간 전달 함수 호출됨!!!!!!');
+		console.log('영화 상영 시간 전달 함수 호출됨!!!!!!');
 	}
 
 	function print_calendar() {
@@ -777,11 +777,11 @@
 											break;
 										}
 									}
-								});
+								}); 
 
 			}
 		</script>
-
+		
 		<div id="schdlContainer" class="container">
 			<input type="hidden" id="playDe" name="playDe" value="">
 			<div class="page-util fixed">

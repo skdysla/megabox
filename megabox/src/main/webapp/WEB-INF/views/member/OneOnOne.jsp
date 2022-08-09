@@ -159,34 +159,34 @@
 													<ul class="dropdown-menu inner ">
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">지역선택</span></a></li>
 														<li class="">
-														<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
-														<span class="text">서울</span>
-														</a>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
+																<span class="text">서울</span>
+															</a>
 														</li>
 														<li class="">
-														<a role="option" aria-disabled="false" tabindex="0" aria-selected="true" class="">
-														<span class="text">경기</span>
-														</a>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="true" class="">
+																<span class="text">경기</span>
+															</a>
 														</li>
 														<li class="">
-														<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
-														<span class="text">인천</span>
-														</a>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
+																<span class="text">인천</span>
+															</a>
 														</li>
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-														<span class="text">대전/충청/세종</span>
+															<span class="text">대전/충청/세종</span>
 														</a></li>
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-														<span class="text">부산/대구/경상</span>
+															<span class="text">부산/대구/경상</span>
 														</a></li>
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-														<span class="text">광주/전라</span>
+															<span class="text">광주/전라</span>
 														</a></li>
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-														<span class="text">강원</span>
+															<span class="text">강원</span>
 														</a></li>
 														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-														<span class="text">제주</span>
+															<span class="text">제주</span>
 														</a></li>
 													</ul>
 												</div>

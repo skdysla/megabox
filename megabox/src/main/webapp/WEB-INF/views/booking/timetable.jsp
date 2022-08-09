@@ -11,7 +11,7 @@
 	href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">
 
-<c:url var="root" value="/" />
+<c:url var="root" value="/" /> 
 
 <!-- datePicker -->
 <script
@@ -82,7 +82,7 @@
 	}
 	
 	function send_time(){
-		alert('영화 상영 시간 전달 함수 호출됨!!!!!!');
+		console.log('영화 상영 시간 전달 함수 호출됨!!!!!!');
 	}
 
 	function print_calendar() {
@@ -443,7 +443,7 @@
 
 
 		<script type="text/javascript">
-			$(function() {
+			/* $(function() {
 
 				$('#header .right-link .before').show();
 				$('#header .right-link .after').hide();
@@ -466,7 +466,7 @@
 				if (!MegaboxUtil.Common.isMobile()
 						&& !MegaboxUtil.Common.isApp())
 					MegaboxUtil.Share.init();
-			});
+			}); */
 
 			//로그인 버튼
 			$(document).on('click', '#moveLogin', function() {
@@ -505,7 +505,7 @@
 				</div>
 			</div>
 
-			<div id="bokdMSeat"
+			<!-- <div id="bokdMSeat"
 				style="overflow: hidden; display: none; height: 736px;">
 				<iframe id="frameBokdMSeat"
 					src="/on/oh/ohz/PcntSeatChoi/selectPcntSeatChoi.do?megaboxLanguage=kr"
@@ -519,7 +519,7 @@
 					src="/on/oh/ohz/PayBooking/completeSeat.do?megaboxLanguage=kr"
 					title="예매 결제" scrolling="no" frameborder="0" class="reserve-iframe"
 					style="width: 100%; height: 736px;"></iframe>
-			</div>
+			</div> -->
 
 		</div>
 		<!--// container -->
@@ -538,7 +538,7 @@
 			$(function() {
 
 				$(document).ready(function() {
-					areaList();
+					//areaList();
 				});
 
 				// 영화명, 극장명 클릭
@@ -777,18 +777,17 @@
 											break;
 										}
 									}
-								});
-
+								}); 
 			}
 		</script>
-
+		
 		<div id="schdlContainer" class="container">
 			<input type="hidden" id="playDe" name="playDe" value="">
 			<div class="page-util fixed">
 				<div class="inner-wrap">
 					<div class="location">
 						<span>Home</span> <a href="/booking" title="예매 페이지로 이동">예매</a> <a
-							href="/booking/timetable" title="상영시간표 페이지로 이동">상영시간표</a>
+							href="timetable" title="상영시간표 페이지로 이동">상영시간표</a>
 					</div>
 
 				</div>
@@ -1267,9 +1266,9 @@
 														<td class="" brch-no="1372" play-schdl-no="2208031372006"
 															rpst-movie-no="21084100" theab-no="01" play-de="20220803"
 															play-seq="1">
-															<div class="td-ab" onclick="send_time()">
+															<div class="td-ab">
 																<div class="txt-center">
-																	<a href="" title="영화예매하기">
+																	<div title="영화예매하기" onclick="send_time()">
 																		<div class="ico-box">
 																			<i class="iconset ico-sun"></i>
 																		</div>
@@ -1279,7 +1278,7 @@
 																			<p>09:30~12:01</p>
 																			<p>1회차</p>
 																		</div>
-																	</a>
+																	</div>
 																</div>
 															</div>
 														</td>

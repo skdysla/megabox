@@ -49,7 +49,6 @@ public class BookingController {
 	@ResponseBody
 	@PostMapping(value = "sendMovieName", produces = "text/html; charset=utf-8")
 	public String sendMovieName(@RequestBody(required = false) HashMap<String, String> data) {
-		System.out.println(data.get("name"));
 		return data.get("name") + "요청 받음";
 	}
 

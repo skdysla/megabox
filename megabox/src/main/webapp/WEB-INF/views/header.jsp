@@ -7,10 +7,11 @@
 
 		<title>영화별 상영시간표 &lt; 상영시간표 | MEET PLAY SHARE, 메가박스</title>
      		<link rel="stylesheet" href="https://www.megabox.co.kr/resources/js/megabox.min.css" media="all">
-     		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script>
+     		<!-- <script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659687433844"></script> -->
      		
 
-     		<link rel="stylesheet" href="${pPath }resources/js/megabox.min.css" media="all">
+     		<%-- <script src="${pPath }resources/js/megabox.api.min.js"></script> --%>
+
      		<script src="https://www.megabox.co.kr/static/pc/dist/megabox.api.min.js"></script>
 			<script src="https://www.megabox.co.kr/static/mb/js/lozad.min.js"></script>
 			<script src="https://www.megabox.co.kr/js/common/dist/megabox.common.min.js"></script>
@@ -97,7 +98,7 @@
         2019-04-15 마크업 수정 : 고객요청
         1뎁스 a 태그에 각각 다른 class 추가
     -->
-    
+     
     <nav id="gnb">
         <ul class="gnb-depth1">
             <li><a href="/movie" class="gnb-txt-movie" title="영화">영화</a>

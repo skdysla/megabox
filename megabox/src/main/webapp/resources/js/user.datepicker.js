@@ -2,9 +2,21 @@ $(document).on("click","#CalDate",function(){
 		$(this).addClass('on').siblings().removeClass('on');
 	})
 	
-$(document).on("click", "#radBokd", function(){
-	$(this).addClass('disabled').siblings().removeClass('disabled');
-})
+	$(document).ready(function(){
+		 
+	    // 라디오버튼 클릭시 이벤트 발생
+	    $("input:radio[name=radBokd]").click(function(){
+	 
+	        if($("input[name=radBokd]:checked").val() == "QD01M01"){
+	            $("select[name=selLocal]").attr("disabled",false);
+	            // radio 버튼의 value 값이 1이라면 활성화
+	 
+	        }else if($("input[name=radBokd]:checked").val() == "QD01M02"){
+	              $("select[name=selLocal]").attr("disabled",true);
+	            // radio 버튼의 value 값이 0이라면 비활성화
+	        }
+	    });
+	});
 
 $(function(){
 	    // datepicker -  jquery ui

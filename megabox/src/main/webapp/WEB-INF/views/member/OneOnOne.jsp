@@ -4,15 +4,35 @@
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
 <script>
-/* $(document).on("click", "#aq1", function(){
-	var val = input:radio[name='inqMclCd'].val();
-	if (val == 'QD01M01') {
-		$('#theater').removeAttr('disabled');
+function addressKindChange(e){
+	var seoul = ["강남","홍대","영등포","여의도"];
+	var gyeonggi = ["수원","평택","용인"];
+	var incheon = ["5"];
+	var daechungse = ["천안","세종","논산"];
+	var budaegyeong = ["y"];
+	var gwangjeon = ["ytt"];
+	var gangwon = ["e"];
+	var jeju = ["ddddd"];
+	var target = document.getElementById("brchNo");
+	
+	if(e.value == "10") var d = seoul;
+	else if(e.value == "30") var d = gyeongi;
+	else if(e.value == "35") var d = incheon;
+	else if(e.value == "45") var d = daechungse;
+	else if(e.value == "55") var d = budaegyeong;
+	else if(e.value == "65") var d = gwangjeon;
+	else if(e.value == "70") var d = gangwon;
+	else if(e.value == "80") var d = jeju;
+	
+	target.options.length = 0;
+	
+	for(x in d){
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
 	}
-	else {
-		$('#theater').attr('disabled', 'true');
-	}
-}); */
+}
 </script>
 <div class="container has-lnb">
 		<div class="page-util">
@@ -130,7 +150,8 @@
 										<label for="aq1">지점문의</label>
 
 										<div class="dropdown bootstrap-select small ml10 bs3">
-											<select id="theater" class="small ml10" title="지역선택" tabindex="-98"><option class="bs-title-option" value=""></option>
+											<!-- <select id="theater" class="small ml10" title="지역선택" tabindex="-98">
+											<option class="bs-title-option" value=""></option>
 												<option value="">지역선택</option>
 												
 													<option value="10">서울</option>
@@ -149,69 +170,92 @@
 												
 													<option value="80">제주</option>
 												
-											</select>
-											<button type="button" class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown" role="button" data-id="theater" title="지역선택" aria-expanded="false">
-											<div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">지역선택</div></div> </div>
-											<span class="bs-caret"><span class="caret"></span></span>
+											</select> -->
+											<button type="button" class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown" role="button" data-id="theater" title="지역선택">
+												<div class="filter-option">
+													<div class="filter-option-inner">
+														<div class="filter-option-inner-inner">지역선택</div>
+													</div> 
+												</div>
+												<span class="bs-caret"><span class="caret"></span></span>
 											</button>
-											<div class="dropdown-menu open" role="combobox" style="overflow: hidden;">
-												<div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="overflow-y: auto;">
+											<div class="dropdown-menu open" role="combobox">
+												<div class="inner open" role="listbox" aria-expanded="false" tabindex="-1">
 													<ul class="dropdown-menu inner ">
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">지역선택</span></a></li>
-														<li class="">
-															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">지역선택</span>
+															</a>
+														</li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
 																<span class="text">서울</span>
 															</a>
 														</li>
-														<li class="">
-															<a role="option" aria-disabled="false" tabindex="0" aria-selected="true" class="">
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
 																<span class="text">경기</span>
 															</a>
 														</li>
-														<li class="">
-															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class="">
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
 																<span class="text">인천</span>
 															</a>
 														</li>
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-															<span class="text">대전/충청/세종</span>
-														</a></li>
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-															<span class="text">부산/대구/경상</span>
-														</a></li>
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-															<span class="text">광주/전라</span>
-														</a></li>
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-															<span class="text">강원</span>
-														</a></li>
-														<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
-															<span class="text">제주</span>
-														</a></li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">대전/충청/세종</span>
+															</a>
+														</li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">부산/대구/경상</span>
+															</a>
+														</li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">광주/전라</span>
+															</a>
+														</li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">강원</span>
+															</a>
+														</li>
+														<li>
+															<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+																<span class="text">제주</span>
+															</a>
+														</li>
 													</ul>
 												</div>
 											</div>
 										</div>
-										
-										<div class="dropdown bootstrap-select disabled small ml10 bs3 dropup">
-										<select name="brchNo" id="theater02" class="small ml10" title="극장선택" disabled="disabled" tabindex="-98">
-										<option class="bs-title-option" value=""></option>
-											
-										<option value="">극장선택</option>
-										</select>
-										<button type="button" class="btn dropdown-toggle disabled bs-placeholder btn-default" data-toggle="dropdown" role="button" data-id="theater02" tabindex="-1" aria-disabled="true" title="극장선택">
-										<div class="filter-option">
-										<div class="filter-option-inner"><div class="filter-option-inner-inner">극장선택</div></div> 
-										</div>
-										<span class="bs-caret"><span class="caret"></span></span>
-										</button>
-										<div class="dropdown-menu open" role="combobox" style="max-height: 756.175px; overflow: hidden; min-height: 0px;">
-										<div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 754.175px; overflow-y: auto; min-height: 0px;">
-										<ul class="dropdown-menu inner ">
-										<li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">극장선택</span></a></li>
-										</ul>
-										</div>
-										</div>
+										<div class="dropdown bootstrap-select disabled small ml10 bs3">
+											<select name="brchNo" id="theater02" class="small ml10" title="극장선택" disabled="disabled" tabindex="-98">
+												<option class="bs-title-option" value=""></option>
+												
+												<option value="">극장선택</option>
+											</select>
+											<button type="button" class="btn dropdown-toggle disabled bs-placeholder btn-default" data-toggle="dropdown" role="button" data-id="theater02" tabindex="-1" aria-disabled="true" title="극장선택">
+												<div class="filter-option">
+												<div class="filter-option-inner">
+													<div class="filter-option-inner-inner">극장선택</div>
+												</div> 
+												</div>
+												<span class="bs-caret"><span class="caret"></span></span>
+											</button>
+											<div class="dropdown-menu open" role="combobox" style="max-height: 386.95px; overflow: hidden; min-height: 0px;">
+											<div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 384.95px; overflow-y: auto; min-height: 0px;">
+												<ul class="dropdown-menu inner ">
+													<li>
+														<a role="option" aria-disabled="false" tabindex="0" aria-selected="false">
+															<span class="text">극장선택</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											</div>
 										</div>
 
 										<input type="radio" id="aq2" name="inqMclCd" class="ml20" value="QD01M02" data-cd="QD_ETC_DIV_CD">

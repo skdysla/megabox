@@ -29,9 +29,9 @@ public class MemberController {
 		return "member/MyInquiry";
 	}
 	
-	@GetMapping("OneOnOne")
+	@GetMapping("OneOnOne_1")
 	public String OneOnOne() {
-		return "member/OneOnOne";
+		return "member/OneOnOne_1";
 	}
 	
 	@PostMapping("OneOnOne")
@@ -48,5 +48,10 @@ public class MemberController {
 	@RequestMapping("UserInfo")
 	public String UserInfo() {
 		return "member/UserInfo";
+	}
+	
+	@RequestMapping("select_test")
+	public String select_test() {
+		return "member/select_test";
 	}
 }

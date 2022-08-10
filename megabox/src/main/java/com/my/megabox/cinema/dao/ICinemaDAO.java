@@ -10,7 +10,7 @@ import com.my.megabox.cinema.dto.FloorDTO;
 
 @Repository
 public interface ICinemaDAO {
-
+ 
 	public CinemaDTO showCinema(String cName);
 
 	public ArrayList<FloorDTO> showFloor(String cName);

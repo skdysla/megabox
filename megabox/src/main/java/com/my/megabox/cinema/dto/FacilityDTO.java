@@ -1,6 +1,6 @@
 package com.my.megabox.cinema.dto;
 
-public class FacilityDTO {
+public class FacilityDTO { 
 
 	private Integer f_num;
 	private String f_facility;

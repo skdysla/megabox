@@ -15,7 +15,7 @@ import com.my.megabox.cinema.dto.FloorDTO;
 
 @Service
 public class CinemaService implements ICinemaService {
-	
+	 
 	@Autowired
 	private HttpSession session;
 	

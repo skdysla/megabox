@@ -7,7 +7,7 @@ import com.my.megabox.booking.dao.IBookingDAO;
 
 @Service
 public class BookingService implements IBookingService {
-	
+	 
 	@Autowired
 	private IBookingDAO dao;
 

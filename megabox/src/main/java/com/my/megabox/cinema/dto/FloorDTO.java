@@ -2,7 +2,7 @@ package com.my.megabox.cinema.dto;
 
 public class FloorDTO {
 
-	private Integer f_num;
+	private Integer f_num; 
 	private String f_floor;
 	private Integer c_num;
 

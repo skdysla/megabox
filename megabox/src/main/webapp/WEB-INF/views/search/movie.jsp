@@ -13,7 +13,7 @@
 
     <script type="text/javascript">
 
-  		
+  		 
   		var reset = ''
 
   		if( reset == 'Y' || location.pathname == '/booking' ){

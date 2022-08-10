@@ -40,7 +40,7 @@ public class BookingController {
 	public String test() {
 		return "booking/test";
 	} 
-	
+	 
 	@GetMapping("test3")
 	public String test2() {
 		return "booking/test3";

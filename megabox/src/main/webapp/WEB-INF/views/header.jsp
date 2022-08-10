@@ -19,7 +19,7 @@
 		    <script src="https://www.megabox.co.kr/static/pc/js/ui.common.js?v=1659424661668"></script>
 		    <script src="https://www.megabox.co.kr/cast.imp.joins.com/head/FBbJDzXhQYfhjyQjRbY9ZDzZQU63QxFXY_lS1Rj7UV6EAM4qWzAZAbZneDVqNlpHOVNkR0o1aGRvM1A2WkVnAstB2Lie2OwUywPLQdi4ntjsFMs.js?url=https%3A%2F%2Fwww.megabox.co.kr%2F&amp;ref=https%3A%2F%2Fwww.megabox.co.kr%2Fevent"></script>
     		<script src="https://www.megabox.co.kr/static/pc/js/front.js?v=1659598422056"></script>
-    		
+    		 
     		<script>
     		function open_search_screen(){
 	    		var parent = document.getElementById("layer-header-search");

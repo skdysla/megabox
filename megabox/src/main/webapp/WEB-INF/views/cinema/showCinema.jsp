@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
 	<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
     <script type="text/javascript">
-
+ 
   		
   		var reset = ''
 

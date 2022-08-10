@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.my.megabox.search.dto.MovieDTO;
 
 public interface ISearchService {
-	
+	 
 	ArrayList<MovieDTO> showAllMovie();
 	
 	ArrayList<MovieDTO> showMovie(String mName);

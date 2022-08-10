@@ -10,7 +10,7 @@ import com.my.megabox.search.dto.MovieDTO;
 
 @Service
 public class SearchService implements ISearchService {
-	
+	 
 	@Autowired
 	private ISearchDAO dao;
 	

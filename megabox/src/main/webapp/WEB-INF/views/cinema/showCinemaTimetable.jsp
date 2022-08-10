@@ -5,7 +5,7 @@
 <!--<![endif]-->  
 <head>
 <link rel="shortcut icon" href="/static/pc/images/favicon.ico">
- 
+  
 <title>(강남)상영시간표 &gt; 전체극장 , 메가박스</title>
 <link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css"
 	media="all">

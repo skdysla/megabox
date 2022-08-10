@@ -15,7 +15,7 @@ import com.my.megabox.cinema.service.CinemaService;
 
 @Controller 
 public class CinemaController {
-	
+	 
 	@Autowired
 	private HttpSession session;
 	

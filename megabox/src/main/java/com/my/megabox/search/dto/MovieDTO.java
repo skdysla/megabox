@@ -1,12 +1,11 @@
 package com.my.megabox.search.dto;
 
 public class MovieDTO {
-
+ 
 	private Integer m_num;
 	private String m_name;
 	private String m_poster;
 	private String m_story;
-	//private Integer m_attendance;
 	private String m_date;
 	private String m_like;
 	private double m_avg;

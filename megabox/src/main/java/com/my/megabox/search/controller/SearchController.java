@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.my.megabox.search.dto.MovieDTO;
 import com.my.megabox.search.service.SearchService;
 
-@Controller
+@Controller 
 public class SearchController {
 	
 	@Autowired

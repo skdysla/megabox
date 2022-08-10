@@ -3,6 +3,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.my.megabox.search.dao.ISearchDAO">
 
+	<select id="showAllMovie" parameterType="String" resultType="com.my.megabox.search.dto.MovieDTO">
+		SELECT M_NUM, M_NAME, M_POSTER, M_STORY, M_DATE, M_LIKE, M_AVG/10 AS M_AVG 
+		FROM MOVIE 
+		ORDER BY M_NUM
+	</select>
+
 	<select id="showMovie" parameterType="String" resultType="com.my.megabox.search.dto.MovieDTO">
 		SELECT M_NUM, M_NAME, M_POSTER, M_STORY, M_DATE, M_LIKE, M_AVG/10 AS M_AVG 
 		FROM MOVIE 

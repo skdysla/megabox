@@ -13,6 +13,11 @@ public class SearchService implements ISearchService {
 	
 	@Autowired
 	private ISearchDAO dao;
+	
+	@Override
+	public ArrayList<MovieDTO> showAllMovie() {
+		return dao.showAllMovie();
+	}
 
 	@Override
 	public ArrayList<MovieDTO> showMovie(String mName) {

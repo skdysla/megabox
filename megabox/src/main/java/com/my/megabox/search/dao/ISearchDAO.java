@@ -9,6 +9,8 @@ import com.my.megabox.search.dto.MovieDTO;
 @Repository
 public interface ISearchDAO {
 	
+	public ArrayList<MovieDTO> showAllMovie();
+	
 	public ArrayList<MovieDTO> showMovie(String mName);
 
 }

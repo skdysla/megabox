@@ -18,10 +18,11 @@ public class SearchController {
 	
 	@GetMapping("movie")
 	public String movie(Model model, String mName) {
+		ArrayList<MovieDTO> mList;
 		if(mName == null || mName == "")
-			return "search/movie";
-		
-		ArrayList<MovieDTO> mList = service.showMovie(mName);
+			mList = service.showAllMovie();
+		else
+			mList = service.showMovie(mName);
 		model.addAttribute("mName", mName);
 		model.addAttribute("mList", mList);
 		return "search/movie";

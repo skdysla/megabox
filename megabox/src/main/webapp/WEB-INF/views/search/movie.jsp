@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="ko"><!--<![endif]--><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,44 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 	<link rel="shortcut icon" href="/static/pc/images/favicon.ico">
 
-    
-	
-
-
-
-
 		<title>MEET PLAY SHARE, 메가박스</title>
-		<meta property="name" id="metaTagTitle" content="박스오피스 < 영화">
-		<meta property="description" id="metaTagDtls" content="검색어[Ljava.lang.String;@6710d429| 94건의 영화가 메가박스에서 상영중입니다. ">
-		<meta property="keywords" id="metaTagKeyword" content="메가박스,megabox,영화,영화관,극장,티켓,박스오피스,상영예정작,예매,오페라,싱어롱,큐레이션,필름소사이어티,클래식소사이어티,이벤트,Movie,theater,Cinema,film,Megabox">
-
-		<meta property="fb:app_id" id="fbAppId" content="546913502790694">
-		
-
-		<meta property="og:site_name" id="fbSiteName" content="메가박스">
-		<meta property="og:type" id="fbType" content="movie">
-		<meta property="og:url" id="fbUrl" content="https://www.megabox.co.kr/movie?searchText=헌트">
-		<meta property="og:title" id="fbTitle" content="박스오피스 < 영화">
-		<meta property="og:description" id="fbDtls" content="검색어[Ljava.lang.String;@6710d429| 94건의 영화가 메가박스에서 상영중입니다. ">
-		<meta property="og:image" id="fbImg" content="https://img.megabox.co.kr/SharedImg/metaTag/2020/02/04/gFfTzMwwiCxhBwcUV5TRGMFX9Cmoj64W.jpg">
-		
-
-
-	
-	
-		
-     		<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
-     		<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LKZN3J8B1J&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-30006739-3"></script>
-			<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-30006739-3');</script>
-		    <script src="/static/pc/dist/megabox.api.min.js"></script>
-			<script src="/static/mb/js/lozad.min.js"></script>
-			<script src="/js/common/dist/megabox.common.min.js"></script>
-     		<script src="/js/netfunnel/dist/megabox.netfunnel.min.js"></script>
-			<script src="//cast.imp.joins.com/persona.js" async=""></script>
-		
-		
-	
+     	<link rel="stylesheet" href="https://www.megabox.co.kr/static/pc/dist/megabox.min.css" media="all">
 
     <script type="text/javascript">
 
@@ -1895,502 +1860,7 @@ $(function(){
 
 <!-- 메인 영화에만 광고영역 노출 -->
 
-
-<!-- header -->
-<header id="header">
-    <h1 class="ci"><a href="/" title="MEGABOX 메인으로 가기">MEGABOX : Life Theater</a></h1>
-
-	<!-- 브라우저 다운로드 -->
-    
-
-    <script type="text/javascript">
-    $(function(){
-	  	//닫기 버튼 클릭
-		$('.ie-update').on('click', '.close-chk .closeDl', function() {
-			 if ($(":checkbox[id='one_month_no_update']:checked").length > 0) {
-				fn_setCookie("BROWDER_DL", "Y", 30);
-			}
-
-			$('.ie-update').hide();
-		});
-
-		//다시보지 않기
-		 if (fn_getCookie("BROWDER_DL") == null || fn_getCookie("BROWDER_DL") == 'N') {
-			if ( $(".lt-ie9").length > 0 && $('.ie-update').length > 0 ) {
-				$('.ie-update').show();
-			}
-		}
-    });
-    </script>
-	<!-- ie-update : ie 9 이하 일때만 출력 -->
-	<div class="ie-update">
-		<div class="dimd"></div>
-		<div class="wrap">
-			<p class="tit">
-				<img src="../../../static/pc/images/ie/txt-update.png" alt="megabox 홈페이지는 internet explrer10이상에서 최적화된 서비스 이용이 가능합니다. ie9 이하에서는 예매가 정상적으로 진행되지 않을 수 있으니, 브라우저를 업그레이드하시거나 다른 예매수단을 이용해 주세요!">
-			</p>
-
-			<div class="box">
-				<div class="col">
-					<p class="txt">브라우저를 최신 버전으로<br>업그레이드 해보세요!</p>
-
-					<div class="link">
-						<a href="https://www.microsoft.com/ko-kr/download/internet-explorer.aspx" title="internet explorer 새 버전 다운로드" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-ie.png" alt="internet explorer 새 버전 다운로드">
-						</a>
-					</div>
-
-					<div class="link">
-						<a href="http://www.google.com/chrome?hl=ko" title="chrome 다운로드" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-chrome.png" alt="chrome 다운로드">
-						</a>
-					</div>
-				</div>
-
-				<div class="col">
-					<p class="txt">megabox 모바일 app을<br>이용해 보세요!</p>
-
-					<div class="link">
-						<a href="https://itunes.apple.com/us/app/megabox/id894443858?l=ko&amp;ls=1&amp;mt=8" title="available on the app store" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-appstore.png" alt="available on the app store">
-						</a>
-					</div>
-
-					<div class="link">
-						<a href="https://play.google.com/store/apps/details?id=com.megabox.mop&amp;hl=ko" title="available on the google play" target="_blank">
-							<img src="../../../static/pc/images/ie/btn-google.png" alt="available on the google play">
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="close-chk">
-				<input type="checkbox" id="one_month_no_update">
-				<label for="one_month_no_update" class="ml05">한 달 동안 이 창을 열지 않음</label>
-
-				<button type="button" class="closeDl button purple x-small ml20">닫기</button>
-			</div>
-		</div>
-	</div>
-	<!--// ie-update : ie 9 이하 일때만 출력 -->
-    <!--// 브라우저 다운로드 -->
-
-    <!-- topGnb -->
-    
-
-
-
-	<!-- 2019-04-15 마크업 수정 : 고객요청  -->
-    <div class="util-area">
-        <div class="left-link">
-            <a href="/benefit/viplounge" title="VIP LOUNGE">VIP LOUNGE</a>
-            <a href="/benefit/membership" title="멤버십">멤버십</a>
-            <a href="/support" title="고객센터">고객센터</a>
-        </div>
-
-        <div class="right-link">
-            <!-- 로그인전 -->
-            <div class="before" style="">
-                <a href="javaScript:fn_viewLoginPopup('default','pc')" title="로그인">로그인</a>
-                <a href="/join" title="회원가입">회원가입</a>
-            </div>
-
-            <!-- 로그인후 -->
-            <div class="after" style="display:none">
-                <a href="/on/oh/ohg/MbLogin/mbLogout.do" class="" title="로그아웃">로그아웃</a>
-                <a href="" class="notice" title="알림">알림</a>
-
-                <!-- layer-header-notice -->
-				<div class="layer-header-notice">
-					<div class="notice-wrap">
-						<p class="tit-notice">알림함</p>
-
-						<div class="count">
-							<p class="left">전체 <em class="totalCnt">0</em> 건</p>
-
-							<p class="right">* 최근 30일 내역만 노출됩니다.</p>
-						</div>
-
-						<!-- scroll -->
-						<div class="scroll m-scroll mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
-							<ul class="list">
-								<li class="no-list">
-									알림 내역이 없습니다.
-								</li>
-							</ul>
-						</div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: none; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
-						<div class="notice-list-more">
-							<button type="button" class="button btn-more-notice-list">더보기 <i class="iconset ico-btn-more-arr"></i></button>
-						</div>
-						<!--// scroll -->
-						<button type="button" class="btn-close-header-notice">알림 닫기</button>
-					</div>
-					<!--// notice-wrap -->
-				<!--// layer-header-notice -->
-				</div>
-
-            </div>
-
-            <a href="/booking">빠른예매</a>
-        </div>
-    </div>
-    <!--// 2019-04-15 마크업 수정 : 고객요청  -->
-
-    <div class="link-area">
-        <a href="#layer_sitemap" class="header-open-layer btn-layer-sitemap" title="사이트맵">사이트맵</a>
-        <a href="#layer_header_search" class="header-open-layer btn-layer-search" title="검색">검색</a>
-        <a href="/booking/timetable" class="link-ticket" title="상영시간표">상영시간표</a>
-        <a href="#layer_mymega" class="header-open-layer btn-layer-mymega" title="나의 메가박스">나의 메가박스</a>
-    </div>
-
-    <!-- gnb -->
-    <!--
-        2019-04-15 마크업 수정 : 고객요청
-        1뎁스 a 태그에 각각 다른 class 추가
-    -->
-    
-    <nav id="gnb">
-        <ul class="gnb-depth1">
-            <li><a href="/movie" class="gnb-txt-movie" title="영화">영화</a>
-                <div class="gnb-depth2">
-                    <ul>
-                        <li><a href="/movie" title="전체영화">전체영화</a></li>
-
-
-                        <li><a href="/curation/specialcontent" title="큐레이션">큐레이션</a></li>
-                        
-                        <li id="festivalArea" style="display: none;"><a href="/festival" title="영화제">영화제</a></li>
-                        <li><a href="/moviepost/all" title="무비포스트">무비포스트</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="/booking" class="gnb-txt-reserve" title="예매">예매</a>
-                <div class="gnb-depth2">
-                    <ul>
-                        <li><a href="/booking" title="빠른예매">빠른예매</a></li>
-                        <li><a href="/booking/timetable" title="상영시간표">상영시간표</a></li>
-                        <li><a href="/booking/privatebooking" title="더 부티크 프라이빗 예매">더 부티크 프라이빗 예매</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="/theater/list" class="gnb-txt-theater" title="극장">극장</a>
-                <div class="gnb-depth2">
-                    <ul>
-                        <li><a href="/theater/list" title="전체극장">전체극장</a></li>
-                        <li><a href="/specialtheater/list" title="특별관">특별관</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event');return false;" class="gnb-txt-event" title="이벤트">이벤트</a>
-                <div class="gnb-depth2">
-                    <ul>
-                        <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event');return false;" title="진행중 이벤트">진행중 이벤트</a></li>
-                        <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event/end');return false;" title="지난 이벤트">지난 이벤트</a></li>
-                        <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event/winner/list');return false;" title="당첨자발표">당첨자발표</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store');return false;" class="gnb-txt-store" title="스토어">스토어</a></li>
-            <li><a href="/benefit/membership" class="gnb-txt-benefit" title="혜택">혜택</a>
-                <div class="gnb-depth2">
-                    <ul>
-                        <li><a href="/benefit/membership" title="메가박스 멤버십">메가박스 멤버십</a></li>
-                        <li><a href="/benefit/discount/guide" title="제휴/할인">제휴/할인</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <!--// gnb -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var filmCheck = MegaboxUtil.Common.moveMovieFilmCheckGnb(); // 영화제 존재여부 체크
-            if(filmCheck == true){
-                $("#festivalArea").show();
-            }else{
-                $("#festivalArea").hide();
-            }
-        });
-    </script>
-    <!--// topGnb -->
-
-    <!-- 레이어 : 사이트맵 -->
-    
-
-
-
-	<div id="layer_sitemap" class="header-layer layer-sitemap">
-        <!-- wrap -->
-        <div class="wrap">
-            <a href="" class="link-acc" title="사이트맵 레이어 입니다.">사이트맵 레이어 입니다.</a>
-
-            <p class="tit">SITEMAP</p>
-
-            <div class="list position-1">
-                <p class="tit-depth">영화</p>
-
-                <ul class="list-depth">
-                    <li><a href="/movie" title="전체영화">전체영화</a></li>
-                    <li><a href="/curation/specialcontent" title="큐레이션">큐레이션</a></li>
-                    <li><a href="javascript:void(0)" onclick="javascript:MegaboxUtil.Common.moveMovieFilmCheck();" title="영화제">영화제</a></li>
-                    <li><a href="/moviepost/all" title="무비포스트">무비포스트</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-2">
-                <p class="tit-depth">예매</p>
-
-                <ul class="list-depth">
-                    <li><a href="/booking" title="빠른예매">빠른예매</a></li>
-                    <li><a href="/booking/timetable" title="상영시간표">상영시간표</a></li>
-                    <li><a href="/booking/privatebooking" title="더 부티크 프라빗 예매">더 부티크 프라이빗 예매</a></li>
-                    <!-- <li><a href="/booking?megaboxLanguage=en" title="English Ticketing">English Ticketing</a></li> -->
-                </ul>
-            </div>
-
-            <div class="list position-3">
-                <p class="tit-depth">극장</p>
-
-                <ul class="list-depth">
-                    <li><a href="/theater/list" title="전체극장">전체극장</a></li>
-                    <li><a href="/specialtheater/list" title="특별관">특별관</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-4">
-                <p class="tit-depth">이벤트</p>
-
-                <ul class="list-depth">
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event');return false;" title="진행중 이벤트">진행중 이벤트</a></li>
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event/end');return false;" title="지난 이벤트">지난 이벤트</a></li>
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('EVENT_LIST','/event/winner/list');return false;" title="당첨자발표">당첨자발표</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-5">
-                <p class="tit-depth">스토어</p>
-
-                <ul class="list-depth">
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store');return false;" title="새로운 상품">새로운 상품</a></li>
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store/megaticket');return false;" title="메가티켓">메가티켓</a></li>
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store/megachance');return false;" title="메가찬스">메가찬스</a></li>
-                    <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store/popcorn');return false;" title="팝콘/음료/굿즈">팝콘/음료/굿즈</a></li>
-                    <!-- <li><a href="javascript:void(0)" onclick="NetfunnelChk.aTag('STORE_LIST','/store/e-giftcard');return false;" title="기프트카드">기프트카드</a></li> -->
-                </ul>
-            </div>
-            <div class="list position-6">
-                <p class="tit-depth">나의 메가박스</p>
-                <ul class="list-depth mymage">
-                	
-            			
-            				<li><a href="javascript:movePage('/mypage',						'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 메가박스 홈">나의 메가박스 홈</a></li>
-		                    <li><a href="javascript:movePage('/mypage/bookinglist',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="예매/구매내역">예매/구매내역</a></li>
-		                    <li><a href="javascript:movePage('/mypage/movie-coupon',		'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="영화관람권">영화관람권</a></li>
-		                    <li><a href="javascript:movePage('/mypage/store-coupon',		'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="스토어교환권">스토어교환권</a></li>
-		                    <li><a href="javascript:movePage('/mypage/discount-coupon',		'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="할인/제휴쿠폰">할인/제휴쿠폰</a></li>
-		                    
-		                    <li><a href="javascript:movePage('/mypage/point-list',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="멤버십포인트">멤버십포인트</a></li>
-		                    <li><a href="javascript:movePage('/mypage/moviestory',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 무비스토리">나의 무비스토리</a></li>
-		                    <li><a href="javascript:movePage('/mypage/myevent',				'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
-		                    <li><a href="javascript:movePage('/mypage/myinquiry',			'로그인이 필요한 서비스 입니다. \n로그인하시겠습니까?');" title="나의 문의내역">나의 문의내역</a></li>
-		                    <li><a href="#" title="자주쓰는 할인 카드">자주쓰는 할인 카드</a></li>
-		                    <li><a href="javascript:movePage('/on/oh/ohh/Mypage/mainPage.do?returnURL=info','로그인이 필요한 서비스 입니다.');" title="회원정보">회원정보</a></li>
-            			
-            			
-            		
-                </ul>
-            </div>
-
-            <div class="list position-7">
-                <p class="tit-depth">혜택</p>
-
-                <ul class="list-depth">
-                    <li><a href="/benefit/membership" title="멤버십 안내">멤버십 안내</a></li>
-                    <li><a href="/benefit/viplounge" title="VIP LOUNGE">VIP LOUNGE</a></li>
-                    <li><a href="/benefit/discount/guide" title="제휴/할인">제휴/할인</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-8">
-                <p class="tit-depth">고객센터</p>
-
-                <ul class="list-depth">
-                    <li><a href="/support" title="고객센터 홈">고객센터 홈</a></li>
-                    <li><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
-                    <li><a href="/support/notice" title="공지사항">공지사항</a></li>
-                    <li><a href="/support/inquiry" title="1:1문의">1:1문의</a></li>
-                    <li><a href="/support/rent" title="단체/대관문의">단체/대관문의</a></li>
-                    <li><a href="/support/lost" title="분실물문의">분실물문의</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-9">
-                <p class="tit-depth">회사소개</p>
-
-                <ul class="list-depth">
-                    <li><a href="/megaboxinfo" target="_blank" title="메가박스소개">메가박스소개</a></li>
-                    <li><a href="/socialcontribution" target="_blank" title="사회공헌">사회공헌</a></li>
-                    <li><a href="/advertize" target="_blank" title="홍보자료">홍보자료</a></li>
-                    <li><a href="/partner" target="_blank" title="제휴/부대사업문의">제휴/부대사업문의</a></li>
-                    <li><a href="/onlinereport" target="_blank" title="온라인제보센터">온라인제보센터</a></li>
-                    <li><a href="/ir" target="_blank" title="자료">IR자료</a></li>
-                    <li><a href="/recruit" target="_blank" title="인재채용림">인재채용</a></li>
-                    <li><a href="https://jebo.joonganggroup.com/main.do" target="_blank" title="윤리경영">윤리경영</a></li>
-                </ul>
-            </div>
-
-            <div class="list position-10">
-                <p class="tit-depth">이용정책</p>
-
-                <ul class="list-depth">
-                    <li><a href="/support/terms" title="이용약관">이용약관</a></li>
-                    <li><a href="/support/lcinfo" title="위치기반서비스 이용약관">위치기반서비스 이용약관</a></li>
-                    <li><a href="/support/privacy" title="개인정보처리방침">개인정보처리방침</a></li>
-                    <li><a href="/support/screenrule" title="스크린수배정에관한기준">스크린수배정에관한기준</a></li>
-                </ul>
-            </div>
-
-            <div class="ir">
-                <a href="" class="layer-close" title="레이어닫기">레이어닫기</a>
-            </div>
-        </div>
-        <!--// wrap -->
-    </div>
-    <!--// 레이어 : 사이트맵 -->
-
-    <!-- 레이어 : 검색 -->
-    <div id="layer_header_search" class="header-layer layer-header-search"></div>
-    <!--// 레이어 : 검색 -->
-
-    <!-- 레이어 : 마이페이지 -->
-    
-
-
-
-	<div id="layer_mymega" class="header-layer layer-mymege">
-    	<a href="" class="ir" title="나의 메가박스 레이어 입니다.">나의 메가박스 레이어 입니다.</a>
-
-        <!-- wrap -->
-        <div class="wrap" style="display:none">
-
-            <div class="login-after">
-                <div class="couponpass" style="display: none;">
-                    <span>쿠폰패스 이용고객이시군요!!쿠폰패스로 발급된 쿠폰을 확인해보세요~ </span>
-                </div>
-                <div class="user-info">
-                    <p class="txt">안녕하세요!</p>
-
-                    <p class="info">
-                        <!--
-                            vip 일때만 출력
-                            vip 아닐때는 태그 자체 삭제
-                        -->
-                       <em class="vip">VIP PREMIUM</em>
-                        <em class="name"></em>
-                        <span>회원님</span>
-                    </p>
-
-                    <div class="last-date">마지막 접속일 : <em></em></div>
-
-                    <!-- vip, 멤버십 없을때는 미 출력  -->
-                    <div class="membership">
-                        <!-- <i class="iconset ico-header-vip"></i>
-                        <i class="iconset ico-header-film"></i>
-                        <i class="iconset ico-header-classic"></i> -->
-                    </div>
-
-                    <div class="btn-fixed">
-                        <a href="/mypage" class="button" title="나의  메가박스">나의  메가박스</a>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="point">
-                        <p class="tit">Point</p>
-
-                        <p class="count">
-                            0
-                        </p>
-
-                        <div class="btn-fixed">
-                            <a href="/mypage/point-list" class="button" title="멤버십 포인트">멤버십 포인트</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="coupon">
-                        <p class="tit">쿠폰/관람권 <!-- <i class="iconset ico-header-new"></i> --></p>
-
-                        <p class="count">
-                            <em title="쿠폰 수" class="cpon">0</em>
-                            <span title="관람권 수" class="movie">0</span>
-                        </p>
-
-                        <div class="btn-fixed">
-                            <a href="/mypage/discount-coupon" class="button" title="쿠폰">쿠폰</a>
-                            <a href="/mypage/movie-coupon" class="button" title="관람권">관람권</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="reserve">
-                        <p class="tit">예매 <!-- <i class="iconset ico-header-new"></i> --></p>
-
-                        <p class="txt"></p>
-
-                        <div class="btn-fixed">
-                            <a href="/mypage/bookinglist" class="button" title="예매내역">예매내역 </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="buy">
-                        <p class="tit">구매 <!-- <i class="iconset ico-header-new"></i> --></p>
-
-                        <p class="count">
-                            <em>0</em>
-                            <span>건</span>
-                        </p>
-                    </div>
-
-                    <div class="btn-fixed">
-                        <a href="/mypage/bookinglist?tab=02" class="button" title="구매내역">구매내역</a>
-                    </div>
-                </div>
-            </div>
-
-        	<!-- 로그인 전 -->
-            <div class="login-before">
-                <p class="txt">
-                    로그인 하시면 나의 메가박스를 만날 수 있어요.<br>
-                    영화를 사랑하는 당신을 위한 꼭 맞는 혜택까지 확인해 보세요!
-                </p>
-
-                <div class="mb50">
-                    <a href="#layer_login_common" id="moveLogin" title="로그인" class="button w120px btn-modal-open" w-data="850" h-data="484">로그인</a>
-                </div>
-
-                <a href="/join" class="link" title="혹시 아직 회원이 아니신가요?">혹시 아직 회원이 아니신가요?</a>
-            </div>
-        </div>
-        <!--// wrap -->
-
-        <div class="ir">
-            <a href="" class="layer-close" title="레이어닫기">레이어닫기</a>
-        </div>
-	</div>
-    <!--// 레이어 : 마이페이지 -->
-
-</header>
-<!--// header -->
-
-<!-- 		<div id="bodyContent"> -->
-        
-
-
+<c:import url="../header.jsp" charEncoding="utf-8"/>
 
 <script type="text/javascript">
 var tabIdx = 1;
@@ -2446,7 +1916,7 @@ $(function() {
 		fn_init(); // 페이지 초기화
 	}); */
 
-	$('#ibxMovieNmSearch').val('헌트');
+	$('#ibxMovieNmSearch').val('${mName}');
 
 	fn_init(); // 페이지 초기화
 });
@@ -2675,7 +2145,7 @@ function fn_movieSerach(paging) {
 			<div class="location">
 				<span>Home</span>
                 <a href="/movie" title="영화 페이지로 이동">영화</a>
-                <a href="/movie" title="전체영화 페이지로 이동">전체영화</a>
+                <a href="movie" title="전체영화 페이지로 이동">전체영화</a>
 			</div>
 
 			
@@ -2773,7 +2243,12 @@ function fn_movieSerach(paging) {
 				<!--// 장르모아보기 -->
 
 				<!-- 검색결과 없을 때 -->
-				<p class="no-result-count"><strong id="totCnt">2</strong>개의 영화가 검색되었습니다.</p>
+				<p class="no-result-count">
+					<strong id="totCnt">
+					<c:if test="${mList == null }">0</c:if>	
+					<c:if test="${mList != null }">${mList.size() }</c:if>	
+					</strong>
+				개의 영화가 검색되었습니다.</p>
 				<!--// 검색결과 없을 때 -->
 
 				<div class="movie-search">
@@ -2790,68 +2265,72 @@ function fn_movieSerach(paging) {
 			</div>
 
 			<!-- movie-list -->
-			<div class="movie-list">
-				<ol class="list" id="movieList"><li tabindex="0" class="no-img"><div class="movie-list-info">    <p class="rank" style=""><span class="ir">위</span></p>    <img src="https://img.megabox.co.kr/SharedImg/2022/08/05/QDUC0cjm2bnWDCCQPYpQvelnoFe1CCfH_420.jpg" alt="헌트" class="poster lozad" onerror="noImg(this)">    <div class="curation">        <p class="film" style="display: none">필름 소사이어티</p>        <p class="classic" style="display: none">클래식 소사이어티</p>    </div>    <div class="screen-type2">        <p name="dbcScrean" style=""><img src="/static/pc/images/common/btn/mov_top_tag_db.png" alt="dolby"></p>        <p name="mxScreen" style=""><img src="/static/pc/images/common/btn/mov_top_tag_mx.png" alt="mx"></p>    </div>    <div class="movie-score" style="opacity: 0;">        <a href="#" class="wrap movieBtn" data-no="22037300" title="헌트 상세보기">            <div class="summary">조직 내 숨어든 스파이를 색출하라!
-‘사냥꾼’이 될 것인가, ‘사냥감’이 될 것인가!
-
-망명을 신청한 북한 고위 관리를 통해 정보를 입수한
-안기부 해외팀 ‘박평호’(이정재)와 국내팀 ‘김정도’(정우성)는
-조직 내 숨어든 스파이 ‘동림’ 색출 작전을 시작한다.
-스파이를 통해 일급 기밀사항들이 유출되어 위기를 맞게 되자
-날 선 대립과 경쟁 속, 해외팀과 국내팀은 상대를 용의선상에 올려두고
-조사에 박차를 가한다.
-
-찾아내지 못하면 스파이로 지목이 될 위기의 상황,
-서로를 향해 맹렬한 추적을 펼치던 ‘박평호’와 ‘김정도’는 감춰진 실체에 다가서게 되고,
-마침내 ‘대한민국 1호 암살 작전’이라는 거대한 사건과 직면하게 되는데……
-
-하나의 목표, 두 개의 총구
-의심과 경계 속 두 남자의 신념을 건 작전이 시작된다</div>            <div class="my-score big" style="display: none;">                <div class="preview">                    <p class="tit">관람평</p>                    <p class="number">9.2<span class="ir">점</span></p>                </div>            </div>        </a>    </div></div><div class="tit-area">    <p class="movie-grade age-15">,</p>    <p title="헌트" class="tit">헌트</p></div><div class="rate-date">    <span class="rate">예매율 48%</span>    <span class="date">개봉일 2022.08.10</span></div><div class="btn-util">    <button type="button" class="button btn-like" data-no="22037300"><i title="보고싶어 안함" class="iconset ico-heart-toggle-gray intrstType"></i> <span>903</span></button>    <p class="txt movieStat1" style="display: none">상영예정</p>    <p class="txt movieStat2" style="display: none">8월 개봉예정</p>    <p class="txt movieStat5" style="display: none">개봉예정</p>    <p class="txt movieStat6" style="display: none">상영종료</p>    <div class="case col-2 movieStat3" style="">        <a href="#" class="button purple bokdBtn" data-no="22037300" title="영화 예매하기">예매</a>        <a href="#" class="button purple img splBtn" data-no="22037300"><img src="/static/pc/images/common/btn/mov_list_db_btn.png" alt="dolby 버튼"></a>    </div>    <div class="case movieStat4" style="display: none">        <a href="#" class="button purple bokdBtn" data-no="22037300" title="영화 예매하기">예매</a>    </div></div></li><li tabindex="0" class="no-img"><div class="movie-list-info">    <p class="rank" style=""><span class="ir">위</span></p>    <img src="https://img.megabox.co.kr/SharedImg/2022/08/05/6ITC7gLy3ijo9zQ3Rx5nziQwxQgJZClD_420.jpg" alt="[무비올나잇] 비상선언 + 헌트" class="poster lozad" onerror="noImg(this)">    <div class="curation">        <p class="film" style="display: none">필름 소사이어티</p>        <p class="classic" style="display: none">클래식 소사이어티</p>    </div>    <div class="screen-type2">        <p name="dbcScrean" style="display: none"><img src="/static/pc/images/common/btn/mov_top_tag_db.png" alt="dolby"></p>        <p name="mxScreen" style="display: none"><img src="/static/pc/images/common/btn/mov_top_tag_mx.png" alt="mx"></p>    </div>    <div class="movie-score" style="opacity: 0;">        <a href="#" class="wrap movieBtn" data-no="22052600" title="[무비올나잇] 비상선언 + 헌트 상세보기">            <div class="summary">이 세상 모든 올빼미족들을 위한 [극캉스 무비올나잇]
-
-- 상영 일자 : 2022년 8월 12일(금) ~ 14일(토)
-- 상영 시간 : 밤 11~12시 시작 (러닝타임 : 275분)
-- 상품 구성 : 15,000원 (영화 2편 + 팝콘R 1개)
-- 영화 정보 : &lt;비상선언&gt;, &lt;헌트&gt; 연속상영
-- 매점 정보 : 영화를 예매하시면 팝콘R쿠폰이 제공됩니다. 
-※ 팝콘R은 관람당일에 한해서 사용가능하며, 첫 영화 시작시간 전까지만 교환가능합니다. 
-상영시작 시간은 밤 11시~ 12시 지점별로 상이하니 예매 및 이용 시 유의 부탁드립니다. 
-
-# 비상선언
-‘비상선언’: 재난 상황에 직면한 항공기가 더 이상 정상적인 운항이 불가능하여,
-무조건적인 착륙을 요청하는 비상사태를 뜻하는 항공 용어
-
-베테랑 형사 팀장 인호(송강호)는 비행기 테러 예고 영상 제보를 받고 사건을 수사하던 중
-용의자가 실제로 KI501 항공편에 타고 있음을 파악한다.
-
-딸의 치료를 위해 비행 공포증임에도 불구하고 하와이로 떠나기로 한 재혁(이병헌)은
-주변을 맴돌며 위협적인 말을 하는 낯선 이가 신경 쓰인다.
-
-인천에서 하와이로 이륙한 KI501 항공편에서 원인불명의 사망자가 나오고,
-비행기 안은 물론 지상까지 혼란과 두려움의 현장으로 뒤바뀐다.
-
-이 소식을 들은 국토부 장관 숙희(전도연)는 대테러센터를 구성하고
-비행기를 착륙시킬 방법을 찾기 위해 긴급회의를 소집하는데…
-
-# 헌트
-조직 내 숨어든 스파이를 색출하라!
-‘사냥꾼’이 될 것인가, ‘사냥감’이 될 것인가!
-
-망명을 신청한 북한 고위 관리를 통해 정보를 입수한
-안기부 해외팀 ‘박평호’(이정재)와 국내팀 ‘김정도’(정우성)는
-조직 내 숨어든 스파이 ‘동림’ 색출 작전을 시작한다.
-스파이를 통해 일급 기밀사항들이 유출되어 위기를 맞게 되자
-날 선 대립과 경쟁 속, 해외팀과 국내팀은 상대를 용의선상에 올려두고
-조사에 박차를 가한다.
-
-찾아내지 못하면 스파이로 지목이 될 위기의 상황,
-서로를 향해 맹렬한 추적을 펼치던 ‘박평호’와 ‘김정도’는 감춰진 실체에 다가서게 되고,
-마침내 ‘대한민국 1호 암살 작전’이라는 거대한 사건과 직면하게 되는데……
-
-하나의 목표, 두 개의 총구
-의심과 경계 속 두 남자의 신념을 건 작전이 시작된다.
-</div>            <div class="my-score equa" style="display: none;">                <div class="preview">                    <p class="tit">관람평</p>                    <p class="number">0<span class="ir">점</span></p>                </div>            </div>        </a>    </div></div><div class="tit-area">    <p class="movie-grade age-15">,</p>    <p title="[무비올나잇] 비상선언 + 헌트" class="tit">[무비올나잇] 비상선언 + 헌트</p></div><div class="rate-date">    <span class="rate">예매율 0.3%</span>    <span class="date">개봉일 2022.08.12</span></div><div class="btn-util">    <button type="button" class="button btn-like" data-no="22052600"><i title="보고싶어 안함" class="iconset ico-heart-toggle-gray intrstType"></i> <span>12</span></button>    <p class="txt movieStat1" style="display: none">상영예정</p>    <p class="txt movieStat2" style="display: none">8월 개봉예정</p>    <p class="txt movieStat5" style="display: none">개봉예정</p>    <p class="txt movieStat6" style="display: none">상영종료</p>    <div class="case col-2 movieStat3" style="display: none">        <a href="#" class="button purple bokdBtn" data-no="22052600" title="영화 예매하기">예매</a>        <a href="#" class="button purple img splBtn" data-no="22052600"><img src="/static/pc/images/common/btn/mov_list_db_btn.png" alt="dolby 버튼"></a>    </div>    <div class="case movieStat4" style="">        <a href="#" class="button purple bokdBtn" data-no="22052600" title="영화 예매하기">예매</a>    </div></div></li></ol>
-			</div>
-			<!--// movie-list -->
+					<div class="movie-list">
+						<ol class="list" id="movieList">
+							<c:forEach var="m" items="${mList }">
+							<li tabindex="0" class="no-img">
+							<div class="movie-list-info">
+									<p class="rank" style="">
+										<span class="ir">위</span>
+									</p>
+									<img
+										src="${m.m_poster }"
+										alt="${m.m_name }" class="poster lozad" onerror="noImg(this)">
+									<div class="curation">
+										<p class="film" style="display: none">필름 소사이어티</p>
+										<p class="classic" style="display: none">클래식 소사이어티</p>
+									</div>
+									<div class="movie-score" style="opacity: 0;">
+										<a href="#" class="wrap movieBtn" data-no="22037300"
+											title="${m.m_name } 상세보기">
+											<div class="summary">
+												${m.m_story }
+											</div>
+											<div class="my-score big" style="display: none;">
+												<div class="preview">
+													<p class="tit">관람평</p>
+													<p class="number">
+														9.2<span class="ir">점</span>
+													</p>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="tit-area">
+									<p class="movie-grade age-15">,</p>
+									<p title="${m.m_name }" class="tit">${m.m_name }</p>
+								</div>
+								<div class="rate-date">
+									<span class="rate">평점 ${m.m_avg }</span> 
+									<span class="date">개봉일 ${m.m_date }</span>
+								</div>
+								<div class="btn-util">
+									<button type="button" class="button btn-like"
+										data-no="22037300">
+										<i title="보고싶어 안함"
+											class="iconset ico-heart-toggle-gray intrstType"></i> <span>${m.m_like }</span>
+									</button>
+									<p class="txt movieStat1" style="display: none">상영예정</p>
+									<p class="txt movieStat2" style="display: none">8월 개봉예정</p>
+									<p class="txt movieStat5" style="display: none">개봉예정</p>
+									<p class="txt movieStat6" style="display: none">상영종료</p>
+									<div class="case col-2 movieStat3" style="display: none">
+										<a href="#" class="button purple bokdBtn" data-no="22052600"
+											title="영화 예매하기">예매</a> <a href="#"
+											class="button purple img splBtn" data-no="22052600"><img
+											src="/static/pc/images/common/btn/mov_list_db_btn.png"
+											alt="dolby 버튼"></a>
+									</div>
+									<div class="case movieStat4" style="">
+										<a href="#" class="button purple bokdBtn" data-no="22052600"
+											title="영화 예매하기">예매</a>
+									</div>
+								</div></li>
+								</c:forEach>
+						</ol>
+					</div>
+					<!--// movie-list -->
 
 			<div class="btn-more v1" id="addMovieDiv" style="display: none;">
 				<button type="button" class="btn" id="btnAddMovie">더보기 <i class="iconset ico-btn-more-arr"></i></button>
@@ -2922,58 +2401,8 @@ function fn_movieSerach(paging) {
 	<a href="" class="btn-go-top" title="top" style="position: fixed;">top</a>
 </div>
 
-<!-- footer -->
-<footer id="footer">
-    <!-- footer-top -->
-    <div class="footer-top">
-        <div class="inner-wrap">
-            <ul class="fnb">
-                <li><a href="/megaboxinfo" title="회사소개 페이지로 이동">회사소개</a></li>
-                <li><a href="/recruit" title="인재채용 페이지로 이동">인재채용</a></li>
-                <li><a href="/socialcontribution" title="사회공헌 페이지로 이동">사회공헌</a></li>
-                <li><a href="/partner" title="제휴/광고/부대사업문의 페이지로 이동">제휴/광고/부대사업문의</a></li>
-                <li><a href="/support/terms" title="이용약관 페이지로 이동">이용약관</a></li>
-                <li><a href="/support/lcinfo" title="위치기반서비스 이용약관 페이지로 이동">위치기반서비스 이용약관</a></li>
-                <li class="privacy"><a href="/support/privacy" title="개인정보처리방침 페이지로 이동">개인정보처리방침</a></li>
-                <li><a href="https://jebo.joonganggroup.com/main.do" target="_blank" title="윤리경영 페이지로 이동">윤리경영</a></li>
-            </ul>
+<c:import url="../footer.jsp" charEncoding="utf-8" />
 
-            <a href="#layer_looking_theater" class="btn-looking-theater" title="극장찾기"><i class="iconset ico-footer-search"></i> 극장찾기</a>
-        </div>
-    </div>
-    <!--// footer-top -->
-
-    <!-- footer-bottom -->
-    <div class="footer-bottom">
-        <div class="inner-wrap">
-            <div class="ci">MEGABOX : Life Theater</div>
-
-            <div class="footer-info">
-                <div>
-                    <address>서울특별시 마포구 월드컵로 240, 지상2층(성산동, 월드컵주경기장)</address>
-                    <p>ARS 1544-0070</p>
-                </div>
-                <p>대표자명 홍정인</p>
-                <p>· 개인정보보호책임자 공성진</p>
-                <p>· 사업자등록번호 211-86-59478</p>
-                <p>· 통신판매업신고번호 제 2020-서울마포-4545 호</p>
-                <p class="copy">COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved</p>
-            </div>
-
-            <div class="footer-sns">
-            	<a href="https://www.youtube.com/onmegabox" target="_blank" title="MEGABOX 유튜브 페이지로 이동"><i class="iconset ico-youtubeN">유튜브</i></a>
-                <a href="http://instagram.com/megaboxon" target="_blank" title="MEGABOX 인스타그램 페이지로 이동"><i class="iconset ico-instagramN">인스타그램</i></a>
-                <a href="https://www.facebook.com/megaboxon" target="_blank" title="MEGABOX 페이스북 페이지로 이동"><i class="iconset ico-facebookN">페이스북</i></a>
-                <a href="https://twitter.com/megaboxon" target="_blank" title="MEGABOX 트위터 페이지로 이동"><i class="iconset ico-twitterN">트위터</i></a>
-            </div>
-        </div>
-    </div>
-    <!--// footer-bottom -->
-    <div id="layer_looking_theater" class="layer-looking-theater"></div>
-</footer>
-<!--// footer -->
-
-<!-- 모바일 때만 출력 -->
 <div class="go-mobile" style="display: none;">
 	<a href="#" data-url="https://m.megabox.co.kr">모바일웹으로 보기 <i class="iconset ico-go-mobile"></i></a>
 </div>

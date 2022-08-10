@@ -24,7 +24,6 @@ public class CinemaController {
 	
 	@GetMapping("showCinema")
 	public String showCinema(Model model, String cName) {
-		System.out.println("cName : "  + cName + "ฟไรป!");
 		HashMap<String, ArrayList> sList = (HashMap)session.getAttribute("sList");
 		if(sList == null || sList.isEmpty())
 			service.showCinemaByState();

@@ -46,11 +46,6 @@ public class BookingController {
 		return "booking/test3";
 	} 
 	
-	@GetMapping("movie")
-	public String movie() {
-		return "booking/movie";
-	} 
-	
 	@GetMapping("head")
 	public void head() {}
 	

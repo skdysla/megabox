@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
 <div class="container has-lnb">
@@ -111,7 +112,9 @@
                                       
                                       
                                           <div class="profile-img">
-                                              <img src="../../../static/pc/images/mypage/bg-profile.png" alt="프로필 사진 샘플">
+                                          	<%-- <c:if test="${ }"> --%>
+                                              <img src="${path }/resources/images/bg-profile.png" alt="프로필 사진 샘플">
+                                             <%-- </c:if> --%>
                                           </div>
 
                                           <button type="button" class="button small gray-line" id="addProfileImgBtn">이미지 등록</button>
@@ -126,7 +129,7 @@
                       </tr>
                       <tr>
                           <th scope="row">아이디</th>
-                          <td>[아이디]</td>
+                          <td>${user.id }</td>
                       </tr>
                   </tbody>
               </table>
@@ -143,11 +146,11 @@
           <form name="mbInfoForm">
               <input type="hidden" name="mbNo" value="10857053">
               
-              <input type="hidden" name="phoneNo" value="010-2338-1814">
+              <input type="hidden" name="phoneNo" value="${user.u_tel }">
               <input type="hidden" name="zipcd" value="">
               <input type="hidden" name="mbAddr" value="">
               <input type="hidden" name="mbProfilFileNo" value="">
-              <input type="hidden" id="mbByymmdd" value="19980716">
+              <input type="hidden" id="mbByymmdd" value="${user.u_birth }">
 
               <div class="table-wrap mb40">
                   <table class="board-form">
@@ -162,7 +165,7 @@
                                   이름 <em class="font-orange">*</em>
                               </th>
                               <td>
-                                  <span class="mbNmClass">[이름]</span>
+                                  <span class="mbNmClass">${user.u_name }</span>
                                   <a href="#layer_name" class="button small gray-line ml10 mr10 btn-modal-open" w-data="600" h-data="350" title="이름변경">이름변경</a>
                                   ※ 개명으로 이름이 변경된 경우, 회원정보의 이름을 변경하실 수 있습니다.
 
@@ -199,9 +202,10 @@
                                   생년월일 <em class="font-orange">*</em>
                               </th>
                               <td>
-                                  ****년
+                                  <!-- ****년
                                   **월
-                                  **일
+                                  **일 -->
+                                  ${user.u_birth }
                               </td>
                           </tr>
                           <tr>
@@ -211,7 +215,7 @@
                               <td>
                                   <div class="clearfix">
                                       <p class="reset float-l w170px lh32 changeVal" data-name="phoneNo">
-                                          [전화번호]
+                                          ${user.u_tel }
                                       </p>
                                       <div class="float-l">
                                           <button type="button" class="button small gray-line change-phone-num" id="phoneChgBtn" title="휴대폰번호 변경">휴대폰번호 변경</button>
@@ -253,7 +257,7 @@
                               <td>
                                   <a href="/on/oh/ohh/Mypage/userPwdChangePage.do" class="button small gray-line" title="비밀번호 변경">비밀번호 변경</a>
 
-                                  마지막 비밀번호 변경: 372일전에 함 (2021-07-27 18:41:38)
+                                  <!-- 마지막 비밀번호 변경: 372일전에 함 (2021-07-27 18:41:38) -->
                               </td>
                           </tr>
                           <tr>
@@ -382,42 +386,6 @@
                   </tbody>
               </table>
           </div>
-
-<%--           <h3 class="tit">스페셜 멤버십 가입내역</h3>
-
-          <div class="table-wrap mb40">
-
-              <!-- 가입된 스페셜멤버십이 있는 경우 -->
-              <table class="board-form">
-                  <caption>가입정보, 스페셜 멤버십 이용동의 안내 순서로 보여줍니다.</caption>
-                  <colgroup>
-                      <col style="width:180px;">
-                      <col>
-                  </colgroup>
-                  <tbody>
-                      <!-- 가입 내역이 없는 경우 -->
-                      <tr>
-                          <th scope="row">가입정보</th>
-
-                          
-                              
-                                  <td>
-                                      <div class="clearfix">
-                                          <p class="float-l reset lh32">가입된 스페셜 멤버십이 없습니다.</p>
-                                          <div class="float-r">
-                                              <a href="/curation/specialcontent" class="button small gray" title="스페셜 멤버십 가입 안내">스페셜 멤버십 가입 안내</a>
-                                          </div>
-                                      </div>
-                                  </td>
-                              
-                              
-                          
-                      </tr>
-
-                      
-                  </tbody>
-              </table>
-          </div> --%>
           
           <div class="box-radius ">
 		<div class="box-top">

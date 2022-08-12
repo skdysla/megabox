@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="../header.jsp" charEncoding="utf-8" />
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <script>
 function addressKindChange(e){
 	var seoul = ["강남","홍대","영등포","여의도"];

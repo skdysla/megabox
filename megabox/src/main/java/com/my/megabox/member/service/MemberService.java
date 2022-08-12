@@ -8,7 +8,7 @@ import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 
 @Service
-public class MemberService implements IMemberService{
+public class MemberService implements IMemberService{ 
 	@Autowired private IMemberDAO dao;
 	
 	public MemberDTO userInfo(String id) {

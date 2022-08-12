@@ -13,7 +13,7 @@ import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 import com.my.megabox.member.service.MemberService;
 
-@Controller
+@Controller 
 public class MemberController {
 	@Autowired private MemberService service;
 	@Autowired private HttpSession session;

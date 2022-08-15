@@ -29,7 +29,7 @@ public class MemberService implements IMemberService{
 		if(pw.equals(result.getU_pw()) == false)
 			return "현재 비밀번호가 일치하지 않습니다.";
 		if(pwnew != checkpwnew)
-			return  "새 비밀번호가 일치하지 않습니다.";
+			return  "새 비밀번호가 일치하지 않습니다."; 
 		
 		String lenReg = "[a-zA-Z0-9!@#$%^&*]{10,}";
 		String engReg = "[a-zA-Z]";

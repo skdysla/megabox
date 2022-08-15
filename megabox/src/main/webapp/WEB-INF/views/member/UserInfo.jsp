@@ -29,24 +29,14 @@
 					</ul>
 				</li>
 				<li><a id="discountCoupon" href="/mypage/discount-coupon" title="메가박스/제휴쿠폰">메가박스/제휴쿠폰</a></li>
-				<!-- <li><a href="/on/oh/ohh/Mvtckt/GiftCardL.do">메가박스 기프트카드</a></li> -->
-<!-- 				<li>
-					<a href="/mypage/point-list" title="멤버십 포인트">멤버십 포인트</a>
-					<ul class="depth3">
-						<li><a href="/mypage/point-list" title="포인트 이용내역">포인트 이용내역</a></li>
-						<li><a href="/mypage/card-list" title="멤버십 카드관리">멤버십 카드관리</a></li>
-						<li><a href="/mypage/milk-service" title="MiL.k 제휴서비스">MiL.k 포인트</a></li>
-					</ul>
-				</li> -->
 				<li><a href="MovieStory" titel="나의 무비스토리">나의 무비스토리</a></li>
 				<li><a href="/mypage/myevent" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
 				<li class="on"><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li>
 				<li>
-					<a href="/mypage/myinfo?returnURL=info" title="회원정보">회원정보</a>
+					<a href="MyInfo" title="회원정보">회원정보</a>
 					<ul class="depth3">
 						<li><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
-						<li><a href="/mypage/additionalinfo" title="선택정보 수정">선택정보 수정</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -143,15 +133,15 @@
               </div>
           </div>
 
-          <form name="mbInfoForm">
+          <form name="UserInfo" method="post">
               <input type="hidden" name="mbNo" value="10857053">
               
-              <input type="hidden" name="phoneNo" value="${user.u_tel }">
+<%--               <input type="hidden" name="phoneNo" value="${user.u_tel }">
               <input type="hidden" name="zipcd" value="">
               <input type="hidden" name="mbAddr" value="">
               <input type="hidden" name="mbProfilFileNo" value="">
               <input type="hidden" id="mbByymmdd" value="${user.u_birth }">
-
+ --%>
               <div class="table-wrap mb40">
                   <table class="board-form">
                       <caption>이름, 생년월일, 휴대폰, 이메일, 비밀번호, 주소 항목을 가진 기본정보 표</caption>
@@ -249,13 +239,13 @@
                                   <label for="email">이메일</label> <em class="font-orange">*</em>
                               </th>
                               <td>
-                                  <input type="text" id="email" name="mbEmail" class="input-text w500px" value="[이메일]">
+                                  <input type="text" id="email" name="Email" class="input-text w500px" value="[이메일]">
                               </td>
                           </tr>
                           <tr>
                               <th scope="row">비밀번호 <em class="font-orange">*</em></th>
                               <td>
-                                  <a href="/on/oh/ohh/Mypage/userPwdChangePage.do" class="button small gray-line" title="비밀번호 변경">비밀번호 변경</a>
+                                  <a href="ChangePw" class="button small gray-line" title="비밀번호 변경">비밀번호 변경</a>
 
                                   <!-- 마지막 비밀번호 변경: 372일전에 함 (2021-07-27 18:41:38) -->
                               </td>
@@ -271,59 +261,7 @@
                       </tbody>
                   </table>
               </div>
-          </form>
-
-<%--           <h3 class="tit">포인트 비밀번호 설정<a href="#" id="pwSetBtn" style="font-size:14px;" class="button small gray-line ml20" title="포인트 비밀번호 설정">포인트 비밀번호 설정</a></h3>
-
-          <div class="table-wrap mb40">
-              <table class="board-form">
-                  <caption>포인트 비밀번호 설정</caption>
-                  <colgroup>
-                      <col style="width:180px;">
-                      <col>
-                  </colgroup>
-                  <tbody>
-                      <tr>
-                          <th scope="row" class="a-l">멤버십 포인트 사용시<br>비밀번호 설정</th>
-                          <td class="a-l">
-                              <input type="radio" name="usePointPwAt" id="usePointPwAtOn" value="Y">
-                              <label for="usePointPwAtOn" class="mr10">사용</label>
-
-                              <input type="radio" name="usePointPwAt" id="usePointPwAtOff" checked="" value="N">
-                              <label for="usePointPwAtOff">사용안함</label>
-
-                              <span class="ml20">※ 안전한 서비스 이용을 위해 포인트 사용시 비밀번호를 사용해주세요</span>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div> --%>
-
-<%--           <h3 class="tit">생년월일 로그인 설정</h3>
-
-          <div class="table-wrap mb40">
-              <table class="board-form">
-                  <caption>무인발권기(KIOSK) 기능설정 순서로 보여줍니다.</caption>
-                  <colgroup>
-                      <col style="width:180px;">
-                      <col>
-                  </colgroup>
-                  <tbody>
-                      <tr>
-                          <th scope="row" class="a-l">무인발권기(KIOSK)<br>기능설정</th>
-                          <td class="a-l">
-                              <input type="radio" name="kioskset" id="kioskon" checked="" value="Y">
-                              <label for="kioskon" class="mr10">사용</label>
-
-                              <input type="radio" name="kioskset" id="kioskoff" value="N">
-                              <label for="kioskoff">사용안함</label>
-
-                              <span class="ml20">※ ‘생년월일+휴대폰번호’ 티켓 출력 및 회원 찾기 기능</span>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div> --%>
+          
 
           <h3 class="tit">간편로그인 계정연동</h3>
 
@@ -469,6 +407,7 @@
               <button class="button large" id="cancelBtn">취소</button>
               <button class="button purple large" id="updateBtn">등록</button>
           </div>
+          </form>
       </div>
 <!--// container -->
             </div>

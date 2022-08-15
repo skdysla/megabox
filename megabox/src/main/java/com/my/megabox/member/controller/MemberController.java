@@ -65,4 +65,10 @@ public class MemberController {
 	public String select_test() {
 		return "member/select_test";
 	}
+	
+	@RequestMapping("ChangePw")
+	public String ChangePw(String id, String pw, String pwnew, String checkpwnew) {
+		service.changePw(id, pw, pwnew, checkpwnew);
+		return "member/ChangePw";
+	}
 }

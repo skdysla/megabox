@@ -47,6 +47,7 @@ public class MemberService implements IMemberService{
 		}else {
 			return "비밀번호 형식이 아닙니다.";
 		}
+		
 	}
 	
 }

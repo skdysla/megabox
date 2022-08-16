@@ -43,26 +43,6 @@
 		</nav>
 	</div>
 
-<form id="phoneFrm" method="post">
-    <input type="hidden" name="m" value="checkplusSerivce">
-    <input type="hidden" name="EncodeData" value="AgAFRzI0ODn3uQf0ZQSRTdE8jLhOMK+5b5PzAKTT+MbqyPeW4Z55lUqVQtPP1JsYDQ8UsQvjPaSH4YaG69rVfZ9lLHhGRIN4MYPZntctTHDGVS6wUNuZwmAoGJeztEqQ5LMB6HfgmFFOpuhvQgxrYNHrW8NXIBnG3/cip2FzXFqRYIshRx3OSA3VFGt8Qddtdg80gpX2cVC71s710woKmWMqXK7YfTx6glp8GtCM/+So0I9kv3gH1lizZ/YNv6m5BNok7oPthkmDn/aylIlLVRTo+TTZxcI26I6ul4GwT408s1OHdEHQfed2Au3gPAmUaSgT/MjLCJq/kRLMuVa203o+IkW9imQesMsGlsmJbG/T+aLCG2Aqb1iIyzZA1ttrPsPKo+yX5+0biSjJLpmJUOKug/6DwRnRxFF4qKU4Nn5OcF5erwnnFGitibzFf1/xHOEWNTLcj1FHf8nr+VIG1s97Fsd+O23O+Rfsld46m5MuuFBba8SnbKlCecmjK0vfwOFm/PdQlwTUEWZnEhE3kLcCtnRkZ/bxMLEbJ/+H9DEt5Cpkhti/Ww==">
-    <input type="hidden" name="mblpRequestNumber" value="G2489_2022080321044492062">
-    <input type="hidden" name="certTyCd" value="CERT09">
-    <input type="hidden" name="certType" value="SCRC01">
-    <input type="hidden" name="param_r1" value="">
-    <input type="hidden" name="param_r2" value="">
-    <input type="hidden" name="loginUserId" value="dun05066">
-</form>
-<form id="ipinFrm" method="post">
-    <input type="hidden" name="m" value="pubmain">
-    <input type="hidden" name="enc_data" value="AgEERDQ0MVPNB2o62mLZGv8PEQ9limkSh54mcgZldshMWx0ZF4CCJU8WBj7cFjfYcjXYoky1ih+aYM0fxnEL4st/xFoB+7CkpTPIyzPGr2H8gAW0d4QsM18ROLPWNqsDdQyhO7w9VpzYZ2NQ6He0LA/+UWFz/LI6OiRX0c2CWbC+LGD6ZQAuer2KqS/d5olq8mZFXwv24z3TlwXIQWYh5ffZodJ5o7imNCZ2zx6jm9J97jHabCrA6KD+KU/R/oGSNmpCsEXNAujbrQngYmHHfhDkw9kwa4riDDxESR9vajULpdoxCaY69UjVF/jph2tzoV7JDSS2dw==">
-    <input type="hidden" name="ipinRequestNumber" value="IPIN_D441202208032104449197">
-    <input type="hidden" name="certTyCd" value="CERT07">
-    <input type="hidden" name="certType" value="SCRC01">
-    <input type="hidden" name="param_r1" value="">
-    <input type="hidden" name="param_r2" value="">
-    <input type="hidden" name="loginUserId" value="dun05066">
-</form>
 <form id="moveFrm" method="post"></form>
 
 <div id="myLoactionInfo" style="display: none;">
@@ -111,7 +91,7 @@
                                       
                                   
 
-                                  <a href="/mypage/goodbye-megabox" class="button small member-out" title="회원탈퇴">회원탈퇴</a>
+                                  <a href="goodbye_mega" class="button small member-out" title="회원탈퇴">회원탈퇴</a>
                               </div>
                               <p style="font-size:0.8em; color:#999; margin-top:10px; padding:0; text-align:left; position:absolute; top:22px; left:194px;">
                                   ※ 개인정보가 포함된 이미지 등록은 자제하여 주시기 바랍니다.</p>

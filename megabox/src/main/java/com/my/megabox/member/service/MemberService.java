@@ -24,11 +24,11 @@ public class MemberService implements IMemberService{
 		
 	}
 
-	public String changePw(String id, String pw, String pwnew, String checkpwnew) {
-		MemberDTO result = dao.selectId(id);
-		if(pw.equals(result.getU_pw()) == false)
+	public String changePw(MemberDTO member) {
+		MemberDTO result = dao.selectId(member.getId());
+		if(member.getPw().equals(result.getPw()) == false)
 			return "현재 비밀번호가 일치하지 않습니다.";
-		if(pwnew != checkpwnew)
+		if(member.getPwnew() != member.getCheckpwnew())
 			return  "새 비밀번호가 일치하지 않습니다."; 
 		
 		String lenReg = "[a-zA-Z0-9!@#$%^&*]{10,}";
@@ -38,16 +38,35 @@ public class MemberService implements IMemberService{
 		Matcher m;
 		int has = 0;
 		
-		if(Pattern.matches(lenReg, pwnew)) {
-			has += Pattern.compile(engReg).matcher(pwnew).find() ? 1:0;
-			has += Pattern.compile(numReg).matcher(pwnew).find() ? 1:0;
-			has += Pattern.compile(specReg).matcher(pwnew).find() ? 1:0;
+		if(Pattern.matches(lenReg, member.getPwnew())) {
+			has += Pattern.compile(engReg).matcher(member.getPwnew()).find() ? 1:0;
+			has += Pattern.compile(numReg).matcher(member.getPwnew()).find() ? 1:0;
+			has += Pattern.compile(specReg).matcher(member.getPwnew()).find() ? 1:0;
 			if(has < 2) return "비밀번호 형식이 아닙니다.";
-			else return "적합한 비밀번호입니다.";
+			else {
+				dao.chagePw(member.getId(), member.getPwnew());
+				return "적합한 비밀번호입니다.";
+			}
 		}else {
 			return "비밀번호 형식이 아닙니다.";
 		}
 		
 	}
+
+	public String deleteMember(String id, String pw) {
+		if(pw == null || pw.isEmpty())
+			return "비밀번호를 입력해주세요.";
+		MemberDTO result = dao.selectId(id);
+		if(!pw.equals(result.getPw()))
+			return "비밀번호가 일치하지 않습니다.";
+		
+		// 문자인증(카톡)
+		
+		dao.deleteMember(id);
+		return "회원탈퇴 완료";
+	}
+	
+	
+	
 	
 }

@@ -1,5 +1,10 @@
 package com.my.megabox.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,14 +66,28 @@ public class MemberController {
 		return "member/UserInfo";
 	}
 	
+	// Test page
 	@RequestMapping("select_test")
-	public String select_test() {
-		return "member/select_test";
+	public String select_test(String id, HttpServletRequest request, Model model) {
+		request.setAttribute("msg", "비밀번호 변경 완료");
+		request.setAttribute("url", "UserInfo");
+		return "member/alert";
 	}
 	
 	@RequestMapping("ChangePw")
-	public String ChangePw(String id, String pw, String pwnew, String checkpwnew) {
-		service.changePw(id, pw, pwnew, checkpwnew);
+	public String ChangePw(MemberDTO member, HttpServletRequest request) {
+		String msg = service.changePw(member);
+		if(msg == "적합한 비밀번호입니다.") {
+			request.setAttribute("msg", "비밀번호 변경 완료");
+			request.setAttribute("url", "UserInfo");
+			return "member/alert";
+		}
 		return "member/ChangePw";
+	}
+	
+	@RequestMapping("goodbye_mega")
+	public String goodbye_mega(String id, String pw) {
+		service.deleteMember(id, pw);
+		return "member/goodbye_mega";
 	}
 }

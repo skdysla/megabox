@@ -7,4 +7,11 @@
 		SELECT * FROM user_info WHERE u_id=#{id, jdbcType=VARCHAR}
 	</select>
 	
+	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
+		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM user_info WHERE u_id=#{id}
+	</delete>
 </mapper>

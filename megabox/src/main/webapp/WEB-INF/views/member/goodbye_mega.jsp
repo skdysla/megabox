@@ -4,7 +4,7 @@
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
 <script>
-	$('#ibxSchPwdMblpTelno').keyup(function (e) {
+/* 	$('#ibxSchPwdMblpTelno').keyup(function (e) {
 		let content = $(this).val();	
 		$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
 		if(content.length == 11){
@@ -15,7 +15,70 @@
 			$().addClass('disabled');
 			$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
 		}
+	}); */
+	$(document).ready(function(){
+		$('#toNumber').keyup(function (e) {
+			let content = $(this).val();	
+			$('#Authrequest').attr('disabled', 'disabled');
+			if(content.length == 11){
+				$('#Authrequest').removeAttr("disabled");
+			}
+			else {
+				$('#Authrequest').attr('disabled', 'disabled');
+			}
+		});
+		
+		$('#checkNumber').keyup(function (e) {
+			let content = $(this).val();	
+			$('#checkAuth').attr('disabled', 'disabled');
+			if(content.length == 6){
+				$('#checkAuth').removeClass('disabled');
+				$('#checkAuth').removeAttr("disabled");
+			}
+			else {
+				$('#checkAuth').addClass('disabled');
+				$('#checkAuth').attr('disabled', 'disabled');
+			}
+		});
 	});
+</script>
+<script>
+/* 일단 swal.fire 를 alert로 대체 */
+$(document).ready(function(){
+    $('#Authrequest').click(function(){
+        let phoneNumber = $('#toNumber').val();
+        alert('인증번호 발송 완료!')
+
+
+        $.ajax({
+            type: "GET",
+            url: "messageRequest",
+            data: {
+                "phoneNumber" : phoneNumber
+            },
+            success: function(res){
+                $('#checkAuth').click(function(){
+                    if($.trim(res) ==$('#checkNumber').val()){
+                    	alert(
+                            '인증성공!',
+                            '휴대폰 인증이 정상적으로 완료되었습니다.',
+                            'success'
+                        )
+                        document.location.href="Membermain"; /* 후에 메가박스 메인화면으로 변경하기 */
+                    }else{
+                    	alert({
+                            icon: 'error',
+                            title: '인증오류',
+                            text: '인증번호가 올바르지 않습니다!',
+                        })
+                    }
+                })
+
+
+            }
+        })
+    });
+});
 </script>
 <div class="container has-lnb">
             <div class="page-util">
@@ -142,8 +205,8 @@
 							<tr>
 								<th scope="row"><label for="ibxSchPwdMblpTelno">휴대폰 번호<!--휴대폰 번호--></label></th>
 								<td>
-									<input type="text" id="ibxSchPwdMblpTelno" maxlength="11" placeholder="'-' 없이 입력" class="input-text w230px"><!--'-' 없이 입력-->
-									<button id="btnSchPwdMbCertNoSend" type="button" class="button gray w100px ml08">인증요청<!--인증요청--></button>
+									<input type="text" name="toNumber" id="toNumber" maxlength="11" placeholder="'-' 없이 입력" class="input-text w230px"><!--'-' 없이 입력-->
+									<button id="Authrequest" type="button" class="button gray w100px ml08" disabled>인증요청<!--인증요청--></button>
 								</td>
 							</tr>
 							<tr id="schPwdMblpCertRow">
@@ -151,7 +214,7 @@
 								<td>
 									<div class="chk-num">
 										<div class="line">
-											<input maxlength="4" type="text" id="ibxSchPwdMblpCharCertNo" class="input-text w180px" title="인증번호 입력" disabled="disabled"><!--인증번호 입력-->
+											<input maxlength="4" type="text" name="checkNumber" id="checkNumber" class="input-text w180px" title="인증번호 입력" disabled><!--인증번호 입력-->
 
 											<div class="time-limit" id="schPwdtimer">
 												3:00
@@ -159,7 +222,7 @@
 										</div>
 									</div>
 
-									<button id="btnSchPwdMblpCharCert" type="button" class="button gray-line w100px ml08 disabled" disabled>인증확인<!--인증확인--></button>
+									<button id="checkAuth" type="button" class="button gray-line w100px ml08 disabled" disabled>인증확인<!--인증확인--></button>
 									<div id="schPwdMblpNo-error-text" class="alert"></div>
 								</td>
 							</tr>
@@ -172,7 +235,7 @@
 
 	<div class="btn-group">
 		<button class="button large" id="cancelBtn">취소</button>
-		<button class="button purple large" id="submitBtn" disabled="">탈퇴</button>
+		<button class="button purple large" id="submitBtn" disabled>탈퇴</button>
 	</div>
 </div>
 

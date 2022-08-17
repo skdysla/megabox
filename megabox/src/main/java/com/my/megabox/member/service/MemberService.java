@@ -69,21 +69,7 @@ public class MemberService implements IMemberService{
 		
 		dao.deleteMember(id);
 		return "회원탈퇴 완료";
-	}
-	
-//	public String authConfirm(String checkNumber) {
-//		System.out.println("사용자가 입력한 인증번호 : " + checkNumber);
-//		if(checkNumber == null || checkNumber.isEmpty())
-//			return "인증번호를 입력하세요.";
-//		if(checkNumber.equals(number) == false)
-//			return "인증 실패";
-//		
-//		session.setAttribute("authState", "success");
-//		number = "";
-//		return "인증 성공";
-//	}
-	
-	
+	}	
 	
 	
 }

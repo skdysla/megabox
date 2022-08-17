@@ -65,7 +65,7 @@ public class MemberService implements IMemberService{
 		if(!pw.equals(result.getPw()))
 			return "비밀번호가 일치하지 않습니다.";
 		
-		// 문자인증
+		// 문자인증 -> 문자인증 세션이 존재할 경우 회원 탈퇴를 할 수 있게 만든다.
 		
 		dao.deleteMember(id);
 		return "회원탈퇴 완료";

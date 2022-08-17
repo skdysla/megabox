@@ -1,7 +1,10 @@
 package com.my.megabox.member.service;
 
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,8 @@ import com.my.megabox.member.dto.MemberDTO;
 @Service
 public class MemberService implements IMemberService{ 
 	@Autowired private IMemberDAO dao;
+	@Autowired private HttpSession session;
+	private String number;
 	
 	public MemberDTO userInfo(String id) {
 		MemberDTO result = dao.selectId(id);
@@ -60,11 +65,23 @@ public class MemberService implements IMemberService{
 		if(!pw.equals(result.getPw()))
 			return "비밀번호가 일치하지 않습니다.";
 		
-		// 문자인증(카톡)
+		// 문자인증
 		
 		dao.deleteMember(id);
 		return "회원탈퇴 완료";
 	}
+	
+//	public String authConfirm(String checkNumber) {
+//		System.out.println("사용자가 입력한 인증번호 : " + checkNumber);
+//		if(checkNumber == null || checkNumber.isEmpty())
+//			return "인증번호를 입력하세요.";
+//		if(checkNumber.equals(number) == false)
+//			return "인증 실패";
+//		
+//		session.setAttribute("authState", "success");
+//		number = "";
+//		return "인증 성공";
+//	}
 	
 	
 	

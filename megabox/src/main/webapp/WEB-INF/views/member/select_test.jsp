@@ -61,6 +61,58 @@
 	});
 	
 </script>
+<script>
+$(document).ready(function(){
+	$('#toNumber').keyup(function (e) {
+		let content = $(this).val();	
+		$('#Authrequest').attr('disabled', 'disabled');
+		if(content.length == 11){
+			$('#Authrequest').removeAttr("disabled");
+		}
+		else {
+			$('#Authrequest').attr('disabled', 'disabled');
+		}
+	});
+});
+</script>
+<script>
+/* 일단 swal.fire 를 alert로 대체 */
+$(document).ready(function(){
+    $('#Authrequest').click(function(){
+        let phoneNumber = $('#toNumber').val();
+        alert('인증번호 발송 완료!')
+
+
+        $.ajax({
+            type: "GET",
+            url: "messageRequest",
+            data: {
+                "phoneNumber" : phoneNumber
+            },
+            success: function(res){
+                $('#checkAuth').click(function(){
+                    if($.trim(res) ==$('#checkNumber').val()){
+                    	alert(
+                            '인증성공!',
+                            '휴대폰 인증이 정상적으로 완료되었습니다.',
+                            'success'
+                        )
+                        document.location.href="Membermain";
+                    }else{
+                    	alert({
+                            icon: 'error',
+                            title: '인증오류',
+                            text: '인증번호가 올바르지 않습니다!',
+                        })
+                    }
+                })
+
+
+            }
+        })
+    });
+});
+</script>
 </head>
 <body>
 	<input type="radio" name="radBokd" id="radBokd" value="1" checked>지점 문의
@@ -88,6 +140,9 @@
 <div style="width:200px;">
   <input type="text" name="text">
 </div>
+
+	<label>휴대폰 번호</label><input type="text" name="toNumber" id="toNumber" maxlength="11" placeholder="'-' 없이 입력"><button id="Authrequest" disabled>인증요청</button><br>
+	<label>인증번호</label><input type="text" name="checkNumber" id="checkNumber"><button id="checkAuth">인증하기</button>
 	
 </body>
 </html>

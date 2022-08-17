@@ -3,7 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
-
+<script>
+	$('#ibxSchPwdMblpTelno').keyup(function (e) {
+		let content = $(this).val();	
+		$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
+		if(content.length == 11){
+			$('#btnSchPwdMbCertNoSend').removeClass('disabled');
+			$('#btnSchPwdMbCertNoSend').removeAttr("disabled");
+		}
+		else {
+			$().addClass('disabled');
+			$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
+		}
+	});
+</script>
 <div class="container has-lnb">
             <div class="page-util">
                  <div class="inner-wrap" id="myLoaction"></div>
@@ -130,7 +143,7 @@
 								<th scope="row"><label for="ibxSchPwdMblpTelno">휴대폰 번호<!--휴대폰 번호--></label></th>
 								<td>
 									<input type="text" id="ibxSchPwdMblpTelno" maxlength="11" placeholder="'-' 없이 입력" class="input-text w230px"><!--'-' 없이 입력-->
-									<button id="btnSchPwdMbCertNoSend" type="button" class="button gray w100px ml08 disabled" disabled="disabled">인증요청<!--인증요청--></button>
+									<button id="btnSchPwdMbCertNoSend" type="button" class="button gray w100px ml08">인증요청<!--인증요청--></button>
 								</td>
 							</tr>
 							<tr id="schPwdMblpCertRow">
@@ -146,7 +159,7 @@
 										</div>
 									</div>
 
-									<button id="btnSchPwdMblpCharCert" type="button" class="button gray-line w100px ml08 disabled" disabled="disabled">인증확인<!--인증확인--></button>
+									<button id="btnSchPwdMblpCharCert" type="button" class="button gray-line w100px ml08 disabled" disabled>인증확인<!--인증확인--></button>
 									<div id="schPwdMblpNo-error-text" class="alert"></div>
 								</td>
 							</tr>

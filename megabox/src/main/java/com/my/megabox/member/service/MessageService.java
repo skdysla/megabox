@@ -11,7 +11,6 @@ import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
-@PropertySource("classpath:message.properties")
 public class MessageService {
 	/**
 	 * @class ExampleSend
@@ -32,8 +31,10 @@ public class MessageService {
 
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);
+			System.out.println("뭐지");
 			System.out.println(obj.toString());
 		} catch (CoolsmsException e) {
+			System.out.println("문자인증 실패");
 			System.out.println(e.getMessage());
 			System.out.println(e.getCode());
 		}

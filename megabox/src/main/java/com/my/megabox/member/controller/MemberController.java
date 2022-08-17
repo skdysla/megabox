@@ -2,6 +2,7 @@ package com.my.megabox.member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,15 +13,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 import com.my.megabox.member.service.MemberService;
+import com.my.megabox.member.service.MessageService;
+
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller 
 public class MemberController {
 	@Autowired private MemberService service;
+	@Autowired private MessageService mservice;
 	@Autowired private HttpSession session;
 	@RequestMapping("Membermain")
 	public String Membermain() {
@@ -65,14 +72,34 @@ public class MemberController {
 		model.addAttribute("user", user);
 		return "member/UserInfo";
 	}
-	
+
 	// Test page
 	@RequestMapping("select_test")
-	public String select_test(String id, HttpServletRequest request, Model model) {
-		request.setAttribute("msg", "비밀번호 변경 완료");
-		request.setAttribute("url", "UserInfo");
-		return "member/alert";
+	public String select_test(String toNumber, HttpServletRequest request, Model model) {
+		return "member/select_test";
 	}
+	
+	// 문자인증 
+	@GetMapping("messageRequest")
+	public @ResponseBody String messageRequest(String phoneNumber) throws CoolsmsException{
+		Random r = new Random();
+		r.nextInt(1000000);
+		int begin = 111111; int end = 999999;
+		String randomNumber = String.format("%06d", r.nextInt(end - begin + 1) + begin);
+		mservice.sendMessage(phoneNumber, randomNumber);
+		return randomNumber;
+	}
+	
+	// 문자인증 체크(맞는지 여부)
+//	@PostMapping(value = "checkAuth", produces = "text/html; charset=UTF-8")
+//	public String checkAuth(@RequestBody(required = false) String checkNumber, HttpServletRequest request) {
+//		String msg = service.authConfirm(checkNumber);
+//		if(msg == "인증성공") {
+//			request.setAttribute("msg", "인증 완료");
+//			return "member/alert";
+//		}
+//			return "";
+//	}
 	
 	@RequestMapping("ChangePw")
 	public String ChangePw(MemberDTO member, HttpServletRequest request) {

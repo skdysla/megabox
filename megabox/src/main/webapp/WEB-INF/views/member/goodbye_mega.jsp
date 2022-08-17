@@ -211,7 +211,7 @@ $(document).ready(function(){
 							</tr>
 							<tr id="schPwdMblpCertRow">
 								<th scope="row"><label for="ibxSchPwdMblpCharCertNo">인증번호<!--인증번호--></label></th>
-								<td>
+								<td> 
 									<div class="chk-num">
 										<div class="line">
 											<input maxlength="4" type="text" name="checkNumber" id="checkNumber" class="input-text w180px" title="인증번호 입력" disabled><!--인증번호 입력-->

@@ -1,5 +1,6 @@
 package com.my.megabox.member.service;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.my.megabox.booking.dto.BookingDTO;
 import com.my.megabox.member.dao.IMemberDAO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
@@ -69,6 +71,24 @@ public class MemberService implements IMemberService{
 		
 		dao.deleteMember(id);
 		return "회원탈퇴 완료";
+	}
+
+	public ArrayList<BookingDTO> YMList(int unum) {
+		return dao.YMList(unum);
+	}
+
+	public String login(String id, String pw) {
+		if(id == null || id.isEmpty() || pw == null || pw.isEmpty())
+			return "필수 정보입니다.";
+		MemberDTO result = dao.selectId(id);
+		if(result == null)
+			return "아이디 또는 비밀번호가 일치하지 않습니다.";
+		if(result.getPw().equals(pw) == false)
+			return "비밀번호가 일치하지 않습니다.";
+		session.setAttribute("id", result.getId());
+		session.setAttribute("num", result.getNum());
+		session.setAttribute("tel", result.getTel());
+		return "로그인 성공";
 	}	
 	
 	

@@ -64,7 +64,7 @@ $(document).ready(function(){
                             '휴대폰 인증이 정상적으로 완료되었습니다.',
                             'success'
                         )
-                        document.location.href="Membermain"; /* 후에 메가박스 메인화면으로 변경하기 */
+                        /* 인증성공 시 성공 세션 생성하여 탈퇴 할 수 있도록 만들기 */
                     }else{
                     	alert({
                             icon: 'error',

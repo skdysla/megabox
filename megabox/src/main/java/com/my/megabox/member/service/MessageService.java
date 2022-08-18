@@ -2,9 +2,10 @@ package com.my.megabox.member.service;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.nurigo.java_sdk.api.Message;
@@ -12,6 +13,7 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
 public class MessageService {
+	@Autowired private HttpSession session;
 	/**
 	 * @class ExampleSend
 	 * @brief This sample code demonstrate how to send sms through CoolSMS Rest API PHP
@@ -31,7 +33,7 @@ public class MessageService {
 
 		try {
 			JSONObject obj = (JSONObject) coolsms.send(params);
-			System.out.println("뭐지");
+			session.setAttribute("messageAuth", "messageChecked");
 			System.out.println(obj.toString());
 		} catch (CoolsmsException e) {
 			System.out.println("문자인증 실패");

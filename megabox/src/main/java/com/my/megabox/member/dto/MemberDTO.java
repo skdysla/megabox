@@ -1,6 +1,7 @@
 package com.my.megabox.member.dto;
 
 public class MemberDTO {
+	private int num;
 	private String id;
 	private String pw;
 	private String email;
@@ -12,6 +13,12 @@ public class MemberDTO {
 	private String pwnew;
 	private String checkpwnew;
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}

@@ -135,39 +135,7 @@
 
 			<!-- bottom -->
 			<div class="bottom">
-				<div class="point" id="myPoint">
-					<div class="tit-area">
-						<p class="tit">총 보유 포인트</p>
-						<a href="/mypage/point-list" class="more" title="포인트 이용내역 페이지로 이동"><i class="iconset ico-arr-right-gray">더보기</i></a>
-					</div>
-
-					<div class="cont-area">
-						<div class="total">
-							<p class="now">1,000 P</p>
-
-							<div class="division" style="display: none;">
-								<div class="cell">
-									<p class="new">
-										<span>포인트</span>
-										<em>0</em>
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="change">
-							<p class="save">
-								<span>적립예정</span>
-								<em>0 P</em>
-							</p>
-
-							<div class="del">
-								<span>당월소멸예정</span>
-								<em>0 P</em>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 
 				<!-- theater -->
 <!-- 				<div class="theater" id="myFaverBrch">
@@ -277,7 +245,7 @@
 
 				<div class="box-border link-movie-story">
 					<a href="/mypage/moviestory?cd=sm" title="본 영화 탭으로 이동">
-						<em>2</em>
+						<em>0</em>
 						<span>본 영화</span>
 					</a>
 

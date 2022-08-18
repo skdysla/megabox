@@ -1,7 +1,10 @@
 package com.my.megabox.member.dao;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Repository;
 
+import com.my.megabox.booking.dto.BookingDTO;
 import com.my.megabox.member.dto.MemberDTO;
 
 @Repository
@@ -12,5 +15,8 @@ public interface IMemberDAO {
 	void chagePw(String id, String pwnew); // 비밀번호 변경
 
 	void deleteMember(String id); //회원 id로 회원삭제
+
+	ArrayList<BookingDTO> YMList(int unum); // 예매 내역
+
 
 }

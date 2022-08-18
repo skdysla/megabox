@@ -2,6 +2,7 @@ package com.my.megabox.member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.my.megabox.booking.dto.BookingDTO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 import com.my.megabox.member.service.MemberService;
@@ -29,6 +31,20 @@ public class MemberController {
 	@Autowired private MemberService service;
 	@Autowired private MessageService mservice;
 	@Autowired private HttpSession session;
+	
+	@GetMapping("login")
+	public String login() {
+		return "member/login";
+	}
+	
+	@PostMapping("login")
+	public String login(String id, String pw) {
+		String msg = service.login(id, pw);
+		if(msg == "로그인 성공")
+			return "member/MemberMain";
+		return "member/login";
+	}
+	
 	@RequestMapping("Membermain")
 	public String Membermain() {
 		session.setAttribute("id", "admin");
@@ -36,7 +52,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("BookingList")
-	public String TicketHistory() {
+	public String TicketHistory(int unum, Model model) {
+		ArrayList<BookingDTO> ymList = service.YMList(unum);
+		model.addAttribute("ymList", ymList);
 		return "member/BookingList";
 	}
 	

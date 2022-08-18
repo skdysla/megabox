@@ -7,6 +7,10 @@
 		SELECT * FROM user_info WHERE u_id=#{id, jdbcType=VARCHAR}
 	</select>
 	
+	<select id="YMList" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
+		SELECT * FROM booking WHERE u_num=#{unum}
+	</select>
+	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
 		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}
 	</update>

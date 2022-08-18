@@ -3,16 +3,31 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="pPath" value="/" />
 <c:import url="../header.jsp" charEncoding="utf-8" />
+
 <!DOCTYPE html>
 <script src="${pPath }resources/js/user.datepicker.js"></script>
-<%-- <script type="text/javascript" src="${pPath }resources/js/bootstrap.js"></script>
-<script type="text/javascript" src="${pPath }resources/js/bootstrap-select.js"></script> --%>
 
 <!-- <script>
 	$(document).on("click","#CalDate",function(){
 		$(this).addClass('on').siblings().removeClass('on');
 	})
 </script> -->
+
+<script>
+$(document).ready(function(){
+	 
+    // 라디오버튼 클릭시 이벤트 발생
+    $("input:radio[name=radBokd]").click(function(){
+ 
+        if($("input[name=radBokd]:checked").val() == "E"){
+            $("#selYM").removeAttr("disabled");
+ 			$("button[name=search]").removeClass("disabled");
+        }else if($("input[name=radBokd]:checked").val() == "B"){
+              $("#selYM").attr('disabled', 'disabled');
+        }
+    });
+});
+</script>
 <div class="container has-lnb">
             <div class="page-util">
                  <div class="inner-wrap" id="myLoaction"><div class="location">
@@ -118,16 +133,16 @@
 						<col>
 					</colgroup>
 					<tbody>
-						<tr>
+ 						<tr>
 							<th scope="row">구분 </th>
 							<td>
 								<input type="radio" id="radBokd" name="radBokd" value="B" checked >
-								<label for="radBokd01">예매내역 </label>
+								<label>예매내역 </label>
 								<input type="radio" id="radBokd" name="radBokd" value="E">
-								<label for="radBokd02">지난내역 </label>
+								<label >지난내역 </label>
 
-								<div class="dropdown bootstrap-select small bs3 disabled">
-									<select name="selYM" class="selectpicker small" id="selYM" tabindex="-98">
+								
+									<select name="selYM" id="selYM" disabled>
 										
 											<option value="202208">2022년 8월</option>
 										
@@ -155,20 +170,98 @@
 										
 									</select>
 									
-								</div>
+								
 
-								<button type="button" class="button gray-line small ml05" name="search">
+								<button type="button" class="button gray-line small" name="search">
 									<i class="iconset ico-search-gray"></i> 조회 
 								</button>
 							</td>
-						</tr>
+						</tr> 
 					</tbody>
 				</table>
 			</div>
 			<!-- 예매 조회 조건 End -->
-
-			<!-- 예매 영화 목록 -->
+			
+			
+			<!-- 예매 영화 목록     if 예매 내역이 존재하지 않으면 이 div를 띄워준다.-->
 			<div id="bokdList"><div class="no-history-reservation mt20">	예매 내역이 없습니다. </div></div>
+			
+			<!-- 예매 영화 목록     if 예매 내역이 존재ㅐ하면 이 div-->
+			<div id="bokdList">
+				<div class="board-list-util">	
+					<p class="result-count pt00"><strong>총<b class="font-gblue">1</b>건</strong>	</p>
+				</div>
+				<div class="history-reservation">	
+					<ul>
+						<li sell-tran-no="13112208180094461660">	
+							<div class="round">		
+								<a href="/movie-detail?rpstMovieNo=22013700" class="img" title="놉 ">
+									<img src="https://img.megabox.co.kr/SharedImg/2022/08/02/hQsvDEd41AY0pmON6fAhJ55ouwS5K3wb_316.jpg" alt="놉" onerror="noImg(this)">
+								</a>		
+								<table class="table">			
+									<colgroup>				
+										<col style="width:75px;">				
+										<col style="width:230px;">				
+										<col style="width:80px;">				
+										<col>			
+									</colgroup>			
+									<tbody>
+										<tr>	
+											<th scope="row" class="a-r">예매번호</th>	
+											<td colspan="3">		
+											<em class="num">9423-785-40980</em>	
+											</td>
+										</tr>
+										<tr>	
+											<th scope="row" class="a-r">영화명</th>	
+											<td colspan="3">		
+												<p class="tit-movie">			
+													<span>[영화제목]</span>			
+													<!-- <span>2D(자막)</span>	 -->	
+												</p>	
+											</td>
+										</tr>
+										<tr>	
+											<th scope="row" class="a-r">극장/상영관</th>	
+											<td>상봉/6층 컴포트 2관</td>	
+											<th scope="row">관람인원</th>	
+											<td>성인 1명</td>
+										</tr>
+										<tr>
+											<th scope="row" class="a-r">관람일시</th>	
+											<td>2022.08.20 (토) 10:40 (1회차)</td>	
+											<th scope="row">관람좌석</th>	
+											<td>J열 6</td>
+										</tr>
+									</tbody>		
+								</table>		
+								<div class="bg-round">			
+									<table class="table">				
+										<colgroup>					
+											<col style="width:75px;">					
+											<col style="width:230px;">					
+											<col style="width:100px;">					
+											<col>				
+										</colgroup>				
+										<tbody>
+											<tr>	
+												<th scope="row" class="a-r">결제일시</th>	
+												<td>2022.08.18		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
+												<!-- <th scope="row">적립예정 포인트</th>	
+												<td>600 P</td> -->
+											</tr>
+										</tbody>			
+									</table>		
+								</div>		
+								<div class="btn-group">
+								<a href="" title="" class="button purple" name="btnTicketChbnd">교환권출력</a>			
+								<a href="" class="button gray" name="btnCancelBokd" title="예매취소">예매취소</a>		
+								</div>	
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 
 			<h3 class="tit mt70">예매취소내역</h3>
 
@@ -196,10 +289,28 @@
 							<th scope="col">취소금액</th>
 						</tr>
 					</thead>
+					
+					<!-- 취소내역 -->
+					<!-- if 내역 없으면  -->
 					<tbody><tr><td colspan="5" class="a-c">취소내역이 없습니다.</td></tr></tbody>
+					<!-- if 내역 있으면 (for문) -->
+					<tbody>
+						<tr>	
+							<td>2022.08.18 (20:32)</td>	
+							<th scope="row">놉</th>	
+							<td>상봉</td>	
+							<td>2022.08.20 (토) 10:40</td>	
+							<td class="a-r">		
+							<span class="font-red">12,000원</span>	
+							</td>
+						</tr>
+					</tbody>
+					
 				</table>
 			</div>
-
+			<!-- 내역 있을때 -->
+			<nav class="pagination" id="navBokd"><strong class="active">1</strong> </nav>
+			<!-- 내역 없을때 -->
 			<nav class="pagination" id="navBokd"></nav>
 
 			<!-- 예매 안내상황  -->

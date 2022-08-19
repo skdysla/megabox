@@ -98,7 +98,7 @@ public class MemberService implements IMemberService{
 		dao.cancelBooking(b_num);
 		// 예매 테이블 데이터 삭제
 		dao.deleteBooking(dto);
-		return "";
+		return ""; 
 	}	
 	
 	

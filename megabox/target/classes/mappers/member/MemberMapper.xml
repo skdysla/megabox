@@ -17,6 +17,8 @@
 					where a.u_num=#{num}
 	</select>
 	
+	<insert
+	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
 		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}
 	</update>

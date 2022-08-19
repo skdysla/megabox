@@ -100,13 +100,13 @@
 
 						<button type="button" class="img">
 							<!-- 만약 이미지를 설정해주지 않았다면 기본이미지 보여주기 -->
-							<img src="${path}/resources/images/bg-photo.png" alt="임예빈" onerror="noImg(this, 'human')">
+							<img src="${path}/resources/images/bg-photo.png" onerror="noImg(this, 'human')">
 						</button>
 					</div>
 				</div>
 
 				<div class="grade">
-					<p class="name">임예빈님은<br>일반등급입니다.</p>
+					<p class="name">${sessionScope.name}님은<br>일반등급입니다.</p>
 
 					<div class="link">
 						<a href="/mypage/myinfo?returnURL=info" title="개인정보수정 페이지로 이동">개인정보수정 <i class="iconset ico-arr-right-reverse"></i></a>

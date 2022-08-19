@@ -1,12 +1,9 @@
 package com.my.megabox.member.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -38,24 +34,35 @@ public class MemberController {
 	}
 	
 	@PostMapping("login")
-	public String login(String id, String pw) {
-		String msg = service.login(id, pw);
+	public String login(String id, String pw, Model model) {
+		String msg = service.login(id, pw); 
+		model.addAttribute("msg", msg);
 		if(msg == "로그인 성공")
-			return "member/MemberMain";
+			return "member/Membermain";
 		return "member/login";
 	}
 	
 	@RequestMapping("Membermain")
 	public String Membermain() {
-		session.setAttribute("id", "admin");
+		System.out.println(session.getAttribute("num"));
+		System.out.println(session.getAttribute("name"));
 		return "member/Membermain";
 	}
 	
 	@RequestMapping("BookingList")
-	public String TicketHistory(int unum, Model model) {
-		ArrayList<BookingDTO> ymList = service.YMList(unum);
+	public String TicketHistory(String num, Model model) {
+		
+		Integer unumSession = (Integer)session.getAttribute("num");
+//		int unumSession = Integer.parseInt(num);
+		ArrayList<BookingDTO> ymList = service.YMList(unumSession);
 		model.addAttribute("ymList", ymList);
 		return "member/BookingList";
+	}
+	
+	@RequestMapping("cancelBooking")
+	public String cancelBooking(String b_num) {
+		service.cancelBooking(b_num);
+		return "";
 	}
 	
 	@RequestMapping("MovieStory")
@@ -130,6 +137,7 @@ public class MemberController {
 		return "member/ChangePw";
 	}
 	
+	// 회원 탈퇴
 	@RequestMapping("goodbye_mega")
 	public String goodbye_mega(String id, String pw) {
 		service.deleteMember(id, pw);

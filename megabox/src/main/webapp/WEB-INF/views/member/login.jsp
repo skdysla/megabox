@@ -5,10 +5,11 @@
 <c:import url="../header.jsp" charEncoding="utf-8" />
 
 <form action="login" method="post">
+<font color="red">${msg }</font>
 <h1>로그인</h1>
 <label>아이디</label><input type="text" name="id"><br>
 <label>비밀번호</label><input type="password" name="pw"><br>
-<button type="submit" class="button gray-line small">로그인</button>
+<button type="submit">로그인</button>
 </form>
 
 <c:import url="../footer.jsp" charEncoding="utf-8" />

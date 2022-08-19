@@ -181,23 +181,27 @@ $(document).ready(function(){
 				</table>
 			</div>
 			<!-- 예매 조회 조건 End -->
-			
+			<%int count = 1; %>
+			<c:forEach var="uYM" items="${ymList }">
 			
 			<!-- 예매 영화 목록     if 예매 내역이 존재하지 않으면 이 div를 띄워준다.-->
-			<div id="bokdList"><div class="no-history-reservation mt20">	예매 내역이 없습니다. </div></div>
+			<c:choose>
+			<c:when test="${empty uYM.b_num}">
+				<div id="bokdList"><div class="no-history-reservation mt20">	예매 내역이 없습니다. </div></div>
+			</c:when>
 			
-			<!-- 예매 영화 목록     if 예매 내역이 존재ㅐ하면 이 div-->
+			<c:otherwise>
 			<div id="bokdList">
 				<div class="board-list-util">	
-					<p class="result-count pt00"><strong>총<b class="font-gblue">1</b>건</strong>	</p>
+					<p class="result-count pt00"><strong>총<b class="font-gblue"><%=count %></b>건</strong>	</p>
 				</div>
 				<div class="history-reservation">	
 					<ul>
 						<li sell-tran-no="13112208180094461660">	
 							<div class="round">		
-								<a href="/movie-detail?rpstMovieNo=22013700" class="img" title="놉 ">
-									<img src="https://img.megabox.co.kr/SharedImg/2022/08/02/hQsvDEd41AY0pmON6fAhJ55ouwS5K3wb_316.jpg" alt="놉" onerror="noImg(this)">
-								</a>		
+								<a href="#" class="img" title="${uYM.m_name }">
+									<img src="${uYM.m_poster }" alt="${uYM.m_name }" onerror="noImg(this)" width="135" height="194">
+								</a>
 								<table class="table">			
 									<colgroup>				
 										<col style="width:75px;">				
@@ -209,29 +213,29 @@ $(document).ready(function(){
 										<tr>	
 											<th scope="row" class="a-r">예매번호</th>	
 											<td colspan="3">		
-											<em class="num">9423-785-40980</em>	
+											<em class="num">${uYM.b_num }</em>	
 											</td>
 										</tr>
 										<tr>	
 											<th scope="row" class="a-r">영화명</th>	
 											<td colspan="3">		
 												<p class="tit-movie">			
-													<span>[영화제목]</span>			
+													<span>${uYM.m_name }</span>			
 													<!-- <span>2D(자막)</span>	 -->	
 												</p>	
 											</td>
 										</tr>
 										<tr>	
 											<th scope="row" class="a-r">극장/상영관</th>	
-											<td>상봉/6층 컴포트 2관</td>	
+											<td>${uYM.c_name} ${uYM.s_name}</td>	
 											<th scope="row">관람인원</th>	
-											<td>성인 1명</td>
+											<td>성인 ${uYM.b_s_cnt }명</td>
 										</tr>
 										<tr>
 											<th scope="row" class="a-r">관람일시</th>	
-											<td>2022.08.20 (토) 10:40 (1회차)</td>	
+											<td>${uYM.r_date } ${uYM.b_start } </td>	
 											<th scope="row">관람좌석</th>	
-											<td>J열 6</td>
+											<td>${uYM.b_seat }</td>
 										</tr>
 									</tbody>		
 								</table>		
@@ -246,7 +250,7 @@ $(document).ready(function(){
 										<tbody>
 											<tr>	
 												<th scope="row" class="a-r">결제일시</th>	
-												<td>2022.08.18		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
+												<td>${uYM.b_date }		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
 												<!-- <th scope="row">적립예정 포인트</th>	
 												<td>600 P</td> -->
 											</tr>
@@ -255,14 +259,18 @@ $(document).ready(function(){
 								</div>		
 								<div class="btn-group">
 								<a href="" title="" class="button purple" name="btnTicketChbnd">교환권출력</a>			
-								<a href="" class="button gray" name="btnCancelBokd" title="예매취소">예매취소</a>		
+								<a href="cancelBooking" class="button gray" name="btnCancelBokd" title="예매취소">예매취소</a>		
 								</div>	
 							</div>
 						</li>
 					</ul>
 				</div>
 			</div>
-
+			<%count++; %>
+			</c:otherwise>
+			</c:choose>
+			</c:forEach>
+			
 			<h3 class="tit mt70">예매취소내역</h3>
 
 			<ul class="dot-list">

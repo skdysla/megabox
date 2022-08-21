@@ -64,12 +64,15 @@ public class MemberController {
 		}
 	}
 	
-
-	
 	@GetMapping("cancelBooking")
 	public @ResponseBody void cancelBooking(int b_num) {
 		System.out.println("jsp에서 넘어오는 b_num : "+b_num);
 		service.cancelBooking(b_num);
+	}
+	
+	@RequestMapping("optionBuylist")
+	public void optionBuylist(String radPurc, String startDate, String endDate) {
+		service.searchOptionList(radPurc, startDate, endDate);
 	}
 	
 	@RequestMapping("MovieStory")

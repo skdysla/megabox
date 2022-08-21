@@ -31,12 +31,6 @@ var req;
 function cancelCheck(){
 	var result = confirm('예매를 취소하시겠습니까?');
 	if(result){
-/* 		req = new XMLHttpRequest();
-		req.onreadystatechange = textChange;
-		req.open('get', 'cancelBooking');
-		var b_num = document.getElementById('b_num').value;
-		console.log(b_num);
-		req.send(b_num); */
 		var b_num = document.getElementById('b_num').value;
 		$.ajax({
             type: "GET",
@@ -56,6 +50,7 @@ function textChange(){
 		req.responseText;
 	}
 }
+
 </script>
 <div class="container has-lnb">
             <div class="page-util">
@@ -405,38 +400,40 @@ function textChange(){
 						<col style="width:75px;">
 						<col>
 					</colgroup>
-					<tbody>
-						<tr>
-							<th scope="row">구분</th>
-							<td>
-								<input type="radio" name="radPurc" id="radPurc01" value="" checked="checked">
-								<label for="radPurc01">전체</label>
-								<input type="radio" name="radPurc" id="radPurc02" value="P">
-								<label for="radPurc02">구매내역</label>
-								<input type="radio" name="radPurc" id="radPurc03" value="C">
-								<label for="radPurc03">취소내역</label>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">조회기간</th>
-							<td>
-								<div class="btn-period">
-									<button type="button" class="btn" id="CalDate" value="D7">1주일</button>
-									<button type="button" class="btn on" id="CalDate" value="M1">1개월</button>
-									<button type="button" class="btn" id="CalDate" value="M3">3개월</button>
-									<button type="button" class="btn" id="CalDate" value="M6">6개월</button>
-								</div>
-								<div class="date">
-									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="startDate">
-									<span>~</span>
-									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="endDate">
-									<button type="button" class="button gray-line" name="search">
-										<i class="iconset ico-search-gray"></i> 조회
-									</button>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<form action="optionBuylist" method="post">
+						<tbody>
+							<tr>
+								<th scope="row">구분</th>
+								<td>
+									<input type="radio" name="radPurc" id="radPurc01" value="A" checked="checked">
+									<label for="radPurc01">전체</label>
+									<input type="radio" name="radPurc" id="radPurc02" value="P">
+									<label for="radPurc02">구매내역</label>
+									<input type="radio" name="radPurc" id="radPurc03" value="C">
+									<label for="radPurc03">취소내역</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">조회기간</th>
+								<td>
+									<div class="btn-period">
+										<button type="button" class="btn" id="CalDate" value="D7">1주일</button>
+										<button type="button" class="btn on" id="CalDate" value="M1">1개월</button>
+										<button type="button" class="btn" id="CalDate" value="M3">3개월</button>
+										<button type="button" class="btn" id="CalDate" value="M6">6개월</button>
+									</div>
+									<div class="date">
+										<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="startDate" name="startDate">
+										<span>~</span>
+										<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="endDate" name="endDate">
+										<button type="submit" class="button gray-line" name="search">
+											<i class="iconset ico-search-gray"></i> 조회
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</form>
 				</table>
 			</div>
 			<!-- 구매 조회 조건 End -->

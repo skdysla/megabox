@@ -428,7 +428,7 @@ function textChange(){
 								</div>
 								<div class="date">
 									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="startDate">
-								<span>~</span>
+									<span>~</span>
 									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="endDate">
 									<button type="button" class="button gray-line" name="search">
 										<i class="iconset ico-search-gray"></i> 조회

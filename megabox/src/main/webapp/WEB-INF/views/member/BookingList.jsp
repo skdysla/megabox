@@ -27,6 +27,35 @@ $(document).ready(function(){
         }
     });
 });
+var req;
+function cancelCheck(){
+	var result = confirm('예매를 취소하시겠습니까?');
+	if(result){
+/* 		req = new XMLHttpRequest();
+		req.onreadystatechange = textChange;
+		req.open('get', 'cancelBooking');
+		var b_num = document.getElementById('b_num').value;
+		console.log(b_num);
+		req.send(b_num); */
+		var b_num = document.getElementById('b_num').value;
+		$.ajax({
+            type: "GET",
+            url: "cancelBooking",
+            data: {
+                "b_num" : b_num
+            }
+            });
+		location.replace(location.href);
+	}else{
+		
+	}
+}
+
+function textChange(){
+	if(req.readyState == 4 && req.status == 200){
+		req.responseText;
+	}
+}
 </script>
 <div class="container has-lnb">
             <div class="page-util">
@@ -181,23 +210,22 @@ $(document).ready(function(){
 				</table>
 			</div>
 			<!-- 예매 조회 조건 End -->
-			<%int count = 1; %>
-			<c:forEach var="uYM" items="${ymList }">
 			
 			<!-- 예매 영화 목록     if 예매 내역이 존재하지 않으면 이 div를 띄워준다.-->
+			<%int count = 1; %>
 			<c:choose>
-			<c:when test="${empty uYM.b_num}">
+			<c:when test="${ymList == null}">
 				<div id="bokdList"><div class="no-history-reservation mt20">	예매 내역이 없습니다. </div></div>
 			</c:when>
-			
 			<c:otherwise>
+			<c:forEach var="uYM" items="${ymList }">
 			<div id="bokdList">
 				<div class="board-list-util">	
 					<p class="result-count pt00"><strong>총<b class="font-gblue"><%=count %></b>건</strong>	</p>
 				</div>
 				<div class="history-reservation">	
 					<ul>
-						<li sell-tran-no="13112208180094461660">	
+						<li>	
 							<div class="round">		
 								<a href="#" class="img" title="${uYM.m_name }">
 									<img src="${uYM.m_poster }" alt="${uYM.m_name }" onerror="noImg(this)" width="135" height="194">
@@ -214,6 +242,7 @@ $(document).ready(function(){
 											<th scope="row" class="a-r">예매번호</th>	
 											<td colspan="3">		
 											<em class="num">${uYM.b_num }</em>	
+											<input type="hidden" id="b_num" value="${uYM.b_num }">
 											</td>
 										</tr>
 										<tr>	
@@ -258,8 +287,8 @@ $(document).ready(function(){
 									</table>		
 								</div>		
 								<div class="btn-group">
-								<a href="" title="" class="button purple" name="btnTicketChbnd">교환권출력</a>			
-								<a href="cancelBooking" class="button gray" name="btnCancelBokd" title="예매취소">예매취소</a>		
+								<a href="" title="" class="button purple">교환권출력</a>			
+								<a href="#" class="button gray" title="예매취소" onclick="cancelCheck()">예매취소</a>		
 								</div>	
 							</div>
 						</li>
@@ -267,9 +296,9 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<%count++; %>
+			</c:forEach>
 			</c:otherwise>
 			</c:choose>
-			</c:forEach>
 			
 			<h3 class="tit mt70">예매취소내역</h3>
 
@@ -299,20 +328,26 @@ $(document).ready(function(){
 					</thead>
 					
 					<!-- 취소내역 -->
-					<!-- if 내역 없으면  -->
-					<tbody><tr><td colspan="5" class="a-c">취소내역이 없습니다.</td></tr></tbody>
-					<!-- if 내역 있으면 (for문) -->
-					<tbody>
-						<tr>	
-							<td>2022.08.18 (20:32)</td>	
-							<th scope="row">놉</th>	
-							<td>상봉</td>	
-							<td>2022.08.20 (토) 10:40</td>	
-							<td class="a-r">		
-							<span class="font-red">12,000원</span>	
-							</td>
-						</tr>
-					</tbody>
+					<c:choose>
+						<c:when test="${cList == null }">
+							<tbody><tr><td colspan="5" class="a-c">취소내역이 없습니다.</td></tr></tbody>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${cList }">
+								<tbody>
+									<tr>	
+										<td>${list.cb_canceldate }</td>	
+										<th scope="row">${list.m_name }</th>	
+										<td>${list.c_name }</td>	
+										<td>${list.r_date } ${list.b_start }</td>	
+										<td class="a-r">		
+										<span class="font-red">${list.b_fee }원</span>	
+										</td>
+									</tr>
+								</tbody>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 					
 				</table>
 			</div>
@@ -374,14 +409,6 @@ $(document).ready(function(){
 						<tr>
 							<th scope="row">구분</th>
 							<td>
-								<div class="dropdown bootstrap-select mr10 small bs3">
-								<select class="selectpicker mr10 small" name="selPurc" tabindex="-98">
-									<option value="">전체</option>
-									<option value="SPD54">스토어</option>
-									<option value="SPD52">모바일오더</option>
-								</select>
-								</div>
-
 								<input type="radio" name="radPurc" id="radPurc01" value="" checked="checked">
 								<label for="radPurc01">전체</label>
 								<input type="radio" name="radPurc" id="radPurc02" value="P">
@@ -400,9 +427,9 @@ $(document).ready(function(){
 									<button type="button" class="btn" id="CalDate" value="M6">6개월</button>
 								</div>
 								<div class="date">
-									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="dp1659517546428">
+									<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="startDate">
 									<span>~</span>
-									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="dp1659517546429">
+									<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="endDate">
 									<button type="button" class="button gray-line" name="search">
 										<i class="iconset ico-search-gray"></i> 조회
 									</button>

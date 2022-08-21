@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.my.megabox.booking.dto.BookingDTO;
+import com.my.megabox.booking.dto.Cancel_BookingDTO;
 import com.my.megabox.member.dao.IMemberDAO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
@@ -75,6 +76,10 @@ public class MemberService implements IMemberService{
 	public ArrayList<BookingDTO> YMList(int num) {
 		return dao.YMList(num);
 	}
+	// 취소 내역
+	public ArrayList<Cancel_BookingDTO> cList(int num) {
+		return dao.cList(num);
+	}	
 
 	public String login(String id, String pw) {
 		if(id == null || id.isEmpty() || pw == null || pw.isEmpty())
@@ -91,15 +96,17 @@ public class MemberService implements IMemberService{
 		return "로그인 성공";
 	}
 
-	public String cancelBooking(String b_num) {
+	public void cancelBooking(int b_num) {
 		// 예매 데이터 가져오기
 		BookingDTO dto = dao.selectBooking(b_num);
+		
 		// 예매 취소 테이블에 데이터 넣어주기
-		dao.cancelBooking(b_num);
-		// 예매 테이블 데이터 삭제
-		dao.deleteBooking(dto);
-		return ""; 
-	}	
+		dao.cancelBooking(dto);
+		
+		// 예매 내역 삭제
+		dao.deleteBooking(b_num);		
+	}
+
 	
 	
 }

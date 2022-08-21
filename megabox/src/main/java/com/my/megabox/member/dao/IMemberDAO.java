@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import com.my.megabox.booking.dto.BookingDTO;
+import com.my.megabox.booking.dto.Cancel_BookingDTO;
 import com.my.megabox.member.dto.MemberDTO;
 
 @Repository
@@ -17,6 +18,13 @@ public interface IMemberDAO {
 	void deleteMember(String id); //회원 id로 회원삭제
 
 	ArrayList<BookingDTO> YMList(int unum); // 예매 내역
+	
+	ArrayList<Cancel_BookingDTO> cList(int num); // 취소 내역
 
+	BookingDTO selectBooking(int b_num); // 예매 데이터 가져오기
+
+	void cancelBooking(BookingDTO dto); // 예매 취소 테이블에 데이터 넣기
+
+	void deleteBooking(int b_num); // 예매 테이블에서 예매 내역 삭제
 
 }

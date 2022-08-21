@@ -144,5 +144,9 @@ $(document).ready(function(){
 	<label>휴대폰 번호</label><input type="text" name="toNumber" id="toNumber" maxlength="11" placeholder="'-' 없이 입력"><button id="Authrequest" disabled>인증요청</button><br>
 	<label>인증번호</label><input type="text" name="checkNumber" id="checkNumber"><button id="checkAuth">인증하기</button>
 	
+	
+	<br><br><br><br><br>
+	
+	<input type="hidden" value="123">
 </body>
 </html>

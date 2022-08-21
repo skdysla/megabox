@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.megabox.booking.dto.BookingDTO;
+import com.my.megabox.booking.dto.Cancel_BookingDTO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 import com.my.megabox.member.service.MemberService;
@@ -51,18 +52,24 @@ public class MemberController {
 	
 	@RequestMapping("BookingList")
 	public String TicketHistory(String num, Model model) {
-		
 		Integer unumSession = (Integer)session.getAttribute("num");
-//		int unumSession = Integer.parseInt(num);
+		if(unumSession == null) {
+			return "member/login";
+		}else {
 		ArrayList<BookingDTO> ymList = service.YMList(unumSession);
 		model.addAttribute("ymList", ymList);
+		ArrayList<Cancel_BookingDTO> cList = service.cList(unumSession);
+		model.addAttribute("cList", cList);
 		return "member/BookingList";
+		}
 	}
 	
-	@RequestMapping("cancelBooking")
-	public String cancelBooking(String b_num) {
+
+	
+	@GetMapping("cancelBooking")
+	public @ResponseBody void cancelBooking(int b_num) {
+		System.out.println("jsp에서 넘어오는 b_num : "+b_num);
 		service.cancelBooking(b_num);
-		return "";
 	}
 	
 	@RequestMapping("MovieStory")

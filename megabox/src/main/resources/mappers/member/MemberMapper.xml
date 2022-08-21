@@ -8,16 +8,41 @@
 	</select>
 	
 	<select id="YMList" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
-		select a.*, b.m_name, b.m_poster, c.s_name, d.c_name, e.r_date 
+		select a.*, b.m_name, b.m_poster, c.s_name, d.c_name, e.r_date, e.r_start 
 					from booking a, 
 					(select a.m_num, b.m_name, b.m_poster from booking a, movie b where a.m_num = b.m_num)b, 
 					(select a.s_num, b.s_name from booking a, screen b where a.s_num = b.s_num)c,
 					(select a.c_num, b.c_name from booking a, cinema b where a.c_num = b.c_num)d,
-					(select a.r_num, b.r_date from booking a, running b where a.r_num = b.r_num)e 
+					(select a.r_num, b.r_date, b.r_start from booking a, running b where a.r_num = b.r_num)e 
 					where a.u_num=#{num}
 	</select>
 	
-	<insert
+	<select id="cList" parameterType="int" resultType="com.my.megabox.booking.dto.Cancel_BookingDTO">
+		SELECT * FROM cancel_booking WHERE u_num=#{num}
+	</select>
+	
+ 	<select id="selectBooking" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
+		select a.b_fee, a.b_start, b.c_name, c.r_date, d.m_name, e.u_num from
+					booking a,
+					(select a.c_num, b.c_name from booking a, cinema b where a.c_num = b.c_num)b,
+					(select a.r_num, b.r_date from booking a, running b where a.r_num = b.r_num)c,
+					(select a.m_num, b.m_name from booking a, movie b where a.m_num = b.m_num)d,
+					(select u_num from booking)e
+					where a.b_num=#{b_num}
+	</select> 
+	
+	<insert id="cancelBooking" parameterType="com.my.megabox.booking.dto.BookingDTO">
+		INSERT INTO cancel_booking VALUES(cancel_booking_seq.nextval, to_char(sysdate, 'yyyy.mm.dd hh24:mi'), #{m_name}, #{c_name}, #{r_date}, #{b_fee}, #{u_num}, #{b_start})
+	</insert>
+	
+	<delete id="deleteBooking" parameterType="int">
+		DELETE FROM booking WHERE b_num=#{b_num}
+	</delete>
+	
+	<!-- 날짜별 내역 조회 / 시작 날짜, 끝 날짜 -->
+	<select id="">
+		select * from booking where b_date between to_date('#{}','yyyy.mm.dd') and to_date('#{}','yyyy.mm.dd');
+	</select>
 	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
 		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}

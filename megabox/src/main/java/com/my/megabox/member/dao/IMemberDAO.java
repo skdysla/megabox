@@ -2,6 +2,7 @@ package com.my.megabox.member.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.my.megabox.booking.dto.BookingDTO;
@@ -26,5 +27,9 @@ public interface IMemberDAO {
 	void cancelBooking(BookingDTO dto); // 예매 취소 테이블에 데이터 넣기
 
 	void deleteBooking(int b_num); // 예매 테이블에서 예매 내역 삭제
+
+	ArrayList<BookingDTO> GMOptionList(@Param("radio")String radPurc, @Param("start")String startDate, @Param("end")String endDate); // 구매 내역 날짜별 조회
+
+	ArrayList<Cancel_BookingDTO> CCOptionList(@Param("radio")String radPurc, @Param("start")String startDate, @Param("end")String endDate); // 예매 내역 날짜별 조회
 
 }

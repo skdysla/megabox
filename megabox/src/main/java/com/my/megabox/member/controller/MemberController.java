@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.megabox.booking.dto.BookingDTO;
 import com.my.megabox.booking.dto.Cancel_BookingDTO;
+import com.my.megabox.member.dao.IMemberDAO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 import com.my.megabox.member.service.MemberService;
@@ -25,6 +27,7 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller 
 public class MemberController {
+	@Autowired private IMemberDAO dao;
 	@Autowired private MemberService service;
 	@Autowired private MessageService mservice;
 	@Autowired private HttpSession session;
@@ -71,8 +74,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping("optionBuylist")
-	public void optionBuylist(String radPurc, String startDate, String endDate) {
-		service.searchOptionList(radPurc, startDate, endDate);
+	public void optionBuylist(String radPurc, String startDate, String endDate, Model model) {
+		System.out.println("radPurc : " + radPurc);
+		System.out.println("startDate : " + startDate);
+		System.out.println("endDate : " + endDate);
+		if(radPurc == "A") {
+			ArrayList<BookingDTO> GMList = dao.GMOptionList(radPurc, startDate, endDate);
+			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
+			model.addAttribute("GMList", GMList);
+			model.addAttribute("CCList", CCList);
+		}else if(radPurc == "P") {
+			ArrayList<BookingDTO> GMList = dao.GMOptionList(radPurc, startDate, endDate);
+			model.addAttribute("GMList", GMList);
+		}else {
+			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
+			model.addAttribute("CCList", CCList);
+		}
 	}
 	
 	@RequestMapping("MovieStory")
@@ -152,5 +169,13 @@ public class MemberController {
 	public String goodbye_mega(String id, String pw) {
 		service.deleteMember(id, pw);
 		return "member/goodbye_mega";
+	}
+	
+	//test
+	@PostMapping(value = "askhobby")
+	public @ResponseBody String askhobby(String hobby, Model model) {
+		System.out.println("잘넘어왔나 : " + hobby);
+		model.addAttribute("hobby", hobby);
+		return hobby;
 	}
 }

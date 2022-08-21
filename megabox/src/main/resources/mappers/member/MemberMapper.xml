@@ -32,16 +32,20 @@
 	</select> 
 	
 	<insert id="cancelBooking" parameterType="com.my.megabox.booking.dto.BookingDTO">
-		INSERT INTO cancel_booking VALUES(cancel_booking_seq.nextval, to_char(sysdate, 'yyyy.mm.dd hh24:mi'), #{m_name}, #{c_name}, #{r_date}, #{b_fee}, #{u_num}, #{b_start})
+		INSERT INTO cancel_booking VALUES(cancel_booking_seq.nextval, to_char(sysdate, 'yyyy.mm.dd hh24:mi'), #{m_name}, #{c_name}, #{r_date}, #{b_fee}, #{u_num}, #{b_start}, to_char(sysdate, 'yyyy.mm.dd'))
 	</insert>
 	
 	<delete id="deleteBooking" parameterType="int">
 		DELETE FROM booking WHERE b_num=#{b_num}
 	</delete>
 	
-	<!-- 날짜별 내역 조회 / 시작 날짜, 끝 날짜 -->
-	<select id="">
-		select * from booking where b_date between to_date('#{}','yyyy.mm.dd') and to_date('#{}','yyyy.mm.dd');
+	<!-- 날짜별 내역 조회 / 시작 날짜, 끝 날짜 -->	
+	<select id="GMOptionList" resultType="com.my.megabox.booking.dto.BookingDTO">
+		SELECT * FROM booking WHERE b_date BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY b_date
+	</select>
+	
+	<select id="CCOptionList" resultType="com.my.megabox.booking.dto.Cancel_BookingDTO">
+		SELECT * FROM cancel_booking WHERE cb_onlydate BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY cb_onlydate
 	</select>
 	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">

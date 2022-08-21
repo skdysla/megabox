@@ -106,7 +106,5 @@ public class MemberService implements IMemberService{
 		// 예매 내역 삭제
 		dao.deleteBooking(b_num);		
 	}
-
-	
-	
+		
 }

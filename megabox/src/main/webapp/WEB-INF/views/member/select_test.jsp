@@ -112,6 +112,21 @@ $(document).ready(function(){
         })
     });
 });
+
+function send(){
+	var hobby = document.getElementById('hobby').value;
+	$.ajax({
+		type: "post",
+        url: "askhobby",
+        data: {
+            "hobby" : hobby
+        },
+        success: function(data){
+        	console.log('통신결과');
+        	console.log(data);
+        }
+	});
+}
 </script>
 </head>
 <body>
@@ -148,5 +163,11 @@ $(document).ready(function(){
 	<br><br><br><br><br>
 	
 	<input type="hidden" value="123">
+	
+	<br><br><br>
+	
+		<label>취미 </label><input type="text" id="hobby"><br>
+		<a href="#" onclick="send()"><button type="button" id="hobbyBTN">보내기</button></a><br>
+	내 취미는 <label id="hobby"></label> 입니다.
 </body>
 </html>

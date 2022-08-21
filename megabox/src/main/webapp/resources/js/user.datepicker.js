@@ -59,11 +59,11 @@ $(function(){
 	        datepickerEvent();
 	    }
 	    
-	    $('#dp1659517546429').datepicker('setDate', 'today');
+	    $('#endDate').datepicker('setDate', 'today');
 	    
 	    if( $('#CalDate').val() == 'D7') {
-	    	$('#dp1659517546428').datepicker('setDate', '-1M');
-	    	$('#dp1659517546429').datepicker('setDate', 'today');
+	    	$('#startDate').datepicker('setDate', '-1M');
+	    	$('#endDate').datepicker('setDate', 'today');
 	    }
 	    
 	    $(document).ready(function(){
@@ -71,34 +71,23 @@ $(function(){
 	    		var date = $(this).val();
 
 		    	if( date == 'D7') {
-		    		$('#dp1659517546428').datepicker('setDate', '-7D');
-		    		$('#dp1659517546429').datepicker('setDate', 'today');
+		    		$('#startDate').datepicker('setDate', '-7D');
+		    		$('#endDate').datepicker('setDate', 'today');
 		    	} 
 				else if ( date == 'M1' ) {
-		    		$('#dp1659517546428').datepicker('setDate', '-1M');
-		    		$('#dp1659517546429').datepicker('setDate', 'today');
+		    		$('#startDate').datepicker('setDate', '-1M');
+		    		$('#endDate').datepicker('setDate', 'today');
 		    	} 
 				else if ( date == 'M3' ) {
-		    		$('#dp1659517546428').datepicker('setDate', '-3M');
-		    		$('#dp1659517546429').datepicker('setDate', 'today');
+		    		$('#startDate').datepicker('setDate', '-3M');
+		    		$('#endDate').datepicker('setDate', 'today');
 		    	} 
 		    	else if ( date == 'M6' ) {
-		    		$('#dp1659517546428').datepicker('setDate', '-6M');
-		    		$('#dp1659517546429').datepicker('setDate', 'today');
+		    		$('#startDate').datepicker('setDate', '-6M');
+		    		$('#endDate').datepicker('setDate', 'today');
 		    	}
 	    	});
 	    });
 	    
-	    
-/*	    
-		$("input:radio[name=radBokd]").click(function(){			
-			if ($("input:radio[name=radBokd]:checked").val() == 'E') {
-				$("select[name=selYM]").attr("disabled", false);
-				$("select[name=selYM]").removeClass("readonly");
-			} else if ($("input:radio[name=radBokd]:checked").val() == 'B') {
-			    $("select[name=selYM]").attr("disabled", true);
-			    $("select[name=selYM]").addClass("readonly");
-			}
-		});
-		*/
+	
 });

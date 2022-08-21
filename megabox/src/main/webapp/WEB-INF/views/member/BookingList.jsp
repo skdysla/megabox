@@ -12,7 +12,6 @@
 		$(this).addClass('on').siblings().removeClass('on');
 	})
 </script> -->
-
 <script>
 $(document).ready(function(){
 	 
@@ -45,12 +44,25 @@ function cancelCheck(){
 	}
 }
 
-function textChange(){
-	if(req.readyState == 4 && req.status == 200){
-		req.responseText;
-	}
+</script>
+<script>
+function optionSearch(){
+	var radPurc = $('input[name=radPurc]:checked').val();
+	var startDate= document.getElementById('startDate').value;
+	var endDate = document.getElementById('endDate').value;
+	$.ajax({
+		type: "post",
+		url: "optionBuylist",
+		data: {
+			"radPurc" : radPurc,
+			"startDate" : startDate,
+			"endDate" : endDate
+		},
+		success: function(data){
+			console.log(data);
+		}
+	});
 }
-
 </script>
 <div class="container has-lnb">
             <div class="page-util">
@@ -400,16 +412,15 @@ function textChange(){
 						<col style="width:75px;">
 						<col>
 					</colgroup>
-					<form action="optionBuylist" method="post">
 						<tbody>
 							<tr>
 								<th scope="row">구분</th>
 								<td>
-									<input type="radio" name="radPurc" id="radPurc01" value="A" checked="checked">
+									<input type="radio" name="radPurc" id="radPurc" value="A" checked>
 									<label for="radPurc01">전체</label>
-									<input type="radio" name="radPurc" id="radPurc02" value="P">
+									<input type="radio" name="radPurc" id="radPurc" value="P">
 									<label for="radPurc02">구매내역</label>
-									<input type="radio" name="radPurc" id="radPurc03" value="C">
+									<input type="radio" name="radPurc" id="radPurc" value="C">
 									<label for="radPurc03">취소내역</label>
 								</td>
 							</tr>
@@ -426,14 +437,34 @@ function textChange(){
 										<input type="text" title="조회기간 시작 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="startDate" name="startDate">
 										<span>~</span>
 										<input type="text" title="조회기간 마지막 날짜 입력" placeholder="yyyy.mm.dd" class="date-calendar v2" id="endDate" name="endDate">
-										<button type="submit" class="button gray-line" name="search">
+										<button type="button" class="button gray-line" name="search" onclick="optionSearch()">
 											<i class="iconset ico-search-gray"></i> 조회
 										</button>
 									</div>
 								</td>
 							</tr>
 						</tbody>
-					</form>
+						<!-- 결과에 따라 리스트 뿌려ㅕ주기 취소내역 구매내역 등등 -->
+						<c:choose>
+						<c:when test="${cList == null }">
+							<tbody><tr><td colspan="5" class="a-c">취소내역이 없습니다.</td></tr></tbody>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${cList }">
+								<tbody>
+									<tr>	
+										<td>${list.cb_canceldate }</td>	
+										<th scope="row">${list.m_name }</th>	
+										<td>${list.c_name }</td>	
+										<td>${list.r_date } ${list.b_start }</td>	
+										<td class="a-r">		
+										<span class="font-red">${list.b_fee }원</span>	
+										</td>
+									</tr>
+								</tbody>
+							</c:forEach>
+						</c:otherwise>
+						</c:choose>
 				</table>
 			</div>
 			<!-- 구매 조회 조건 End -->

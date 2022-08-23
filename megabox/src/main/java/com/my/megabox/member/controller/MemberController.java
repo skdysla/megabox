@@ -88,6 +88,10 @@ public class MemberController {
 			model.addAttribute("GMList", GMList);
 		}else {
 			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
+//			System.out.println("옵션검색에서 취소내역 넘오오나 : " + CCList);
+//			for(int i = 0; i < CCList.size(); i++) {
+//				System.out.println(CCList.get(i));
+//			}
 			model.addAttribute("CCList", CCList);
 		}
 	}
@@ -118,13 +122,28 @@ public class MemberController {
 		return "member/MyInfo";
 	}
 	
-	@RequestMapping("UserInfo")
+	@GetMapping("UserInfo")
 	public String UserInfo(String id, Model model) {
+		System.out.println("아이디를 받아오나 : " + id);
 		MemberDTO user = service.userInfo(id);
 		model.addAttribute("user", user);
 		return "member/UserInfo";
 	}
-
+	
+	@PostMapping("UserInfo")
+	public String UserInfo(MemberDTO member, String chPhone) {
+		String chgTel = (String) session.getAttribute("chgTel");
+		System.out.println(chgTel);
+		if(chgTel != null) {
+			member.setU_tel(chPhone);
+			service.modifyUserInfo(member);
+		}else {
+			member.setU_tel(member.getU_tel());
+			service.modifyUserInfo(member);
+		}
+		return "";
+	}
+	
 	// Test page
 	@RequestMapping("select_test")
 	public String select_test(String toNumber, HttpServletRequest request, Model model) {
@@ -142,26 +161,25 @@ public class MemberController {
 		return randomNumber;
 	}
 	
-	// 문자인증 체크(맞는지 여부)
-//	@PostMapping(value = "checkAuth", produces = "text/html; charset=UTF-8")
-//	public String checkAuth(@RequestBody(required = false) String checkNumber, HttpServletRequest request) {
-//		String msg = service.authConfirm(checkNumber);
-//		if(msg == "인증성공") {
-//			request.setAttribute("msg", "인증 완료");
-//			return "member/alert";
-//		}
-//			return "";
-//	}
+	@GetMapping("ChangePw")
+	public String ChangePw() {
+		return "member/ChangePw";
+	}
 	
-	@RequestMapping("ChangePw")
-	public String ChangePw(MemberDTO member, HttpServletRequest request) {
-		String msg = service.changePw(member);
+	@PostMapping("ChangePw")
+	public String ChangePw(String id, String pw, String pwnew, String checkpwnew, HttpServletRequest request) {
+		String sessionid = (String)session.getAttribute("id");
+		System.out.println("id : " + sessionid + "pw : " + pw + "pwnew : " + pwnew + "checkpwnew : " + checkpwnew);
+		String msg = service.changePw(sessionid, pw, pwnew, checkpwnew);
 		if(msg == "적합한 비밀번호입니다.") {
 			request.setAttribute("msg", "비밀번호 변경 완료");
-			request.setAttribute("url", "UserInfo");
+			request.setAttribute("url", "login");
+			return "member/alert";
+		}else {
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "ChangePw");
 			return "member/alert";
 		}
-		return "member/ChangePw";
 	}
 	
 	// 회원 탈퇴

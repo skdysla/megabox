@@ -89,24 +89,14 @@ function optionSearch(){
 					</ul>
 				</li>
 				<li><a id="discountCoupon" href="/mypage/discount-coupon" title="메가박스/제휴쿠폰">메가박스/제휴쿠폰</a></li>
-				<!-- <li><a href="/on/oh/ohh/Mvtckt/GiftCardL.do">메가박스 기프트카드</a></li> -->
-<!-- 				<li>
-					<a href="/mypage/point-list" title="멤버십 포인트">멤버십 포인트</a>
-					<ul class="depth3">
-						<li><a href="/mypage/point-list" title="포인트 이용내역">포인트 이용내역</a></li>
-						<li><a href="/mypage/card-list" title="멤버십 카드관리">멤버십 카드관리</a></li>
-						<li><a href="/mypage/milk-service" title="MiL.k 제휴서비스">MiL.k 포인트</a></li>
-					</ul>
-				</li> -->
 				<li><a href="MovieStory" titel="나의 무비스토리">나의 무비스토리</a></li>
 				<li><a href="/mypage/myevent" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
 				<li><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li>
 				<li>
-					<a href="/mypage/myinfo?returnURL=info" title="회원정보">회원정보</a>
+					<a href="MyInfo" title="회원정보">회원정보</a>
 					<ul class="depth3">
 						<li><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
-						<li><a href="/mypage/additionalinfo" title="선택정보 수정">선택정보 수정</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -445,34 +435,16 @@ function optionSearch(){
 							</tr>
 						</tbody>
 						<!-- 결과에 따라 리스트 뿌려ㅕ주기 취소내역 구매내역 등등 -->
-						<c:choose>
-						<c:when test="${cList == null }">
-							<tbody><tr><td colspan="5" class="a-c">취소내역이 없습니다.</td></tr></tbody>
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="list" items="${cList }">
-								<tbody>
-									<tr>	
-										<td>${list.cb_canceldate }</td>	
-										<th scope="row">${list.m_name }</th>	
-										<td>${list.c_name }</td>	
-										<td>${list.r_date } ${list.b_start }</td>	
-										<td class="a-r">		
-										<span class="font-red">${list.b_fee }원</span>	
-										</td>
-									</tr>
-								</tbody>
-							</c:forEach>
-						</c:otherwise>
-						</c:choose>
+						
 				</table>
 			</div>
 			<!-- 구매 조회 조건 End -->
 
 			<!-- 구매 목록  -->
+			<%int gmcount = 0; %>
 			<div class="board-list-util mb10">
 				<p class="result-count pt00">
-					<strong>전체 <b class="font-gblue">0</b>건</strong>
+					<strong>전체 <b class="font-gblue"><%=gmcount %></b>건</strong>
 				</p>
 			</div>
 
@@ -488,14 +460,93 @@ function optionSearch(){
 					</colgroup>
 					<thead>
 						<tr>
-							<th scope="col">결제일시</th>
+							<th scope="col">결제 및 취소일</th>
 							<th scope="col">구분</th>
 							<th scope="col">상품명</th>
 							<th scope="col">결제금액</th>
 							<th scope="col">상태</th>
+							
 						</tr>
 					</thead>
-					<tbody></tbody>
+					
+<!-- 					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+					</tbody> -->
+					
+ 					<c:choose>
+						<c:when test="${GMList == null && CCList == null}">
+							<tbody><tr><td colspan="5" class="a-c">조회된 내역이 없습니다.</td></tr></tbody>
+						</c:when>
+						<c:when test="${GMList == null && CCList != null }">
+							<c:forEach var="CCList" items="${CCList }">
+								<tbody>
+									<tr>	
+										<td>${CCList.cb_canceldate }</td>	
+										<th scope="row"><span>취소</span></th>	
+										<td>${CCList.c_name }</td>	
+										<td class="a-r">		
+										<span class="font-red">${CCList.b_fee }원</span>	
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
+								<%gmcount++; %>
+							</c:forEach>
+						</c:when>
+						<c:when test="${GMList != null && CCList == null }">
+							<c:forEach var="GMlist" items="${GMList }">
+								<tbody>
+									<tr>	
+										<td>${GMList.b_date }</td>	
+										<th scope="row"><span>구매</span></th>	
+										<td>${GMList.c_name }</td>	
+										<td class="a-r">		
+										<span class="font-red">${GMList.b_fee }원</span>	
+										</td>
+										<td></td>	
+									</tr>
+								</tbody>
+								<%gmcount++; %>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="GMlist" items="${GMList }">
+								<tbody>
+									<tr>	
+										<td>${GMList.b_date }</td>	
+										<th scope="row"><span>구매</span></th>	
+										<td>${GMList.c_name }</td>	
+										<td class="a-r">		
+										<span class="font-red">${GMList.b_fee }원</span>	
+										</td>
+										<td></td>	
+									</tr>
+								</tbody>
+								<%gmcount++; %>
+							</c:forEach>
+							<c:forEach var="CCList" items="${CCList }">
+								<tbody>
+									<tr>	
+										<td>${CCList.cb_canceldate }</td>	
+										<th scope="row"><span>취소</span></th>	
+										<td>${CCList.c_name }</td>	
+										<td class="a-r">		
+										<span class="font-red">${CCList.b_fee }원</span>	
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
+								<%gmcount++; %>
+							</c:forEach>
+						</c:otherwise>
+						</c:choose> 
+						
+						
 				</table>
 			</div>
 

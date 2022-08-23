@@ -4,7 +4,7 @@
 <mapper namespace="com.my.megabox.member.dao.IMemberDAO">
 	
 	<select id="selectId" parameterType="String" resultType="com.my.megabox.member.dto.MemberDTO" >
-		SELECT * FROM user_info WHERE u_id=#{id}
+		SELECT * FROM user_info WHERE u_id=#{id, jdbcType=VARCHAR}
 	</select>
 	
 	<select id="YMList" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
@@ -50,6 +50,10 @@
 	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
 		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}
+	</update>
+	
+	<update id="modifyUserInfo" parameterType="com.my.megabox.member.dto.MemberDTO">
+		UPDATE user_info SET u_email=#{u_email}, u_tel=#{u_tel}, u_m_agree=#{u_m_agree, jdbcType=VARCHAR} WHERE id=#{id}
 	</update>
 	
 	<delete id="deleteMember" parameterType="String">

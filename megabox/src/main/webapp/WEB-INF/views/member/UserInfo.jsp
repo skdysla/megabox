@@ -2,7 +2,78 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+<c:if test="${empty sessionScope.id }">
+	<script>
+		location.href='login'
+	</script>
+</c:if>
 <c:import url="../header.jsp" charEncoding="utf-8" />
+<script language="JavaScript">
+    var SetTime = 180;      // 최초 설정 시간(기본 : 초)
+    function messageTimer() {   // 1초씩 카운트      
+        m = Math.floor(SetTime / 60) + ": " + (SetTime % 60); // 남은 시간 계산         
+        document.all.ViewTimer.innerHTML = m;     // div 영역에 보여줌                  
+        SetTime--;                  // 1초씩 감소
+        if (SetTime == 0) {          // 시간이 종료 되었으면..        
+            alert("시간초과되었습니다. 다시 인증해주세요.");
+            window.location.reload();
+
+        }       
+    }
+    function TimerStart(){ tid=setInterval('messageTimer()',1000) };
+</script>
+<script>
+$(document).ready(function(){
+    $('#sendNumberBtn').click(function(){
+        let phoneNumber = $('#chPhone').val();
+        console.log(phoneNumber);
+        alert('인증번호 발송 완료!')
+		$('.position').removeAttr('style');
+
+        $.ajax({
+            type: "GET",
+            url: "messageRequest",
+            data: {
+                "phoneNumber" : phoneNumber
+            },
+            success: function(res){
+                $('#chgBtn').click(function(){
+                    if($.trim(res) ==$('#chkNum').val()){
+                    	alert(
+                            '인증성공!',
+                            '휴대폰 인증이 정상적으로 완료되었습니다.',
+                            'success'
+                        )
+                        clearInterval(tid);
+                    	<% session.setAttribute("chgTel","success");%>
+                    }else{
+                    	alert({
+                            icon: 'error',
+                            title: '인증오류',
+                            text: '인증번호가 올바르지 않습니다!',
+                        })
+                    }
+                })
+
+
+            }
+        })
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("input:radio[name=u_agree]").attr('disabled', 'disabled');
+    // 라디오버튼 클릭시 이벤트 발생
+    $("input:radio[name=personInfoUtilAgreeAt]").click(function(){
+        if($("input[name=personInfoUtilAgreeAt]:checked").val() == "Y"){
+            $("input:radio[name=u_agree]").removeAttr("disabled");
+        }else if($("input[name=personInfoUtilAgreeAt]:checked").val() == "N"){
+            $("input:radio[name=u_agree]").attr('disabled', 'disabled');
+        }
+    });
+});
+</script>
 <!DOCTYPE html> 
 <div class="container has-lnb">
             <div class="page-util fixed">
@@ -34,9 +105,9 @@
 				<li class="on"><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li>
 				<li>
-					<a href="MyInfo" title="회원정보">회원정보</a>
+					<a href="MyInfo?id=${sessionScope.id}" title="회원정보">회원정보</a>
 					<ul class="depth3">
-						<li><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
+						<li><a href="MyInfo?id=${sessionScope.id}" title="개인정보 수정">개인정보 수정</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -99,7 +170,7 @@
                       </tr>
                       <tr>
                           <th scope="row">아이디</th>
-                          <td>${user.id }</td>
+                          <td>${user.u_id }</td>
                       </tr>
                   </tbody>
               </table>
@@ -114,14 +185,6 @@
           </div>
 
           <form name="UserInfo" method="post">
-              <input type="hidden" name="mbNo" value="10857053">
-              
-<%--               <input type="hidden" name="phoneNo" value="${user.u_tel }">
-              <input type="hidden" name="zipcd" value="">
-              <input type="hidden" name="mbAddr" value="">
-              <input type="hidden" name="mbProfilFileNo" value="">
-              <input type="hidden" id="mbByymmdd" value="${user.u_birth }">
- --%>
               <div class="table-wrap mb40">
                   <table class="board-form">
                       <caption>이름, 생년월일, 휴대폰, 이메일, 비밀번호, 주소 항목을 가진 기본정보 표</caption>
@@ -136,7 +199,7 @@
                               </th>
                               <td>
                                   <span class="mbNmClass">${user.u_name }</span>
-                                  <a href="#layer_name" class="button small gray-line ml10 mr10 btn-modal-open" w-data="600" h-data="350" title="이름변경">이름변경</a>
+                                  <!-- <a href="#layer_name" class="button small gray-line ml10 mr10 btn-modal-open" w-data="600" h-data="350" title="이름변경">이름변경</a>
                                   ※ 개명으로 이름이 변경된 경우, 회원정보의 이름을 변경하실 수 있습니다.
 
                                   <section id="layer_name" class="modal-layer"><a href="" class="focus">레이어로 포커스 이동 됨</a>
@@ -164,19 +227,29 @@
 
                                           <button type="button" class="btn-modal-close">레이어 닫기</button>
                                       </div>
-                                  </section>
+                                  </section> -->
                               </td>
                           </tr>
                           <tr>
                               <th scope="row">
                                   생년월일 <em class="font-orange">*</em>
                               </th>
-                              <td>
+                              <td id="birth">
                                   <!-- ****년
                                   **월
                                   **일 -->
                                   ${user.u_birth }
                               </td>
+                              
+                              <script>
+								// 생년월일
+								var str = document.getElementById("birth");
+								let birth = '${user.u_birth}';
+								let [y, m, d] = birth.split('.');
+								fullBirth = y + "년 " + m + "월 " + d + "일";
+								str.innerHTML = fullBirth;
+							  </script>
+                              
                           </tr>
                           <tr>
                               <th scope="row">
@@ -184,9 +257,21 @@
                               </th>
                               <td>
                                   <div class="clearfix">
-                                      <p class="reset float-l w170px lh32 changeVal" data-name="phoneNo">
-                                          ${user.u_tel }
+                                      <p class="reset float-l w170px lh32 changeVal" id="tels">
+                                          	${user.u_tel}
                                       </p>
+                                      <input type="hidden" name="u_tel" value="${user.u_tel }">
+                                      <script>
+											//전화번호
+											var str = document.getElementById("tels")
+											let tel = '${user.u_tel}'; //01012345678
+											let a = tel.substr(0,3);
+											let b = tel.substr(3,4);
+											let c = tel.substr(7);
+											fullTel = a + "-" + b + "-" + c;
+											str.innerHTML = fullTel;
+										</script>
+                                      
                                       <div class="float-l">
                                           <button type="button" class="button small gray-line change-phone-num" id="phoneChgBtn" title="휴대폰번호 변경">휴대폰번호 변경</button>
                                       </div>
@@ -195,8 +280,8 @@
                                   <div class="change-phone-num-area">
                                       <div class="position">
                                           <label for="chPhone" class="label">변경할 휴대폰</label>
-                                          <input type="text" id="chPhone" class="input-text w160px numType" placeholder="'-'없이 입력해 주세요" title="변경할 휴대폰 번호 입력" maxlength="11">
-                                          <button type="button" class="button small gray-line" id="sendNumberBtn">인증번호 전송</button>
+                                          <input type="text" id="chPhone" name="chPhone" class="input-text w160px numType" placeholder="'-'없이 입력해 주세요" title="변경할 휴대폰 번호 입력" maxlength="11">
+                                          <button type="button" class="button small gray-line" id="sendNumberBtn" onclick="TimerStart()">인증번호 전송</button>
                                       </div>
 
                                       <div class="position" style="display: none;">
@@ -204,9 +289,9 @@
 
                                           <div class="chk-num small">
                                               <div class="line">
-                                                  <input type="text" id="chkNum" class="input-text w180px" title="인증번호 입력" placeholder="인증번호를 입력해 주세요" maxlength="4">
+                                                  <input type="text" id="chkNum" name="chkNum" class="input-text w180px" title="인증번호 입력" placeholder="인증번호를 입력해 주세요" maxlength="6">
 
-                                                  <div class="time-limit" id="timeLimit">3:00</div>
+                                                  <div class="time-limit" id="ViewTimer"></div>
                                               </div>
                                           </div>
                                           <button type="button" class="button small gray-line" id="chgBtn">변경완료</button>
@@ -219,25 +304,25 @@
                                   <label for="email">이메일</label> <em class="font-orange">*</em>
                               </th>
                               <td>
-                                  <input type="text" id="email" name="Email" class="input-text w500px" value="[이메일]">
+                                  <input type="text" id="email" name="u_email" class="input-text w500px" value="${user.u_email }">
                               </td>
                           </tr>
                           <tr>
                               <th scope="row">비밀번호 <em class="font-orange">*</em></th>
                               <td>
-                                  <a href="ChangePw" class="button small gray-line" title="비밀번호 변경">비밀번호 변경</a>
+                                  <a href="ChangePw?id=${user.u_id}" class="button small gray-line" title="비밀번호 변경">비밀번호 변경</a>
 
                                   <!-- 마지막 비밀번호 변경: 372일전에 함 (2021-07-27 18:41:38) -->
                               </td>
                           </tr>
-                          <tr>
+<!--                           <tr>
                               <th scope="row">주소</th>
                               <td>
                                   <span></span>
                                   <a href="#none" id="addrBtn" class="button small gray-line ml10" title="우편번호 검색">우편번호 검색</a>
                                   <p class="reset mt10"></p>
                               </td>
-                          </tr>
+                          </tr> -->
                       </tbody>
                   </table>
               </div>
@@ -247,7 +332,7 @@
 
           <div class="table-wrap mb40">
               <table class="board-list">
-                  <caption>구분, 연동정보, 연결 항목응ㄹ 가진 간편 로그인 계정연동 표</caption>
+                  <caption>구분, 연동정보, 연결 항목을 가진 간편 로그인 계정연동 표</caption>
                   <colgroup>
                       <col style="width:130px;">
                       <col>
@@ -309,8 +394,8 @@
 		<div class="box-top">
 			<strong>마케팅 활용을 위한 개인정보 수집 이용 안내</strong>
 			<div class="righten">
-				<input type="radio" name="personInfoUtilAgreeAt" id="chk1" value="N" checked=""><label for="chk1">미동의</label>
-				<input type="radio" name="personInfoUtilAgreeAt" id="chk2" value="Y"><label for="chk2">동의</label>
+				<input type="radio" name="personInfoUtilAgreeAt" id="personInfoUtilAgreeAt" value="N" checked><label for="personInfoUtilAgreeAt">미동의</label>
+				<input type="radio" name="personInfoUtilAgreeAt" id="personInfoUtilAgreeAt" value="Y"><label for="personInfoUtilAgreeAt">동의</label>
 			</div>
 		</div>
 		<div class="box-bot">
@@ -344,42 +429,26 @@
 				<i class="iconset ico-exclamation-gblue"></i> 수신동의 여부를 선택해 주세요.
 			</div>
 
-			<div class="chk-box">
+<!-- 			<div class="chk-box">
 				<strong class="label w80px">이메일</strong>
-				<input type="radio" name="marketEmailRcvAgreeAt" id="chk3" value="Y" disabled="disabled">
+				<input type="radio" name="marketEmailRcvAgreeAt" id="chk3" value="Y">
 				<label for="chk3" class="w80px">수신동의</label>
 
-				<input type="radio" name="marketEmailRcvAgreeAt" id="chk4" value="N" checked="" disabled="disabled">
+				<input type="radio" name="marketEmailRcvAgreeAt" id="chk4" value="N" checked>
 				<label for="chk4" class="w80px">수신거부</label>
 
 				
-			</div>
+			</div> -->
 
 			<div class="chk-box mt05">
 				<strong class="label w80px">SMS</strong>
-				<input type="radio" name="marketSmsRcvAgreeAt" id="chk5" value="Y" disabled="disabled">
-				<label for="chk5" class="w80px">수신동의</label>
+				<input type="radio" name="u_agree" id="u_agree" value="agree">
+				<label for="u_agree" class="w80px">수신동의</label>
 
-				<input type="radio" name="marketSmsRcvAgreeAt" id="chk6" value="N" checked="" disabled="disabled">
-				<label for="chk6" class="w80px">수신거부</label>
-
-				
+				<input type="radio" name="u_agree" id="u_agree" value="disagree" checked>
+				<label for="u_agree" class="w80px">수신거부</label>
 			</div>
 
-			<!--
-			<div class="chk-box mt05">
-				<strong class="label w80px">PUSH</strong>
-				<input type="radio" name="marketPushRcvAgreeAt" id="chk7" value="Y" 
-				disabled>
-				<label for="chk7" class="w80px">수신동의</label>
-
-				<input type="radio" name="marketPushRcvAgreeAt" id="chk8" value="N" checked
-				disabled>
-				<label for="chk8" class="w80px">수신거부</label>
-
-				
-			</div>
-			-->
 		</div>
 	</div>
 

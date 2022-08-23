@@ -165,9 +165,48 @@ function send(){
 	<input type="hidden" value="123">
 	
 	<br><br><br>
-	
-		<label>취미 </label><input type="text" id="hobby"><br>
-		<a href="#" onclick="send()"><button type="button" id="hobbyBTN">보내기</button></a><br>
-	내 취미는 <label id="hobby"></label> 입니다.
+<script language="JavaScript">
+    var SetTime = 60;      // 최초 설정 시간(기본 : 초)
+    function messageTimer() {   // 1초씩 카운트      
+        m = Math.floor(SetTime / 60) + ": " + (SetTime % 60); // 남은 시간 계산         
+        var msg = "현재 남은 시간은 <font color='red'>" + m + "</font> 입니다.";  
+        document.all.ViewTimer.innerHTML = m;     // div 영역에 보여줌                  
+        SetTime--;                  // 1초씩 감소
+        if (SetTime == 0) {          // 시간이 종료 되었으면..        
+            alert("시간초과되었습니다. 다시 인증해주세요.");
+            window.location.reload();
+
+        }       
+    }
+    function TimerStart(){ tid=setInterval('messageTimer()',1000) };
+</script>
+
+<button type="button" onclick="TimerStart()">시작</button>
+<div id="ViewTimer"></div>
+<br><br>
+
+<script>
+$(document).ready(function(){
+	$("input:radio[name=secondradio]").attr('disabled', 'disabled');
+    // 라디오버튼 클릭시 이벤트 발생
+    $("input:radio[name=firstradio]").click(function(){
+ 
+        if($("input[name=firstradio]:checked").val() == "Y"){
+            $("input:radio[name=secondradio]").removeAttr("disabled");
+        }else if($("input[name=firstradio]:checked").val() == "N"){
+              $("input:radio[name=secondradio]").attr('disabled', 'disabled');
+        }
+    });
+});
+</script>
+
+<input type="radio" name="firstradio" value="Y"><label>동의</label><br>
+<input type="radio" name="firstradio" value="N"><label>미동의</label><br><br>
+<div id="secondradiobox">
+	<input type="radio" name="secondradio" id="secondradio" value="Y"><label>동의</label>
+	<input type="radio" name="secondradio" id="secondradio" value="N" checked><label>미동의</label>
+</div>
+
+<br><br>
 </body>
 </html>

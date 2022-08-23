@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${empty sessionScope.id }">
+	<script>
+		location.href='login'
+	</script>
+</c:if>
 <c:import url="../header.jsp" charEncoding="utf-8" />    
 <!DOCTYPE html>
 <div class="container has-lnb">
@@ -29,10 +34,9 @@
 				<li class="on"><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li>
 				<li>
-					<a href="/mypage/myinfo?returnURL=info" title="회원정보">회원정보</a>
+					<a href="MyInfo?id=${sessionScope.id}" title="회원정보">회원정보</a>
 					<ul class="depth3">
-						<li><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
-						<li><a href="/mypage/additionalinfo" title="선택정보 수정">선택정보 수정</a></li>
+						<li><a href="MyInfo?id=${sessionScope.id}" title="개인정보 수정">개인정보 수정</a></li>
 					</ul>
 				</li>
 			</ul>

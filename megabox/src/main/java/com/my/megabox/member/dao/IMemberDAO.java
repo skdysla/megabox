@@ -14,7 +14,7 @@ public interface IMemberDAO {
  
 	MemberDTO selectId(String id); // 회원 id로 정보 조회
 
-	void chagePw(String id, String pwnew); // 비밀번호 변경
+	void chagePw(@Param("id")String id, @Param("pwnew")String pwnew); // 비밀번호 변경
 
 	void deleteMember(String id); //회원 id로 회원삭제
 
@@ -31,5 +31,7 @@ public interface IMemberDAO {
 	ArrayList<BookingDTO> GMOptionList(@Param("radio")String radPurc, @Param("start")String startDate, @Param("end")String endDate); // 구매 내역 날짜별 조회
 
 	ArrayList<Cancel_BookingDTO> CCOptionList(@Param("radio")String radPurc, @Param("start")String startDate, @Param("end")String endDate); // 예매 내역 날짜별 조회
+
+	void modifyUserInfo(MemberDTO member); // 회원 정보 수정
 
 }

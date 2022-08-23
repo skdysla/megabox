@@ -1,8 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${empty sessionScope.id }">
+	<script>
+		location.href='login'
+	</script>
+</c:if>
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html> 
+
+<script language="JavaScript">
+    var SetTime = 180;      // 최초 설정 시간(기본 : 초)
+    function messageTimer() {   // 1초씩 카운트      
+        m = Math.floor(SetTime / 60) + ": " + (SetTime % 60); // 남은 시간 계산         
+        document.all.ViewTimer.innerHTML = m;     // div 영역에 보여줌                  
+        SetTime--;                  // 1초씩 감소
+        if (SetTime == 0) {          // 시간이 종료 되었으면..        
+            alert("시간초과되었습니다. 다시 인증해주세요.");
+            window.location.reload();
+
+        }       
+    }
+    function TimerStart(){ tid=setInterval('messageTimer()',1000) };
+</script>
+<script>
+$(document).ready(function(){
+    $('#Authrequest').click(function(){
+        let phoneNumber = $('#toNumber').val();
+        alert('인증번호 발송 완료!')
+
+
+        $.ajax({
+            type: "GET",
+            url: "messageRequest",
+            data: {
+                "phoneNumber" : phoneNumber
+            },
+            success: function(res){
+                $('#checkAuth').click(function(){
+                    if($.trim(res) ==$('#checkNumber').val()){
+                    	alert(
+                            '인증성공!',
+                            '휴대폰 인증이 정상적으로 완료되었습니다.',
+                            'success'
+                        )
+                        document.location.href="UserInfo?id=${sessionScope.id}";
+                    }else{
+                    	alert({
+                            icon: 'error',
+                            title: '인증오류',
+                            text: '인증번호가 올바르지 않습니다!',
+                        })
+                    }
+                })
+
+
+            }
+        })
+    });
+});
+</script>
 <div class="container has-lnb">
             <div class="page-util">
                  <div class="inner-wrap" id="myLoaction"><div class="location">
@@ -28,24 +85,14 @@
 					</ul>
 				</li>
 				<li><a id="discountCoupon" href="/mypage/discount-coupon" title="메가박스/제휴쿠폰">메가박스/제휴쿠폰</a></li>
-				<!-- <li><a href="/on/oh/ohh/Mvtckt/GiftCardL.do">메가박스 기프트카드</a></li> -->
-				<li>
-					<a href="/mypage/point-list" title="멤버십 포인트">멤버십 포인트</a>
-					<ul class="depth3">
-						<li><a href="/mypage/point-list" title="포인트 이용내역">포인트 이용내역</a></li>
-						<li><a href="/mypage/card-list" title="멤버십 카드관리">멤버십 카드관리</a></li>
-						<li><a href="/mypage/milk-service" title="MiL.k 제휴서비스">MiL.k 포인트</a></li>
-					</ul>
-				</li>
 				<li><a href="/mypage/moviestory" titel="나의 무비스토리">나의 무비스토리</a></li>
 				<li><a href="/mypage/myevent" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
 				<li><a href="/mypage/myinquiry" title="나의 문의내역">나의 문의내역</a></li>
 				<li><a href="/mypage/mydiscount" title="자주쓰는 할인 카드">자주쓰는 카드 관리</a></li>
 				<li>
-					<a href="/mypage/myinfo?returnURL=info" title="회원정보">회원정보</a>
+					<a href="MyInfo" title="회원정보">회원정보</a>
 					<ul class="depth3">
 						<li class="on"><a href="MyInfo" title="개인정보 수정">개인정보 수정</a></li>
-						<li><a href="/mypage/additionalinfo" title="선택정보 수정">선택정보 수정</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -103,9 +150,9 @@
 							<tr>
 								<th scope="row"><label for="ibxSchPwdMblpTelno">휴대폰 번호<!--휴대폰 번호--></label></th>
 								<td>
-									<input type="hidden" id="ibxSchPwdMblpTelno" value="01012341234">
-									<input type="text" value="010-****-1234" placeholder="'-' 없이 입력" class="input-text w230px" disabled="">
-									<button id="btnSchPwdMbCertNoSend" type="button" class="button gray w75px ml08">인증요청<!--인증요청--></button>
+									<input type="hidden" id="ibxSchPwdMblpTelno" value="${sessionScope.tel }">
+									<input type="text" value="${sessionScope.tel }" id="toNumber" name="toNumber" class="input-text w230px" disabled>
+									<button id="Authrequest" type="button" class="button gray w75px ml08" onclick="TimerStart()">인증요청<!--인증요청--></button>
 								</td>
 							</tr>
 							<tr id="schPwdMblpCertRow">
@@ -113,16 +160,13 @@
 								<td>
 									<div class="chk-num">
 										<div class="line">
-											<input maxlength="4" type="text" id="ibxSchPwdMblpCharCertNo" class="input-text w180px" title="인증번호 입력"><!--인증번호 입력-->
+											<input maxlength="6" type="text" id="checkNumber" name="checkNumber" class="input-text w180px" title="인증번호 입력"><!--인증번호 입력-->
 
-											<div class="time-limit" id="schPwdtimer">
-												3:00
-											</div>
+											<div class="time-limit" id="ViewTimer"></div>
 										</div>
 									</div>
 
-									<button id="btnSchPwdMblpCharCert" type="button" class="button gray-line w75px ml08 disabled" disabled="disabled">인증확인<!--인증확인--></button>
-									<div id="schPwdMblpNo-error-text" class="alert"></div>
+									<button id="checkAuth" type="button" class="button gray-line w75px ml08">인증확인<!--인증확인--></button>
 								</td>
 							</tr>
 						</tbody>

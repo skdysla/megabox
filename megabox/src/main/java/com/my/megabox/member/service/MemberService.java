@@ -113,7 +113,7 @@ public class MemberService implements IMemberService{
 			return "로그인 후 수정해주세요.";
 		if(member.getU_email() == null || member.getU_tel() == "")
 			return "이메일을 입력해주세요.";
-		
+		member.setU_m_agree(u_m_agree);
 		dao.modifyUserInfo(member);
 		return "회원정보 수정 완료";
 	}

@@ -528,7 +528,7 @@ function optionSearch(){
 									</tr>
 								</tbody>
 								<%gmcount++; %>
-							</c:forEach>
+							</c:forEach> 
 							<c:forEach var="CCList" items="${CCList }">
 								<tbody>
 									<tr>	

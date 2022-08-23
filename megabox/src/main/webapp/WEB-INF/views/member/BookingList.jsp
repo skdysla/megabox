@@ -518,7 +518,7 @@ function optionSearch(){
 							<c:forEach var="GMlist" items="${GMList }">
 								<tbody>
 									<tr>	
-										<td>${GMList.b_date }</td>	
+										<td>${GMList.b_date }</td>	 
 										<th scope="row"><span>구매</span></th>	
 										<td>${GMList.c_name }</td>	
 										<td class="a-r">		

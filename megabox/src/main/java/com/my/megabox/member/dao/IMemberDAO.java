@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.my.megabox.booking.dto.BookingDTO;
 import com.my.megabox.booking.dto.Cancel_BookingDTO;
+import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
 
 @Repository
@@ -33,5 +34,9 @@ public interface IMemberDAO {
 	ArrayList<Cancel_BookingDTO> CCOptionList(@Param("radio")String radPurc, @Param("start")String startDate, @Param("end")String endDate); // 예매 내역 날짜별 조회
 
 	void modifyUserInfo(MemberDTO member); // 회원 정보 수정
+
+	void makeInquiry(InquiryDTO inquiry); // 문의글 작성
+
+	ArrayList<InquiryDTO> IQList(int num); // 문의 내역 조회
 
 }

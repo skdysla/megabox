@@ -8,6 +8,58 @@
 </c:if>
 <c:import url="../header.jsp" charEncoding="utf-8" />    
 <!DOCTYPE html>
+<script>
+function selectAddress(e){
+	var seoul = ["강남","강남대로(씨티)","강동","군자","동대문","마곡","목동","상봉","상암월드컵경기장","성수","센트럴","송파파크하비오","신촌","이수","창동","코엑스","홍대","화곡","ARTNINE"];
+	var gyeonggi = ["고양스타필드","광명AK플라자","광명소하","금정AK플라자","김포한강신도기","남양주","남양주(P)","남양주현대아울렛 스페이스원","동탄","미사강변","백석","별내","부천스타필드시티","분당","수원","수원남문","시흥배곧","안산중앙","안성스타필드","양주","영통","용인기흥","용인테크노밸리","의정부민락","일산","일산벨라시타","킨텍스","파주금촌","파주운정","파주출판도시","하남스타필드","호매실"];
+	var incheon = ["검단","송도","인천논현","청라지젤"];
+	var dae_chung_sae = ["공주","논산","대전","대전신세계 아트앤사이언스","대전유성","대전중앙로","대전현대아울렛","세종(조치원)","세종나성","세종청사","오창","제천","진천","천안","청주사창","충주","홍성내포"];
+	var bu_dae_gyeong = ["경북도청","경산하양","구미강동","김천","남포항","대구신세계(동대구)","대구이시아","덕천","마산","문경","부산극장","부산대","북대구(칠곡)","사상","삼천포","양산","양산라피에스타","울산","정관","창원","창원내서","해운대(장산)"];
+	var gwang_jeon = ["광주상무","광주하남","목포하당(포르모)","송천","순천","여수웅천","전대(광주)","전주혁신","첨단"];
+	var gangwon = ["남춘천","속초","원주","원주센트럴","춘천석사"];
+	var jeju = [""];
+	var target = document.getElementById("secondAddress");
+	
+	if(e.value == "seoul") var d = seoul;
+	else if(e.value == "gyeonggi") var d = gyeonggi;
+	else if(e.value == "incheon") var d = incheon;
+	else if(e.value == "dae_chung_sae") var d = dae_chung_sae;
+	else if(e.value == "bu_dae_gyeong") var d = bu_dae_gyeong;
+	else if(e.value == "gwang_jeon") var d = gwang_jeon;
+	else if(e.value == "gangwon") var d = gangwon;
+	else if(e.value == "jeju") var d = jeju;
+	
+	target.options.length = 0;
+	
+	for(x in d){
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}
+}
+
+</script>
+<script>
+$(document).ready(function(){
+	$('#textarea').keyup(function (e) {
+		let content = $(this).val();
+	    
+	    // 글자수 세기
+	    if (content.length == 0 || content == '') {
+	    	$('#textareaCnt').text('0');
+	    } else {
+	    	$('#textareaCnt').text(content.length);
+	    }
+	    
+	    // 글자수 제한
+	    if (content.length > 2000) {
+	    	// 200자 부터는 타이핑 되지 않도록
+	        $(this).val($(this).val().substring(0, 2000));
+	    };
+	});
+});
+</script>
 <div class="container has-lnb">
 		<div class="page-util">
 			<div class="inner-wrap">
@@ -47,7 +99,9 @@
 				</ul>
 				</nav>
 			</div>
-
+			
+			
+		<form action="OneOnOne_1" method="post">
 			<div id="contents" class="">
 				<h2 class="tit">1:1 문의</h2>
 				<div class="mypage-infomation mb30">
@@ -56,7 +110,7 @@
 					</ul>
 
 					<div class="btn-group right">
-						<a href="#" class="button purple" id="myQnaBtn" title="나의 문의내역 페이지로 이동">나의 문의내역</a><!-- btn-layer-open -->
+						<a href="OneOnOne_1" class="button purple" id="myQnaBtn" title="나의 문의내역 페이지로 이동">나의 문의내역</a><!-- btn-layer-open -->
 					</div>
 				</div>
 
@@ -64,7 +118,7 @@
 					<dl>
 						<dt>
 							<span class="bg-chk mr10">
-								<input type="checkbox" id="chk">
+								<input type="checkbox" id="chk" name="agreebox" value="checked">
 								<label for="chk"><strong>개인정보 수집에 대한 동의</strong></label>
 							</span>
 
@@ -90,13 +144,9 @@
 				<p class="reset mt10">* 원활한 서비스 이용을 위한 최소한의 개인정보이므로 동의하지 않을 경우 서비스를 이용하실 수 없습니다</p>
 
 				<p class="reset mt30 a-r font-orange">* 필수</p>
-
-				<form name="regFrm" method="post">
-					<input type="hidden" name="inqLclCd" value="INQD01">
-					<input type="hidden" name="custInqStatCd" value="INQST1">
-					<input type="hidden" name="cdLvl" value="3">
-					<input type="hidden" name="fileNo" value="">
-
+					
+					<input type="hidden" name="u_num" value="${sessionScope.u_num }">
+					
 					<div class="table-wrap mt10">
 						<table class="board-form va-m">
 							<colgroup>
@@ -109,92 +159,67 @@
 								<tr>
 									<th scope="row">문의지점<em class="font-orange">*</em></th>
 									<td colspan="3">
-										<input type="radio" id="aq1" name="inqMclCd" value="QD01M01" data-cd="QD_BRCH_DIV_CD" checked="">
+										<input type="radio" id="aq" name="inqMclCd" value="QD01M01" checked>
 										<label for="aq1">지점문의</label>
 
-										<div class="dropdown bootstrap-select small ml10 bs3"><select id="theater" class="small ml10" title="지역선택" tabindex="-98"><option class="bs-title-option" value=""></option>
+										
+										<select id="firstAddress" name="firstAddress" onchange="selectAddress(this)">
 											<option value="">지역선택</option>
+											<option value="seoul">서울</option>
+											<option value="gyeonggi">경기</option>
+											<option value="incheon">인천</option>
+											<option value="dae_chung_sae">대전/충청/세종</option>
+											<option value="bu_dae_gyeong">부산/대구/경상</option>
+											<option value="gwang_jeon">광주/전라</option>
+											<option value="gangwon">강원</option>
+											<option value="jeju">제주</option>
 											
-												<option value="10">서울</option>
-											
-												<option value="30">경기</option>
-											
-												<option value="35">인천</option>
-											
-												<option value="45">대전/충청/세종</option>
-											
-												<option value="55">부산/대구/경상</option>
-											
-												<option value="65">광주/전라</option>
-											
-												<option value="70">강원</option>
-											
-												<option value="80">제주</option>
-											
-										</select><button type="button" class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown" role="button" data-id="theater" title="지역선택" aria-expanded="true"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">지역선택</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="overflow: hidden;"><div class="inner open" role="listbox" aria-expanded="true" tabindex="-1" style="overflow-y: auto;"><ul class="dropdown-menu inner "><li class="selected active"><a role="option" aria-disabled="false" tabindex="0" aria-selected="true" class="selected active"><span class="text">지역선택</span></a></li><li class=""><a role="option" aria-disabled="false" tabindex="0" aria-selected="false" class=""><span class="text">서울</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">경기</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">인천</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">대전/충청/세종</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">부산/대구/경상</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">광주/전라</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">강원</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">제주</span></a></li></ul></div></div></div>
-										<div class="dropdown bootstrap-select small ml10 bs3 disabled"><select name="brchNo" id="theater02" class="small ml10" title="극장선택" tabindex="-98" disabled="disabled"><option class="bs-title-option" value=""></option>
-											
-										<option value="">극장선택</option></select><button type="button" class="btn dropdown-toggle disabled btn-default bs-placeholder" data-toggle="dropdown" role="button" data-id="theater02" aria-disabled="true" title="극장선택" aria-expanded="false" tabindex="-1"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">극장선택</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="max-height: 302px; overflow: hidden; min-height: 0px;"><div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 300px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner "><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">극장선택</span></a></li></ul></div></div></div>
+										</select>
+										<select id="secondAddress" name="secondAddress">
+											<option>선택해주세요.</option>
+										</select>
 
-										<input type="radio" id="aq2" name="inqMclCd" class="ml20" value="QD01M02" data-cd="QD_ETC_DIV_CD">
+										<input type="radio" id="aq" name="inqMclCd" class="ml20" value="QD01M02">
 										<label for="aq2">기타문의</label>
 									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="ask-type">문의유형</label> <em class="font-orange">*</em></th>
 									<td colspan="3">
-										<div class="dropdown bootstrap-select small bs3"><select name="inqSclCd" id="ask-type" class="small" tabindex="-98">
-											
-										<option value="">문의유형 선택</option><option value="QDBR01">일반문의</option><option value="QDBR02">칭찬</option><option value="QDBR03">불만</option><option value="QDBR04">제안</option></select><button type="button" class="btn dropdown-toggle bs-placeholder btn-default" data-toggle="dropdown" role="button" data-id="ask-type" title="문의유형 선택"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">문의유형 선택</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox" style="overflow: hidden;"><div class="inner open" role="listbox" aria-expanded="false" tabindex="-1" style="overflow-y: auto;"><ul class="dropdown-menu inner "><li class="selected active"><a role="option" aria-disabled="false" tabindex="0" class="selected active" aria-selected="true"><span class="text">문의유형 선택</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">일반문의</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">칭찬</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">불만</span></a></li><li><a role="option" aria-disabled="false" tabindex="0" aria-selected="false"><span class="text">제안</span></a></li></ul></div></div></div>
+										<div>
+										<select name="i_type" id="ask-type" class="small" tabindex="-98">
+											<option value="">문의유형 선택</option>
+											<option value="일반문의">일반문의</option>
+											<option value="칭찬">칭찬</option>
+											<option value="불만">불만</option>
+											<option value="제안">제안</option>
+										</select>
+										</div>
 									</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="name">이름</label> <em class="font-orange">*</em></th>
-									<td><input type="text" id="name" name="inqurNm" class="input-text w150px" value="" maxlength="15"></td>
+									<td><input type="text" id="name" name="u_name" class="input-text w150px" value="${user.u_name }" maxlength="15"></td>
 									<th scope="row"><label for="qnaRpstEmail">이메일</label> <em class="font-orange">*</em></th>
-									<td><input type="text" name="rpstEmail" id="qnaRpstEmail" class="input-text" value="" maxlength="50"></td>
+									<td><input type="text" name="u_email" id="qnaRpstEmail" class="input-text" value="${user.u_email }" maxlength="50"></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="hpNum1">휴대전화</label> <em class="font-orange">*</em></th>
 									<td colspan="3">
-										
 											
-											
-												<input type="text" name="hpNum1" id="hpNum1" class="input-text w60px numType" maxlength="3" title="핸드폰번호 첫자리 입력">
-												<span>-</span>
-												<input type="text" name="hpNum2" id="hpNum2" class="input-text w70px numType" maxlength="4" title="핸드폰번호 중간자리 입력">
-												<span>-</span>
-												<input type="text" name="hpNum3" id="hpNum3" class="input-text w70px numType" maxlength="4" title="핸드폰번호 마지막자리 입력">
-												<button id="btnQnaMblpCertNoSend" type="button" disabled="disabled" class="button gray w100px ml08 disabled">인증요청</button>
-												<div id="qnaMblpNo-error-text" class="alert"></div>
-											
-										
+												<input type="text" name="u_tel" id="hpNum" class="input-text w180px numType" value="${user.u_tel}" maxlength="11">
+												
 									</td>
-								</tr>
-								
-								<tr id="qnaMblpCertRow" style="display: none;">
-									<th scope="row"><label for="ibxQnaMblpCharCertNo">인증번호</label> <em class="font-orange">*</em></th>
-									<td colspan="3">
-										<div class="chk-num">
-											<div class="line">
-												<input maxlength="4" type="text" id="ibxQnaMblpCharCertNo" class="input-text w180px numType" title="인증번호 입력" disabled="disabled"><!--인증번호 입력-->
-												<div id="qnaTimer" class="time-limit">3:00</div>
-											</div>
-										</div>
-										<button id="btnQnaMblpCharCert" type="button" class="button purple w100px ml08 disabled" disabled="disabled">인증확인<!--인증확인--></button>
-										<div id="qnaCertNo-error-text" class="alert"></div>
-									</td>
-								</tr>
 								
 								<tr>
 									<th scope="row"><label for="qnaCustInqTitle">제목</label> <em class="font-orange">*</em></th>
-									<td colspan="3"><input type="text" name="custInqTitle" id="qnaCustInqTitle" class="input-text" maxlength="100"></td>
+									<td colspan="3"><input type="text" name="i_title" id="i_title" class="input-text" maxlength="100"></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="textarea">내용</label> <em class="font-orange">*</em></th>
 									<td colspan="3">
 										<div class="textarea">
-											<textarea id="textarea" name="custInqCn" rows="5" cols="30" title="내용입력" placeholder="※ 불편사항이나 문의사항을 남겨주시면 최대한 신속하게 답변 드리겠습니다. 
+											<textarea id="textarea" name="i_content" rows="5" cols="30" title="내용입력" placeholder="※ 불편사항이나 문의사항을 남겨주시면 최대한 신속하게 답변 드리겠습니다. 
  ※ 문의 내용에 개인정보(이름, 연락처, 카드번호 등)가 포함되지 않도록 유의하시기 바랍니다." class="input-textarea"></textarea>
 											<div class="util">
 												<p class="count">
@@ -232,8 +257,8 @@
 					<div class="btn-group pt40">
 						<button type="submit" class="button purple large">등록</button>
 					</div>
-				</form>
 			</div>
+			</form>
 		</div>
 	</div>
 <c:import url="../footer.jsp" charEncoding="utf-8" />

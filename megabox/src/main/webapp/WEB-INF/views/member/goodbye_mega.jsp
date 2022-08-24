@@ -1,21 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${empty sessionScope.id }">
+	<script>
+		location.href='login'
+	</script>
+</c:if>
 <c:import url="../header.jsp" charEncoding="utf-8" />
 <!DOCTYPE html>
 <script>
-/* 	$('#ibxSchPwdMblpTelno').keyup(function (e) {
-		let content = $(this).val();	
-		$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
-		if(content.length == 11){
-			$('#btnSchPwdMbCertNoSend').removeClass('disabled');
-			$('#btnSchPwdMbCertNoSend').removeAttr("disabled");
-		}
-		else {
-			$().addClass('disabled');
-			$('#btnSchPwdMbCertNoSend').attr('disabled', 'disabled');
-		}
-	}); */
 	$(document).ready(function(){
 		$('#toNumber').keyup(function (e) {
 			let content = $(this).val();	
@@ -64,6 +57,7 @@ $(document).ready(function(){
                             '휴대폰 인증이 정상적으로 완료되었습니다.',
                             'success'
                         )
+                        $('#submitBtn').removeAttr("disabled");
                         /* 인증성공 시 성공 세션 생성하여 탈퇴 할 수 있도록 만들기 */
                     }else{
                     	alert({
@@ -79,6 +73,21 @@ $(document).ready(function(){
         })
     });
 });
+</script>
+<script language="JavaScript">
+    var SetTime = 60;      // 최초 설정 시간(기본 : 초)
+    function messageTimer() {   // 1초씩 카운트      
+        m = Math.floor(SetTime / 60) + ": " + (SetTime % 60); // 남은 시간 계산         
+        var msg = "현재 남은 시간은 <font color='red'>" + m + "</font> 입니다.";  
+        document.all.ViewTimer.innerHTML = m;     // div 영역에 보여줌                  
+        SetTime--;                  // 1초씩 감소
+        if (SetTime == 0) {          // 시간이 종료 되었으면..        
+            alert("시간초과되었습니다. 다시 인증해주세요.");
+            window.location.reload();
+
+        }       
+    }
+    function TimerStart(){ tid=setInterval('messageTimer()',1000) };
 </script>
 <div class="container has-lnb">
             <div class="page-util">
@@ -115,8 +124,7 @@ $(document).ready(function(){
 		</nav>
 	</div>
 
-<form id="moveFrm" method="post"></form>
-
+<form action="goodbye_mega" method="post">
 <div id="contents" class="">
 	<h2 class="tit">회원탈퇴</h2>
 
@@ -206,7 +214,7 @@ $(document).ready(function(){
 								<th scope="row"><label for="ibxSchPwdMblpTelno">휴대폰 번호<!--휴대폰 번호--></label></th>
 								<td>
 									<input type="text" name="toNumber" id="toNumber" maxlength="11" placeholder="'-' 없이 입력" class="input-text w230px"><!--'-' 없이 입력-->
-									<button id="Authrequest" type="button" class="button gray w100px ml08" disabled>인증요청<!--인증요청--></button>
+									<button id="Authrequest" type="button" class="button gray w100px ml08" onclick="TimerStart()">인증요청<!--인증요청--></button>
 								</td>
 							</tr>
 							<tr id="schPwdMblpCertRow">
@@ -214,15 +222,13 @@ $(document).ready(function(){
 								<td> 
 									<div class="chk-num">
 										<div class="line">
-											<input maxlength="4" type="text" name="checkNumber" id="checkNumber" class="input-text w180px" title="인증번호 입력" disabled><!--인증번호 입력-->
+											<input maxlength="6" type="text" name="checkNumber" id="checkNumber" class="input-text w180px" title="인증번호 입력"><!--인증번호 입력-->
 
-											<div class="time-limit" id="schPwdtimer">
-												3:00
-											</div>
+											<div class="time-limit" id="ViewTimer"></div>
 										</div>
 									</div>
 
-									<button id="checkAuth" type="button" class="button gray-line w100px ml08 disabled" disabled>인증확인<!--인증확인--></button>
+									<button id="checkAuth" type="button" class="button gray-line w100px ml08" disabled>인증확인<!--인증확인--></button>
 									<div id="schPwdMblpNo-error-text" class="alert"></div>
 								</td>
 							</tr>
@@ -235,10 +241,10 @@ $(document).ready(function(){
 
 	<div class="btn-group">
 		<button class="button large" id="cancelBtn">취소</button>
-		<button class="button purple large" id="submitBtn" disabled>탈퇴</button>
+		<button type="submit" class="button purple large" id="submitBtn" disabled>탈퇴</button>
 	</div>
 </div>
-
+</form>
             </div>
         </div>
 

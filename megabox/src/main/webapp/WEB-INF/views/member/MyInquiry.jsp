@@ -79,8 +79,9 @@
 
 	<div class="board-list-util mb10">
 		<p class="result-count">
+		<%int count = 1; %>
 			<!-- to 개발 : 검색을 안한 경우 -->
-			<strong>전체 (<b id="totalCnt">0</b>건)</strong>
+			<strong>전체 (<b id="totalCnt"><%=count %></b>건)</strong>
 		</p>
 
 		<div class="dropdown bootstrap-select bs3"><select id="custInqStatCd" onchange="javascript:$('#searchBtn').click();" class="" tabindex="-98">
@@ -129,7 +130,29 @@
 					<th scope="col">등록일</th>
 				</tr>
 			</thead>
-			<tbody><tr><td colspan="6">목록이 없습니다.</td></tr></tbody>
+			<tbody>
+			
+			<c:choose>
+				<c:when test="${iqList == null }">
+					<tr><td colspan="6">목록이 없습니다.</td></tr>
+				</c:when>
+				<c:otherwise>
+				<c:forEach var="list" items="${iqList }">
+					<tr>
+						<td><%=count %></td> <!-- 내림차순으로.. -->
+						<td>${list.i_cinema }</td>
+						<td>${list.i_type }</td>
+						<td class="a-l"><a href="detailIQ?i_num=${list.i_num }" class="moveBtn"title="문의내역 상세보기">${list.i_title }</a></td>
+						<td>대기중</td><td>${list.i_date }</td>
+					</tr>
+					<%count++; %>
+				</c:forEach>
+				</c:otherwise>
+			</c:choose>
+			
+			
+			
+			</tbody>
 		</table>
 	</div>
 

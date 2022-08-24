@@ -53,10 +53,18 @@
 	</update>
 	
 	<update id="modifyUserInfo" parameterType="com.my.megabox.member.dto.MemberDTO">
-		UPDATE user_info SET u_email=#{u_email}, u_tel=#{u_tel}, u_m_agree=#{u_m_agree, jdbcType=VARCHAR} WHERE id=#{id}
+		UPDATE user_info SET u_email=#{u_email}, u_tel=#{u_tel}, u_m_agree=#{u_m_agree, jdbcType=VARCHAR} WHERE u_id=#{u_id, jdbcType=VARCHAR}
 	</update>
 	
 	<delete id="deleteMember" parameterType="String">
 		DELETE FROM user_info WHERE u_id=#{id}
 	</delete>
+	
+	<insert id="makeInquiry" parameterType="com.my.megabox.member.dto.InquiryDTO">
+		INSERT INTO inquiry VALUES(inquiry_seq.nextval, #{i_type}, #{i_title}, #{i_content}, #{i_image, jdbcType=VARCHAR}, #{u_name}, #{u_email}, #{u_tel}, #{u_num}, #{i_cinema}, to_char(sysdate, 'yyyy.mm.dd hh24:mi'))
+	</insert>
+		
+	<select id="IQList" parameterType="int" resultType="com.my.megabox.member.dto.InquiryDTO">
+		SELECT * FROM inquiry WHERE u_num=#{num}
+	</select>
 </mapper>

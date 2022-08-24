@@ -25,9 +25,18 @@ public class MemberService implements IMemberService{
 		return result;
 	}
 
-	public void inquiryProc(InquiryDTO inquiry) {
-		// TODO Auto-generated method stub
+	public String inquiryProc(InquiryDTO inquiry) {
+		System.out.println("이건 서비스에서 확인하는 지점유형 : " + inquiry.getI_cinema());
+		int num = (int)session.getAttribute("num");
+		inquiry.setU_num(num);
+		System.out.println(inquiry.getU_num());
+		if(inquiry.getI_title() == null || inquiry.getI_title() == "")
+			return "제목을 입력해주세요.";
+		if(inquiry.getI_content() == null || inquiry.getI_content() == "")
+			return "내용을 입력해주세요.";
 		
+		dao.makeInquiry(inquiry);
+		return "게시글 작성 완료";
 	}
 
 	public String changePw(String id, String pw, String pwnew, String checkpwnew) {
@@ -49,6 +58,7 @@ public class MemberService implements IMemberService{
 			has += Pattern.compile(specReg).matcher(pwnew).find() ? 1:0;
 			if(has < 2) return "비밀번호 형식이 아닙니다.";
 			else {
+				//비밀번호 암호화
 				dao.chagePw(id, pwnew);
 				return "적합한 비밀번호입니다.";
 			}
@@ -58,15 +68,18 @@ public class MemberService implements IMemberService{
 		
 	}
 
-	public String deleteMember(String id, String pw) {
-		if(pw == null || pw.isEmpty())
+	public String deleteMember(String id, String pw, String useroutcheck) {
+		
+		if(id == null || id == "")
+			return "로그인을 해주세요.";
+		if(pw == null || pw == "")
 			return "비밀번호를 입력해주세요.";
 		MemberDTO result = dao.selectId(id);
-		if(!pw.equals(result.getU_pw()))
+		if(pw.equals(result.getU_pw()) == false)
 			return "비밀번호가 일치하지 않습니다.";
-		
-		// 문자인증 -> 문자인증 세션이 존재할 경우 회원 탈퇴를 할 수 있게 만든다.
-		
+		if(useroutcheck == null || useroutcheck == "")
+			return "회원탈퇴 사유를 정해주세요.";
+					
 		dao.deleteMember(id);
 		return "회원탈퇴 완료";
 	}
@@ -109,13 +122,23 @@ public class MemberService implements IMemberService{
 	// 회원 수정
 	public String modifyUserInfo(MemberDTO member) {
 		String sessionId = (String) session.getAttribute("id");
+		System.out.println("서비스까지 넘어왔나");
+		System.out.println("tel : " + member.getU_tel());
+		System.out.println("email : " + member.getU_email());
+		System.out.println("m_agree : " + member.getU_m_agree());
 		if(sessionId == null || sessionId == "")
 			return "로그인 후 수정해주세요.";
 		if(member.getU_email() == null || member.getU_tel() == "")
 			return "이메일을 입력해주세요.";
-		member.setU_m_agree(u_m_agree);
+		if(member.getU_m_agree() == null || member.getU_m_agree() == "")
+			member.setU_m_agree("disagree");
+		member.setU_id(sessionId);
 		dao.modifyUserInfo(member);
 		return "회원정보 수정 완료";
+	}
+
+	public ArrayList<InquiryDTO> IQList(int num) {
+		return dao.IQList(num);
 	}
 		
 }

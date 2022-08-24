@@ -47,9 +47,18 @@ public class MemberController {
 	}
 	
 	@RequestMapping("Membermain")
-	public String Membermain() {
-		System.out.println(session.getAttribute("num"));
-		System.out.println(session.getAttribute("name"));
+	public String Membermain(Model model) {
+		String id = (String) session.getAttribute("id");
+		Integer unumSession = (Integer)session.getAttribute("num");
+		if(id == null || id == "" || unumSession == null)
+			return "member/login";
+		MemberDTO member = dao.selectId(id);
+		model.addAttribute("userImage", member.getU_image());
+		// 예매 내역userImage
+		ArrayList<BookingDTO> ymList = service.YMList(unumSession);
+		model.addAttribute("ymList", ymList);
+		// 구매 내역을 추가해야하는데 예매 내역과의 차이점을 뭔지 모르겠음
+		// 문의 내역 추가하기
 		return "member/Membermain";
 	}
 	
@@ -88,10 +97,6 @@ public class MemberController {
 			model.addAttribute("GMList", GMList);
 		}else {
 			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
-//			System.out.println("옵션검색에서 취소내역 넘오오나 : " + CCList);
-//			for(int i = 0; i < CCList.size(); i++) {
-//				System.out.println(CCList.get(i));
-//			}
 			model.addAttribute("CCList", CCList);
 		}
 	}
@@ -102,19 +107,41 @@ public class MemberController {
 	}
 	
 	@RequestMapping("MyInquiry")
-	public String MyInquiry() {
+	public String MyInquiry(Model model) {
+		int unumSession = (int)session.getAttribute("num");
+		ArrayList<InquiryDTO> iqList = service.IQList(unumSession);
+		model.addAttribute("iqList", iqList);
 		return "member/MyInquiry";
 	}
 	
 	@GetMapping("OneOnOne_1")
-	public String OneOnOne() {
+	public String OneOnOne(Model model) {
+		String id = (String)session.getAttribute("id");
+		MemberDTO user = service.userInfo(id);
+		model.addAttribute("user", user);
 		return "member/OneOnOne_1";
 	}
 	
-	@PostMapping("OneOnOne")
-	public String OneOnOne(InquiryDTO inquiry) {
-		service.inquiryProc(inquiry);
-		return "member/MyInquiry";
+	@PostMapping("OneOnOne_1")
+	public String OneOnOne(InquiryDTO inquiry, String agreebox, String inqMclCd, String firstAddress, String secondAddress, HttpServletRequest request) {
+		if(agreebox == null || agreebox == "") {
+			request.setAttribute("msg", "개인정보 수집에 대한 동의가 필요합니다.");
+			request.setAttribute("url", "OneOnOne_1");
+			return "member/alert";
+		}
+		if(inqMclCd == "QD01M01")
+			inquiry.setI_cinema(firstAddress + " - " + secondAddress);
+		else
+			inquiry.setI_cinema("서울 - 센터");
+		System.out.println("지점유형 데이터가 바뀌었나 체크 : " + inquiry.getI_cinema());
+		String msg = service.inquiryProc(inquiry);
+		if(msg == "게시글 작성 완료")
+			return "member/MyInquiry";
+		else {
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "OneOnOne_1");
+			return "member/alert";
+		}
 	}
 	
 	@RequestMapping("MyInfo")
@@ -132,16 +159,20 @@ public class MemberController {
 	
 	@PostMapping("UserInfo")
 	public String UserInfo(MemberDTO member, String chPhone) {
-		String chgTel = (String) session.getAttribute("chgTel");
-		System.out.println(chgTel);
-		if(chgTel != null) {
-			member.setU_tel(chPhone);
-			service.modifyUserInfo(member);
-		}else {
+		
+		System.out.println(member.getU_tel());
+		if(chPhone == null || chPhone == "") 
 			member.setU_tel(member.getU_tel());
-			service.modifyUserInfo(member);
+		else 
+			member.setU_tel(chPhone);
+		
+		String msg = service.modifyUserInfo(member);
+		if(msg == "회원정보 수정 완료")
+			return "member/Membermain";
+		else {
+			System.out.println("수정 실패~");
+			return "member/Membermain";
 		}
-		return "";
 	}
 	
 	// Test page
@@ -183,10 +214,24 @@ public class MemberController {
 	}
 	
 	// 회원 탈퇴
-	@RequestMapping("goodbye_mega")
-	public String goodbye_mega(String id, String pw) {
-		service.deleteMember(id, pw);
+	@GetMapping("goodbye_mega")
+	public String goodbye_mega() {
 		return "member/goodbye_mega";
+	}
+	
+	@PostMapping("goodbye_mega")
+	public String goodbye_mega(String pw, String useroutcheck, HttpServletRequest request) {
+		String id = (String) session.getAttribute("id");
+		String msg = service.deleteMember(id, pw, useroutcheck);
+		if(msg == "회원탈퇴 완료") {
+			request.setAttribute("msg", "다음에 또 만나요 :)");
+			request.setAttribute("url", "login");
+			return "member/alert";
+		}else {
+			request.setAttribute("msg", msg);
+			request.setAttribute("url", "goodbye_mega");
+			return "member/alert";
+		}
 	}
 	
 	//test

@@ -34,15 +34,6 @@
 					</ul>
 				</li>
 				<li><a id="discountCoupon" href="/mypage/discount-coupon" title="메가박스/제휴쿠폰">메가박스/제휴쿠폰</a></li>
-				<!-- <li><a href="/on/oh/ohh/Mvtckt/GiftCardL.do">메가박스 기프트카드</a></li> -->
-<!-- 				<li>
-					<a href="/mypage/point-list" title="멤버십 포인트">멤버십 포인트</a>
-					<ul class="depth3">
-						<li><a href="/mypage/point-list" title="포인트 이용내역">포인트 이용내역</a></li>
-						<li><a href="/mypage/card-list" title="멤버십 카드관리">멤버십 카드관리</a></li>
-						<li><a href="/mypage/milk-service" title="MiL.k 제휴서비스">MiL.k 포인트</a></li>
-					</ul>
-				</li> -->
 				<li><a href="MovieStory" titel="나의 무비스토리">나의 무비스토리</a></li>
 				<li><a href="/mypage/myevent" title="나의 이벤트 응모내역">나의 이벤트 응모내역</a></li>
 				<li><a href="MyInquiry" title="나의 문의내역">나의 문의내역</a></li>
@@ -99,141 +90,45 @@
 							<input type="file" name="file">
 							<input type="hidden" name="fileMbNo" value="10857053">
 						</form>
-
-						<i class="iconset ico-add-photo"></i>
-
-						<button type="button" class="img">
-							<!-- 만약 이미지를 설정해주지 않았다면 기본이미지 보여주기 -->
-							<img src="${path}/resources/images/bg-photo.png" onerror="noImg(this, 'human')">
-						</button>
+						
+						<c:choose>
+							<c:when test="${userImage == null} ">
+								<i class="iconset ico-add-photo"></i>
+								<a href="MyInfo?id=${sessionScope.id}">
+								<button type="button" class="img">
+									<!-- 만약 이미지를 설정해주지 않았다면 기본이미지 보여주기 -->
+									<img src="${path}/resources/images/bg-photo.png" onerror="noImg(this, 'human')">
+								</button>
+								</a>
+							</c:when>
+							<c:otherwise>
+								<i class="iconset ico-add-photo"></i>
+								<a href="MyInfo?id=${sessionScope.id}">
+								<button type="button" class="img">
+									<!-- 만약 이미지를 설정해주지 않았다면 기본이미지 보여주기 -->
+									<img src="${userImage }">
+								</button>
+								</a>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 
 				<div class="grade">
-					<p class="name">${sessionScope.name}님은<br>일반등급입니다.</p>
+					<p class="name">${sessionScope.name}님 <br>안녕하세요.</p>
 
 					<div class="link">
-						<a href="/mypage/myinfo?returnURL=info" title="개인정보수정 페이지로 이동">개인정보수정 <i class="iconset ico-arr-right-reverse"></i></a>
-						<a href="#layer_before_grade" id="bfrClassSearch" class="btn-modal-open" w-data="400" h-data="400" title="지난등급 상세보기">
-							지난등급조회 <i class="iconset ico-arr-right-reverse"></i>
+						<a href="MyInfo?id=${sessionScope.id}" title="개인정보수정 페이지로 이동">개인정보수정 <i class="iconset ico-arr-right-reverse"></i></a>
+						<a href="BookingList" id="bfrClassSearch" class="btn-modal-open" w-data="400" h-data="400">
+							나의 예매 내역 <i class="iconset ico-arr-right-reverse"></i>
 						</a>
-					</div>
-				</div>
-
-				<div class="txt-vip-coupon" style="display: none;">
-					<i class="iconset ico-exclamation-white"></i> 아직 VIP쿠폰북을 발급하지 않으셨네요! <a href="/vipcoupon/guide" title="VIP쿠폰북 발급 페이지로 가기">VIP쿠폰북 발급하기</a>
-				</div>
-
-				<div class="special-membership" id="myMembership">
-					<p class="tit">Special Membership</p>
-
-					<!-- 스폐셜 가입 안했을 때 -->
-					<div class="no-join">
-						<p class="txt">가입된 스페셜멤버십이<br>없습니다.</p>
-
-						<a href="/curation/specialcontent" title="스페셜멤버십 가입 페이지로 이동">스페셜멤버십 <i class="iconset ico-arr-right-reverse"></i></a>
 					</div>
 				</div>
 			</div>
 			<!--// top -->
 
-			<!-- bottom -->
-			<div class="bottom">
-				
-
-				<!-- theater -->
-<!-- 				<div class="theater" id="myFaverBrch">
-					<div class="tit-area">
-						<p class="tit">선호극장</p>
-						<a href="" class="right" title="선호극장 변경">변경 <i class="iconset ico-arr-right-reverse"></i></a>
-					</div>
-
-					<div class="list">
-						<div class="no-list" style="display: none;">
-							<span>선호극장</span>을  설정하세요.
-						</div>
-						<ol><li>	<em>1</em>	<span>상봉</span></li></ol>
-					</div>
-				</div> -->
-				<!--// theater -->
-
-				<!-- coupon -->
-<!-- 				<div class="coupon" id="myCoupon">
-					<div class="tit-area">
-						<p class="tit">관람권/쿠폰</p>
-
-						<a href="/mypage/movie-coupon" class="more"><i class="iconset ico-arr-right-gray" title="영화관람권 페이지로 이동">더보기</i></a>
-					</div>
-
-					<div class="list">
-						<ul>
-							<li>
-								<span>영화관람권</span>
-								<em>0 매</em>
-							</li>
-							<li>
-								<span>스토어교환권</span>
-								<em>0 매</em>
-							</li>
-							<li>
-								<span>할인/제휴쿠폰</span>
-								<em>1 매</em>
-							</li>
-						</ul>
-					</div>
-				</div> -->
-				<!--// coupon -->
-			</div>
-			<!--// bottom -->
 		</div>
 		<!--// my-magabox-info -->
-
-		<!-- 레이어 : 지난등급조회 -->
-		<section id="layer_before_grade" class="modal-layer"><a href="" class="focus">레이어로 포커스 이동 됨</a>
-			<div class="wrap">
-				<header class="layer-header">
-					<h3 class="tit">지난등급조회</h3>
-				</header>
-
-				<div class="layer-con">
-
-					<!-- layer-before-grade -->
-					<div class="layer-before-grade">
-						<p class="name">임예빈님은<br>일반등급입니다.</p>
-
-						<div class="table-wrap mt10">
-							<table class="data-table a-c" summary="지난등급조회 목록 표">
-								<caption>지난등급조회 목록 표</caption>
-								<colgroup>
-									<col style="width:50%;">
-									<col style="width:50%;">
-								</colgroup>
-								<thead>
-									<tr>
-										<th scope="col">승급 년도</th>
-										<th scope="col">등급</th>
-									</tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
-						</div>
-
-						<ul class="dash-list mt10">
-							<li>지난 5년 간의 회원 등급을 확인하실 수 있습니다.</li>
-						</ul>
-					</div>
-					<!--// layer-before-grade -->
-				</div>
-
-				<button type="button" class="btn-modal-close">레이어 닫기</button>
-			</div>
-		</section>
-		<!--// 레이어 : 지난등급조회 -->
-
-		<!-- vip 일때만 출력 : my-stamp-mission -->
-		
-		<!--// vip 일때만 출력 : my-stamp-mission -->
 
 		<!-- column -->
 		<div class="column mt70">
@@ -271,24 +166,6 @@
 			</div>
 			<!--// left -->
 
-			<!-- right -->
-			<div class="col right" id="myFaverInfo">
-				<div class="tit-util">
-					<h2 class="tit small">선호관람정보</h2>
-
-					<div class="right">
-						<a href="" class="button gray-line small" title="설정">설정</a>
-					</div>
-				</div>
-
-				<div class="box-border favor-see">
-					<ul class="dot-list gray">
-						<li><span class="font-gblue mr10">내 선호장르</span></li>
-						<li><span class="font-gblue mr10">내 선호시간</span></li>
-					</ul>
-				</div>
-			</div>
-			<!--// right -->
 		</div>
 		<!--// column -->
 
@@ -302,11 +179,93 @@
 			<!-- my-reserve-history -->
 			<div class="my-reserve-history">
 				<ul>
-					<li class="no-result">
-						<div class="no-history-reservation">
-							예매 내역이 없습니다.
-						</div>
-					</li>
+					<c:choose>
+						<c:when test="">
+							<li class="no-result">
+								<div class="no-history-reservation">
+									예매 내역이 없습니다.
+								</div>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="uYM" items="${ymList }">
+							<div id="bokdList">
+								<div class="history-reservation">	
+									<ul>
+										<li>	
+											<div class="round">		
+												<a href="#" class="img" title="${uYM.m_name }">
+													<img src="${uYM.m_poster }" alt="${uYM.m_name }" onerror="noImg(this)" width="135" height="194">
+												</a>
+												<table class="table">			
+													<colgroup>				
+														<col style="width:75px;">				
+														<col style="width:230px;">				
+														<col style="width:80px;">				
+														<col>			
+													</colgroup>			
+													<tbody>
+														<tr>	
+															<th scope="row" class="a-r">예매번호</th>	
+															<td colspan="3">		
+															<em class="num">${uYM.b_num }</em>	
+															<input type="hidden" id="b_num" value="${uYM.b_num }">
+															</td>
+														</tr>
+														<tr>	
+															<th scope="row" class="a-r">영화명</th>	
+															<td colspan="3">		
+																<p class="tit-movie">			
+																	<span>${uYM.m_name }</span>			
+																	<!-- <span>2D(자막)</span>	 -->	
+																</p>	
+															</td>
+														</tr>
+														<tr>	
+															<th scope="row" class="a-r">극장/상영관</th>	
+															<td>${uYM.c_name} ${uYM.s_name}</td>	
+															<th scope="row">관람인원</th>	
+															<td>성인 ${uYM.b_s_cnt }명</td>
+														</tr>
+														<tr>
+															<th scope="row" class="a-r">관람일시</th>	
+															<td>${uYM.r_date } ${uYM.b_start } </td>	
+															<th scope="row">관람좌석</th>	
+															<td>${uYM.b_seat }</td>
+														</tr>
+													</tbody>		
+												</table>		
+												<div class="bg-round">			
+													<table class="table">				
+														<colgroup>					
+															<col style="width:75px;">					
+															<col style="width:230px;">					
+															<col style="width:100px;">					
+															<col>				
+														</colgroup>				
+														<tbody>
+															<tr>	
+																<th scope="row" class="a-r">결제일시</th>	
+																<td>${uYM.b_date }		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
+																<!-- <th scope="row">적립예정 포인트</th>	
+																<td>600 P</td> -->
+															</tr>
+														</tbody>			
+													</table>		
+												</div>		
+												<div class="btn-group">
+												<a href="" title="" class="button purple">교환권출력</a>			
+												<a href="#" class="button gray" title="예매취소" onclick="cancelCheck()">예매취소</a>		
+												</div>	
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+					
 				</ul>
 			</div>
 			<!--// my-reserve-history -->

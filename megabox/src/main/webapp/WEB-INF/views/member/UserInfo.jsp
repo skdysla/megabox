@@ -45,7 +45,6 @@ $(document).ready(function(){
                             'success'
                         )
                         clearInterval(tid);
-                    	<% session.setAttribute("chgTel","success");%>
                     }else{
                     	alert({
                             icon: 'error',
@@ -63,13 +62,13 @@ $(document).ready(function(){
 </script>
 <script>
 $(document).ready(function(){
-	$("input:radio[name=u_agree]").attr('disabled', 'disabled');
+	$("input:radio[name=u_m_agree]").attr('disabled', 'disabled');
     // 라디오버튼 클릭시 이벤트 발생
     $("input:radio[name=personInfoUtilAgreeAt]").click(function(){
         if($("input[name=personInfoUtilAgreeAt]:checked").val() == "Y"){
-            $("input:radio[name=u_agree]").removeAttr("disabled");
+            $("input:radio[name=u_m_agree]").removeAttr("disabled");
         }else if($("input[name=personInfoUtilAgreeAt]:checked").val() == "N"){
-            $("input:radio[name=u_agree]").attr('disabled', 'disabled');
+            $("input:radio[name=u_m_agree]").attr('disabled', 'disabled');
         }
     });
 });
@@ -199,35 +198,6 @@ $(document).ready(function(){
                               </th>
                               <td>
                                   <span class="mbNmClass">${user.u_name }</span>
-                                  <!-- <a href="#layer_name" class="button small gray-line ml10 mr10 btn-modal-open" w-data="600" h-data="350" title="이름변경">이름변경</a>
-                                  ※ 개명으로 이름이 변경된 경우, 회원정보의 이름을 변경하실 수 있습니다.
-
-                                  <section id="layer_name" class="modal-layer"><a href="" class="focus">레이어로 포커스 이동 됨</a>
-                                      <div class="wrap">
-                                          <header class="layer-header">
-                                              <h3 class="tit">본인확인 수단 선택</h3>
-                                          </header>
-
-                                          <div class="layer-con">
-                                              <p class="reset">
-                                                  이름을 변경하기 위한 본인 확인 수단을 선택해 주세요.<br>
-                                                  (단, 개명된 이름으로 가입된 본인명의의 휴대전화 또는 아이핀으로만 가능함)
-                                              </p>
-
-                                              <div class="box-gray v1 mt20 a-c">
-                                                  <a href="#" target="_blank" class="button" id="ipinBtn" title="I-PIN 인증">I-PIN 인증</a>
-                                                  <a href="#" target="_blank" class="button ml10" id="phoneBtn" title="휴대폰 인증">휴대폰 인증</a>
-                                              </div>
-
-                                              <ul class="dash-list mt20">
-                                                  <li>신용평가기관에 개명된 이름이 먼저 등록되어 있어야 합니다.</li>
-                                                  <li>본인인증을 위해 입력하신 정보는 해당 인증기관에서 직접 수집하며 인증 이외의 용도로 이용 또는 저장되지 않습니다.</li>
-                                              </ul>
-                                          </div>
-
-                                          <button type="button" class="btn-modal-close">레이어 닫기</button>
-                                      </div>
-                                  </section> -->
                               </td>
                           </tr>
                           <tr>
@@ -442,11 +412,11 @@ $(document).ready(function(){
 
 			<div class="chk-box mt05">
 				<strong class="label w80px">SMS</strong>
-				<input type="radio" name="u_agree" id="u_agree" value="agree">
-				<label for="u_agree" class="w80px">수신동의</label>
+				<input type="radio" name="u_m_agree" id="u_m_agree" value="agree">
+				<label for="u_m_agree" class="w80px">수신동의</label>
 
-				<input type="radio" name="u_agree" id="u_agree" value="disagree" checked>
-				<label for="u_agree" class="w80px">수신거부</label>
+				<input type="radio" name="u_m_agree" id="u_m_agree" value="disagree" checked>
+				<label for="u_m_agree" class="w80px">수신거부</label>
 			</div>
 
 		</div>
@@ -454,7 +424,7 @@ $(document).ready(function(){
 
           <div class="btn-group mt40">
               <button class="button large" id="cancelBtn">취소</button>
-              <button class="button purple large" id="updateBtn">등록</button>
+              <button type="submit" class="button purple large" id="updateBtn">등록</button>
           </div>
           </form>
       </div>

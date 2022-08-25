@@ -529,20 +529,7 @@ function optionSearch(){
 								</tbody>
 								<%gmcount++; %>
 							</c:forEach> 
-							<c:forEach var="CCList" items="${CCList }">
-								<tbody>
-									<tr>	
-										<td>${CCList.cb_canceldate }</td>	
-										<th scope="row"><span>취소</span></th>	
-										<td>${CCList.c_name }</td>	
-										<td class="a-r">		
-										<span class="font-red">${CCList.b_fee }원</span>	
-										</td>
-										<td></td>
-									</tr>
-								</tbody>
-								<%gmcount++; %>
-							</c:forEach>
+							
 						</c:otherwise>
 						</c:choose> 
 						

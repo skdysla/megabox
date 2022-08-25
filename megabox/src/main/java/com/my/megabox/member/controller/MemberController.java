@@ -108,6 +108,9 @@ public class MemberController {
 	
 	@RequestMapping("MyInquiry")
 	public String MyInquiry(Model model) {
+		String id = (String)session.getAttribute("id");
+		if(id == null || id == "")
+			return "member/login";
 		int unumSession = (int)session.getAttribute("num");
 		ArrayList<InquiryDTO> iqList = service.IQList(unumSession);
 		model.addAttribute("iqList", iqList);
@@ -232,6 +235,13 @@ public class MemberController {
 			request.setAttribute("url", "goodbye_mega");
 			return "member/alert";
 		}
+	}
+	
+	@RequestMapping("detailIQ")
+	public String detailIQ(int i_num, Model model) {
+		InquiryDTO inquiry = service.detailIQ(i_num);
+		model.addAttribute("detailIQ", inquiry);
+		return "member/detailIQ";
 	}
 	
 	//test

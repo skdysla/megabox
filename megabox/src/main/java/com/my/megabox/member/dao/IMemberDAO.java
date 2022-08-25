@@ -39,4 +39,6 @@ public interface IMemberDAO {
 
 	ArrayList<InquiryDTO> IQList(int num); // 문의 내역 조회
 
+	InquiryDTO detailIQ(int i_num); // 문의 내용 조회
+
 }

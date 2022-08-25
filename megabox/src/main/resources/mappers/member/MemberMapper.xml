@@ -67,4 +67,8 @@
 	<select id="IQList" parameterType="int" resultType="com.my.megabox.member.dto.InquiryDTO">
 		SELECT * FROM inquiry WHERE u_num=#{num}
 	</select>
+	
+	<select id="detailIQ" parameterType="int" resultType="com.my.megabox.member.dto.InquiryDTO">
+		SELECT * FROM inquiry WHERE i_num=#{i_num}
+	</select>
 </mapper>

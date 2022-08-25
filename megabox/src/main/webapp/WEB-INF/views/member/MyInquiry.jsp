@@ -89,18 +89,9 @@
 			
 				
 					<option value="INQST1">미답변</option>
-				
 			
-				
 					<option value="INQST2">답변완료</option>
-				
-			
-				
-			
-				
-			
-				
-			
+	
 		</select><button type="button" class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown" role="button" data-id="custInqStatCd" title="전체"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">전체</div></div> </div><span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><div class="inner open" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner "></ul></div></div></div>
 
 		<div class="board-search ml07">
@@ -143,7 +134,7 @@
 						<td>${list.i_cinema }</td>
 						<td>${list.i_type }</td>
 						<td class="a-l"><a href="detailIQ?i_num=${list.i_num }" class="moveBtn"title="문의내역 상세보기">${list.i_title }</a></td>
-						<td>대기중</td><td>${list.i_date }</td>
+						<td>미답변</td><td>${list.i_date }</td>
 					</tr>
 					<%count++; %>
 				</c:forEach>

@@ -140,5 +140,9 @@ public class MemberService implements IMemberService{
 	public ArrayList<InquiryDTO> IQList(int num) {
 		return dao.IQList(num);
 	}
+
+	public InquiryDTO detailIQ(int i_num) {
+		return dao.detailIQ(i_num);
+	}
 		
 }

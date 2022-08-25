@@ -1,7 +1,6 @@
 package com.my.megabox.member.service;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpSession;
@@ -10,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.my.megabox.booking.dto.BookingDTO;
-import com.my.megabox.booking.dto.Cancel_BookingDTO;
+import com.my.megabox.cinema.dto.CinemaDTO;
 import com.my.megabox.member.dao.IMemberDAO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
+import com.my.megabox.movie.dto.MovieDTO;
 
 @Service
 public class MemberService implements IMemberService{ 
@@ -86,12 +86,83 @@ public class MemberService implements IMemberService{
 	
 	// 예매 내역
 	public ArrayList<BookingDTO> YMList(int num) {
-		return dao.YMList(num);
+		ArrayList<BookingDTO> list = dao.YMList(num);
+		
+		for(BookingDTO b : list) {
+			System.out.println(b.toString());
+			MovieDTO mInfo = dao.mInfo(b.getM_num());
+			CinemaDTO cInfo = dao.cInfo(b.getC_num());
+			if(mInfo != null) {
+				System.out.println(mInfo.toString());
+				b.setM_name(mInfo.getName());
+				b.setM_poster(mInfo.getPoster());
+				System.out.println("추가 후: " + b.toString());
+			}
+			if(cInfo != null) {
+				System.out.println(cInfo.toString());
+				b.setC_name(cInfo.getC_name());
+				System.out.println("추가 후: " + b.toString());
+			}
+		}
+		return list;
 	}
+	
 	// 취소 내역
-	public ArrayList<Cancel_BookingDTO> cList(int num) {
-		return dao.cList(num);
+	public ArrayList<BookingDTO> cList(int num) {
+		int unum = (int)session.getAttribute("num");
+		ArrayList<BookingDTO> list = dao.cList(unum);
+		
+		for(BookingDTO b : list) {
+			System.out.println(b.toString());
+			MovieDTO mInfo = dao.mInfo(b.getM_num());
+			CinemaDTO cInfo = dao.cInfo(b.getC_num());
+			if(mInfo != null) {
+				System.out.println(mInfo.toString());
+				b.setM_name(mInfo.getName());
+				b.setM_poster(mInfo.getPoster());
+				System.out.println("추가 후: " + b.toString());
+			}
+			if(cInfo != null) {
+				System.out.println(cInfo.toString());
+				b.setC_name(cInfo.getC_name());
+				System.out.println("추가 후: " + b.toString());
+			}
+		}
+		return list;
 	}	
+	
+	public String makeResult(ArrayList<BookingDTO> booking) {
+		String a = "";
+		if(booking == null) {
+			a += "<tr><td colspan=\"5\" class=\"a-c\">조회된 내역이 없습니다.</td></tr>";
+		}else {
+			for(BookingDTO b : booking) {
+				a += "<tr>	\r\n" + 
+						"					<td>"
+				+ b.getB_date(); 
+				a += "</td>	\r\n" + 
+						"					<th>";
+				if(b.getB_condition().equals("c")) {
+					a += "<span>취소</span>";
+				}else {
+					a += "<span>구매</span>";
+				}
+				a += "</th>	\r\n" + 
+						"					<td>" +
+				b.getC_name();
+				a += "</td>	\r\n" + 
+						"					<td>		\r\n" + 
+						"					<span class=\"font-red\">" +
+				b.getB_fee();
+				a += "원</span>	\r\n" + 
+						"					</td>\r\n" + 
+						"					<td>1</td>\r\n" + 
+						"				</tr>\r\n";
+			}
+		}
+		
+		return a;
+	}
 
 	public String login(String id, String pw) {
 		if(id == null || id.isEmpty() || pw == null || pw.isEmpty())
@@ -108,15 +179,12 @@ public class MemberService implements IMemberService{
 		return "로그인 성공";
 	}
 
-	public void cancelBooking(int b_num) {
-		// 예매 데이터 가져오기
-		BookingDTO dto = dao.selectBooking(b_num);
-		
-		// 예매 취소 테이블에 데이터 넣어주기
-		dao.cancelBooking(dto);
-		
-		// 예매 내역 삭제
-		dao.deleteBooking(b_num);		
+	public String cancelBooking(int b_num) {
+		int chk = dao.cancelBooking(b_num);
+		if(chk == 1)
+			return "예매 취소 성공";
+		else
+			return "예매 취소 실패";
 	}
 	
 	// 회원 수정
@@ -143,6 +211,18 @@ public class MemberService implements IMemberService{
 
 	public InquiryDTO detailIQ(int i_num) {
 		return dao.detailIQ(i_num);
+	}
+
+	public String optionBuyList(String radPurc, String startDate, String endDate) {
+		ArrayList<BookingDTO> result;
+		if(radPurc.equals("A")) {
+			result = dao.AllList(startDate, endDate);
+		}else if(radPurc.equals("P")) {
+			result = dao.GMOptionList(startDate, endDate);
+		}else {
+			result = dao.CCOptionList(startDate, endDate);
+		}
+		return makeResult(result);
 	}
 		
 }

@@ -11,12 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.megabox.booking.dto.BookingDTO;
-import com.my.megabox.booking.dto.Cancel_BookingDTO;
 import com.my.megabox.member.dao.IMemberDAO;
 import com.my.megabox.member.dto.InquiryDTO;
 import com.my.megabox.member.dto.MemberDTO;
@@ -65,40 +63,36 @@ public class MemberController {
 	@RequestMapping("BookingList")
 	public String TicketHistory(String num, Model model) {
 		Integer unumSession = (Integer)session.getAttribute("num");
+		System.out.println("TicketHistory's unumSession: " + unumSession);
+		
 		if(unumSession == null) {
 			return "member/login";
 		}else {
 		ArrayList<BookingDTO> ymList = service.YMList(unumSession);
 		model.addAttribute("ymList", ymList);
-		ArrayList<Cancel_BookingDTO> cList = service.cList(unumSession);
+		ArrayList<BookingDTO> cList = service.cList(unumSession);
 		model.addAttribute("cList", cList);
 		return "member/BookingList";
 		}
 	}
 	
 	@GetMapping("cancelBooking")
-	public @ResponseBody void cancelBooking(int b_num) {
+	public @ResponseBody String cancelBooking(int b_num) {
 		System.out.println("jsp에서 넘어오는 b_num : "+b_num);
-		service.cancelBooking(b_num);
+		String msg = service.cancelBooking(b_num);
+		return msg;
 	}
 	
-	@RequestMapping("optionBuylist")
-	public void optionBuylist(String radPurc, String startDate, String endDate, Model model) {
+	@ResponseBody
+	@RequestMapping(value="optionBuylist", produces="html/text; charset=UTF-8")
+	public String optionBuylist(String radPurc, String startDate, String endDate, Model model) {
 		System.out.println("radPurc : " + radPurc);
 		System.out.println("startDate : " + startDate);
 		System.out.println("endDate : " + endDate);
-		if(radPurc == "A") {
-			ArrayList<BookingDTO> GMList = dao.GMOptionList(radPurc, startDate, endDate);
-			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
-			model.addAttribute("GMList", GMList);
-			model.addAttribute("CCList", CCList);
-		}else if(radPurc == "P") {
-			ArrayList<BookingDTO> GMList = dao.GMOptionList(radPurc, startDate, endDate);
-			model.addAttribute("GMList", GMList);
-		}else {
-			ArrayList<Cancel_BookingDTO> CCList = dao.CCOptionList(radPurc, startDate, endDate);
-			model.addAttribute("CCList", CCList);
-		}
+		String result = service.optionBuyList(radPurc, startDate, endDate);
+		model.addAttribute("result", result);
+		System.out.println("result : " + result);
+		return result;
 	}
 	
 	@RequestMapping("MovieStory")

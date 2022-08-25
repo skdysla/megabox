@@ -58,8 +58,14 @@ function optionSearch(){
 			"startDate" : startDate,
 			"endDate" : endDate
 		},
-		success: function(data){
+		success: function(data){			
+			var str = document.getElementById("selectOption");
+			str.innerHTML = data;
+			
 			console.log(data);
+		},
+		error: function(){
+			alert('실패');
 		}
 	});
 }
@@ -276,7 +282,7 @@ function optionSearch(){
 										<tbody>
 											<tr>	
 												<th scope="row" class="a-r">결제일시</th>	
-												<td>${uYM.b_date }		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
+												<td>${uYM.b_time }		<a href="#" class="button gray-line x-small" title="결제정보">결제정보</a>	</td>	
 												<!-- <th scope="row">적립예정 포인트</th>	
 												<td>600 P</td> -->
 											</tr>
@@ -333,7 +339,7 @@ function optionSearch(){
 							<c:forEach var="list" items="${cList }">
 								<tbody>
 									<tr>	
-										<td>${list.cb_canceldate }</td>	
+										<td>${list.b_time }</td>	
 										<th scope="row">${list.m_name }</th>	
 										<td>${list.c_name }</td>	
 										<td>${list.r_date } ${list.b_start }</td>	
@@ -468,71 +474,7 @@ function optionSearch(){
 							
 						</tr>
 					</thead>
-					
-<!-- 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-						</tr>
-					</tbody> -->
-					
- 					<c:choose>
-						<c:when test="${GMList == null && CCList == null}">
-							<tbody><tr><td colspan="5" class="a-c">조회된 내역이 없습니다.</td></tr></tbody>
-						</c:when>
-						<c:when test="${GMList == null && CCList != null }">
-							<c:forEach var="CCList" items="${CCList }">
-								<tbody>
-									<tr>	
-										<td>${CCList.cb_canceldate }</td>	
-										<th scope="row"><span>취소</span></th>	
-										<td>${CCList.c_name }</td>	
-										<td class="a-r">		
-										<span class="font-red">${CCList.b_fee }원</span>	
-										</td>
-										<td></td>
-									</tr>
-								</tbody>
-								<%gmcount++; %>
-							</c:forEach>
-						</c:when>
-						<c:when test="${GMList != null && CCList == null }">
-							<c:forEach var="GMlist" items="${GMList }">
-								<tbody>
-									<tr>	
-										<td>${GMList.b_date }</td>	
-										<th scope="row"><span>구매</span></th>	
-										<td>${GMList.c_name }</td>	
-										<td class="a-r">		
-										<span class="font-red">${GMList.b_fee }원</span>	
-										</td>
-										<td></td>	
-									</tr>
-								</tbody>
-								<%gmcount++; %>
-							</c:forEach>
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="GMlist" items="${GMList }">
-								<tbody>
-									<tr>	
-										<td>${GMList.b_date }</td>	 
-										<th scope="row"><span>구매</span></th>	
-										<td>${GMList.c_name }</td>	
-										<td class="a-r">		
-										<span class="font-red">${GMList.b_fee }원</span>	
-										</td>
-										<td></td>	
-									</tr>
-								</tbody>
-								<%gmcount++; %>
-							</c:forEach> 
-							
-						</c:otherwise>
-						</c:choose> 
-						
+					<tbody id="selectOption"></tbody>					
 						
 				</table>
 			</div>

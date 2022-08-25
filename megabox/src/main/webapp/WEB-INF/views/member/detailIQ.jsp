@@ -61,24 +61,23 @@
 	<ul class="dot-list">
 		<li id="tabDesc">고객센터를 통해 남기신 1:1 문의내역을 확인하실 수 있습니다.</li>
 	</ul>
-	<c:forEach var="list" items="${detailIQ }">
 	<div class="table-wrap mt20">
 		<div class="board-view">
 			<div class="tit-area">
-				<p class="tit">${list.i_title }</p>
+				<p class="tit">${detailIQ.i_title }</p>
 			</div>
 
 			<div class="info">
 				
 				<p>
 					<span class="tit">문의지점</span>
-					<span class="txt">${list.i_cinema }</span>
+					<span class="txt">${detailIQ.i_cinema }</span>
 				</p>
 				
 
 				<p>
 					<span class="tit">문의유형</span>
-					<span class="txt">${list.i_type }</span>
+					<span class="txt">${detailIQ.i_type }</span>
 				</p>
 
 				<p>
@@ -97,19 +96,18 @@
 
 
 
-					<p><span class="txt">${list.i_date }</span></p>
+					<p><span class="txt">${detailIQ.i_date }</span></p>
 				</div>
 			</div>
 
 			
 
 			<div class="cont">
-				<textarea rows="5" cols="30" readonly="" class="input-textarea view" style="border:none;" id="inqCn">${list.i_content }</textarea>
+				<textarea rows="5" cols="30" readonly="" class="input-textarea view" style="border:none;" id="inqCn">${detailIQ.i_content }</textarea>
 			</div>
 			
 		</div>
 	</div>
-	</c:forEach>
 	<div class="btn-group pt40">
 		<a href="#" class="button large listBtn" title="목록">목록</a>
 	</div>

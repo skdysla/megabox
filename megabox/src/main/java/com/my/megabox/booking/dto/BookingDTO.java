@@ -21,6 +21,7 @@ public class BookingDTO {
 	private Integer u_num;
 	private Integer r_num;
 	private String r_date;
+	private String b_condition;
 
 	public Integer getB_num() {
 		return b_num;
@@ -172,6 +173,12 @@ public class BookingDTO {
 	
 	public void setR_date(String r_date) {
 		this.r_date = r_date;
+	}
+	public String getB_condition() {
+		return b_condition;
+	}
+	public void setB_condition(String b_condition) {
+		this.b_condition = b_condition;
 	}
 	
 

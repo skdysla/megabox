@@ -8,17 +8,19 @@
 	</select>
 	
 	<select id="YMList" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
-		select a.*, b.m_name, b.m_poster, c.s_name, d.c_name, e.r_date, e.r_start 
-					from booking a, 
-					(select a.m_num, b.m_name, b.m_poster from booking a, movie b where a.m_num = b.m_num)b, 
-					(select a.s_num, b.s_name from booking a, screen b where a.s_num = b.s_num)c,
-					(select a.c_num, b.c_name from booking a, cinema b where a.c_num = b.c_num)d,
-					(select a.r_num, b.r_date, b.r_start from booking a, running b where a.r_num = b.r_num)e 
-					where a.u_num=#{num}
+		SELECT * FROM BOOKING WHERE B_CONDITION = 'b' AND U_NUM = #{uNum}
 	</select>
 	
-	<select id="cList" parameterType="int" resultType="com.my.megabox.booking.dto.Cancel_BookingDTO">
-		SELECT * FROM cancel_booking WHERE u_num=#{num}
+	<select id="mInfo" parameterType="int" resultType="com.my.megabox.movie.dto.MovieDTO" >
+		SELECT M_NAME AS NAME, M_POSTER AS POSTER FROM MOVIE WHERE M_NUM = #{mNum}
+	</select>
+	
+	<select id="cInfo" parameterType="int" resultType="com.my.megabox.cinema.dto.CinemaDTO" >
+		SELECT C_NAME FROM CINEMA WHERE C_NUM = #{c_num}
+	</select>
+	
+	<select id="cList" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
+		SELECT * FROM BOOKING WHERE B_CONDITION = 'c' AND U_NUM=#{num}
 	</select>
 	
  	<select id="selectBooking" parameterType="int" resultType="com.my.megabox.booking.dto.BookingDTO">
@@ -31,22 +33,25 @@
 					where a.b_num=#{b_num}
 	</select> 
 	
-	<insert id="cancelBooking" parameterType="com.my.megabox.booking.dto.BookingDTO">
-		INSERT INTO cancel_booking VALUES(cancel_booking_seq.nextval, to_char(sysdate, 'yyyy.mm.dd hh24:mi'), #{m_name}, #{c_name}, #{r_date}, #{b_fee}, #{u_num}, #{b_start}, to_char(sysdate, 'yyyy.mm.dd'))
+	<insert id="cancelBooking" parameterType="int">
+		UPDATE BOOKING SET B_CONDITION = 'c', B_DATE = to_char(sysdate, 'yyyy.mm.dd hh24:mi') WHERE B_NUM = #{bNum}
 	</insert>
-	
-	<delete id="deleteBooking" parameterType="int">
-		DELETE FROM booking WHERE b_num=#{b_num}
-	</delete>
 	
 	<!-- 날짜별 내역 조회 / 시작 날짜, 끝 날짜 -->	
 	<select id="GMOptionList" resultType="com.my.megabox.booking.dto.BookingDTO">
-		SELECT * FROM booking WHERE b_date BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY b_date
-	</select>
+      SELECT C.C_NAME, B.* FROM BOOKING B JOIN CINEMA C ON B.C_NUM = C.C_NUM WHERE B_CONDITION = 'b' AND B_DATE BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY B_TIME
+    </select>
+
 	
-	<select id="CCOptionList" resultType="com.my.megabox.booking.dto.Cancel_BookingDTO">
-		SELECT * FROM cancel_booking WHERE cb_onlydate BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY cb_onlydate
+	<select id="CCOptionList" resultType="com.my.megabox.booking.dto.BookingDTO">
+        SELECT C.C_NAME, B.* FROM BOOKING B JOIN CINEMA C ON B.C_NUM = C.C_NUM WHERE B_CONDITION = 'c' AND B_DATE BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY B_TIME
+    </select>
+
+	
+	<select id="AllList" resultType="com.my.megabox.booking.dto.BookingDTO">
+		SELECT C.C_NAME, B.* FROM BOOKING B JOIN CINEMA C ON B.C_NUM = C.C_NUM WHERE B_DATE BETWEEN TO_DATE(#{start},'yyyy.mm.dd') AND TO_DATE(#{end},'yyyy.mm.dd') ORDER BY B_TIME
 	</select>
+
 	
 	<update id="chagePw" parameterType="com.my.megabox.member.dto.MemberDTO">
 		UPDATE user_info SET u_pw=#{pwnew} WHERE u_id=#{id}

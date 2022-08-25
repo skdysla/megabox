@@ -17,17 +17,17 @@ function selectAddress(e){
 	var bu_dae_gyeong = ["경북도청","경산하양","구미강동","김천","남포항","대구신세계(동대구)","대구이시아","덕천","마산","문경","부산극장","부산대","북대구(칠곡)","사상","삼천포","양산","양산라피에스타","울산","정관","창원","창원내서","해운대(장산)"];
 	var gwang_jeon = ["광주상무","광주하남","목포하당(포르모)","송천","순천","여수웅천","전대(광주)","전주혁신","첨단"];
 	var gangwon = ["남춘천","속초","원주","원주센트럴","춘천석사"];
-	var jeju = [""];
+	var jeju = ["제주"];
 	var target = document.getElementById("secondAddress");
 	
-	if(e.value == "seoul") var d = seoul;
-	else if(e.value == "gyeonggi") var d = gyeonggi;
-	else if(e.value == "incheon") var d = incheon;
-	else if(e.value == "dae_chung_sae") var d = dae_chung_sae;
-	else if(e.value == "bu_dae_gyeong") var d = bu_dae_gyeong;
-	else if(e.value == "gwang_jeon") var d = gwang_jeon;
-	else if(e.value == "gangwon") var d = gangwon;
-	else if(e.value == "jeju") var d = jeju;
+	if(e.value == "서울") var d = seoul;
+	else if(e.value == "경기") var d = gyeonggi;
+	else if(e.value == "인천") var d = incheon;
+	else if(e.value == "대전/충청/세종") var d = dae_chung_sae;
+	else if(e.value == "부산/대구/경상") var d = bu_dae_gyeong;
+	else if(e.value == "광주/전라") var d = gwang_jeon;
+	else if(e.value == "강원") var d = gangwon;
+	else if(e.value == "제주") var d = jeju;
 	
 	target.options.length = 0;
 	
@@ -159,27 +159,27 @@ $(document).ready(function(){
 								<tr>
 									<th scope="row">문의지점<em class="font-orange">*</em></th>
 									<td colspan="3">
-										<input type="radio" id="aq" name="inqMclCd" value="QD01M01" checked>
+										<input type="radio" id="aq" name="inqMclCd" value="Jijum" checked>
 										<label for="aq1">지점문의</label>
 
 										
 										<select id="firstAddress" name="firstAddress" onchange="selectAddress(this)">
 											<option value="">지역선택</option>
-											<option value="seoul">서울</option>
-											<option value="gyeonggi">경기</option>
-											<option value="incheon">인천</option>
-											<option value="dae_chung_sae">대전/충청/세종</option>
-											<option value="bu_dae_gyeong">부산/대구/경상</option>
-											<option value="gwang_jeon">광주/전라</option>
-											<option value="gangwon">강원</option>
-											<option value="jeju">제주</option>
+											<option value="서울">서울</option>
+											<option value="경기">경기</option>
+											<option value="인천">인천</option>
+											<option value="대전/충청/세종">대전/충청/세종</option>
+											<option value="부산/대구/경상">부산/대구/경상</option>
+											<option value="광주/전라">광주/전라</option>
+											<option value="강원">강원</option>
+											<option value="제주">제주</option>
 											
 										</select>
 										<select id="secondAddress" name="secondAddress">
 											<option>선택해주세요.</option>
 										</select>
 
-										<input type="radio" id="aq" name="inqMclCd" class="ml20" value="QD01M02">
+										<input type="radio" id="aq" name="inqMclCd" class="ml20" value="Gita">
 										<label for="aq2">기타문의</label>
 									</td>
 								</tr>

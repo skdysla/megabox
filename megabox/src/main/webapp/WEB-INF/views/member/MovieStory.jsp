@@ -68,15 +68,19 @@
 <div id="contents" class="">
 	<h2 class="tit">나의 무비스토리</h2>
 
-	
+	<script>
+	$(document).on("click","#tab",function(){
+		$(this).addClass('on').siblings().removeClass('on');
+	})
+	</script>
 	<!-- 버튼 클릭 시 각 li 클래스 on으로 변경 / display : none 에서 block으로 변경 -->
 	<div class="tab-block mb30">
 		<ul>
-			<li data-url="/mypage/moviestory?cd=tl" class=""><a id="movieTimeLineTab" href="#" class="btn" data-type="tl" title="무비타임라인 탭으로 이동">무비타임라인</a></li>
-			<li data-url="/mypage/moviestory?cd=mp" class="on"><a href="#" class="btn" data-type="mp" title="무비포스트 탭으로 이동">무비포스트</a></li>
-			<li data-url="/mypage/moviestory?cd=one"><a href="#" class="btn" data-type="one" title="관람평 탭으로 이동">관람평</a></li>
-			<li data-url="/mypage/moviestory?cd=sm"><a href="#" class="btn" data-type="sm" title="본영화 탭으로 이동">본영화</a></li>
-			<li data-url="/mypage/moviestory?cd=lm"><a href="#" class="btn" data-type="lm" title="보고싶어 탭으로 이동">보고싶어</a></li>
+			<li id="tab" data-url="/mypage/moviestory?cd=tl"><a id="movieTimeLineTab" href="#" class="btn" data-type="tl" title="무비타임라인 탭으로 이동">무비타임라인</a></li>
+			<li id="tab" data-url="/mypage/moviestory?cd=mp"><a href="#" class="btn" data-type="mp" title="무비포스트 탭으로 이동">무비포스트</a></li>
+			<li id="tab" data-url="/mypage/moviestory?cd=one"><a href="#" class="btn" data-type="one" title="관람평 탭으로 이동">관람평</a></li>
+			<li id="tab" data-url="/mypage/moviestory?cd=sm"><a href="#" class="btn" data-type="sm" title="본영화 탭으로 이동">본영화</a></li>
+			<li id="tab" data-url="/mypage/moviestory?cd=lm"><a href="#" class="btn" data-type="lm" title="보고싶어 탭으로 이동">보고싶어</a></li>
 		</ul>
 	</div>
 
